@@ -22,6 +22,7 @@ Jak znaleźć miejsce w kodzie: w `index.html` każde miejsce ma komentarz `<!--
 | 7c | **Status logo klientów na stronie Basko** | sekcja Basko, stan „Consent” | Twój zrzut pokazuje już sekcję „Klienci” z nazwami firm. Na portfolio piszę tylko, że nazwy i logo są na stronie Basko wyłącznie za zgodą klientów. Sprawdź, czy to prawda. |
 | 8 | **Potwierdź „What I'm exploring now”** (3 tematy) | `index.html`: `TODO: Hubert to confirm these three topics` | Muszą się zgadzać z częścią 2 wideo (`docs/wideo-skrypt-en.md`). |
 | 9 | **Uzupełnij `[TODO]` w scenariuszu wideo** i nagraj | `docs/wideo-skrypt-en.md` | Własne przykłady: poprawka, o którą prosiłeś AI; jak działała pierwsza wersja na telefonie; wnioski. |
+| 9a | **Zdecyduj, co w repozytorium ma być publiczne** | całe repo | Portfolio linkuje do repo (Case 06 „This portfolio”). W `docs/` są Twoje przygotowania do rozmowy, scenariusz wideo i recenzje z ocenami, a w `assets/` surowe filmy (33 MB) i pliki „Zrzut ekranu…”. Rekomendacja: przenieś `docs/pytania-rozmowa.md`, `docs/wideo-skrypt-en.md` i `docs/cv-en.md` do prywatnego miejsca (np. Google Docs) przed wysłaniem linku. Recenzje i `qa-log.md` mogą zostać, bo są dowodem procesu. |
 | 10 | **Zgoda na pokazanie filmu KSK i zrzutów Basko** | sekcje Basko i KSK | Zakładam, że to materiały publiczne klienta. Jeśli nie, napisz, usunę. Zrzut z nazwami klientów Basko (`Zrzut ekranu 2026-11-03 154015.png`) celowo nie jest użyty. |
 
 ## P1 – mocno wzmacnia aplikację (najlepiej przed 6.11)
@@ -29,7 +30,7 @@ Jak znaleźć miejsce w kodzie: w `index.html` każde miejsce ma komentarz `<!--
 | # | Co | Gdzie | Format |
 |---|---|---|---|
 | 11 | **Opis agenta AI KSK Pretor**: na co odpowiada, co zbiera z zapytania grupowego, w jakich językach, kiedy przejmuje człowiek | `index.html`: `TODO: describe what the KSK Pretor agent does` | 3–4 zdania |
-| 12 | **Zrzut rozmowy z agentem** (Botpress) | `assets/screenshots/ksk-agent-1.png` | 4:5, min. 800×1000 px. Podmień ramkę `frame-slot--chat` na `<img>` (lub napisz, zrobię). |
+| 12 | **Zrzut rozmowy z agentem** (Botpress) | `assets/screenshots/ksk-agent-1.png` | 4:5, min. 800×1000 px. Sekcja agenta została skrócona do jednej linijki w KSK; ze zrzutem i opisem warto przywrócić osobny blok. |
 | 13 | **Wyniki i wnioski Basko** (tylko te, które możesz udowodnić: zapytania, zasięgi) | `index.html`: `TODO: results (e.g. enquiries, reach)` | 2–3 zdania |
 | 14 | **Czy reel na stronie to ta reklama z ludzikiem i mopem?** | sekcja Basko, wideo w ramce telefonu | `CLAUDE.md` opisuje reklamę z ludzikiem jako bohaterem i ruchem mopa. Reel w `assets/video` pokazuje typografię, proces, przed/po i logo. Jeśli to dwa różne filmy, wrzuć reklamę jako `assets/video/basko-reklama.mp4`. |
 | 15 | **Obsługa błędów formularza wyceny Basko** (puste pola, zły telefon, brak sieci) | `index.html`: `TODO: quote form validation` | 2–3 zdania |
@@ -46,7 +47,7 @@ Jak znaleźć miejsce w kodzie: w `index.html` każde miejsce ma komentarz `<!--
 |---|---|---|---|
 | 22 | Zrzuty strony psycholożki **bez danych klientki i tylko za jej zgodą** | `assets/screenshots/psycholog-1.png` (desktop 16:10), `psycholog-2.png` (telefon) | Podmień ramki `frame-slot--browser` / `frame-slot--phone` |
 | 23 | Temat ebooka i zrzuty (panel boczny, lista kontrolna) | `index.html`: `TODO: ebook topic` | 2 zrzuty |
-| 24 | Do czego używasz **Sendcastle** | `index.html`: `TODO: what Hubert uses Sendcastle for`; `CLAUDE.md` | 1 zdanie |
+| 24 | Do czego używasz **Sendcastle** (wiersz usunięty z tabeli narzędzi do czasu potwierdzenia) | `index.html`: `TODO: Sendcastle`; `CLAUDE.md` | 1 zdanie |
 | 25 | Telefon (opcjonalnie) | sekcja Contact, CV | |
 | 26 | Okładki z Higgsfield (3 obrazy już wygenerowane, nie dało się ich pobrać w tej sesji) | `docs/higgsfield-log.md` | Opcjonalne. Strona ma okładki typograficzne w kodzie. |
 | 27 | Jeśli zmienisz nazwę repozytorium: popraw adres w `<base>` w `404.html`, w `sitemap.xml`, `robots.txt` i meta `og:url` / `canonical` w `index.html` | | |
