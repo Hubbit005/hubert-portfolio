@@ -74,7 +74,7 @@ Tu jest kilka projektów naraz:
 - Pełna ścieżka zakupu: wybór pakietu, koszyk, makieta płatności, ekran „dziękuję”. Dzięki temu ścieżkę można przeklikać, zanim podłączona zostanie bramka (Stripe).
 - Rezerwacja przez osadzony Cal.com, żeby klientka sama zarządzała terminami.
 - Plakietki metod płatności zbudowane, ale wyłączone do czasu uruchomienia bramki.
-- Pokaż bez nazwiska klientki i bez jej danych, chyba że Hubert potwierdzi zgodę. Treści na stronie są robocze.
+- Można podać nazwisko klientki (Agata Patelka) z oznaczeniem „w budowie”. Treści na stronie są robocze.
 
 ### 5. Spersonalizowane plany treningowe jako strony WWW
 - Seria stron z 8-tygodniowymi planami treningowymi dla klientów (repozytoria `Hubbit005/*-workout`, `Amelka-`, `Zosia-` itd.), generowanych z jednego szablonu.
@@ -83,11 +83,21 @@ Tu jest kilka projektów naraz:
 ### 6. Interaktywny ebook (projekt własny)
 - Ebook w HTML z nawigacją w panelu bocznym i interaktywną listą kontrolną objawów, dla czytelników 50+.
 
+## Nowe fakty i decyzje Huberta (3.11.2026, wieczór)
+
+- KSK Pretor: przyciągnął do strzelnicy agencję eventową. Przez jakiś czas prowadził ich social media. Zbudował prototypy agenta AI. Zrobił filmy reklamowe i grafiki promocyjne.
+- Basko Clean: oprócz strony stworzył ogólny system wizualny do marketingu (kolory, zwektoryzowane logo, materiały) i reklamę motion na Instagram. Instagrama dopiero zaczyna prowadzić, więc nie pisz o wynikach ani sukcesach na profilu.
+- Strona dla psycholożki: można podać nazwisko klientki, Agata Patelka, z wyraźnym oznaczeniem, że strona jest w budowie.
+- Plany treningowe: pokazuj nowsze plany (np. z repozytoriów `Hubbit005/OliwiaS`, `Hubbit005/Oliwia-Kasperska`), nie starsze w stylu Panthera. Imiona i nazwiska klientów na zrzutach zamaskuj.
+- **Na stronie nie rozdzielamy pracy Huberta i AI.** Żadnych tabel ani sekcji „What AI did / What I did”. Hubert pisze w pierwszej osobie: zaprojektowałem, zaplanowałem, stworzyłem. AI pojawia się tylko jako jego warsztat w sekcji AI workflow.
+- Nie piszemy, że coś powstało „jednym briefem”, „jedną wiadomością” ani że przyszło łatwo. Budujemy wartość wokół Huberta.
+- Treść ogólnikowa i krótka: do czego się przyczynił i co osiągnął. Bez szczegółów procesu, bez person.
+
 ## Zasady dla Claude Code w tym repo
 
 - Strona po angielsku (aplikacja jest po angielsku). Instrukcje i komunikacja z Hubertem po polsku.
 - Fakty tylko z tego pliku. Nie wymyślaj klientów, liczb, wyników ani opinii. Czego brakuje, oznacz `[TODO: …]` w kodzie i dopisz do `docs/do-uzupelnienia.md`.
-- Bez poufnych materiałów klientów (wymóg z oferty). Nazwy klientów: Basko Clean, KSK Pretor i Livingroom można pokazać. Psycholożki i klientów planów treningowych nie nazywaj.
+- Bez poufnych materiałów klientów (wymóg z oferty). Nazwy klientów: Basko Clean, KSK Pretor, Livingroom i Agata Patelka (strona w budowie) można pokazać. Klientów planów treningowych nie nazywaj.
 - Teksty jak w dobrym dokumencie konsultingowym: proste, konkretne, logiczne. Bez typowego dla AI języka, bez waty, bez ozdobników.
 - Pliki biurowe wyłącznie w formatach Google. Nigdy .docx, .xlsx ani .pptx.
 - Strona statyczna, gotowa pod GitHub Pages (gałąź `main`, katalog główny). Biblioteki i fonty trzymaj lokalnie w `vendor/`, bo w środowisku sesji CDN-y mogą być zablokowane, a strona ma się dać przetestować.
