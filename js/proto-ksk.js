@@ -23,7 +23,7 @@ function initial() {
 }
 const mode = (s) => (s.size < MIN ? 'small' : s.size > MAX ? 'quote' : 'ok');
 const pkgOf = (s) => PKGS.find((p) => p.id === s.pkg) || PKGS[1];
-function stepOf(s) { return s.step === 'sent' ? 'pruefen' : s.step; }
+function stepOf(s) { return s.step === 'sent' ? '__done' : s.step; }
 
 function validateContact(c, keys = ['name', 'email', 'tel', 'quelle', 'quelleText']) {
   const e = {};
@@ -93,7 +93,7 @@ function render(s) {
             <button type="button" class="ksk-size__btn" data-size="-1" aria-label="Eine Person weniger">−</button>
             <div class="pk-field"><input id="ksk-size" type="number" inputmode="numeric" min="1" max="99" value="${s.size}" aria-describedby="ksk-size-hint"></div>
             <button type="button" class="ksk-size__btn" data-size="1" aria-label="Eine Person mehr">+</button>
-            <input type="range" min="${MIN}" max="${MAX + 5}" value="${Math.min(Math.max(s.size, MIN), MAX + 5)}" aria-label="Anzahl der Personen, Schieberegler" data-range>
+            <input type="range" min="1" max="${MAX + 10}" value="${Math.min(s.size, MAX + 10)}" aria-label="Anzahl der Personen, Schieberegler" data-range>
           </div>
           <p class="pk-field__hint" id="ksk-size-hint">${MIN} bis ${MAX} Personen. Preis pro Person und für die Gruppe stehen rechts.</p>
           ${msg}

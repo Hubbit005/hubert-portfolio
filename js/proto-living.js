@@ -14,6 +14,12 @@ const NO_TIMES = isoDay(days[4]);
 const FLAKY = isoDay(days[6]);
 const ALL_TIMES = ['12:00', '13:00', '14:00', '15:30', '17:00', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00'];
 const TAKEN = new Set(['13:00', '18:30', '19:00', '20:00']);
+// Sample data: which slots are taken changes with the date and grows with the group size.
+const takenOn = (iso, t) => {
+  const seed = (iso || '').split('-').reduce((a, n) => a + +n, 0);
+  const i = ALL_TIMES.indexOf(t);
+  return TAKEN.has(ALL_TIMES[(i + seed) % ALL_TIMES.length]);
+};
 let flakyFailedOnce = false;
 
 const LABELS = { name: 'Full name', phone: 'Phone number', email: 'E-mail', notes: 'Notes for the restaurant', gname: 'Full name', gemail: 'E-mail', gphone: 'Phone number', gsize: 'Number of guests', gmsg: 'What are you planning?' };
@@ -65,8 +71,9 @@ function initial() {
 }
 
 function stepOf(s) {
-  if (s.step === 'enquiry' || s.step === 'enquirySent') return 'party';
-  if (s.step === 'success') return 'review';
+  if (s.step === 'enquirySent') return '__done';
+  if (s.step === 'enquiry') return 'party';
+  if (s.step === 'success') return '__done';
   return s.step;
 }
 
@@ -121,7 +128,7 @@ function render(s) {
       } else {
         body = `<fieldset class="pk-fs"><legend class="sr-only">Free times on ${esc(dayLabel(s.date))}</legend>
           <ul class="pk-times">${ALL_TIMES.map((t) => {
-            const taken = TAKEN.has(t);
+            const taken = takenOn(s.date, t);
             const sel = s.time === t;
             return `<li><button type="button" class="pk-time${sel ? ' is-sel' : ''}" data-time="${t}" ${taken ? 'disabled' : ''} aria-pressed="${sel}">${t}${taken ? '<span class="sr-only">, taken</span>' : ''}</button></li>`;
           }).join('')}</ul></fieldset>`;

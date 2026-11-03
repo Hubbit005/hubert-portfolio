@@ -238,11 +238,11 @@ a:not([class]):hover { text-decoration-thickness: 2px; }
 @media (min-width: 1100px) { .corner--bl, .corner--br { display: block; } }
 
 .hero__stage {
-  --fs: clamp(52px, 12.2vw, 200px);
+  --fs: clamp(52px, 11vw, 184px);
   position: relative;
   display: grid; place-items: center;
   min-height: calc(var(--fs) * 2.3);
-  perspective: calc(var(--fs) * 9);
+  perspective: calc(var(--fs) * 13);
   perspective-origin: 50% 45%;
   transform-style: preserve-3d;
 }
@@ -931,7 +931,7 @@ code { font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; borde
 /* ---------- Review round 2 ---------- */
 .hero__foot { grid-template-columns: 1fr !important; justify-items: start; gap: var(--s-5); }
 .hero__lead { text-wrap: pretty; max-width: 40ch; }
-@media (max-width: 600px) { .hero__stage { --fs: clamp(52px, 16.5vw, 110px); } }
+@media (max-width: 600px) { .hero__stage { --fs: clamp(44px, 14vw, 100px); } }
 .card__meta { padding-top: 64px; background: linear-gradient(to top, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.75) 45%, rgb(0 0 0 / 0) 100%); }
 .card--psy .card__meta { background: linear-gradient(to top, rgb(223 229 220 / 1) 0%, rgb(223 229 220 / 0.92) 50%, rgb(223 229 220 / 0) 100%); color: #0d0d0d; }
 .type-cover--large .type-cover__word { font-size: clamp(1.8rem, 1rem + 2.2vw, 3rem); right: 28px; }
@@ -940,3 +940,30 @@ code { font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; borde
 .minor + .minor { margin-top: clamp(2.5rem, 2rem + 3vw, 4.5rem); border-top: 1px solid var(--line); }
 .minor__title { font-family: var(--font-display); font-stretch: 112%; font-weight: 820; font-size: clamp(1.4rem, 1rem + 1.4vw, 2.1rem); line-height: 1.05; margin: 6px 0 var(--s-4); }
 .minor .ai-table { margin-block: var(--s-6) var(--s-4); }
+
+/* ---------- Review round 3 ---------- */
+.timeline li::before { content: none; }
+.timeline > li::before { content: ""; position: absolute; left: -31px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.timeline .list li { position: relative; }
+.timeline .list li::before { content: ""; position: absolute; left: 2px; top: 0.68em; width: 9px; height: 1.5px; background: var(--accent); border: 0; border-radius: 0; }
+.contact__grid { align-items: start; }
+.card--basko .card__media img { object-position: 50% 62%; }
+.facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 1000px) { .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .facts { grid-template-columns: 1fr; } }
+.ai { padding-bottom: clamp(3rem, 2rem + 3vw, 5rem); }
+.case--minor#psychologist-site .case__title { font-size: clamp(1.9rem, 1rem + 3.4vw, 4rem); }
+.minor__title { font-stretch: 104%; font-weight: 780; font-size: clamp(1.25rem, 1rem + 0.9vw, 1.7rem); }
+:root[data-theme="dark"] .type-cover--large { background: var(--surface); color: var(--ink); }
+:root[data-theme="dark"] .type-cover--large .type-cover__list i::before { border-color: var(--ink); }
+:root[data-theme="dark"] .type-cover--large .type-cover__list i.on::after { background: var(--ink); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .type-cover--large { background: var(--surface); color: var(--ink); }
+  :root:not([data-theme="light"]) .type-cover--large .type-cover__list i::before { border-color: var(--ink); }
+  :root:not([data-theme="light"]) .type-cover--large .type-cover__list i.on::after { background: var(--ink); }
+}
+.type-cover--large { max-width: 320px; }
+.lane__track--text { display: flex; align-items: center; padding-left: 10px; }
+.lane__unknown { font-size: 0.64rem; color: var(--ink-2); padding: 3px 10px; border: 1.5px dashed var(--line-strong); border-radius: var(--r-pill); background: var(--bg); }
+@media (min-width: 601px) and (max-width: 1099px) { .hero { min-height: 82svh; } }
+@media (max-width: 600px) { .hero { min-height: 80svh; } }

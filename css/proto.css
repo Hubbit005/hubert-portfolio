@@ -1,5 +1,5 @@
-/* ==========================================================================
 .pk [hidden] { display: none !important; }
+/* ==========================================================================
    Prototypes (Livingroom booking, KSK Pretor group booking)
    Each prototype sets its own skin through local custom properties.
    ========================================================================== */
@@ -260,3 +260,11 @@
 .ksk-price__total small { font-size: 0.85rem; font-weight: 600; font-family: var(--font-body); }
 
 .pk__tile-inner .ksk-price { position: static; }
+
+.ksk-size__ctl input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.ksk-size__ctl input[type="number"]::-webkit-inner-spin-button, .ksk-size__ctl input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.brief { margin: var(--s-5) 0 0; padding: 18px 20px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.brief__k { color: var(--accent-ink); margin-bottom: 8px; }
+.brief blockquote { margin: 0; font-size: 0.95rem; line-height: 1.5; max-width: 70ch; }
+.brief blockquote[lang="pl"] { font-style: italic; color: var(--ink-2); }
+.brief__en { margin-top: 10px; font-size: 0.95rem; max-width: 70ch; }

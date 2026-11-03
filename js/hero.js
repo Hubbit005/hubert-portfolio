@@ -5,6 +5,7 @@
 const WORD = 'HUBERT';
 const SEP = '+';
 const TRACK = 0.035;     // gap between glyphs, in em
+const GAP = 2.3;         // empty arc on each side of the separator, in em: the word spans ~95° and reads in full
 const BASE_PERIOD = 11;  // seconds per full turn at rest (before dwell)
 
 export function initHero({ reduced, lenis }) {
@@ -14,7 +15,7 @@ export function initHero({ reduced, lenis }) {
 
   const bar = stage.querySelector('.hero__bar');
   // Two copies of the word around the cylinder: one is always readable in front.
-  const seq = [...WORD, ' ', SEP, ' ', ...WORD, ' ', SEP, ' '];
+  const seq = [...WORD, 'GAP', SEP, 'GAP', ...WORD, 'GAP', SEP, 'GAP'];
 
   // Measure glyph widths in em, with the real font.
   const probe = document.createElement('span');
@@ -22,12 +23,13 @@ export function initHero({ reduced, lenis }) {
   cyl.appendChild(probe);
   const fs = parseFloat(getComputedStyle(cyl).fontSize) || 100;
   const widths = seq.map((ch) => {
+    if (ch === 'GAP') return GAP;
     probe.textContent = ch === ' ' ? ' ' : ch;
     return probe.getBoundingClientRect().width / fs;
   });
   probe.remove();
 
-  const arcs = widths.map((w) => w + TRACK);
+  const arcs = widths.map((w, i) => (seq[i] === 'GAP' ? w : w + TRACK));
   const total = arcs.reduce((a, b) => a + b, 0);
   const R = total / (Math.PI * 2);            // radius in em
 
@@ -39,7 +41,7 @@ export function initHero({ reduced, lenis }) {
     const a = mid / R;                          // radians
     angles.push(a);
     cum += arcs[i];
-    if (ch === ' ') return;
+    if (ch === ' ' || ch === 'GAP') return;
     const el = document.createElement('span');
     el.className = 'cyl__ch' + (ch === SEP ? ' is-sep' : '');
     el.style.transform = `rotateY(${a}rad) translateZ(${R}em) translateX(${-widths[i] / 2}em)`;

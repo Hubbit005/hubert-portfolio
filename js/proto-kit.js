@@ -122,7 +122,7 @@ export function createFrame(root, cfg) {
 
   function drawSteps() {
     const cur = cfg.stepOf(state);
-    const idx = cfg.steps.findIndex((x) => x.key === cur);
+    const idx = cur === '__done' ? cfg.steps.length : cfg.steps.findIndex((x) => x.key === cur);
     stepsEl.innerHTML = cfg.steps.map((st, i) => {
       const st8 = i < idx ? 'done' : i === idx ? 'current' : 'todo';
       return `<li class="pk__step is-${st8}" ${i === idx ? 'aria-current="step"' : ''}><span class="pk__step-n" aria-hidden="true">${i < idx ? '✓' : i + 1}</span><span class="pk__step-l">${esc(st.label)}<span class="sr-only">${i < idx ? `, ${s.done}` : ''}</span></span></li>`;
