@@ -43,13 +43,14 @@ export function initArc({ reduced }) {
   let last = performance.now();
   let lastNearest = -1;
   const zCache = new Array(N).fill(-1);
+  const sideCache = new Array(N).fill(null);
 
   function layout() {
     const first = items[0];
     cw = first.offsetWidth; ch = first.offsetHeight;
     const vw = viewport.clientWidth;
     R = Math.max(vw < 600 ? 620 : 900, Math.min(vw * 1.05, 1700));
-    step = (cw * (vw >= 1200 ? 1.0 : OVERLAP)) / R;
+    step = (cw * (vw >= 1200 ? 1.08 : OVERLAP)) / R;
     pxPerCard = R * step;
     const top = 44 + ch / 2 + R;   // wheel centre, below the visible area
     track.style.top = `${top}px`;
@@ -77,6 +78,9 @@ export function initArc({ reduced }) {
       li.style.visibility = op < 0.01 ? 'hidden' : 'visible';
       const z = Math.round(200 - ap * 20);
       if (zCache[i] !== z) { li.style.zIndex = String(z); zCache[i] = z; }
+      // cards right of centre are partly covered on their left edge: align their label right
+      const right = p > 0.08;
+      if (sideCache[i] !== right) { li.classList.toggle('is-right', right); sideCache[i] = right; }
       if (ap < best) { best = ap; nearest = i; }
     }
     if (ring) ring.style.transform = `rotate(${(-offset * 22).toFixed(2)}deg)`;

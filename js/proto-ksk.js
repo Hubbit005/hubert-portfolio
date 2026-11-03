@@ -14,7 +14,8 @@ const PKGS = [
 const SOURCES = ['Google-Suche', 'Instagram', 'Facebook', 'Empfehlung', 'Event-Agentur', 'Sonstiges'];
 const days = upcomingDays(14, 7);
 const SLOTS = ['10:00', '13:00', '16:00'];
-const BOOKED = new Set([`${isoDay(days[1])} 13:00`, `${isoDay(days[3])} 10:00`, `${isoDay(days[3])} 16:00`, `${isoDay(days[8])} 13:00`]);
+const BOOKED = new Set([`${isoDay(days[1])} 13:00`, `${isoDay(days[3])} 10:00`, `${isoDay(days[3])} 13:00`, `${isoDay(days[3])} 16:00`, `${isoDay(days[8])} 13:00`]);
+const fullDay = (iso) => SLOTS.every((t) => BOOKED.has(`${iso} ${t}`));
 const eur = (n) => n.toLocaleString(L, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
 const LABELS = { firma: 'Firma', name: 'Vor- und Nachname', email: 'E-Mail', tel: 'Telefon', quelle: 'Wie haben Sie von uns erfahren?', quelleText: 'Woher genau', termin: 'Termin' };
 
@@ -77,14 +78,15 @@ function render(s) {
         return `<li><button type="button" class="pk-day${sel ? ' is-sel' : ''}" data-date="${iso}" aria-pressed="${sel}">
           <span class="pk-day__w" aria-hidden="true">${esc(fmt(d, L, { weekday: 'short' }))}</span><span class="pk-day__d" aria-hidden="true">${d.getDate()}</span><span class="pk-day__m" aria-hidden="true">${esc(fmt(d, L, { month: 'short' }))}</span><span class="sr-only">${esc(fmt(d, L, { weekday: 'long', day: 'numeric', month: 'long' }))}</span></button></li>`;
       }).join('');
-      const slots = s.date ? `<fieldset class="pk-fs"><legend class="ksk-label">Uhrzeit am ${esc(dayLong(s.date))}</legend><ul class="pk-times">${SLOTS.map((t) => {
+      const nextFree = s.date ? days.find((d) => isoDay(d) > s.date && !fullDay(isoDay(d))) : null;
+      const slots = s.date && fullDay(s.date) ? `<div class="pk-state pk-state--empty" role="status"><p class="pk-state__t">Am ${esc(dayLong(s.date))} ist alles ausgebucht.</p><p>Nächster freier Tag: ${esc(dayLong(isoDay(nextFree)))}.</p><button type="button" class="pk-btn pk-btn--ghost" data-date="${isoDay(nextFree)}">${esc(fmt(nextFree, L, { weekday: 'short', day: 'numeric', month: 'short' }))} anzeigen</button></div>` : s.date ? `<fieldset class="pk-fs"><legend class="ksk-label">Uhrzeit am ${esc(dayLong(s.date))}</legend><ul class="pk-times">${SLOTS.map((t) => {
         const booked = BOOKED.has(`${s.date} ${t}`); const sel = s.slot === t;
         return `<li><button type="button" class="pk-time${sel ? ' is-sel' : ''}" data-slot="${t}" ${booked ? 'disabled' : ''} aria-pressed="${sel}" >${t}${booked ? '<span class="sr-only">, ausgebucht</span>' : ''}</button></li>`;
       }).join('')}</ul></fieldset>` : '';
       const msg = m === 'small'
         ? `<div class="ksk-msg" role="status"><p><b>Unter ${MIN} Personen?</b> Die Gruppenpakete gelten ab ${MIN} Personen. Kleinere Gruppen buchen über die Standardbuchung.</p><div class="pk-row"><button type="button" class="pk-btn pk-btn--ghost" data-standard>Zur Standardbuchung</button><button type="button" class="pk-link" data-size-min>Auf ${MIN} Personen erhöhen</button></div></div>`
         : m === 'quote'
-          ? `<div class="ksk-msg" role="status"><p><b>Über ${MAX} Personen.</b> Für große Gruppen erstellen wir ein individuelles Angebot. Den Termin können Sie trotzdem schon wählen.</p></div>`
+          ? `<div class="ksk-msg" role="status"><p><b>Über ${MAX} Personen.</b> Für große Gruppen erstellen wir ein individuelles Angebot. Wählen Sie Ihren Wunschtermin, wir prüfen ihn im Angebot.</p></div>`
           : '';
       main = `${H('Gruppe und Termin')}
         <div class="ksk-section">
@@ -222,6 +224,7 @@ const gallery = [
   { label: 'Unter 12 Personen: Weiter gesperrt', state: { step: 'gruppe', size: 8 } },
   { label: 'Über 30 Personen: individuelles Angebot', state: { step: 'gruppe', size: 34, date: D } },
   { label: 'Noch kein Termin: Weiter gesperrt', state: { step: 'gruppe', size: 16, date: D } },
+  { label: 'Tag ausgebucht: nächster freier Tag', state: { step: 'gruppe', size: 16, date: isoDay(days[3]) } },
   { label: 'Kontaktdaten, leer', state: { step: 'kontakt', size: 16, date: D, slot: '13:00' } },
   { label: 'Kontaktdaten mit Fehlern', state: { step: 'kontakt', size: 16, date: D, slot: '13:00', showSummary: true, c: { ...C, email: 'julia@', tel: '030', quelle: '' }, errors: { email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein, z. B. name@firma.de.', tel: 'Bitte nur Ziffern, mit Ländervorwahl, z. B. +49 30 1234567.' } } },
   { label: '„Sonstiges“ öffnet ein Textfeld', state: { step: 'kontakt', size: 16, date: D, slot: '13:00', c: { ...C, quelle: 'Sonstiges' } } },

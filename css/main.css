@@ -994,3 +994,18 @@ code { font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; borde
 .case--short .type-cover--large, .minor .type-cover--large { justify-self: center; margin-inline: auto; }
 .shot--video .shot__frame--16x9 { max-height: 72vh; }
 .sub__grid.sub__grid--video-stack { grid-template-columns: minmax(0, 1fr); }
+
+/* ---------- Review round 5 ---------- */
+.minor .type-cover--large, .case--short .type-cover--large { width: 100%; }
+.arc__item.is-right .card__meta { text-align: right; justify-items: end; }
+.ai + .about { padding-top: clamp(2.5rem, 2rem + 2vw, 4rem); }
+.hero__corners .corner { margin: 0; line-height: 18px; }
+.nav { background: rgb(var(--bg-rgb) / 0.95); }
+.shot--video .shot__frame--16x9 { max-height: none; }
+.overrule { margin-block: clamp(2.5rem, 2rem + 2vw, 4rem); }
+.overrule__list { display: grid; gap: 0; border-top: 1.5px solid var(--ink); }
+@media (min-width: 900px) { .overrule__list { grid-template-columns: 1fr 1fr; column-gap: var(--s-7); } }
+.overrule__list li { display: grid; gap: 8px; padding: 18px 0; border-bottom: 1px solid var(--line); align-content: start; }
+.overrule__k { color: var(--accent-ink); }
+.overrule__row { display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: baseline; }
+.overrule__why { color: var(--ink-2); padding-left: 54px; }

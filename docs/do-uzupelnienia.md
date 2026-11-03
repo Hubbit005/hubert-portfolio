@@ -30,6 +30,7 @@ Jak znaleźć miejsce w kodzie: w `index.html` każde miejsce ma komentarz `<!--
 
 | # | Co | Gdzie | Format |
 |---|---|---|---|
+| 9b | **Drugi przykład „Where I said no to the AI”** | `index.html`: `TODO: one more example from Hubert's own work` | AI zaproponowało → wybrałem → dlaczego. Recenzenci we wszystkich rundach pytali o Twój osąd wobec AI. |
 | 10a | **Link do strony Basko Clean i profili społecznościowych** (Instagram, LinkedIn, TikTok) | sekcja Basko, wiersz „Status” i blok „Outcome” | Wszyscy recenzenci pytali o dowód „live website”. Link to najprostszy dowód. |
 | 10b | **Nazwij „pięć pytań”**, na które odpowiada każda sekcja wersji dla właściciela KSK | sekcja KSK, kolumna „What I did” | 5 krótkich pytań |
 | 10c | **Jedna zanonimizowana strona z planu KSK** (np. persony albo ścieżka klienta) | `assets/screenshots/ksk-plan-1.png` | Bez danych właściciela, bez cen. To najmocniejszy dowód researchu UX. |
