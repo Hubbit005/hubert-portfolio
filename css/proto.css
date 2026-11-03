@@ -204,7 +204,8 @@
 
 /* KSK layout: form + sticky price summary */
 .ksk-grid { display: grid; gap: 20px; }
-@media (min-width: 720px) { .ksk-grid { grid-template-columns: 1fr 220px; align-items: start; } }
+.pk.proto--ksk .pk__screen, .pk__tile-inner { container-type: inline-size; }
+@container (min-width: 600px) { .ksk-grid { grid-template-columns: 1fr 210px; align-items: start; } }
 .ksk-price { position: sticky; top: 90px; padding: 16px; border-radius: var(--pk-radius); background: #111; color: #fff; display: grid; gap: 10px; }
 .ksk-price__row { display: flex; justify-content: space-between; gap: 10px; font-size: 0.88rem; }
 .ksk-price__row span:first-child { color: #c9c9c3; }
@@ -250,4 +251,12 @@
   .pk__tile-inner { transform: scale(0.31); }
 }
 .ksk-pkg__p { white-space: nowrap; }
-.ksk-pkgs { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.ksk-pkgs { grid-template-columns: 1fr; }
+.ksk-pkg { grid-template-columns: 1fr auto; column-gap: 16px; align-items: baseline; }
+.ksk-pkg__n { grid-column: 1; }
+.ksk-pkg__p { grid-column: 2; grid-row: 1; }
+.ksk-pkg__d { grid-column: 1 / -1; }
+.ksk-pkg:has(input:checked)::after { top: auto; bottom: 12px; }
+.ksk-price__total small { font-size: 0.85rem; font-weight: 600; font-family: var(--font-body); }
+
+.pk__tile-inner .ksk-price { position: static; }

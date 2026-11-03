@@ -17,12 +17,7 @@ export function initMotion({ reduced, gsap, ScrollTrigger }) {
   });
 
   // Fade-up groups. Elements are visible until their trigger is set up.
-  const groups = [
-    '.sec-head__aside', '.case__sub', '.facts', '.case__intro .block', '.gallery .shot', '.gallery .frame-slot',
-    '.ai-table__grid', '.accordion', '.sub__head', '.sub__grid > *', '.flow',
-    '.split-panel', '.tools', '.exploring', '.about__main > *', '.about__side', '.cv__col', '.contact__grid > *',
-    '.phones .shot', '.model-embed', '.meta-case',
-  ];
+  const groups = ['.case__intro .block', '.gallery > *', '.ai-table__grid', '.sub__grid > *'];
   groups.forEach((sel) => {
     const els = gsap.utils.toArray(sel);
     if (!els.length) return;
@@ -55,30 +50,13 @@ export function initMotion({ reduced, gsap, ScrollTrigger }) {
   // Hero entrance for the foot and corners
   gsap.from('.hero__lead, .hero__cta > *, .corner', { y: 24, opacity: 0, duration: 1, ease, stagger: 0.06, delay: 0.25 });
 
-  // Customer journeys: pinned on desktop, drawn lane by lane while scrolling.
+  // Customer journeys: drawn once when the chart enters the viewport (no pinning).
   const journeys = document.getElementById('journeys');
   if (journeys) {
-    const mm = gsap.matchMedia();
-    const build = (pin) => {
-      const lanes = journeys.querySelectorAll('.lane');
-      const tl = gsap.timeline({
-        scrollTrigger: pin
-          ? { trigger: journeys, start: 'center center', end: '+=70%', scrub: 0.5, pin: true, anticipatePin: 1 }
-          : { trigger: journeys.querySelector('.journeys__chart'), start: 'top 80%', once: true },
-        defaults: { ease: pin ? 'none' : 'power3.out' },
-      });
-      lanes.forEach((lane, i) => {
-        const bar = lane.querySelector('.lane__bar');
-        const drops = lane.querySelectorAll('.drop');
-        tl.fromTo(lane.querySelector('.lane__label'), { opacity: 0.25 }, { opacity: 1, duration: 0.3 }, i * 0.9);
-        tl.fromTo(bar, { scaleX: 0 }, { scaleX: 1, duration: 0.8 }, i * 0.9);
-        if (drops.length) tl.fromTo(drops, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, stagger: 0.15, ease: pin ? 'none' : 'back.out(2)' }, i * 0.9 + 0.5);
-      });
-      tl.fromTo(journeys.querySelector('.journeys__legend'), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
-      return () => tl.scrollTrigger && tl.scrollTrigger.kill();
-    };
-    mm.add('(min-width: 1000px) and (min-height: 700px)', () => build(true));
-    mm.add('(max-width: 999px), (max-height: 699px)', () => build(false));
+    const chart = journeys.querySelector('.journeys__chart');
+    const tl = gsap.timeline({ scrollTrigger: { trigger: chart, start: 'top 85%', once: true }, defaults: { ease: 'expo.out' } });
+    tl.fromTo(chart.querySelectorAll('.lane__bar'), { scaleX: 0 }, { scaleX: 1, duration: 1.1, stagger: 0.12 }, 0)
+      .fromTo(chart.querySelectorAll('.count-row .drop, .count-row .lever'), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, stagger: 0.04, ease: 'back.out(2)' }, 0.5);
   }
 
   // Refresh after images load to keep pin positions right

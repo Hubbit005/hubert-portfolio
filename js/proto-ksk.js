@@ -16,7 +16,7 @@ const days = upcomingDays(14, 7);
 const SLOTS = ['10:00', '13:00', '16:00'];
 const BOOKED = new Set([`${isoDay(days[1])} 13:00`, `${isoDay(days[3])} 10:00`, `${isoDay(days[3])} 16:00`, `${isoDay(days[8])} 13:00`]);
 const eur = (n) => n.toLocaleString(L, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
-const LABELS = { firma: 'Firma', name: 'Vor- und Nachname', email: 'E-Mail', tel: 'Telefon', quelle: 'Wie haben Sie von uns erfahren?', quelleText: 'Bitte angeben', termin: 'Termin' };
+const LABELS = { firma: 'Firma', name: 'Vor- und Nachname', email: 'E-Mail', tel: 'Telefon', quelle: 'Wie haben Sie von uns erfahren?', quelleText: 'Woher genau', termin: 'Termin' };
 
 function initial() {
   return { step: 'paket', pkg: 'team', size: 16, date: null, slot: null, c: { firma: '', name: '', email: '', tel: '', quelle: '', quelleText: '' }, errors: {}, showSummary: false, send: 'idle', ref: '' };
@@ -37,8 +37,6 @@ function validateContact(c, keys = ['name', 'email', 'tel', 'quelle', 'quelleTex
     if (!t) e.tel = 'Bitte geben Sie eine Telefonnummer ein.';
     else if (!/^\+?\d{8,15}$/.test(t)) e.tel = 'Bitte nur Ziffern, mit Ländervorwahl, z. B. +49 30 1234567.';
   }
-  if (keys.includes('quelle') && !c.quelle) e.quelle = 'Bitte wählen Sie eine Antwort aus.';
-  if (keys.includes('quelleText') && c.quelle === 'Sonstiges' && !c.quelleText.trim()) e.quelleText = 'Bitte kurz angeben, wo Sie von uns gehört haben.';
   return e;
 }
 
@@ -52,10 +50,10 @@ function priceBox(s) {
   const total = p.price * s.size;
   return `<aside class="ksk-price" aria-label="Preisübersicht">
     <div class="ksk-price__row"><span>Paket</span><b>${esc(p.name)}</b></div>
-    <div class="ksk-price__row"><span>Personen</span><b>${s.size}</b></div>
+    ${s.step === 'paket' ? '' : `<div class="ksk-price__row"><span>Personen</span><b>${s.size}</b></div>`}
     ${s.date ? `<div class="ksk-price__row"><span>Termin</span><b>${esc(fmt(new Date(s.date), L, { day: '2-digit', month: '2-digit' }))}${s.slot ? `, ${s.slot}` : ''}</b></div>` : ''}
     <div class="ksk-price__row ksk-price__pp"><span>Pro Person</span><b>${m === 'quote' ? 'auf Anfrage' : eur(p.price)}</b></div>
-    <div class="ksk-price__row ksk-price__total"><span>Gruppe</span><b aria-live="polite">${m === 'quote' ? 'auf Anfrage' : m === 'small' ? '–' : eur(total)}</b></div>
+    ${s.step === 'paket' ? `<div class="ksk-price__row ksk-price__total"><span>Gruppe</span><small>nach Gruppengröße</small></div>` : `<div class="ksk-price__row ksk-price__total"><span>Gruppe</span><b aria-live="polite">${m === 'quote' ? 'auf Anfrage' : m === 'small' ? '–' : eur(total)}</b></div>`}
     <p class="ksk-price__note" lang="en">Sample prices for the prototype</p>
   </aside>`;
 }
@@ -101,13 +99,12 @@ function render(s) {
           ${msg}
         </div>
         <div class="ksk-section">
-          ${s.showSummary && s.errors.termin ? `<div class="pk-summary" role="alert" tabindex="-1" data-focus="summary"><p class="pk-summary__t">Bitte prüfen:</p><p>${esc(s.errors.termin)}</p></div>` : ''}
           <p class="ksk-label" id="ksk-date-l">Datum</p>
           <ul class="pk-days" aria-labelledby="ksk-date-l">${dayBtns}</ul>
           ${slots}
         </div>
-        <div class="pk-actions">${back('paket')}<button type="button" class="pk-btn" data-to="kontakt" ${m === 'small' ? 'disabled aria-describedby="ksk-small-why"' : ''}>${m === 'quote' ? 'Individuelles Angebot anfragen' : 'Weiter'} <span aria-hidden="true">→</span></button></div>
-        ${m === 'small' ? `<p class="pk-note" id="ksk-small-why">Weiter ist ab ${MIN} Personen möglich.</p>` : ''}`;
+        <div class="pk-actions">${back('paket')}<button type="button" class="pk-btn" data-to="kontakt" ${m === 'small' || !s.date || !s.slot ? 'disabled aria-describedby="ksk-next-why"' : ''}>${m === 'quote' ? 'Individuelles Angebot anfragen' : 'Weiter'} <span aria-hidden="true">→</span></button></div>
+        ${m === 'small' ? `<p class="pk-note" id="ksk-next-why">Weiter ist ab ${MIN} Personen möglich.</p>` : (!s.date || !s.slot) ? `<p class="pk-note" id="ksk-next-why">Wählen Sie Datum und Uhrzeit, dann geht es weiter.</p>` : ''}`;
       break;
     }
     case 'kontakt': {
@@ -120,14 +117,15 @@ function render(s) {
           ${field({ id: 'email', label: LABELS.email, type: 'email', value: s.c.email, error: e.email, required: true, autocomplete: 'email', locale: 'de' })}
           ${field({ id: 'tel', label: LABELS.tel, type: 'tel', value: s.c.tel, error: e.tel, required: true, autocomplete: 'tel', inputmode: 'tel', hint: 'Mit Ländervorwahl, z. B. +49.', locale: 'de' })}
           <div class="pk-field${e.quelle ? ' has-error' : ''}" data-field="quelle">
-            <label for="quelle">${esc(LABELS.quelle)}</label>
-            <select id="quelle" name="quelle" required aria-required="true" ${e.quelle ? 'aria-invalid="true" aria-describedby="quelle-err"' : ''}>
+            <label for="quelle">${esc(LABELS.quelle)} <span class="pk-field__opt">optional</span></label>
+            <p class="pk-field__hint" id="quelle-hint">Hilft uns zu verstehen, welche Werbung funktioniert.</p>
+            <select id="quelle" name="quelle" aria-describedby="quelle-hint">
               <option value="">Bitte auswählen</option>
               ${SOURCES.map((o) => `<option ${s.c.quelle === o ? 'selected' : ''}>${esc(o)}</option>`).join('')}
             </select>
             <p class="pk-field__err" id="quelle-err" ${e.quelle ? '' : 'hidden'}><span aria-hidden="true">!</span> <span class="pk-field__err-t">${esc(e.quelle || '')}</span></p>
           </div>
-          ${s.c.quelle === 'Sonstiges' ? field({ id: 'quelleText', label: LABELS.quelleText, value: s.c.quelleText, error: e.quelleText, required: true, locale: 'de' }) : ''}
+          ${s.c.quelle === 'Sonstiges' ? field({ id: 'quelleText', label: LABELS.quelleText, value: s.c.quelleText, locale: 'de' }) : ''}
           <div class="pk-actions">${back('gruppe')}<button type="submit" class="pk-btn">Prüfen <span aria-hidden="true">→</span></button></div>
         </form>`;
       break;
@@ -223,9 +221,9 @@ const gallery = [
   { label: 'Gruppe und Termin', state: { step: 'gruppe', size: 16, date: D, slot: '13:00' } },
   { label: 'Unter 12 Personen: Weiter gesperrt', state: { step: 'gruppe', size: 8 } },
   { label: 'Über 30 Personen: individuelles Angebot', state: { step: 'gruppe', size: 34, date: D } },
-  { label: 'Termin fehlt', state: { step: 'gruppe', size: 16, showSummary: true, errors: { termin: 'Bitte wählen Sie ein Datum und eine Uhrzeit.' } } },
+  { label: 'Noch kein Termin: Weiter gesperrt', state: { step: 'gruppe', size: 16, date: D } },
   { label: 'Kontaktdaten, leer', state: { step: 'kontakt', size: 16, date: D, slot: '13:00' } },
-  { label: 'Kontaktdaten mit Fehlern', state: { step: 'kontakt', size: 16, date: D, slot: '13:00', showSummary: true, c: { ...C, email: 'julia@', tel: '030', quelle: '' }, errors: { email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein, z. B. name@firma.de.', tel: 'Bitte nur Ziffern, mit Ländervorwahl, z. B. +49 30 1234567.', quelle: 'Bitte wählen Sie eine Antwort aus.' } } },
+  { label: 'Kontaktdaten mit Fehlern', state: { step: 'kontakt', size: 16, date: D, slot: '13:00', showSummary: true, c: { ...C, email: 'julia@', tel: '030', quelle: '' }, errors: { email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein, z. B. name@firma.de.', tel: 'Bitte nur Ziffern, mit Ländervorwahl, z. B. +49 30 1234567.' } } },
   { label: '„Sonstiges“ öffnet ein Textfeld', state: { step: 'kontakt', size: 16, date: D, slot: '13:00', c: { ...C, quelle: 'Sonstiges' } } },
   { label: 'Anfrage prüfen', state: { step: 'pruefen', size: 16, date: D, slot: '13:00', c: C } },
   { label: 'Wird gesendet', state: { step: 'pruefen', size: 16, date: D, slot: '13:00', c: C, send: 'loading' } },

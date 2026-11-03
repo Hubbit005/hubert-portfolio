@@ -49,7 +49,7 @@ export function initArc({ reduced }) {
     cw = first.offsetWidth; ch = first.offsetHeight;
     const vw = viewport.clientWidth;
     R = Math.max(vw < 600 ? 620 : 900, Math.min(vw * 1.05, 1700));
-    step = (cw * OVERLAP) / R;
+    step = (cw * (vw >= 1200 ? 1.0 : OVERLAP)) / R;
     pxPerCard = R * step;
     const top = 44 + ch / 2 + R;   // wheel centre, below the visible area
     track.style.top = `${top}px`;

@@ -75,6 +75,7 @@ export function initHero({ reduced, lenis }) {
   let running = true;
   let last = performance.now();
   let raf = 0;
+  let lastBo = -1;
 
   // Entrance
   const enterStart = performance.now();
@@ -122,7 +123,10 @@ export function initHero({ reduced, lenis }) {
     // Dwell: slow down while a full copy of the word faces the viewer (twice per turn).
     const rel = ((theta - theta0) % Math.PI + Math.PI) % Math.PI;      // 0..π, 0 = word centred
     const dist = Math.min(rel, Math.PI - rel) / (Math.PI / 2);           // 0 at front, 1 furthest
-    const dwell = boost > 1.01 ? 1 : 0.16 + 0.84 * Math.min(1, Math.pow(dist / 0.55, 2));
+    const dwell = boost > 1.01 ? 1 : 0.05 + 0.95 * Math.min(1, Math.pow(dist / 0.62, 2));
+    // Back outlines fade while the word faces front, so they never cross it.
+    const bo = Math.min(1, Math.max(0, (dist - 0.18) / 0.5));
+    if (Math.abs(bo - lastBo) > 0.01) { cyl.style.setProperty('--bo', bo.toFixed(2)); lastBo = bo; }
     const target = omegaBase * boost * dwell * (1 + hover * 1.4 + scrollV * 0.06);
     omega += (target - omega) * (1 - Math.exp(-dt * 6));
     theta -= omega * dt;

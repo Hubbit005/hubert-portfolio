@@ -1,5 +1,7 @@
 /* Livingroom table booking – concept prototype.
-   Flow: date → time → party size → details → review → confirmed.
+   Flow: date → party size → time → details → review → confirmed.
+   (The brief had time before party size. Changed after design review:
+   free tables depend on the size of the group, so guests come first.)
    Branches: fully booked day, no free times, failed to load times,
    9+ guests → group enquiry, validation errors, sending, send failed. */
 import { esc, wait, upcomingDays, isoDay, fmt, field, setFieldError, errorSummary, createFrame, spinner } from './proto-kit.js';
@@ -95,7 +97,7 @@ function render(s) {
       }).join('');
       return `${H('Choose a date', 'Next 14 days. Crossed-out days are fully booked.')}
         <ul class="pk-days" aria-label="Dates">${cells}</ul>
-        <div class="pk-actions"><span></span><button type="button" class="pk-btn" data-next="time" ${s.date ? '' : 'disabled'}>Continue <span aria-hidden="true">→</span></button></div>
+        <div class="pk-actions"><span></span><button type="button" class="pk-btn" data-next="party" ${s.date ? '' : 'disabled'}>Continue <span aria-hidden="true">→</span></button></div>
         <p class="pk-tip">Try ${esc(shortDay(NO_TIMES))} (no times left) or ${esc(shortDay(FLAKY))} (fails to load once).</p>`;
     }
     case 'time': {
@@ -112,7 +114,7 @@ function render(s) {
       } else if (s.times === 'empty') {
         const next = days.find((d) => !FULL.has(isoDay(d)) && isoDay(d) > s.date && isoDay(d) !== NO_TIMES);
         body = `<div class="pk-state pk-state--empty" role="status">
-            <p class="pk-state__t">No tables left on ${esc(dayLabel(s.date))}.</p>
+            <p class="pk-state__t">No tables for ${esc(s.party || 2)} on ${esc(dayLabel(s.date))}.</p>
             <p>The nearest date with free tables is ${esc(dayLabel(isoDay(next)))}.</p>
             <div class="pk-row"><button type="button" class="pk-btn" data-pick-date="${isoDay(next)}">Show ${esc(shortDay(isoDay(next)))}</button>${back('date', 'Pick another date')}</div>
           </div>`;
@@ -126,14 +128,14 @@ function render(s) {
       }
       const showNext = s.times === 'ready';
       return `${H('Choose a time', esc(dayLabel(s.date || isoDay(days[0]))))}${body}
-        <div class="pk-actions">${back('date')}${showNext ? `<button type="button" class="pk-btn" data-next="party" ${s.time ? '' : 'disabled'}>Continue <span aria-hidden="true">→</span></button>` : '<span></span>'}</div>`;
+        <div class="pk-actions">${back('party')}${showNext ? `<button type="button" class="pk-btn" data-next="details" ${s.time ? '' : 'disabled'}>Continue <span aria-hidden="true">→</span></button>` : '<span></span>'}</div>`;
     }
     case 'party': {
       const opts = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `<li><button type="button" class="pk-num${s.party === n ? ' is-sel' : ''}" data-party="${n}" aria-pressed="${s.party === n}">${n}<span class="sr-only"> ${n === 1 ? 'guest' : 'guests'}</span></button></li>`).join('');
       return `${H('How many guests?')}${chosen(s)}
         <ul class="pk-nums" aria-label="Number of guests">${opts}<li><button type="button" class="pk-num pk-num--wide" data-party="9">9 or more</button></li></ul>
         <p class="pk-note">Groups of 9 or more go through a short enquiry, so the restaurant can prepare the room.</p>
-        <div class="pk-actions">${back('time')}<button type="button" class="pk-btn" data-next="details" ${s.party ? '' : 'disabled'}>Continue <span aria-hidden="true">→</span></button></div>`;
+        <div class="pk-actions">${back('date')}<button type="button" class="pk-btn" data-next="time" ${s.party ? '' : 'disabled'}>Continue <span aria-hidden="true">→</span></button></div>`;
     }
     case 'details': {
       const e = s.errors;
@@ -144,7 +146,7 @@ function render(s) {
           ${field({ id: 'phone', label: LABELS.phone, type: 'tel', value: s.d.phone, error: e.phone, required: true, autocomplete: 'tel', inputmode: 'tel', hint: 'A Polish number, or any number with a country code. The restaurant calls only if something changes.' })}
           ${field({ id: 'email', label: LABELS.email, type: 'email', value: s.d.email, error: e.email, required: true, autocomplete: 'email', hint: 'We send the confirmation here.' })}
           ${field({ id: 'notes', label: LABELS.notes, type: 'textarea', value: s.d.notes, error: e.notes, hint: 'Allergies, a high chair, a birthday. Up to 200 characters.' })}
-          <div class="pk-actions">${back('party')}<button type="submit" class="pk-btn">Review booking <span aria-hidden="true">→</span></button></div>
+          <div class="pk-actions">${back('time')}<button type="submit" class="pk-btn">Review booking <span aria-hidden="true">→</span></button></div>
         </form>`;
     }
     case 'review': {
@@ -176,7 +178,7 @@ function render(s) {
     case 'enquiry': {
       const e = s.gErrors;
       const sending = s.gSend === 'loading';
-      return `${H('Group enquiry, 9 or more guests', 'The restaurant replies with options for your group. Your date and time are carried over.')}
+      return `${H('Group enquiry, 9 or more guests', 'The restaurant replies with options for your group. Your date is carried over.')}
         ${chosen({ ...s, party: null })}
         ${s.showSummary ? errorSummary(e, LABELS, 'Fix these to send the enquiry:') : ''}
         ${s.gSend === 'error' ? `<div class="pk-state pk-state--error" role="alert"><p class="pk-state__t">The enquiry was not sent.</p><p>The connection dropped. Your details are kept. Try again.</p></div>` : ''}
@@ -213,7 +215,7 @@ function bind(el, api) {
     api.set({ date: b.dataset.date, time: null }, { focus: `[data-date="${b.dataset.date}"]` });
   }));
   const loadTimes = async (date) => {
-    api.set({ step: 'time', times: 'loading', date, time: null });
+    api.set({ step: 'time', times: 'loading', date, time: null, showSummary: false });
     api.announce('Loading free times');
     await wait(900);
     if (api.state.step !== 'time') return;
@@ -235,6 +237,7 @@ function bind(el, api) {
   }));
   el.querySelector('[data-next="party"]')?.addEventListener('click', () => go('party'));
   el.querySelector('[data-next="details"]')?.addEventListener('click', () => go('details', { errors: {} }));
+  // guests come before time: the free times depend on the group size
 
   const form = el.querySelector('form[data-form="details"]');
   if (form) {
@@ -315,12 +318,12 @@ function bind(el, api) {
 const sampleD = { name: 'Anna Nowak', phone: '600 100 200', email: 'anna@example.com', notes: '' };
 const gallery = [
   { label: 'Choose a date, booked days disabled', state: { step: 'date' } },
-  { label: 'Loading free times', state: { step: 'time', date: isoDay(days[1]), times: 'loading' } },
-  { label: 'Choose a time, taken slots disabled', state: { step: 'time', date: isoDay(days[1]), times: 'ready', time: '19:30' } },
-  { label: 'No tables left, nearest free date', state: { step: 'time', date: NO_TIMES, times: 'empty' } },
-  { label: 'Could not load times, retry', state: { step: 'time', date: FLAKY, times: 'error' } },
-  { label: 'Number of guests', state: { step: 'party', date: isoDay(days[1]), time: '19:30', party: 4 } },
-  { label: '9+ guests: group enquiry', state: { step: 'enquiry', date: isoDay(days[1]), time: '19:30', g: { gname: '', gemail: '', gphone: '', gsize: '14', gmsg: '' } } },
+  { label: 'Number of guests', state: { step: 'party', date: isoDay(days[1]), party: 4 } },
+  { label: 'Loading free times', state: { step: 'time', date: isoDay(days[1]), party: 4, times: 'loading' } },
+  { label: 'Choose a time, taken slots disabled', state: { step: 'time', date: isoDay(days[1]), party: 4, times: 'ready', time: '19:30' } },
+  { label: 'No tables left, nearest free date', state: { step: 'time', date: NO_TIMES, party: 4, times: 'empty' } },
+  { label: 'Could not load times, retry', state: { step: 'time', date: FLAKY, party: 4, times: 'error' } },
+  { label: '9+ guests: group enquiry', state: { step: 'enquiry', date: isoDay(days[1]), g: { gname: '', gemail: '', gphone: '', gsize: '14', gmsg: '' } } },
   { label: 'Group enquiry sent', state: { step: 'enquirySent', g: { gname: 'Anna Nowak', gemail: 'anna@example.com', gphone: '', gsize: '14', gmsg: '' } } },
   { label: 'Details, empty', state: { step: 'details', date: isoDay(days[1]), time: '19:30', party: 4 } },
   { label: 'Details, validation errors', state: { step: 'details', date: isoDay(days[1]), time: '19:30', party: 4, showSummary: true, d: { name: 'A', phone: '60010', email: 'anna@', notes: '' }, errors: { name: 'Enter your full name.', phone: 'Enter 9 digits, or a number with a country code, for example +48 600 100 200.', email: 'Enter an e-mail like name@example.com.' } } },
@@ -334,7 +337,7 @@ export function init(root) {
   if (!root) return;
   createFrame(root, {
     title: 'Livingroom · Book a table',
-    steps: [{ key: 'date', label: 'Date' }, { key: 'time', label: 'Time' }, { key: 'party', label: 'Guests' }, { key: 'details', label: 'Details' }, { key: 'review', label: 'Confirm' }],
+    steps: [{ key: 'date', label: 'Date' }, { key: 'party', label: 'Guests' }, { key: 'time', label: 'Time' }, { key: 'details', label: 'Details' }, { key: 'review', label: 'Confirm' }],
     stepOf, render, bind, gallery, initial,
     strings: { progress: 'Booking progress', done: 'completed' },
     onTileOpen(g, api) {

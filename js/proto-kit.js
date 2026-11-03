@@ -62,7 +62,7 @@ export function errorSummary(errors, labels, title) {
   if (!keys.length) return '';
   return `<div class="pk-summary" role="alert" tabindex="-1" data-focus="summary">
     <p class="pk-summary__t">${esc(title)}</p>
-    <ul>${keys.map((k) => `<li><a href="#${k}" data-jump="${k}">${esc(labels[k] || k)}: ${esc(errors[k])}</a></li>`).join('')}</ul>
+    <ul>${keys.map((k) => `<li><a href="#${k}" data-jump="${k}"><b>${esc(labels[k] || k)}</b> – ${esc(errors[k])}</a></li>`).join('')}</ul>
   </div>`;
 }
 

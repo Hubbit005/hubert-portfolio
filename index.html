@@ -12,7 +12,7 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hubert · Junior UX/UI Designer, AI-native">
-  <meta property="og:description" content="Client websites, a 3D model and clickable booking prototypes with every state. AI tools do the legwork, I make the decisions.">
+  <meta property="og:description" content="Client websites, a 3D model and clickable booking prototypes with every state, built with AI tools.">
   <meta property="og:url" content="https://hubbit005.github.io/hubert-portfolio/">
   <meta property="og:image" content="https://hubbit005.github.io/hubert-portfolio/assets/og/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -121,7 +121,7 @@
         <header class="sec-head">
           <p class="sec-head__num mono">01</p>
           <h2 class="sec-head__title" id="work-title"><span class="mask"><span>Selected work</span></span></h2>
-          <p class="sec-head__aside">Six projects on seven cards, from a live client website to a 3D model in the browser. Drag the wheel, use the arrow keys, or pick a card to open its case study.</p>
+          <p class="sec-head__aside">From a live client website to a 3D model in the browser. Drag the wheel, use the arrow keys, or pick a card to open the case study.</p>
         </header>
       </div>
 
@@ -169,17 +169,6 @@
                 <span class="card__meta"><span class="card__num mono">06</span><span class="card__title">Training plans</span><span class="card__tag mono">One template · A page per client</span></span>
               </a>
             </li>
-            <li class="arc__item">
-              <a class="card card--ebook" href="#ebook" data-cursor="Open">
-                <span class="card__media card__media--type" aria-hidden="true">
-                  <span class="type-cover type-cover--ebook">
-                    <span class="type-cover__list"><i class="on"></i><i></i><i class="on"></i><i></i></span>
-                    <span class="type-cover__word">For readers<br>50+</span>
-                  </span>
-                </span>
-                <span class="card__meta"><span class="card__num mono">07</span><span class="card__title">Interactive ebook</span><span class="card__tag mono">HTML · Checklist</span></span>
-              </a>
-            </li>
           </ul>
 
           <div class="arc__hub" aria-hidden="true">
@@ -195,7 +184,7 @@
           <button class="round-btn" id="arc-prev" type="button" aria-label="Previous project">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
           </button>
-          <p class="arc__status mono" id="arc-status" aria-live="polite">01 / 07 · Basko Clean</p>
+          <p class="arc__status mono" id="arc-status" aria-live="polite">01 / 06 · Basko Clean</p>
           <button class="round-btn" id="arc-next" type="button" aria-label="Next project">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
           </button>
@@ -217,8 +206,8 @@
             <li><a href="#ksk-pretor"><span class="mono">02</span> KSK Pretor</a></li>
             <li><a href="#livingroom"><span class="mono">03</span> Livingroom</a></li>
             <li><a href="#psychologist-site"><span class="mono">04</span> Website for a psychologist</a></li>
-            <li><a href="#training-plans"><span class="mono">05</span> Training plans</a></li>
-            <li><a href="#ebook"><span class="mono">06</span> Interactive ebook</a></li>
+            <li><a href="#smaller-projects"><span class="mono">05</span> Smaller projects</a></li>
+            <li><a href="#this-portfolio"><span class="mono">06</span> This portfolio</a></li>
           </ol>
         </nav>
       </div>
@@ -303,7 +292,7 @@
                 <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
                 <ul>
                   <li><b>Claude Code</b> writes and updates the site's code (React components) from my layout.</li>
-                  <li>An <b>AI video model</b> produced a realistic 3D version of the ad. <span class="pending-inline">Tool name pending</span></li>
+                  <li>An <b>AI video model</b> produced a realistic 3D version of the ad.</li>
                 </ul>
               </div>
               <div class="ai-table__col ai-table__col--me">
@@ -392,7 +381,9 @@
               <ul class="list">
                 <li>I wrote the market entry plan: positioning, competitors, personas, journeys, drop-off points, levers, landing page requirements, SEO, ads, B2B outbound, KPIs.</li>
                 <li>I cut it down to a 59-page version for the owner. Every section answers the same five questions.</li>
-                <li>I built the 3D model, the AI agent prototype and the video branding.</li>
+                <li>I built the 3D model and the video branding.</li>
+                <!-- TODO: describe what the KSK Pretor agent does + screenshot assets/screenshots/ksk-agent-1.png (4:5) -->
+                <li>I built an AI agent (chatbot) prototype in Botpress. <span class="pending-inline">Content pending: what the agent does</span></li>
                 <li><strong>Constraint:</strong> intro and outro in two languages, Polish and German.</li>
                 <li><strong>Constraint:</strong> brand colours red, black and white.</li>
               </ul>
@@ -412,31 +403,36 @@
               <span class="persona">Weapons enthusiast</span>
               <span class="persona">Bachelor party organiser</span>
             </div>
-            <div class="journeys__chart" role="img" aria-label="Diagram: four customer journeys of different lengths, from a few days to twelve months of planning, with seven drop-off points marked along them and eight conversion levers.">
-              <div class="journeys__axis mono" aria-hidden="true"><span>Trigger</span><span>Search</span><span>Compare</span><span>Enquire</span><span>Book</span><span>Visit</span></div>
+            <div class="journeys__chart" role="img" aria-label="Diagram: four customer journeys on a planning-time scale from a few days to twelve months, then the seven drop-off points and eight conversion levers named in the plan.">
+              <div class="journeys__axis mono" aria-hidden="true"><span>Days</span><span>Weeks</span><span>Months</span><span>12 months</span></div>
               <div class="lane" data-lane="1">
                 <span class="lane__label mono">Journey 1 <em>a few days</em></span>
-                <span class="lane__track"><span class="lane__bar" style="--w:.38"></span><span class="drop" style="--x:.18"></span><span class="drop" style="--x:.33"></span></span>
+                <span class="lane__track"><span class="lane__bar" style="--w:.07"></span></span>
               </div>
-              <div class="lane" data-lane="2">
+              <div class="lane lane--unknown" data-lane="2">
                 <span class="lane__label mono">Journey 2</span>
-                <span class="lane__track"><span class="lane__bar" style="--w:.6"></span><span class="drop" style="--x:.42"></span></span>
+                <span class="lane__track"><span class="lane__bar" style="--w:.42"></span></span>
               </div>
-              <div class="lane" data-lane="3">
+              <div class="lane lane--unknown" data-lane="3">
                 <span class="lane__label mono">Journey 3</span>
-                <span class="lane__track"><span class="lane__bar" style="--w:.8"></span><span class="drop" style="--x:.28"></span><span class="drop" style="--x:.66"></span></span>
+                <span class="lane__track"><span class="lane__bar" style="--w:.7"></span></span>
               </div>
               <div class="lane" data-lane="4">
                 <span class="lane__label mono">Journey 4 <em>up to 12 months</em></span>
-                <span class="lane__track"><span class="lane__bar" style="--w:1"></span><span class="drop" style="--x:.52"></span><span class="drop" style="--x:.86"></span></span>
+                <span class="lane__track"><span class="lane__bar" style="--w:1"></span></span>
               </div>
-              <div class="journeys__legend mono">
-                <span><i class="lg-bar"></i>Planning time, relative</span>
-                <span><i class="lg-drop"></i>Drop-off point (7)</span>
-                <span class="journeys__levers"><b>8</b> conversion levers in the plan</span>
+              <div class="journeys__counts">
+                <div class="count-row">
+                  <span class="count-row__label mono">7 drop-off points</span>
+                  <span class="count-row__marks" aria-hidden="true"><i class="drop"></i><i class="drop"></i><i class="drop"></i><i class="drop"></i><i class="drop"></i><i class="drop"></i><i class="drop"></i></span>
+                </div>
+                <div class="count-row">
+                  <span class="count-row__label mono">8 conversion levers</span>
+                  <span class="count-row__marks" aria-hidden="true"><i class="lever"></i><i class="lever"></i><i class="lever"></i><i class="lever"></i><i class="lever"></i><i class="lever"></i><i class="lever"></i><i class="lever"></i></span>
+                </div>
               </div>
             </div>
-            <p class="journeys__note mono">Diagram simplified for the portfolio. Bar lengths and dot positions are illustrative. The full plan names each journey, drop-off and lever.</p>
+            <p class="journeys__note mono">Solid bars: lengths stated in the plan. Dashed bars: journeys 2 and 3, lengths in the full report. Each drop-off point and lever is named in the 59-page owner version.</p>
             <!-- TODO: Hubert to name journeys 2 and 3, and confirm the 7 drop-off points -->
           </div>
 
@@ -479,9 +475,9 @@
                   <thead><tr><th scope="col">From the research</th><th scope="col">Decision</th></tr></thead>
                   <tbody>
                     <tr><td>Landing page requirement: packages priced in EUR</td><td>Three packages with EUR prices, no currency conversion for the visitor</td></tr>
-                    <tr><td>Personas: four of the five organise for a group (HR, agency, friends, bachelor party)</td><td>Price per person and per group shown together and updated live</td></tr>
+                    <tr><td>Personas: HR event organiser, event agency, group of friends, bachelor party organiser</td><td>Price per person and per group shown together and updated live</td></tr>
                     <tr><td>Landing page requirement: booking</td><td>Date and time slot chosen on the page, enquiry sent in one step</td></tr>
-                    <tr><td>Landing page requirement: conversion tracking</td><td>Required question “Wie haben Sie von uns erfahren?”, so every enquiry records its source next to the analytics</td></tr>
+                    <tr><td>Landing page requirement: conversion tracking</td><td>Optional question “Wie haben Sie von uns erfahren?”, so enquiries record their source next to the analytics</td></tr>
                     <tr><td>Event agencies are one of the five personas</td><td>Optional company field for invoicing</td></tr>
                     <tr><td>German-speaking market</td><td>Interface in German</td></tr>
                   </tbody>
@@ -560,27 +556,10 @@
             </div>
           </section>
 
-          <!-- Sub-project: AI agent -->
-          <section class="sub" id="ksk-agent" aria-labelledby="ksk-agent-title">
-            <header class="sub__head">
-              <p class="sub__kicker mono">KSK Pretor · Sub-project 3</p>
-              <h4 class="sub__title" id="ksk-agent-title">AI agent prototype</h4>
-              <p class="sub__lead">A chatbot prototype for the range, built in Botpress.</p>
-            </header>
-            <div class="sub__grid sub__grid--single">
-              <!-- TODO: describe what the KSK Pretor agent does + screenshot assets/screenshots/ksk-agent-1.png (4:5) (questions, enquiries, languages) -->
-              <div class="pending">
-                <span class="pending__label mono">Content pending</span>
-                <p class="pending__title">Description of the KSK Pretor AI agent</p>
-                <p>What the agent answers, what it collects from a group enquiry, which languages it speaks, and where a person takes over.</p>
-              </div>
-            </div>
-          </section>
-
           <!-- Sub-project: video branding -->
           <section class="sub" id="ksk-video" aria-labelledby="ksk-video-title">
             <header class="sub__head">
-              <p class="sub__kicker mono">KSK Pretor · Sub-project 4</p>
+              <p class="sub__kicker mono">KSK Pretor · Sub-project 3</p>
               <h4 class="sub__title" id="ksk-video-title">Video branding</h4>
               <p class="sub__lead">A 3-second intro and outro with the logo: a bullet flies through the frame and the logo emerges from behind it. Polish and German versions, a “Vielen Dank” card for agencies and a 10-second spot. I built the animations in HTML and GSAP and rendered them frame by frame.</p>
             </header>
@@ -619,7 +598,7 @@
               <summary class="acc__sum"><span class="acc__idx mono">D</span><span class="acc__label">States, variants and edge cases I planned for</span><span class="acc__icon" aria-hidden="true"></span></summary>
               <div class="acc__body">
                 <ul class="states">
-                  <li><span class="states__k mono">Safety</span>3D model: in SAFE the trigger does not fire, so the model never suggests firing a locked weapon.</li>
+                  <li><span class="states__k mono">Safety</span>3D model: in SAFE the trigger does not fire, and the panel always shows the selector state.</li>
                   <li><span class="states__k mono">Devices</span>3D model: phones get lower render resolution and shadows and no reflection, so the model stays smooth.</li>
                   <li><span class="states__k mono">Formats</span>Photo export in the two Instagram formats, 1080×1350 and 1080×1920.</li>
                   <li><span class="states__k mono">Language</span>Intro and outro in Polish and German. A separate “Vielen Dank” card for agencies.</li>
@@ -650,7 +629,7 @@
             <h3 class="case__title" id="living-title"><span class="mask"><span>Livingroom</span></span></h3>
             <p class="case__sub">A restaurant website in Gorzów Wielkopolski, built on my own initiative as a demo for a cold pitch</p>
             <dl class="facts">
-              <div><dt>Client</dt><dd>Livingroom restaurant, Gorzów Wlkp. Not commissioned</dd></div>
+              <div><dt>Client</dt><dd>Livingroom restaurant, Gorzów Wielkopolski. Not commissioned</dd></div>
               <div><dt>My role</dt><dd>Idea, design, code, pitch</dd></div>
               <div><dt>Status</dt><dd>Nearly finished demo. Missing piece: booking-form integration</dd></div>
               <div><dt>Tools</dt><dd>Claude Code, HTML, CSS, JS</dd></div>
@@ -710,7 +689,8 @@
               <p class="sub__kicker mono">Booking concept</p>
               <h4 class="sub__title" id="living-proto-title">Table booking, every state</h4>
               <p class="proto-flag mono"><span aria-hidden="true">◆</span> Concept prototype built for this portfolio</p>
-              <p class="sub__lead">Date, time, party size, details, confirmation. With the states a real booking form has to handle: no free times, validation errors, groups above 8, loading, network errors and success. Use “Show all states” to see each one without clicking through.</p>
+              <p class="sub__lead">Date, party size, time, details, confirmation. With the states a real booking form has to handle: no free times, validation errors, groups above 8, loading, network errors and success. Use “Show all states” to see each one without clicking through.</p>
+              <p class="note mono">Changed after design review: my brief had time before party size. Free tables depend on the size of the group, so guests now come first.</p>
             </header>
             <div class="proto proto--living" id="proto-living" data-proto="living">
               <noscript><p class="proto__nojs">This prototype needs JavaScript.</p></noscript>
@@ -782,7 +762,7 @@
       </article>
 
       <!-- ---------- CASE 04 PSYCHOLOGIST ---------- -->
-      <article class="case" id="psychologist-site" aria-labelledby="psy-title">
+      <article class="case case--minor" id="psychologist-site" aria-labelledby="psy-title">
         <div class="container">
           <header class="case__head">
             <p class="case__num mono">Case 04</p>
@@ -880,120 +860,87 @@
         </div>
       </article>
 
-      <!-- ---------- CASE 05 TRAINING PLANS ---------- -->
-      <article class="case" id="training-plans" aria-labelledby="training-title">
+      <!-- ---------- CASE 05 SMALLER PROJECTS ---------- -->
+      <article class="case case--minor" id="smaller-projects" aria-labelledby="smaller-title">
         <div class="container">
           <header class="case__head">
             <p class="case__num mono">Case 05</p>
-            <h3 class="case__title" id="training-title"><span class="mask"><span>Training plans</span></span></h3>
-            <p class="case__sub">Personal 8-week training plans as web pages, generated from one template. Shown anonymised.</p>
-            <dl class="facts">
-              <div><dt>Clients</dt><dd>Individual training clients (anonymised)</dd></div>
-              <div><dt>My role</dt><dd>Template design, plan pages</dd></div>
-              <div><dt>Background</dt><dd>Certified personal trainer</dd></div>
-              <div><dt>Tools</dt><dd>Claude, HTML, CSS, JS</dd></div>
-            </dl>
+            <h3 class="case__title" id="smaller-title"><span class="mask"><span>Smaller projects</span></span></h3>
+            <p class="case__sub">Two projects built on one idea: a page people use on their phone, not a document they download.</p>
           </header>
 
-          <div class="case__split">
-            <div class="case__split-text">
-              <section class="block">
-                <h4 class="block__title"><span class="block__idx mono">A</span>Problem and context</h4>
-                <p>Each client gets a personal 8-week plan. A web page opens on any phone and keeps the whole plan in one place: schedule, exercises, nutrition tables.</p>
-              </section>
-              <section class="block">
-                <h4 class="block__title"><span class="block__idx mono">B</span>My role and constraints</h4>
-                <ul class="list">
-                  <li>I designed one template. Each client gets a page built from it.</li>
-                  <li><strong>Constraint:</strong> personal data. Names, body weight and height are hidden in the screenshots.</li>
+          <section class="minor" id="training-plans" aria-labelledby="training-title">
+            <div class="case__split">
+              <div class="case__split-text">
+                <p class="sub__kicker mono">05a · Client work, anonymised</p>
+                <h4 class="minor__title" id="training-title">Training plans as web pages</h4>
+                <p>Personal 8-week training plans for individual clients, generated from one template. I am a certified personal trainer.</p>
+                <ul class="states">
+                  <li><span class="states__k mono">Header</span>Cycle length, sessions per week, goal, level.</li>
+                  <li><span class="states__k mono">Days</span>Day tabs, numbered exercises with Polish and English names, details folded away, cool-down.</li>
+                  <li><span class="states__k mono">Reference</span>Macros for training and rest days, keys to success, progress plan.</li>
+                  <li><span class="states__k mono">Privacy</span>Names, body weight and height are hidden in the screenshots.</li>
                 </ul>
-              </section>
-              <section class="block">
-                <h4 class="block__title"><span class="block__idx mono">C</span>What the template contains</h4>
-                <ul class="list">
-                  <li>Plan header: cycle length, sessions per week, goal, level.</li>
-                  <li>Day tabs, numbered exercises with Polish and English names, expandable details, cool-down.</li>
-                  <li>Reference tables: macros for training and rest days, keys to success, progress plan.</li>
-                </ul>
-              </section>
-            </div>
-            <div class="phones">
-              <figure class="shot shot--phone">
-                <div class="phone">
-                  <picture><source type="image/webp" srcset="assets/img/training-mobile-1-480.webp 480w, assets/img/training-mobile-1-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-mobile-1-480.jpg" srcset="assets/img/training-mobile-1-480.jpg 480w, assets/img/training-mobile-1-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="Top of a training plan on a phone: blurred brand header, client shown as Client A, an 8-week 3-day split, goal and level, and day tabs D1 to D3." loading="lazy" decoding="async"></picture>
-                </div>
-                <figcaption class="mono">Plan header, anonymised</figcaption>
-              </figure>
-              <figure class="shot shot--phone">
-                <div class="phone">
-                  <picture><source type="image/webp" srcset="assets/img/training-mobile-2-480.webp 480w, assets/img/training-mobile-2-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-mobile-2-480.jpg" srcset="assets/img/training-mobile-2-480.jpg 480w, assets/img/training-mobile-2-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="Exercise list on a phone: six numbered exercises with Polish and English names and expand arrows, followed by a cool-down card." loading="lazy" decoding="async"></picture>
-                </div>
-                <figcaption class="mono">Exercises and cool-down</figcaption>
-              </figure>
-            </div>
-          </div>
-
-          <div class="ai-table" role="group" aria-labelledby="training-ai-title">
-            <h4 class="ai-table__title" id="training-ai-title">What AI did / What I did</h4>
-            <div class="ai-table__grid">
-              <div class="ai-table__col ai-table__col--ai">
-                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
-                <ul>
-                  <li><b>Claude</b> built the page template in code.</li>
-                  <li class="pending-li"><span class="pending__label mono">Content pending</span> How each client's page is generated from the template.</li>
-                </ul>
-              </div>
-              <div class="ai-table__col ai-table__col--me">
-                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
-                <ul>
-                  <li>Designed the template mobile-first: one column, large numbers, details folded away.</li>
-                  <li>Decided what each client sees first: goal, schedule, the first day's exercises.</li>
-                  <li class="pending-li"><span class="pending__label mono">Content pending</span> Who writes the training content.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- TODO: confirm who wrote the training content and how pages are generated -->
-        </div>
-      </article>
-
-      <!-- ---------- CASE 06 EBOOK ---------- -->
-      <article class="case case--short" id="ebook" aria-labelledby="ebook-title">
-        <div class="container">
-          <header class="case__head">
-            <p class="case__num mono">Case 06</p>
-            <h3 class="case__title" id="ebook-title"><span class="mask"><span>Interactive ebook</span></span></h3>
-            <p class="case__sub">An HTML ebook for readers aged 50+. Own project.</p>
-          </header>
-          <div class="case__split case__split--short">
-            <div class="case__split-text">
-              <p class="lead">Side-panel navigation and an interactive symptom checklist. The reader ticks what applies instead of reading a long list.</p>
-              <ul class="states">
-                <li><span class="states__k mono">Navigation</span>A side panel keeps every chapter one click away.</li>
-                <li><span class="states__k mono">Checklist</span>Interactive symptom checklist inside the text.</li>
-                <li><span class="states__k mono">Audience</span>Designed for readers aged 50+.</li>
-                <li><span class="states__k mono">Topic</span><span class="pending-inline">Content pending: topic and screenshots</span></li>
-              </ul>
-              <div class="ai-table ai-table--compact" role="group" aria-labelledby="ebook-ai-title">
-                <h4 class="ai-table__title" id="ebook-ai-title">What AI did / What I did</h4>
-                <div class="ai-table__grid">
-                  <div class="ai-table__col ai-table__col--ai">
-                    <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
-                    <ul><li class="pending-li"><span class="pending__label mono">Content pending</span> Which parts AI built: text, layout, checklist logic.</li></ul>
-                  </div>
-                  <div class="ai-table__col ai-table__col--me">
-                    <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
-                    <ul><li>Chose the format and the audience: an HTML ebook with a checklist, for readers aged 50+.</li></ul>
+                <div class="ai-table ai-table--compact" role="group" aria-labelledby="training-ai-title">
+                  <h5 class="ai-table__title" id="training-ai-title">What AI did / What I did</h5>
+                  <div class="ai-table__grid">
+                    <div class="ai-table__col ai-table__col--ai">
+                      <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
+                      <ul><li><b>Claude</b> built the page template in code.</li></ul>
+                    </div>
+                    <div class="ai-table__col ai-table__col--me">
+                      <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
+                      <ul><li>Designed one template for a phone screen: one column, large numbers, details folded away.</li></ul>
+                    </div>
                   </div>
                 </div>
+                <!-- TODO: confirm who wrote the training content and how pages are generated -->
+                <p class="pending-inline">Content pending: who writes the plans and how a page is generated</p>
               </div>
-              <!-- TODO: ebook topic, screenshots, AI split confirmation (docs/do-uzupelnienia.md) -->
+              <div class="phones">
+                <figure class="shot shot--phone">
+                  <div class="phone">
+                    <picture><source type="image/webp" srcset="assets/img/training-mobile-1-480.webp 480w, assets/img/training-mobile-1-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-mobile-1-480.jpg" srcset="assets/img/training-mobile-1-480.jpg 480w, assets/img/training-mobile-1-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="Top of a training plan on a phone: blurred brand header, client shown as Client A, an 8-week 3-day split, goal and level, and day tabs D1 to D3." loading="lazy" decoding="async"></picture>
+                  </div>
+                  <figcaption class="mono">Plan header, anonymised</figcaption>
+                </figure>
+                <figure class="shot shot--phone">
+                  <div class="phone">
+                    <picture><source type="image/webp" srcset="assets/img/training-mobile-2-480.webp 480w, assets/img/training-mobile-2-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-mobile-2-480.jpg" srcset="assets/img/training-mobile-2-480.jpg 480w, assets/img/training-mobile-2-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="Exercise list on a phone: six numbered exercises with Polish and English names and expand arrows, followed by a cool-down card." loading="lazy" decoding="async"></picture>
+                  </div>
+                  <figcaption class="mono">Exercises and cool-down</figcaption>
+                </figure>
+              </div>
             </div>
-            <div class="type-cover type-cover--ebook type-cover--large" aria-hidden="true">
-              <span class="type-cover__list"><i class="on"></i><i></i><i class="on"></i><i></i><i></i></span>
-              <span class="type-cover__word">For readers<br>50+</span>
+          </section>
+
+          <section class="minor" id="ebook" aria-labelledby="ebook-title">
+            <div class="case__split case__split--short">
+              <div class="case__split-text">
+                <p class="sub__kicker mono">05b · Own project</p>
+                <h4 class="minor__title" id="ebook-title">Interactive ebook for readers 50+</h4>
+                <p>An HTML ebook with side-panel navigation and an interactive symptom checklist. The reader ticks what applies instead of reading a long list.</p>
+                <div class="ai-table ai-table--compact" role="group" aria-labelledby="ebook-ai-title">
+                  <h5 class="ai-table__title" id="ebook-ai-title">What AI did / What I did</h5>
+                  <div class="ai-table__grid">
+                    <div class="ai-table__col ai-table__col--ai">
+                      <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
+                      <ul><li class="pending-li"><span class="pending__label mono">Content pending</span> Which parts AI built.</li></ul>
+                    </div>
+                    <div class="ai-table__col ai-table__col--me">
+                      <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
+                      <ul><li>Chose the format and the audience: an HTML ebook with a checklist, for readers aged 50+.</li></ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- TODO: ebook topic, screenshots, AI split confirmation (docs/do-uzupelnienia.md) -->
+              </div>
+              <div class="type-cover type-cover--ebook type-cover--large" aria-hidden="true">
+                <span class="type-cover__list"><i class="on"></i><i></i><i class="on"></i><i></i><i></i></span>
+                <span class="type-cover__word">For readers<br>50+</span>
+              </div>
             </div>
-          </div>
+          </section>
         </div>
       </article>
     </section>
@@ -1082,8 +1029,7 @@
                 <tr><th scope="row">Higgsfield</th><td>Video and image generation (e.g. Seedance), video editing with person replacement</td><td class="mono">Visual</td></tr>
                 <tr><th scope="row">Leonardo AI</th><td>Graphics generation</td><td class="mono">Visual</td></tr>
                 <tr><th scope="row">Manifold</th><td>Marketing and social media research</td><td class="mono">Research</td></tr>
-                <!-- TODO: what Hubert uses Sendcastle for -->
-                <tr><th scope="row">Sendcastle</th><td><span class="pending-inline mono">Content pending: what I use it for</span></td><td class="mono">–</td></tr>
+                <!-- TODO: Sendcastle (what Hubert uses it for) left out until confirmed; see docs/do-uzupelnienia.md -->
                 <tr><th scope="row">Botpress</th><td>AI agent (chatbot) prototype for KSK Pretor</td><td class="mono">Agent</td></tr>
                 <tr><th scope="row">Canva</th><td>Graphics, posts, materials</td><td class="mono">Visual</td></tr>
                 <tr><th scope="row">Wispr Flow</th><td>Dictation, voice work</td><td class="mono">Input</td></tr>
@@ -1096,9 +1042,9 @@
 
         <article class="meta-case" id="this-portfolio" aria-labelledby="meta-title">
           <header class="meta-case__head">
-            <p class="sub__kicker mono">Case 07 · Proof</p>
+            <p class="sub__kicker mono">Case 06 · Proof</p>
             <h3 class="meta-case__title" id="meta-title">This portfolio</h3>
-            <p class="sub__lead">Built with Claude Code from one written brief. The brief and every review are in the <a href="https://github.com/Hubbit005/hubert-portfolio" rel="noopener" target="_blank">repository<span class="sr-only"> (opens in a new tab)</span></a>, so you can check the split below.</p>
+            <p class="sub__lead">Built with Claude Code from one written brief. The brief, the test scripts and the QA log are in the <a href="https://github.com/Hubbit005/hubert-portfolio" rel="noopener" target="_blank">repository<span class="sr-only"> (opens in a new tab)</span></a>.</p>
           </header>
           <div class="ai-table ai-table--flush" role="group" aria-labelledby="meta-ai-title">
             <h4 class="sr-only" id="meta-ai-title">What AI did / What I did on this portfolio</h4>
@@ -1107,22 +1053,23 @@
                 <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
                 <ul>
                   <li><b>Claude Code</b> wrote the page, the rotating name, the card wheel, the two booking prototypes and the copy drafts.</li>
-                  <li>It also wrote and ran the checks: Playwright scripts for screenshots at 1440, 768 and 390 px in both themes and for clicking through every prototype state, keyboard only included, plus axe-core for accessibility.</li>
-                  <li>Separate AI reviewers scored the page and checked every sentence against my facts. Their reports are in the repository.</li>
+                  <li>It wrote the test scripts in <code>tests/</code>: screenshots at 1440, 768 and 390 px in both themes, a click-through of every prototype state with mouse and keyboard, and an accessibility run.</li>
+                  <li>Separate AI reviewers scored the design and checked every sentence against my facts.</li>
                 </ul>
               </div>
               <div class="ai-table__col ai-table__col--me">
                 <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
                 <ul>
-                  <li>Picked the visual direction: a name rotating on a cylinder and project cards on an arc.</li>
+                  <li>Picked the visual direction from a reference: a word rotating on a cylinder, project cards on an arc.</li>
+                  <li>Changed the word from “Portfolio” in the reference to my name (commit <code>3762e06</code>).</li>
                   <li>Wrote the brief: facts about me and my projects, page structure, the flow and states of the Livingroom booking, the requirements for the KSK booking page.</li>
-                  <li>Set the rules: no invented numbers or quotes, every gap marked “Content pending”, no client data, minimum 8/10 in review.</li>
+                  <li>Set the rules: no invented numbers or quotes, every gap marked “Content pending”, no client data.</li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="caught">
-            <h4 class="mini-title">What the checks caught and fixed <a class="mono muted" href="https://github.com/Hubbit005/hubert-portfolio/blob/main/docs/qa-log.md" rel="noopener" target="_blank">QA log<span class="sr-only"> (opens in a new tab)</span></a></h4>
+            <h4 class="mini-title">What the checks and reviews caught <a class="mono muted" href="https://github.com/Hubbit005/hubert-portfolio/blob/main/docs/qa-log.md" rel="noopener" target="_blank">QA log<span class="sr-only"> (opens in a new tab)</span></a></h4>
             <ul class="caught__list">
               <li><span class="caught__k mono">Layout</span>The “all states” gallery fell apart: buttons were nested inside buttons.</li>
               <li><span class="caught__k mono">Keyboard</span>After each step, focus dropped to the page body, so keyboard users lost their place.</li>
@@ -1130,6 +1077,7 @@
               <li><span class="caught__k mono">Phone</span>Long headings made the page wider than a 360 px screen.</li>
               <li><span class="caught__k mono">Screen reader</span>Date buttons had spoken names that did not match their visible text.</li>
               <li><span class="caught__k mono">Facts</span>The fact check flagged sentences that claimed more than my sources. They were rewritten or marked “Content pending”.</li>
+              <li><span class="caught__k mono">Flow</span>Design review: free tables depend on group size, so the booking now asks for guests before the time.</li>
             </ul>
           </div>
         </article>
@@ -1176,7 +1124,7 @@
         </header>
         <div class="about__grid">
           <div class="about__main">
-            <p class="lead">I am a freelance web designer. I also do marketing and visual content for companies: video editing, graphics and motion graphics.</p>
+            <p class="lead">I design and build websites and prototypes for companies, and I make their marketing and visual content: video, graphics, motion.</p>
             <p>The most satisfying part of my work is building something that works and looks good. I follow the AI industry closely, and I believe working with AI tools is where design is going. I want to get much better at it.</p>
             <p>I am looking for a team I can stay with for the long term and grow in. I work a lot when I can see the work pays off.</p>
           </div>
