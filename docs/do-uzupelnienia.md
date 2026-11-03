@@ -29,6 +29,9 @@ Jak znaleźć miejsce w kodzie: w `index.html` każde miejsce ma komentarz `<!--
 
 | # | Co | Gdzie | Format |
 |---|---|---|---|
+| 10a | **Link do strony Basko Clean i profili społecznościowych** (Instagram, LinkedIn, TikTok) | sekcja Basko, wiersz „Status” i blok „Outcome” | Wszyscy recenzenci pytali o dowód „live website”. Link to najprostszy dowód. |
+| 10b | **Nazwij „pięć pytań”**, na które odpowiada każda sekcja wersji dla właściciela KSK | sekcja KSK, kolumna „What I did” | 5 krótkich pytań |
+| 10c | **Jedna zanonimizowana strona z planu KSK** (np. persony albo ścieżka klienta) | `assets/screenshots/ksk-plan-1.png` | Bez danych właściciela, bez cen. To najmocniejszy dowód researchu UX. |
 | 11 | **Opis agenta AI KSK Pretor**: na co odpowiada, co zbiera z zapytania grupowego, w jakich językach, kiedy przejmuje człowiek | `index.html`: `TODO: describe what the KSK Pretor agent does` | 3–4 zdania |
 | 12 | **Zrzut rozmowy z agentem** (Botpress) | `assets/screenshots/ksk-agent-1.png` | 4:5, min. 800×1000 px. Sekcja agenta została skrócona do jednej linijki w KSK; ze zrzutem i opisem warto przywrócić osobny blok. |
 | 13 | **Wyniki i wnioski Basko** (tylko te, które możesz udowodnić: zapytania, zasięgi) | `index.html`: `TODO: results (e.g. enquiries, reach)` | 2–3 zdania |
