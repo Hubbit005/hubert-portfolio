@@ -22,7 +22,7 @@ To jest wzór układu i ruchu. Nie kopiuj cudzego projektu jeden do jednego: ża
 
 ## Jak to przenieść na stronę Huberta
 
-1. **Hero:** obracający się napis 3D. Proponowane słowo „PORTFOLIO” albo imię „HUBERT”. Zrób go w CSS 3D (litery rozłożone na obwodzie walca przez `rotateY` + `translateZ`, tylna połowa jako kontur przez `-webkit-text-stroke` i `backface-visibility`) albo w three.js, jeśli CSS nie da płynności. Ciągły obrót, przy najechaniu lub przewijaniu może przyspieszać. Kolory: jasne tło, czerń, jeden mocny akcent jako pionowy prostokąt za napisem. Akcent dobierz sam, nie musi być czerwony.
+1. **Hero:** obracający się napis 3D. Słowo w napisie: **„HUBERT”** (decyzja Huberta). Zrób go w CSS 3D (litery rozłożone na obwodzie walca przez `rotateY` + `translateZ`, tylna połowa jako kontur przez `-webkit-text-stroke` i `backface-visibility`) albo w three.js, jeśli CSS nie da płynności. Ciągły obrót, przy najechaniu lub przewijaniu może przyspieszać. Kolory: jasne tło, czerń, jeden mocny akcent jako pionowy prostokąt za napisem. Akcent dobierz sam, nie musi być czerwony.
 2. **Podpisy w rogach:** „WELCOME TO MY” → np. „HUBERT · JUNIOR UX/UI DESIGNER”, „AI-NATIVE”, krzyżyki siatki jako detal.
 3. **Karuzela na łuku:** karty = projekty Huberta (Basko Clean, KSK Pretor, model 3D, Livingroom, psycholożka, plany treningowe, ebook). Koło obraca się powoli i samo. Użytkownik może je przeciągnąć myszą lub palcem. Najechanie zatrzymuje obrót i podnosi kartę. Kliknięcie przewija do case study albo otwiera je w panelu. Dostępne klawiaturą (strzałki), z widocznym focusem.
 4. **Pierścień z tekstem** w środku koła: np. „• SELECTED WORK • AI-NATIVE DESIGN •”, obracający się w przeciwną stronę.

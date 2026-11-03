@@ -33,7 +33,7 @@ Jesteś starszym product designerem i front-end developerem w jednej osobie. Bud
 
 - Zapisz w `docs/strategia.md`: kto ogląda stronę (rekruter i designer z Flying Bisons), co ma zapamiętać po 30 sekundach, jaka jest kolejność projektów i dlaczego.
 - Główny przekaz: Hubert zamienia problem klienta w działające, przeklikiwalne rozwiązanie, a AI traktuje jako warsztat, nad którym ma kontrolę. Jego doświadczenie z marketingu i pracy z klientami pasuje do ich „Invisible 90%”.
-- **Kierunek wizualny jest już wybrany przez Huberta:** przeczytaj `docs/referencja-wizualna.md`. Najważniejsze: w hero napis kręcący się w 3D jak na walcu (przód pełny, tył jako kontur), pionowy prostokąt w kolorze akcentu za nim, a niżej karuzela kart projektów ułożonych w wachlarz na łuku koła, które powoli się obraca. To dwa kluczowe elementy strony i mają działać perfekcyjnie płynnie. Zapisz w `docs/kierunek-wizualny.md`, jak go przenosisz na portfolio Huberta: paleta, kroje (extended sans w nagłówkach), siatka, ruch. Nie kopiuj cudzych grafik, nazwisk ani logo z referencji.
+- **Kierunek wizualny jest już wybrany przez Huberta:** przeczytaj `docs/referencja-wizualna.md`. Najważniejsze: w hero napis „HUBERT” kręcący się w 3D jak na walcu (przód pełny, tył jako kontur), pionowy prostokąt w kolorze akcentu za nim, a niżej karuzela kart projektów ułożonych w wachlarz na łuku koła, które powoli się obraca. To dwa kluczowe elementy strony i mają działać perfekcyjnie płynnie. Zapisz w `docs/kierunek-wizualny.md`, jak go przenosisz na portfolio Huberta: paleta, kroje (extended sans w nagłówkach), siatka, ruch. Nie kopiuj cudzych grafik, nazwisk ani logo z referencji.
 - Poza tym unikaj generycznych wyglądów AI: gradientu fiolet–niebieski, kremu z serifem i terakotą, emoji zamiast ikon, identycznych kart bez charakteru.
 - Zdefiniuj tokeny (kolory, typografia, odstępy, promienie, cienie, czasy animacji) w `css/tokens.css`. Wersja jasna i ciemna.
 
@@ -56,7 +56,7 @@ Commit.
 
 To ma być **jedna strona (one-pager)**, na której jest wszystko. Ma robić efekt „wow” od pierwszego ekranu, a jednocześnie dawać się szybko przeskanować. Po angielsku. Sekcje w tej kolejności:
 
-1. **Hero** – obracający się napis 3D według `docs/referencja-wizualna.md`, podpisy w rogach (imię, rola, „AI-native”), pod spodem jedno zdanie o tym, co Hubert robi, i przyciski „View work” oraz „Contact”.
+1. **Hero** – obracający się napis 3D „HUBERT” według `docs/referencja-wizualna.md`, podpisy w rogach (imię, rola, „AI-native”), pod spodem jedno zdanie o tym, co Hubert robi, i przyciski „View work” oraz „Contact”.
 2. **Selected work** – karuzela kart na obracającym się łuku według `docs/referencja-wizualna.md`, z pierścieniem tekstu w środku. Przeciąganie myszą i palcem, zatrzymanie przy najechaniu, obsługa strzałkami. Kliknięcie karty przewija do case study albo otwiera je w panelu na tej samej stronie.
 3. **Case studies** – kolejno: Basko Clean, KSK Pretor, Livingroom, strona dla psycholożki (bez nazwiska), plany treningowe (anonimowo), ebook (krótko). Każde ma ten sam szkielet:
    - Problem i kontekst (kto jest użytkownikiem, co mu przeszkadza),
