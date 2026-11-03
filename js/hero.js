@@ -5,7 +5,7 @@
 const WORD = 'HUBERT';
 const SEP = '+';
 const TRACK = 0.035;     // gap between glyphs, in em
-const BASE_PERIOD = 15;  // seconds per full turn at rest
+const BASE_PERIOD = 11;  // seconds per full turn at rest (before dwell)
 
 export function initHero({ reduced, lenis }) {
   const stage = document.getElementById('hero-stage');
@@ -119,7 +119,11 @@ export function initHero({ reduced, lenis }) {
     boost = te >= 1 ? 1 : 1 + 6 * Math.pow(1 - te, 3);
     hover += (hoverT - hover) * k;
     scrollV *= Math.exp(-dt * 4);
-    const target = omegaBase * boost * (1 + hover * 1.4 + scrollV * 0.06);
+    // Dwell: slow down while a full copy of the word faces the viewer (twice per turn).
+    const rel = ((theta - theta0) % Math.PI + Math.PI) % Math.PI;      // 0..π, 0 = word centred
+    const dist = Math.min(rel, Math.PI - rel) / (Math.PI / 2);           // 0 at front, 1 furthest
+    const dwell = boost > 1.01 ? 1 : 0.16 + 0.84 * Math.min(1, Math.pow(dist / 0.55, 2));
+    const target = omegaBase * boost * dwell * (1 + hover * 1.4 + scrollV * 0.06);
     omega += (target - omega) * (1 - Math.exp(-dt * 6));
     theta -= omega * dt;
     tiltX += (tiltXT - tiltX) * k;

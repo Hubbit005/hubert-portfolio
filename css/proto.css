@@ -213,7 +213,7 @@
 .ksk-price__pp b { font-size: 1.1rem; }
 .ksk-price__note { font-size: 0.72rem; color: #a9a9a3; font-family: var(--font-mono); letter-spacing: 0.02em; }
 .ksk-pkgs { display: grid; gap: 10px; }
-@media (min-width: 560px) { .ksk-pkgs { grid-template-columns: repeat(3, 1fr); } }
+
 .ksk-pkg { position: relative; display: grid; gap: 4px; align-content: start; padding: 14px; border-radius: var(--pk-radius); border: 1.5px solid var(--pk-line-2); cursor: pointer; }
 .ksk-pkg input { position: absolute; opacity: 0; }
 .ksk-pkg__n { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; text-transform: uppercase; }
@@ -249,3 +249,5 @@
   .pk__tile-frame { height: 200px; }
   .pk__tile-inner { transform: scale(0.31); }
 }
+.ksk-pkg__p { white-space: nowrap; }
+.ksk-pkgs { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }

@@ -37,6 +37,7 @@ export function initArc({ reduced }) {
   let hoverCount = 0;
   let dragging = false, pointerId = null, startX = 0, lastX = 0, lastT = 0, moved = 0, dragVel = 0;
   let tween = null;
+  let touched = false;   // after the first user interaction the wheel stays where the user left it
   let idleUntil = 0;
   let running = true;
   let last = performance.now();
@@ -87,6 +88,7 @@ export function initArc({ reduced }) {
   }
 
   function goTo(target, dur = 650) {
+    touched = true;
     if (reduced) { offset = target; tween = null; render(); return; }
     tween = { from: offset, to: target, t0: performance.now(), dur };
     vel = 0;
@@ -119,7 +121,7 @@ export function initArc({ reduced }) {
       offset = tween.from + (tween.to - tween.from) * e;
       if (t >= 1) tween = null;
     } else if (!dragging) {
-      const paused = hoverCount > 0 || now < idleUntil || reduced;
+      const paused = hoverCount > 0 || now < idleUntil || reduced || touched;
       const target = paused ? 0 : BASE_SPEED;
       // inertia: release velocity decays towards the base speed
       vel += (target - vel) * (1 - Math.exp(-dt * (Math.abs(vel) > 0.6 ? 1.6 : 2.4)));
@@ -133,7 +135,7 @@ export function initArc({ reduced }) {
   // ----- pointer drag
   viewport.addEventListener('pointerdown', (e) => {
     if (e.button !== 0) return;
-    dragging = true; pointerId = e.pointerId;
+    dragging = true; pointerId = e.pointerId; touched = true;
     startX = lastX = e.clientX; lastT = performance.now(); moved = 0; dragVel = 0;
     tween = null;
   });

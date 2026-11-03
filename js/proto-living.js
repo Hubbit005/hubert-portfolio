@@ -20,9 +20,9 @@ function validate(d, keys) {
   const e = {};
   if (keys.includes('name') && (d.name || '').trim().length < 2) e.name = 'Enter your full name.';
   if (keys.includes('phone')) {
-    const digits = (d.phone || '').replace(/[\s-]/g, '').replace(/^\+48/, '');
-    if (!digits) e.phone = 'Enter a phone number so the restaurant can reach you.';
-    else if (!/^\d{9}$/.test(digits)) e.phone = 'Enter 9 digits, for example 600 100 200.';
+    const raw = (d.phone || '').replace(/[\s()-]/g, '');
+    if (!raw) e.phone = 'Enter a phone number so the restaurant can reach you.';
+    else if (!/^(\+\d{8,15}|\d{9})$/.test(raw)) e.phone = 'Enter 9 digits, or a number with a country code, for example +48 600 100 200.';
   }
   if (keys.includes('email')) {
     const v = (d.email || '').trim();
@@ -141,7 +141,7 @@ function render(s) {
         ${s.showSummary ? errorSummary(e, LABELS, 'Fix these to continue:') : ''}
         <form class="pk-form" novalidate data-form="details">
           ${field({ id: 'name', label: LABELS.name, value: s.d.name, error: e.name, required: true, autocomplete: 'name' })}
-          ${field({ id: 'phone', label: LABELS.phone, type: 'tel', value: s.d.phone, error: e.phone, required: true, autocomplete: 'tel', inputmode: 'tel', hint: 'The restaurant calls only if something changes.' })}
+          ${field({ id: 'phone', label: LABELS.phone, type: 'tel', value: s.d.phone, error: e.phone, required: true, autocomplete: 'tel', inputmode: 'tel', hint: 'Polish number or with a country code. The restaurant calls only if something changes.' })}
           ${field({ id: 'email', label: LABELS.email, type: 'email', value: s.d.email, error: e.email, required: true, autocomplete: 'email', hint: 'We send the confirmation here.' })}
           ${field({ id: 'notes', label: LABELS.notes, type: 'textarea', value: s.d.notes, error: e.notes, hint: 'Allergies, a high chair, a birthday. Up to 200 characters.' })}
           <div class="pk-actions">${back('party')}<button type="submit" class="pk-btn">Review booking <span aria-hidden="true">→</span></button></div>
@@ -323,7 +323,7 @@ const gallery = [
   { label: '9+ guests: group enquiry', state: { step: 'enquiry', date: isoDay(days[1]), time: '19:30', g: { gname: '', gemail: '', gphone: '', gsize: '14', gmsg: '' } } },
   { label: 'Group enquiry sent', state: { step: 'enquirySent', g: { gname: 'Anna Nowak', gemail: 'anna@example.com', gphone: '', gsize: '14', gmsg: '' } } },
   { label: 'Details, empty', state: { step: 'details', date: isoDay(days[1]), time: '19:30', party: 4 } },
-  { label: 'Details, validation errors', state: { step: 'details', date: isoDay(days[1]), time: '19:30', party: 4, showSummary: true, d: { name: 'A', phone: '60010', email: 'anna@', notes: '' }, errors: { name: 'Enter your full name.', phone: 'Enter 9 digits, for example 600 100 200.', email: 'Enter an e-mail like name@example.com.' } } },
+  { label: 'Details, validation errors', state: { step: 'details', date: isoDay(days[1]), time: '19:30', party: 4, showSummary: true, d: { name: 'A', phone: '60010', email: 'anna@', notes: '' }, errors: { name: 'Enter your full name.', phone: 'Enter 9 digits, or a number with a country code, for example +48 600 100 200.', email: 'Enter an e-mail like name@example.com.' } } },
   { label: 'Review and confirm', state: { step: 'review', date: isoDay(days[1]), time: '19:30', party: 4, d: sampleD } },
   { label: 'Sending', state: { step: 'review', date: isoDay(days[1]), time: '19:30', party: 4, d: sampleD, send: 'loading' } },
   { label: 'Sending failed, data kept', state: { step: 'review', date: isoDay(days[1]), time: '19:30', party: 4, d: sampleD, send: 'error' } },

@@ -84,7 +84,7 @@ function render(s) {
         return `<li><button type="button" class="pk-time${sel ? ' is-sel' : ''}" data-slot="${t}" ${booked ? 'disabled' : ''} aria-pressed="${sel}" >${t}${booked ? '<span class="sr-only">, ausgebucht</span>' : ''}</button></li>`;
       }).join('')}</ul></fieldset>` : '';
       const msg = m === 'small'
-        ? `<div class="ksk-msg" role="status"><p><b>Unter ${MIN} Personen?</b> Diese Seite ist für Gruppen. Kleinere Gruppen buchen über die Standardbuchung.</p></div>`
+        ? `<div class="ksk-msg" role="status"><p><b>Unter ${MIN} Personen?</b> Die Gruppenpakete gelten ab ${MIN} Personen. Kleinere Gruppen buchen über die Standardbuchung.</p><div class="pk-row"><button type="button" class="pk-btn pk-btn--ghost" data-standard>Zur Standardbuchung</button><button type="button" class="pk-link" data-size-min>Auf ${MIN} Personen erhöhen</button></div></div>`
         : m === 'quote'
           ? `<div class="ksk-msg" role="status"><p><b>Über ${MAX} Personen.</b> Für große Gruppen erstellen wir ein individuelles Angebot. Den Termin können Sie trotzdem schon wählen.</p></div>`
           : '';
@@ -106,7 +106,8 @@ function render(s) {
           <ul class="pk-days" aria-labelledby="ksk-date-l">${dayBtns}</ul>
           ${slots}
         </div>
-        <div class="pk-actions">${back('paket')}<button type="button" class="pk-btn" data-to="kontakt" ${m === 'small' ? 'disabled' : ''}>${m === 'quote' ? 'Individuelles Angebot anfragen' : 'Weiter'} <span aria-hidden="true">→</span></button></div>`;
+        <div class="pk-actions">${back('paket')}<button type="button" class="pk-btn" data-to="kontakt" ${m === 'small' ? 'disabled aria-describedby="ksk-small-why"' : ''}>${m === 'quote' ? 'Individuelles Angebot anfragen' : 'Weiter'} <span aria-hidden="true">→</span></button></div>
+        ${m === 'small' ? `<p class="pk-note" id="ksk-small-why">Weiter ist ab ${MIN} Personen möglich.</p>` : ''}`;
       break;
     }
     case 'kontakt': {
@@ -167,12 +168,18 @@ function bind(el, api) {
   });
   const setSize = (n, focusSel) => {
     const v = Math.max(1, Math.min(99, n || 1));
-    api.set({ size: v }, { focus: focusSel });
+    const keepErr = api.state.errors.termin && !(api.state.date && api.state.slot);
+    api.set({ size: v, showSummary: keepErr && v >= MIN ? api.state.showSummary : false }, { focus: focusSel });
     api.announce(v < MIN ? `${v} Personen, unter ${MIN}` : v > MAX ? `${v} Personen, individuelles Angebot` : `${v} Personen, gesamt ${eur(pkgOf(api.state).price * v)}`);
   };
   el.querySelectorAll('[data-size]').forEach((b) => b.addEventListener('click', () => setSize(api.state.size + +b.dataset.size, `[data-size="${b.dataset.size}"]`)));
   el.querySelector('#ksk-size')?.addEventListener('change', (e) => setSize(parseInt(e.target.value, 10), '#ksk-size'));
   el.querySelector('[data-range]')?.addEventListener('input', (e) => setSize(+e.target.value, '[data-range]'));
+  el.querySelector('[data-size-min]')?.addEventListener('click', () => setSize(MIN, '#ksk-size'));
+  el.querySelector('[data-standard]')?.addEventListener('click', (e) => {
+    const b = e.currentTarget; b.disabled = true;
+    b.insertAdjacentHTML('afterend', '<p class="pk-note" role="status" lang="en">In the real page this opens the standard booking for small groups. Not part of this prototype.</p>');
+  });
   el.querySelectorAll('[data-date]').forEach((b) => b.addEventListener('click', () => api.set({ date: b.dataset.date, slot: null, showSummary: false }, { focus: `[data-date="${b.dataset.date}"]` })));
   el.querySelectorAll('[data-slot]').forEach((b) => b.addEventListener('click', () => api.set({ slot: b.dataset.slot, showSummary: false }, { focus: `[data-slot="${b.dataset.slot}"]` })));
 

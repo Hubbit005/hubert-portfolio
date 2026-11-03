@@ -19,9 +19,9 @@ export function initMotion({ reduced, gsap, ScrollTrigger }) {
   // Fade-up groups. Elements are visible until their trigger is set up.
   const groups = [
     '.sec-head__aside', '.case__sub', '.facts', '.case__intro .block', '.gallery .shot', '.gallery .frame-slot',
-    '.ai-table__grid', '.accordion', '.stats li', '.sub__head', '.sub__grid > *', '.flow', '.wf',
+    '.ai-table__grid', '.accordion', '.sub__head', '.sub__grid > *', '.flow',
     '.split-panel', '.tools', '.exploring', '.about__main > *', '.about__side', '.cv__col', '.contact__grid > *',
-    '.case-index li', '.phones .shot', '.case__split-text > *', '.model-embed', '.journeys__head', '.journeys__personas',
+    '.phones .shot', '.model-embed', '.meta-case',
   ];
   groups.forEach((sel) => {
     const els = gsap.utils.toArray(sel);
@@ -55,17 +55,6 @@ export function initMotion({ reduced, gsap, ScrollTrigger }) {
   // Hero entrance for the foot and corners
   gsap.from('.hero__lead, .hero__cta > *, .corner', { y: 24, opacity: 0, duration: 1, ease, stagger: 0.06, delay: 0.25 });
 
-  // Count-up stats
-  gsap.utils.toArray('[data-count]').forEach((el) => {
-    const end = parseFloat(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
-    const obj = { v: 0 };
-    ScrollTrigger.create({
-      trigger: el, start: 'top 90%', once: true,
-      onEnter: () => gsap.to(obj, { v: end, duration: 1.4, ease: 'power3.out', onUpdate: () => { el.textContent = `${Math.round(obj.v)}${suffix}`; } }),
-    });
-  });
-
   // Customer journeys: pinned on desktop, drawn lane by lane while scrolling.
   const journeys = document.getElementById('journeys');
   if (journeys) {
@@ -74,7 +63,7 @@ export function initMotion({ reduced, gsap, ScrollTrigger }) {
       const lanes = journeys.querySelectorAll('.lane');
       const tl = gsap.timeline({
         scrollTrigger: pin
-          ? { trigger: journeys, start: 'center center', end: '+=110%', scrub: 0.6, pin: true, anticipatePin: 1 }
+          ? { trigger: journeys, start: 'center center', end: '+=70%', scrub: 0.5, pin: true, anticipatePin: 1 }
           : { trigger: journeys.querySelector('.journeys__chart'), start: 'top 80%', once: true },
         defaults: { ease: pin ? 'none' : 'power3.out' },
       });
