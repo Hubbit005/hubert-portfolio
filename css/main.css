@@ -840,3 +840,25 @@ a:not([class]):hover { text-decoration-thickness: 2px; }
   .case--dark { background: none; color: #000; }
   details { display: block; }
 }
+
+/* ---------- Small-screen fixes (QA round 1) ---------- */
+.sub__grid > *, .case__intro > *, .gallery > *, .case__split > *, .cv__grid > *, .about__grid > *, .contact__grid > *, .ksk-grid > *, .ksk-main { min-width: 0; }
+.case__title, .sec-head__title, .sub__title, .journeys__title, .exploring__title { overflow-wrap: break-word; hyphens: manual; }
+@media (max-width: 560px) {
+  .case__title { font-size: clamp(1.9rem, 8.6vw, 3rem); font-stretch: 108%; }
+  .sec-head__title { font-size: clamp(1.9rem, 9.4vw, 3rem); }
+  .sub__title { font-size: clamp(1.4rem, 6.6vw, 2rem); font-stretch: 112%; }
+  .map-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .map-table tr { display: grid; gap: 2px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .map-table td { display: block; width: auto !important; padding: 0; border: 0; }
+  .map-table td:first-child::before { content: "Research: "; font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .state-table tbody th { width: 38%; }
+  .nav__menu-label { display: none; }
+  .nav__menu-btn { width: 44px; padding: 0; justify-content: center; }
+  .nav__name { font-size: 0.95rem; }
+}
+@media (max-width: 560px) {
+  .frame-slot__body { aspect-ratio: auto; padding: 24px 16px; }
+  .wire { width: 100%; }
+  .frame-slot__cap span { overflow-wrap: anywhere; }
+}

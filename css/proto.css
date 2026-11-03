@@ -233,3 +233,19 @@
 .ksk-section { display: grid; gap: 12px; padding-top: 6px; }
 .ksk-section + .ksk-section { margin-top: 10px; }
 .ksk-label { font-weight: 700; font-size: 0.95rem; }
+@media (max-width: 560px) {
+  .pk__steps { gap: 2px; }
+  .pk__step { flex: 0 0 auto; min-width: 0; }
+  .pk__step:not(.is-current) .pk__step-l { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .pk__step.is-current { flex: 1 1 auto; }
+  .pk__screen { padding: 18px 14px 20px; }
+  .pk__bar, .pk__tools { padding-inline: 14px; }
+  .pk-days { gap: 4px; }
+  .pk-day { padding: 6px 0; }
+  .pk-day__d { font-size: 1rem; }
+  .pk-review > div { grid-template-columns: 1fr auto; }
+  .pk-review dt { grid-column: 1 / -1; }
+  .pk__tiles { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pk__tile-frame { height: 200px; }
+  .pk__tile-inner { transform: scale(0.31); }
+}

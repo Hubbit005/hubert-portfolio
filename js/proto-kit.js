@@ -130,6 +130,7 @@ export function createFrame(root, cfg) {
   }
 
   function draw(focus = 'heading') {
+    const hadFocus = root.contains(document.activeElement) && document.activeElement !== document.body;
     drawSteps();
     screen.innerHTML = cfg.render(state, true);
     screen.classList.remove('is-enter');
@@ -138,7 +139,7 @@ export function createFrame(root, cfg) {
     cfg.bind(screen, api);
     if (focus === 'heading') {
       const h = screen.querySelector('[data-focus="heading"]');
-      if (h && root.contains(document.activeElement)) h.focus({ preventScroll: true });
+      if (h && hadFocus) h.focus({ preventScroll: true });
     } else if (focus === 'summary') {
       screen.querySelector('[data-focus="summary"]')?.focus({ preventScroll: true });
     } else if (typeof focus === 'string' && focus) {

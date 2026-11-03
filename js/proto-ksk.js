@@ -76,12 +76,12 @@ function render(s) {
     case 'gruppe': {
       const dayBtns = days.map((d) => {
         const iso = isoDay(d); const sel = s.date === iso;
-        return `<li><button type="button" class="pk-day${sel ? ' is-sel' : ''}" data-date="${iso}" aria-pressed="${sel}" aria-label="${esc(fmt(d, L, { weekday: 'long', day: 'numeric', month: 'long' }))}">
-          <span class="pk-day__w">${esc(fmt(d, L, { weekday: 'short' }))}</span><span class="pk-day__d">${d.getDate()}</span><span class="pk-day__m">${esc(fmt(d, L, { month: 'short' }))}</span></button></li>`;
+        return `<li><button type="button" class="pk-day${sel ? ' is-sel' : ''}" data-date="${iso}" aria-pressed="${sel}">
+          <span class="pk-day__w" aria-hidden="true">${esc(fmt(d, L, { weekday: 'short' }))}</span><span class="pk-day__d" aria-hidden="true">${d.getDate()}</span><span class="pk-day__m" aria-hidden="true">${esc(fmt(d, L, { month: 'short' }))}</span><span class="sr-only">${esc(fmt(d, L, { weekday: 'long', day: 'numeric', month: 'long' }))}</span></button></li>`;
       }).join('');
       const slots = s.date ? `<fieldset class="pk-fs"><legend class="ksk-label">Uhrzeit am ${esc(dayLong(s.date))}</legend><ul class="pk-times">${SLOTS.map((t) => {
         const booked = BOOKED.has(`${s.date} ${t}`); const sel = s.slot === t;
-        return `<li><button type="button" class="pk-time${sel ? ' is-sel' : ''}" data-slot="${t}" ${booked ? 'disabled' : ''} aria-pressed="${sel}" aria-label="${t}${booked ? ', ausgebucht' : ''}">${t}</button></li>`;
+        return `<li><button type="button" class="pk-time${sel ? ' is-sel' : ''}" data-slot="${t}" ${booked ? 'disabled' : ''} aria-pressed="${sel}" >${t}${booked ? '<span class="sr-only">, ausgebucht</span>' : ''}</button></li>`;
       }).join('')}</ul></fieldset>` : '';
       const msg = m === 'small'
         ? `<div class="ksk-msg" role="status"><p><b>Unter ${MIN} Personen?</b> Diese Seite ist für Gruppen. Kleinere Gruppen buchen über die Standardbuchung.</p></div>`

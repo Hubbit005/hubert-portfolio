@@ -86,10 +86,11 @@ function render(s) {
         const full = FULL.has(iso);
         const sel = s.date === iso;
         const label = `${fmt(d, L, { weekday: 'long', day: 'numeric', month: 'long' })}${full ? ', fully booked' : ''}`;
-        return `<li><button type="button" class="pk-day${sel ? ' is-sel' : ''}${full ? ' is-full' : ''}" data-date="${iso}" ${full ? 'disabled' : ''} aria-pressed="${sel}" aria-label="${esc(label)}">
-          <span class="pk-day__w">${esc(fmt(d, L, { weekday: 'short' }))}</span>
-          <span class="pk-day__d">${d.getDate()}</span>
-          <span class="pk-day__m">${full ? 'Full' : esc(fmt(d, L, { month: 'short' }))}</span>
+        return `<li><button type="button" class="pk-day${sel ? ' is-sel' : ''}${full ? ' is-full' : ''}" data-date="${iso}" ${full ? 'disabled' : ''} aria-pressed="${sel}">
+          <span class="pk-day__w" aria-hidden="true">${esc(fmt(d, L, { weekday: 'short' }))}</span>
+          <span class="pk-day__d" aria-hidden="true">${d.getDate()}</span>
+          <span class="pk-day__m" aria-hidden="true">${full ? 'Full' : esc(fmt(d, L, { month: 'short' }))}</span>
+          <span class="sr-only">${esc(label)}</span>
         </button></li>`;
       }).join('');
       return `${H('Choose a date', 'Next 14 days. Crossed-out days are fully booked.')}
@@ -120,7 +121,7 @@ function render(s) {
           <ul class="pk-times">${ALL_TIMES.map((t) => {
             const taken = TAKEN.has(t);
             const sel = s.time === t;
-            return `<li><button type="button" class="pk-time${sel ? ' is-sel' : ''}" data-time="${t}" ${taken ? 'disabled' : ''} aria-pressed="${sel}" aria-label="${t}${taken ? ', taken' : ''}">${t}</button></li>`;
+            return `<li><button type="button" class="pk-time${sel ? ' is-sel' : ''}" data-time="${t}" ${taken ? 'disabled' : ''} aria-pressed="${sel}">${t}${taken ? '<span class="sr-only">, taken</span>' : ''}</button></li>`;
           }).join('')}</ul></fieldset>`;
       }
       const showNext = s.times === 'ready';
@@ -128,7 +129,7 @@ function render(s) {
         <div class="pk-actions">${back('date')}${showNext ? `<button type="button" class="pk-btn" data-next="party" ${s.time ? '' : 'disabled'}>Continue <span aria-hidden="true">→</span></button>` : '<span></span>'}</div>`;
     }
     case 'party': {
-      const opts = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `<li><button type="button" class="pk-num${s.party === n ? ' is-sel' : ''}" data-party="${n}" aria-pressed="${s.party === n}" aria-label="${n} ${n === 1 ? 'guest' : 'guests'}">${n}</button></li>`).join('');
+      const opts = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `<li><button type="button" class="pk-num${s.party === n ? ' is-sel' : ''}" data-party="${n}" aria-pressed="${s.party === n}">${n}<span class="sr-only"> ${n === 1 ? 'guest' : 'guests'}</span></button></li>`).join('');
       return `${H('How many guests?')}${chosen(s)}
         <ul class="pk-nums" aria-label="Number of guests">${opts}<li><button type="button" class="pk-num pk-num--wide" data-party="9">9 or more</button></li></ul>
         <p class="pk-note">Groups of 9 or more go through a short enquiry, so the restaurant can prepare the room.</p>
