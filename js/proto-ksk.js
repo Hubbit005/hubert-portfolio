@@ -146,7 +146,7 @@ function render(s) {
     case 'sent':
       main = `<div class="pk-done"><span class="pk-done__icon" aria-hidden="true">✓</span>
         ${H(m === 'quote' ? 'Angebotsanfrage gesendet' : 'Anfrage gesendet', `Vorgangsnummer <b>${esc(s.ref || 'KSK-2611')}</b>. Wir melden uns per E-Mail an ${esc(s.c.email || 'julia.becker@firma.de')}.`)}
-        <p class="pk-note">Termin und Preis werden mit unserer Antwort verbindlich.</p>
+        <p class="pk-note">Wir antworten innerhalb von 24 Stunden <span lang="en">(sample service level)</span>. Termin und Preis werden mit unserer Antwort verbindlich.</p>
         <div class="pk-row"><button type="button" class="pk-btn pk-btn--ghost" data-restart>Neue Anfrage</button></div></div>`;
       break;
     default: main = '';

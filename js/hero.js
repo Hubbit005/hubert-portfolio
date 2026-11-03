@@ -6,6 +6,8 @@ const WORD = 'HUBERT';
 const SEP = '+';
 const TRACK = 0.035;     // gap between glyphs, in em
 const GAP = 2.3;         // empty arc on each side of the separator, in em: the word spans ~95° and reads in full
+const ENTER_MS = 1700;
+const ENTER_TURN = Math.PI * 1.5; // radians spun during the entrance
 const BASE_PERIOD = 11;  // seconds per full turn at rest (before dwell)
 
 export function initHero({ reduced, lenis }) {
@@ -118,8 +120,18 @@ export function initHero({ reduced, lenis }) {
     last = now;
     const k = 1 - Math.exp(-dt * 3);
     // entrance boost decays over ~1.8s
-    const te = (now - enterStart) / 1800;
-    boost = te >= 1 ? 1 : 1 + 6 * Math.pow(1 - te, 3);
+    const te = (now - enterStart) / ENTER_MS;
+    if (te < 1) {
+      // Entrance: one fast turn that eases out exactly on the front-facing angle.
+      const e = 1 - Math.pow(1 - te, 4);
+      theta = theta0 + ENTER_TURN * (1 - e);
+      cyl.style.setProperty('--bo', (1 - e).toFixed(2));
+      cyl.style.transform = `rotateY(${theta.toFixed(5)}rad)`;
+      omega = 0;
+      raf = requestAnimationFrame(tick);
+      return;
+    }
+    boost = 1;
     hover += (hoverT - hover) * k;
     scrollV *= Math.exp(-dt * 4);
     // Dwell: slow down while a full copy of the word faces the viewer (twice per turn).

@@ -15,10 +15,14 @@ const FLAKY = isoDay(days[6]);
 const ALL_TIMES = ['12:00', '13:00', '14:00', '15:30', '17:00', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00'];
 const TAKEN = new Set(['13:00', '18:30', '19:00', '20:00']);
 // Sample data: which slots are taken changes with the date and grows with the group size.
-const takenOn = (iso, t) => {
+const takenOn = (iso, t, party = 2) => {
   const seed = (iso || '').split('-').reduce((a, n) => a + +n, 0);
   const i = ALL_TIMES.indexOf(t);
-  return TAKEN.has(ALL_TIMES[(i + seed) % ALL_TIMES.length]);
+  if (TAKEN.has(ALL_TIMES[(i + seed) % ALL_TIMES.length])) return true;
+  // larger groups need larger tables: fewer slots fit 5–6, fewer still 7–8
+  if (party >= 5 && (i + seed) % 3 === 0) return true;
+  if (party >= 7 && (i + seed) % 3 === 1) return true;
+  return false;
 };
 let flakyFailedOnce = false;
 
@@ -128,13 +132,13 @@ function render(s) {
       } else {
         body = `<fieldset class="pk-fs"><legend class="sr-only">Free times on ${esc(dayLabel(s.date))}</legend>
           <ul class="pk-times">${ALL_TIMES.map((t) => {
-            const taken = takenOn(s.date, t);
+            const taken = takenOn(s.date, t, s.party || 2);
             const sel = s.time === t;
             return `<li><button type="button" class="pk-time${sel ? ' is-sel' : ''}" data-time="${t}" ${taken ? 'disabled' : ''} aria-pressed="${sel}">${t}${taken ? '<span class="sr-only">, taken</span>' : ''}</button></li>`;
           }).join('')}</ul></fieldset>`;
       }
       const showNext = s.times === 'ready';
-      return `${H('Choose a time', esc(dayLabel(s.date || isoDay(days[0]))))}${body}
+      return `${H(`Choose a time for ${esc(s.party || 2)} ${(s.party || 2) === 1 ? 'guest' : 'guests'}`, `${esc(dayLabel(s.date || isoDay(days[0])))}. Fewer times fit larger groups.`)}${body}
         <div class="pk-actions">${back('party')}${showNext ? `<button type="button" class="pk-btn" data-next="details" ${s.time ? '' : 'disabled'}>Continue <span aria-hidden="true">→</span></button>` : '<span></span>'}</div>`;
     }
     case 'party': {

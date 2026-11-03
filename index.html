@@ -12,7 +12,7 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hubert · Junior UX/UI Designer, AI-native">
-  <meta property="og:description" content="Client websites, a 3D model and clickable booking prototypes with every state, built with AI tools.">
+  <meta property="og:description" content="Client websites, a 3D model and clickable booking prototypes with their error and edge states, built with AI tools.">
   <meta property="og:url" content="https://hubbit005.github.io/hubert-portfolio/">
   <meta property="og:image" content="https://hubbit005.github.io/hubert-portfolio/assets/og/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -104,7 +104,7 @@
       <p class="hero__role">Junior UX/UI Designer <span aria-hidden="true">·</span> AI-native</p>
 
       <div class="hero__foot">
-        <p class="hero__lead">I design websites and clickable prototypes, and I plan for every state a user can reach. I build with AI tools and decide what ships.</p>
+        <p class="hero__lead">I design websites and clickable prototypes, including the empty, error and edge states. I build with AI tools and decide what ships.</p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="#work" data-magnetic>
             <span>View work</span>
@@ -235,7 +235,7 @@
                 <img src="assets/img/basko-hero-960.jpg" srcset="assets/img/basko-hero-480.jpg 480w, assets/img/basko-hero-960.jpg 960w, assets/img/basko-hero-1600.jpg 1600w" sizes="(min-width: 1360px) 1240px, 92vw" width="1829" height="952" alt="Basko Clean home page: headline about professional B2B cleaning, a free quote form with service, phone and postcode fields, and two cards linking to the process and the offer." loading="lazy" decoding="async">
               </picture>
             </div>
-            <figcaption class="mono">Home page. The quote form sits in the first screen.</figcaption>
+            <figcaption class="mono">Home page. The quote form is visible without scrolling.</figcaption>
           </figure>
 
           <div class="case__intro">
@@ -281,7 +281,7 @@
                   <source src="assets/video/web/basko-reel-540.mp4" type="video/mp4">
                 </video>
               </div>
-              <figcaption class="mono" id="basko-reel-desc">20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card.</figcaption>
+              <figcaption class="mono" id="basko-reel-desc">20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card. <span class="pending-inline">Pending: is this the mascot ad, and which tools made it</span></figcaption>
             </figure>
           </div>
 
@@ -298,7 +298,7 @@
               <div class="ai-table__col ai-table__col--me">
                 <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
                 <ul>
-                  <li>Decided the page structure and put the quote form in the first screen.</li>
+                  <li>Decided the page structure and placed the quote form above the fold.</li>
                   <li>Rejected the realistic 3D version. It did not fit the brand. I chose flat 2D motion graphics with kinetic type and the logo's cleaner figure as the hero.</li>
                   <li>Filmed on job sites and edited the reels. I still run the three social profiles.</li>
                   <li>Vectorised the logo figure, made light and dark profile pictures, wrote the bio.</li>
@@ -315,7 +315,7 @@
                   <li><b>Input.</b> The service range (halls, floors, roofs, facades, parking lots) and before-and-after photos from real jobs. The range became the service list in the form and the checklist in the reel.</li>
                   <li><b>Flow.</b> The visitor sees what Basko cleans, then asks for a quote. The form asks for three things: service, phone number, postcode.</li>
                   <li><b>Prototype.</b> Built directly in code with Claude Code: React components rendered in the browser.</li>
-                  <li><b>Final.</b> Live site in Basko's navy palette with Inter and Plus Jakarta Sans. The ad went through two directions: realistic 3D from AI, then flat 2D motion graphics. The second one shipped.</li>
+                  <li><b>Final.</b> Live site in Basko's navy palette with Inter and Plus Jakarta Sans. The ad went through two directions: realistic 3D from AI, then flat 2D motion graphics. I chose the second.</li>
                 </ol>
               </div>
             </details>
@@ -411,11 +411,11 @@
               </div>
               <div class="lane lane--unknown" data-lane="2">
                 <span class="lane__label mono">Journey 2</span>
-                <span class="lane__track lane__track--text"><span class="lane__unknown mono">Length in the full plan</span></span>
+                <span class="lane__track lane__track--text"><span class="lane__unknown mono">Content pending: length</span></span>
               </div>
               <div class="lane lane--unknown" data-lane="3">
                 <span class="lane__label mono">Journey 3</span>
-                <span class="lane__track lane__track--text"><span class="lane__unknown mono">Length in the full plan</span></span>
+                <span class="lane__track lane__track--text"><span class="lane__unknown mono">Content pending: length</span></span>
               </div>
               <div class="lane" data-lane="4">
                 <span class="lane__label mono">Journey 4 <em>up to 12 months</em></span>
@@ -432,7 +432,7 @@
                 </div>
               </div>
             </div>
-            <p class="journeys__note mono">Bars show the two lengths stated in the plan summary: a few days and up to 12 months. The plan names each journey, drop-off point and lever.</p>
+            <p class="journeys__note mono">Bars show the two planning lengths I can state here: a few days and up to 12 months. The plan names each journey, drop-off point and lever.</p>
             <!-- TODO: Hubert to name journeys 2 and 3, and confirm the 7 drop-off points -->
           </div>
 
@@ -463,7 +463,7 @@
           <!-- Sub-project: 3D model -->
           <section class="sub" id="ksk-3d-model" aria-labelledby="ksk-3d-title">
             <header class="sub__head">
-              <p class="sub__kicker mono">KSK Pretor · Sub-project 1</p>
+              <p class="sub__kicker mono">KSK Pretor · 3D model</p>
               <h4 class="sub__title" id="ksk-3d-title">Interactive 3D model of an AK-47</h4>
               <p class="sub__lead">Built in code from simple shapes in three.js, with no ready-made models. Visitors rotate it, take it apart step by step and export a photo for Instagram. Live version: <a href="https://hubbit005.github.io/ksk-ak47-3d/" rel="noopener" target="_blank">hubbit005.github.io/ksk-ak47-3d<span class="sr-only"> (opens in a new tab)</span></a>.</p>
             </header>
@@ -501,7 +501,7 @@
                 </table>
               </div>
               <div>
-                <h5 class="mini-title">All states <span class="mono muted">screenshots</span></h5>
+                <h5 class="mini-title">Key states <span class="mono muted">screenshots</span></h5>
                 <ul class="state-shots">
                   <li>
                     <picture><source type="image/webp" srcset="assets/img/ak-hover-480.webp 480w, assets/img/ak-hover-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-hover-480.jpg" srcset="assets/img/ak-hover-480.jpg 480w, assets/img/ak-hover-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="Magazine highlighted in red with a tooltip showing its name and a short description." loading="lazy" decoding="async"></picture>
@@ -524,10 +524,36 @@
             </div>
           </section>
 
-          <!-- Sub-project: German group booking prototype -->
-          <section class="sub" id="ksk-booking" aria-labelledby="ksk-booking-title">
+          <!-- Sub-project: video branding -->
+          <section class="sub" id="ksk-video" aria-labelledby="ksk-video-title">
             <header class="sub__head">
-              <p class="sub__kicker mono">KSK Pretor · Concept for this portfolio</p>
+              <p class="sub__kicker mono">KSK Pretor · Video</p>
+              <h4 class="sub__title" id="ksk-video-title">Video branding</h4>
+              <p class="sub__lead">A 3-second intro and outro with the logo: a bullet flies through the frame and the logo emerges from behind it. Polish and German versions, a “Vielen Dank” card for agencies and a 10-second spot. The animations are built in HTML and GSAP and rendered frame by frame.</p>
+            </header>
+            <div class="sub__grid sub__grid--video-stack">
+              <figure class="shot shot--video">
+                <div class="shot__frame shot__frame--16x9">
+                  <video controls muted playsinline preload="none" poster="assets/img/ksk-film-logo-960.jpg" width="1280" height="720" aria-describedby="ksk-film-desc">
+                    <source src="assets/video/web/ksk-film-de-720.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <figcaption class="mono" id="ksk-film-desc">German-language promo film for KSK Pretor, 35 seconds, 16:9, no sound. Weapons, ranges, simulator, paintball, instructors, logo end card. <span class="pending-inline">My role in the film: pending</span></figcaption>
+              </figure>
+              <div class="film-strip">
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-waffen-480.webp"><img src="assets/img/ksk-film-waffen-480.jpg" width="480" height="270" alt="Film frame: 45+ Waffen, 14 Kaliber, with a rifle silhouette." loading="lazy" decoding="async"></picture>
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-bahnen-480.webp"><img src="assets/img/ksk-film-bahnen-480.jpg" width="480" height="270" alt="Film frame: Bahnen bis 100 m with an aerial photo of the range." loading="lazy" decoding="async"></picture>
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-price-480.webp"><img src="assets/img/ksk-film-price-480.jpg" width="480" height="270" alt="Film frame: a price comparison bar chart in red and grey." loading="lazy" decoding="async"></picture>
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-instructor-480.webp"><img src="assets/img/ksk-film-instructor-480.jpg" width="480" height="270" alt="Film frame: one instructor with every shooter, with a photo of an instructor at the range." loading="lazy" decoding="async"></picture>
+                <!-- TODO: assets/video/ksk-intro.mp4 and ksk-outro.mp4 (3 s, PL and DE) -->
+              </div>
+            </div>
+          </section>
+
+          <!-- Sub-project: German group booking prototype -->
+          <section class="sub sub--concept" id="ksk-booking" aria-labelledby="ksk-booking-title">
+            <header class="sub__head">
+              <p class="sub__kicker mono">KSK Pretor · From research to interface</p>
               <h4 class="sub__title" id="ksk-booking-title">German group booking page</h4>
               <p class="proto-flag mono"><span aria-hidden="true">◆</span> Concept prototype built for this portfolio</p>
             </header>
@@ -541,7 +567,7 @@
                     <tr><td>Landing page requirement: packages priced in EUR</td><td>Three packages with EUR prices, no currency conversion for the visitor</td></tr>
                     <tr><td>Personas: HR event organiser, event agency, group of friends, bachelor party organiser</td><td>Price per person and per group shown together and updated live</td></tr>
                     <tr><td>Landing page requirement: booking</td><td>Date and time slot chosen on the page, no phone call needed</td></tr>
-                    <tr><td>Landing page requirement: conversion tracking</td><td>Optional question “Wie haben Sie von uns erfahren?”, so enquiries record their source next to the analytics</td></tr>
+                    <tr><td>Landing page requirement: conversion tracking</td><td>Optional question “Wie haben Sie von uns erfahren?”, so each enquiry records where it came from</td></tr>
                     <tr><td>Event agencies are one of the five personas</td><td>Optional company field for invoicing</td></tr>
                     <tr><td>German-speaking market</td><td>Interface in German</td></tr>
                   </tbody>
@@ -561,39 +587,13 @@
             </div>
           </section>
 
-          <!-- Sub-project: video branding -->
-          <section class="sub" id="ksk-video" aria-labelledby="ksk-video-title">
-            <header class="sub__head">
-              <p class="sub__kicker mono">KSK Pretor · Sub-project 2</p>
-              <h4 class="sub__title" id="ksk-video-title">Video branding</h4>
-              <p class="sub__lead">A 3-second intro and outro with the logo: a bullet flies through the frame and the logo emerges from behind it. Polish and German versions, a “Vielen Dank” card for agencies and a 10-second spot. The animations are built in HTML and GSAP and rendered frame by frame.</p>
-            </header>
-            <div class="sub__grid sub__grid--video">
-              <figure class="shot shot--video">
-                <div class="shot__frame shot__frame--16x9">
-                  <video controls muted playsinline preload="none" poster="assets/img/ksk-film-logo-960.jpg" width="1280" height="720" aria-describedby="ksk-film-desc">
-                    <source src="assets/video/web/ksk-film-de-720.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <figcaption class="mono" id="ksk-film-desc">German-language promo film for KSK Pretor, 35 seconds, 16:9, no sound. Weapons, ranges, simulator, paintball, instructors, logo end card. <span class="pending-inline">My role in the film: pending</span></figcaption>
-              </figure>
-              <div class="film-strip">
-                <picture><source type="image/webp" srcset="assets/img/ksk-film-waffen-480.webp"><img src="assets/img/ksk-film-waffen-480.jpg" width="480" height="270" alt="Film frame: 45+ Waffen, 14 Kaliber, with a rifle silhouette." loading="lazy" decoding="async"></picture>
-                <picture><source type="image/webp" srcset="assets/img/ksk-film-bahnen-480.webp"><img src="assets/img/ksk-film-bahnen-480.jpg" width="480" height="270" alt="Film frame: Bahnen bis 100 m with an aerial photo of the range." loading="lazy" decoding="async"></picture>
-                <picture><source type="image/webp" srcset="assets/img/ksk-film-price-480.webp"><img src="assets/img/ksk-film-price-480.jpg" width="480" height="270" alt="Film frame: a price comparison bar chart in red and grey." loading="lazy" decoding="async"></picture>
-                <picture><source type="image/webp" srcset="assets/img/ksk-film-instructor-480.webp"><img src="assets/img/ksk-film-instructor-480.jpg" width="480" height="270" alt="Film frame: one instructor with every shooter, with a photo of an instructor at the range." loading="lazy" decoding="async"></picture>
-                <!-- TODO: assets/video/ksk-intro.mp4 and ksk-outro.mp4 (3 s, PL and DE) -->
-              </div>
-            </div>
-          </section>
-
           <div class="accordion accordion--dark">
             <details class="acc">
               <summary class="acc__sum"><span class="acc__idx mono">C</span><span class="acc__label">Process: research → flow → prototype → final</span><span class="acc__icon" aria-hidden="true"></span></summary>
               <div class="acc__body">
                 <ol class="steps">
-                  <li><b>Research.</b> Positioning, more than 40 competitors, five personas, SEO, ads and B2B outbound.</li>
-                  <li><b>Flow.</b> Four customer journeys from first trigger to visit, seven drop-off points along them, and eight conversion levers.</li>
+                  <li><b>Research.</b> Positioning, more than 40 competitors, five personas.</li>
+                  <li><b>Flow.</b> Four customer journeys, seven drop-off points and eight conversion levers. Then SEO, ads, B2B outbound and KPIs.</li>
                   <li><b>Requirements.</b> The German landing page needs packages in EUR, booking and conversion tracking. The booking page in this case is a portfolio concept built from them.</li>
                   <li><b>Final.</b> The full plan in 18 chapters, then a 59-page owner version where each section answers the same five questions.</li>
                 </ol>
@@ -604,7 +604,7 @@
               <div class="acc__body">
                 <ul class="states">
                   <li><span class="states__k mono">Safety</span>3D model: in SAFE the trigger does not fire, and the panel always shows the selector state.</li>
-                  <li><span class="states__k mono">Devices</span>3D model: phones get lower render resolution and shadows and no reflection, so the model stays smooth.</li>
+                  <li><span class="states__k mono">Devices</span>3D model: phones get lower render resolution and shadows and no reflection, to keep the model responsive.</li>
                   <li><span class="states__k mono">Formats</span>Photo export in the two Instagram formats, 1080×1350 and 1080×1920.</li>
                   <li><span class="states__k mono">Language</span>Intro and outro in Polish and German. A separate “Vielen Dank” card for agencies.</li>
                 </ul>
@@ -656,12 +656,12 @@
             <section class="block">
               <h4 class="block__title"><span class="block__idx mono">A</span>Problem and context</h4>
               <p>I visited Livingroom and found that its website did not match the quality of the place.</p>
-              <p>Nobody asked me for a redesign. I built a nearly finished site as a demo and used it to start the conversation.</p>
+              <p>Nobody asked me for a redesign. I built a nearly finished site as a demo for a cold pitch.</p>
             </section>
             <section class="block">
               <h4 class="block__title"><span class="block__idx mono">B</span>My role and constraints</h4>
               <ul class="list">
-                <li>Everything: the idea, the design, the code, the pitch.</li>
+                <li>The idea, the design and the pitch. The code was built with Claude Code.</li>
                 <li><strong>Constraint:</strong> no brief and no budget. The demo had to convince on its own.</li>
                 <li><strong>Constraint:</strong> before launch, the booking form still needed an integration.</li>
               </ul>
@@ -691,15 +691,15 @@
 
           <section class="sub sub--flush" id="livingroom-booking" aria-labelledby="living-proto-title">
             <header class="sub__head">
-              <p class="sub__kicker mono">Booking concept</p>
-              <h4 class="sub__title" id="living-proto-title">Table booking, every state</h4>
+              <p class="sub__kicker mono">Livingroom · The missing step</p>
+              <h4 class="sub__title" id="living-proto-title">Table booking with its states</h4>
               <p class="proto-flag mono"><span aria-hidden="true">◆</span> Concept prototype built for this portfolio</p>
-              <p class="sub__lead">Date, party size, time, details, confirmation. With the states a real booking form has to handle: no free times, validation errors, groups above 8, loading, network errors and success. Use “Show all states” to see each one without clicking through.</p>
+              <p class="sub__lead">The flow: date, party size, time, details, confirmation. It covers the states a real booking form has to handle: no free times, validation errors, groups above 8, loading, network errors and success. Use “Show all states” to see each one without clicking through.</p>
               <div class="brief">
                 <p class="brief__k mono">My brief for this prototype (PROMPT.md, original Polish)</p>
                 <blockquote lang="pl"><p>„Przepływ: data → godzina → liczba osób → dane → potwierdzenie. Stany: brak wolnych godzin, błędy walidacji przy polach, grupa powyżej 8 osób przechodzi na formularz zapytania, ładowanie, błąd sieci z ponowieniem, sukces z podsumowaniem. Dodaj przełącznik »Show all states«.”</p></blockquote>
                 <p class="brief__en">In English: flow from date to confirmation; states for no free times, field errors, groups above 8 moving to an enquiry form, loading, network error with retry, success with a summary; a switch to show all states.</p>
-                <p class="note mono">Changed after an AI design review: free tables depend on the size of the group, so guests now come before time.</p>
+                <p class="note mono">Changed after an AI design review: free tables depend on the size of the group, so the flow asks for guests before the time.</p>
               </div>
             </header>
             <div class="proto proto--living" id="proto-living" data-proto="living">
@@ -725,7 +725,7 @@
                   <li>Noticed the problem as a guest and decided to act without a brief.</li>
                   <li>Chose the look: black, gold, serif type, illustrated dishes. <span class="pending-inline">Illustration tool pending</span></li>
                   <li>Wrote that brief: five steps and the states the booking must handle, including groups above 8.</li>
-                  <li>Built the demo to open a conversation with the owner.</li>
+                  <li>Built the demo and offered it to the owner.</li>
                 </ul>
               </div>
             </div>
@@ -822,7 +822,7 @@
               <div class="browser" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url mono">Package selection</span></div>
               <div class="frame-slot__body">
                 <div class="wire" aria-hidden="true"><span class="wire__h"></span><span class="wire__row"><i></i><i></i><i></i></span><span class="wire__btn"></span></div>
-                <p class="frame-slot__cap mono">Screenshots pending: package selection and cart, desktop and phone<br><span>assets/screenshots/psycholog-1.png · 16:10 · only with client consent</span></p>
+                <p class="frame-slot__cap mono">Screenshots pending: package selection and cart, desktop and phone<br><span>Shown only with the client's consent</span></p>
               </div>
             </div>
           </div>
@@ -884,7 +884,7 @@
               <div class="case__split-text">
                 <p class="sub__kicker mono">05a · Client work, anonymised</p>
                 <h4 class="minor__title" id="training-title">Training plans as web pages</h4>
-                <p>Personal 8-week training plans for individual clients, generated from one template. I am a certified personal trainer.</p>
+                <p>Personal 8-week training plans for individual clients, generated from one template.</p>
                 <ul class="states">
                   <li><span class="states__k mono">Header</span>Cycle length, sessions per week, goal, level.</li>
                   <li><span class="states__k mono">Days</span>Day tabs, numbered exercises with Polish and English names, details folded away, cool-down.</li>
@@ -1049,7 +1049,7 @@
           <header class="meta-case__head">
             <p class="sub__kicker mono">Case 06</p>
             <h3 class="meta-case__title" id="meta-title">This portfolio</h3>
-            <p class="sub__lead">Built with Claude Code from a written brief, then two rounds of review and fixes. The brief, the test scripts and the QA log are in the <a href="https://github.com/Hubbit005/hubert-portfolio" rel="noopener" target="_blank">repository<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+            <p class="sub__lead">Built with Claude Code from my written brief, then revised over several rounds of automated checks and AI reviews. The brief, the test scripts and the QA log are in the <a href="https://github.com/Hubbit005/hubert-portfolio" rel="noopener" target="_blank">repository<span class="sr-only"> (opens in a new tab)</span></a>.</p>
           </header>
           <div class="ai-table ai-table--flush" role="group" aria-labelledby="meta-ai-title">
             <h4 class="sr-only" id="meta-ai-title">What AI did / What I did on this portfolio</h4>
@@ -1066,7 +1066,7 @@
                 <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
                 <ul>
                   <li>Picked the visual direction from a reference: a word rotating on a cylinder, project cards on an arc.</li>
-                  <li>Changed the word from “Portfolio” in the reference to my name (commit <code>3762e06</code>).</li>
+                  <li>Changed the word on the cylinder from “Portfolio” in the reference to my name.</li>
                   <li>Wrote the brief: facts about me and my projects, page structure, the flow and states of the Livingroom booking, the requirements for the KSK booking page.</li>
                   <li>Set the rules: no invented numbers or quotes, every gap marked “Content pending”, no client data.</li>
                 </ul>
@@ -1080,7 +1080,7 @@
               <li><span class="caught__k mono">Keyboard</span>After each step, focus dropped to the page body, so keyboard users lost their place.</li>
               <li><span class="caught__k mono">Scroll</span>Section links landed about 160 px too low: the smooth-scroll library counted the CSS offset twice.</li>
               <li><span class="caught__k mono">Phone</span>Long headings made the page wider than a 360 px screen.</li>
-              <li><span class="caught__k mono">Screen reader</span>Date buttons had spoken names that did not match their visible text.</li>
+              <li><span class="caught__k mono">Voice control</span>Date buttons had spoken names that did not match their visible text.</li>
               <li><span class="caught__k mono">Facts</span>The fact check flagged sentences that claimed more than my sources. They were rewritten or marked “Content pending”.</li>
               <li><span class="caught__k mono">Flow</span>AI design review: free tables depend on group size, so the booking now asks for guests before the time.</li>
             </ul>
@@ -1170,7 +1170,8 @@
                   <li><b>Basko Clean:</b> website design and code, motion-graphic ad, social media on three platforms, profile identity.</li>
                   <li><b>KSK Pretor:</b> German market entry plan (18 chapters, 59-page owner version), interactive 3D model, AI agent prototype, video branding in PL and DE.</li>
                   <li><b>Livingroom:</b> restaurant website demo built on my own initiative.</li>
-                  <li>Psychologist website with a full purchase path (Astro, Tailwind, Cal.com). Personal training plan pages from one template.</li>
+                  <li><b>Psychologist website:</b> full purchase path (Astro, Tailwind, Cal.com).</li>
+                  <li><b>Training plans:</b> personal plan pages from one template.</li>
                 </ul>
               </li>
               <li>

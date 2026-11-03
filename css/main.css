@@ -968,3 +968,29 @@ code { font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; borde
 @media (min-width: 601px) and (max-width: 1099px) { .hero { min-height: 82svh; } }
 @media (max-width: 600px) { .hero { min-height: 80svh; } }
 .type-cover--large .type-cover__word { font-size: clamp(1.5rem, 0.9rem + 1.5vw, 2.3rem); }
+
+/* ---------- Review round 4 ---------- */
+:root { --section-pad: clamp(4rem, 2.5rem + 5vw, 7.5rem); }
+/* Card text never sits on the cover: media above, solid label below */
+.card__media { bottom: 78px; }
+.card__meta { min-height: 78px; padding: 12px 14px; background: #0d0d0d; align-content: center; }
+.card--psy .card__meta { background: #c8d3c4; }
+.card--psy .card__num { color: #8a2a00; }
+/* Sub-section titles: sentence case, calmer */
+.sub__title { text-transform: none; font-stretch: 108%; font-weight: 820; font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.5rem); letter-spacing: -0.01em; line-height: 1.05; }
+.case--minor .case__title, .case--minor#psychologist-site .case__title { font-size: clamp(1.9rem, 1rem + 3vw, 3.6rem); }
+/* Portfolio concept sits in its own, visibly different frame */
+.sub--concept { padding: clamp(1.25rem, 1rem + 2vw, 2.5rem); border: 1.5px dashed var(--line-strong); border-radius: var(--r-lg); background: repeating-linear-gradient(135deg, transparent 0 14px, rgb(var(--ink-rgb) / 0.025) 14px 15px); }
+/* Video: film full width, frames in one row */
+.sub__grid--video-stack { display: grid; gap: 14px; }
+.sub__grid--video-stack .film-strip { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 700px) { .sub__grid--video-stack .film-strip { grid-template-columns: 1fr 1fr; } }
+/* Forms in prototypes: readable line length */
+.pk-form { max-width: 560px; }
+.ksk-price__total small { margin-left: auto; text-align: right; }
+.ksk-price__row { align-items: baseline; }
+/* Spacing */
+@media (min-width: 601px) and (max-width: 1099px) { .hero { min-height: 0; padding-top: 150px; } }
+.case--short .type-cover--large, .minor .type-cover--large { justify-self: center; margin-inline: auto; }
+.shot--video .shot__frame--16x9 { max-height: 72vh; }
+.sub__grid.sub__grid--video-stack { grid-template-columns: minmax(0, 1fr); }
