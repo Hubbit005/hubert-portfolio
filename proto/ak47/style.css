@@ -241,3 +241,7 @@ body.photo #photo { display: block; }
   .pbar { gap: 6px 10px; padding: 6px 8px; }
   .pbar .btn { font-size: 14px; padding: 8px 16px 7px; }
 }
+
+/* Dodane w portfolio: widoczny focus i podpowiedź klawiatury */
+.btn:focus-visible, .chip:focus-visible, #slider:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+#hint .keys { display: block; margin-top: 4px; }

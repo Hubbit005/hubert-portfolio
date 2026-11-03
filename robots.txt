@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hubbit005.github.io/hubert-portfolio/sitemap.xml

@@ -587,3 +587,15 @@ function settle() {
   state.explode = state.explodeTarget;
 }
 window.__ak = { settle, state, camera, controls, photo, setExplodeTarget, pullTrigger, charge, cycleSelector };
+
+// ---------------------------------------------------------------- klawiatura (dodane w portfolio)
+// S – spust, Z – rączka zamka, P – przełącznik. Działa także w ramce na stronie portfolio.
+addEventListener('keydown', (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey || state.photo) return;
+  const t = e.target;
+  if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
+  const k = e.key.toLowerCase();
+  if (k === 's') { pullTrigger(); }
+  else if (k === 'z') { charge(); }
+  else if (k === 'p') { cycleSelector(); }
+});
