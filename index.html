@@ -1,0 +1,1270 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hubert · Junior UX/UI Designer, AI-native · Portfolio</title>
+  <meta name="description" content="Hubert turns a client's problem into a working, clickable solution. Case studies with user flows, states and edge cases, three interactive prototypes, and a clear split of what AI did and what he did.">
+  <meta name="author" content="Hubert">
+  <meta name="theme-color" content="#ecece9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f10" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://hubbit005.github.io/hubert-portfolio/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hubert · Junior UX/UI Designer, AI-native">
+  <meta property="og:description" content="Flows, states and clickable prototypes for real clients. AI as the workshop, decisions by me.">
+  <meta property="og:url" content="https://hubbit005.github.io/hubert-portfolio/">
+  <meta property="og:image" content="https://hubbit005.github.io/hubert-portfolio/assets/og/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The word HUBERT in wide black capitals in front of an orange vertical bar">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preload" href="vendor/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="vendor/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script>
+    /* Theme and JS flag before first paint. No content waits for JS. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.remove('no-js'); d.classList.add('js');
+      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/proto.css">
+  <script src="vendor/js/gsap.min.js" defer></script>
+  <script src="vendor/js/ScrollTrigger.min.js" defer></script>
+  <script src="vendor/js/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#home" aria-label="Hubert, back to top">
+        <span class="nav__mark" aria-hidden="true">H</span>
+        <span class="nav__name">Hubert</span>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <ul id="nav-list">
+          <li><a href="#work" data-nav="work"><span class="nav__num">01</span>Work</a></li>
+          <li><a href="#cases" data-nav="cases"><span class="nav__num">02</span>Case studies</a></li>
+          <li><a href="#ai" data-nav="ai"><span class="nav__num">03</span>AI workflow</a></li>
+          <li><a href="#about" data-nav="about"><span class="nav__num">04</span>About</a></li>
+          <li><a href="#cv" data-nav="cv"><span class="nav__num">05</span>CV</a></li>
+          <li><a href="#contact" data-nav="contact"><span class="nav__num">06</span>Contact</a></li>
+        </ul>
+        <span class="nav__indicator" aria-hidden="true"></span>
+      </nav>
+      <div class="nav__tools">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+          <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button class="nav__menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list">
+          <span class="nav__menu-label">Menu</span>
+          <span class="nav__burger" aria-hidden="true"><i></i><i></i></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__progress" aria-hidden="true"><span></span></div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__corners">
+        <!-- TODO: add surname once Hubert confirms it (docs/do-uzupelnienia.md) -->
+        <p class="corner corner--tl mono">Hubert <span class="sep">·</span> Junior UX/UI Designer</p>
+        <p class="corner corner--tr mono"><span class="badge-dot" aria-hidden="true"></span>AI-native</p>
+        <p class="corner corner--bl mono">Near Gorzów Wlkp., PL <span class="sep">·</span> Remote</p>
+        <p class="corner corner--br mono">Portfolio <span class="sep">·</span> 2026</p>
+      </div>
+      <span class="hero__arrow hero__arrow--l" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M9 1 2 6l7 5Z"/></svg></span>
+      <span class="hero__arrow hero__arrow--r" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M1 1l7 5-7 5Z"/></svg></span>
+
+      <div class="hero__stage" id="hero-stage">
+        <span class="hero__bar" aria-hidden="true"></span>
+        <h1 class="hero__title" id="hero-title">
+          <span class="sr-only">Hubert</span>
+          <span class="cyl" id="cyl" aria-hidden="true">
+            <!-- Static fallback (no JS / reduced motion before init): the word facing front -->
+            <span class="cyl__static">HUBERT</span>
+          </span>
+        </h1>
+      </div>
+
+      <div class="hero__foot">
+        <p class="hero__lead">I turn a client's problem into a working product you can click through. AI is my everyday workshop. The decisions stay with me.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#work" data-magnetic>
+            <span>View work</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#contact" data-magnetic><span>Contact</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 01 SELECTED WORK (arc carousel) ============ -->
+    <section class="section work" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="sec-head__num mono">01</p>
+          <h2 class="sec-head__title" id="work-title"><span class="mask"><span>Selected work</span></span></h2>
+          <p class="sec-head__aside">Seven projects, from a live client website to a 3D model in the browser. Drag the wheel, use the arrow keys, or pick a card to open its case study.</p>
+        </header>
+      </div>
+
+      <div class="arc" id="arc">
+        <div class="arc__viewport" id="arc-viewport" role="region" aria-roledescription="carousel" aria-label="Projects" tabindex="0">
+          <ul class="arc__track" id="arc-track">
+            <li class="arc__item">
+              <a class="card card--basko" href="#basko-clean" data-cursor="Open">
+                <span class="card__media"><picture><source type="image/webp" srcset="assets/img/basko-reel-01-480.webp" ><img src="assets/img/basko-reel-01-480.jpg" alt="" width="480" height="853" loading="lazy" decoding="async" draggable="false"></picture></span>
+                <span class="card__meta"><span class="card__num mono">01</span><span class="card__title">Basko Clean</span><span class="card__tag mono">Website · Motion ad · Social</span></span>
+              </a>
+            </li>
+            <li class="arc__item">
+              <a class="card card--ksk" href="#ksk-pretor" data-cursor="Open">
+                <span class="card__media"><picture><source type="image/webp" srcset="assets/img/ksk-film-logo-480.webp"><img src="assets/img/ksk-film-logo-480.jpg" alt="" width="480" height="270" loading="lazy" decoding="async" draggable="false"></picture></span>
+                <span class="card__meta"><span class="card__num mono">02</span><span class="card__title">KSK Pretor</span><span class="card__tag mono">Research · DE market · Video</span></span>
+              </a>
+            </li>
+            <li class="arc__item">
+              <a class="card card--ak" href="#ksk-3d-model" data-cursor="Open">
+                <span class="card__media"><picture><source type="image/webp" srcset="assets/img/ak-exploded-480.webp"><img src="assets/img/ak-exploded-480.jpg" alt="" width="480" height="300" loading="lazy" decoding="async" draggable="false"></picture></span>
+                <span class="card__meta"><span class="card__num mono">03</span><span class="card__title">3D model</span><span class="card__tag mono">three.js · States · Photo mode</span></span>
+              </a>
+            </li>
+            <li class="arc__item">
+              <a class="card card--living" href="#livingroom" data-cursor="Open">
+                <span class="card__media"><picture><source type="image/webp" srcset="assets/img/livingroom-hero-480.webp"><img src="assets/img/livingroom-hero-480.jpg" alt="" width="480" height="251" loading="lazy" decoding="async" draggable="false"></picture></span>
+                <span class="card__meta"><span class="card__num mono">04</span><span class="card__title">Livingroom</span><span class="card__tag mono">Restaurant · Own initiative</span></span>
+              </a>
+            </li>
+            <li class="arc__item">
+              <a class="card card--psy" href="#psychologist-site" data-cursor="Open">
+                <span class="card__media card__media--type" aria-hidden="true">
+                  <span class="type-cover type-cover--psy">
+                    <span class="type-cover__path"><i></i><i></i><i></i><i></i></span>
+                    <span class="type-cover__word">Book<br>a&nbsp;session</span>
+                  </span>
+                </span>
+                <span class="card__meta"><span class="card__num mono">05</span><span class="card__title">Psychologist site</span><span class="card__tag mono">Purchase path · Astro</span></span>
+              </a>
+            </li>
+            <li class="arc__item">
+              <a class="card card--training" href="#training-plans" data-cursor="Open">
+                <span class="card__media"><picture><source type="image/webp" srcset="assets/img/training-mobile-1-480.webp"><img src="assets/img/training-mobile-1-480.jpg" alt="" width="480" height="1039" loading="lazy" decoding="async" draggable="false"></picture></span>
+                <span class="card__meta"><span class="card__num mono">06</span><span class="card__title">Training plans</span><span class="card__tag mono">One template · Many clients</span></span>
+              </a>
+            </li>
+            <li class="arc__item">
+              <a class="card card--ebook" href="#ebook" data-cursor="Open">
+                <span class="card__media card__media--type" aria-hidden="true">
+                  <span class="type-cover type-cover--ebook">
+                    <span class="type-cover__list"><i class="on"></i><i></i><i class="on"></i><i></i></span>
+                    <span class="type-cover__word">Read<br>at 50+</span>
+                  </span>
+                </span>
+                <span class="card__meta"><span class="card__num mono">07</span><span class="card__title">Interactive ebook</span><span class="card__tag mono">HTML · Checklist</span></span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="arc__hub" aria-hidden="true">
+            <svg class="arc__ring" viewBox="0 0 200 200">
+              <defs><path id="ring-path" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+              <text><textPath href="#ring-path" textLength="488">• SELECTED WORK • AI-NATIVE DESIGN • SELECTED WORK • AI-NATIVE DESIGN </textPath></text>
+            </svg>
+            <span class="arc__hub-label mono"><span class="arc__hub-tri">▲</span> Drag</span>
+          </div>
+        </div>
+
+        <div class="arc__controls">
+          <button class="round-btn" id="arc-prev" type="button" aria-label="Previous project">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <p class="arc__status mono" id="arc-status" aria-live="polite">01 / 07 · Basko Clean</p>
+          <button class="round-btn" id="arc-next" type="button" aria-label="Next project">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 CASE STUDIES ============ -->
+    <section class="section cases" id="cases" aria-labelledby="cases-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="sec-head__num mono">02</p>
+          <h2 class="sec-head__title" id="cases-title"><span class="mask"><span>Case studies</span></span></h2>
+          <p class="sec-head__aside">Every case uses the same frame: problem, my role and constraints, process, what AI did and what I did, states and edge cases, outcome and next steps.</p>
+        </header>
+        <nav class="case-index" aria-label="Case studies">
+          <ol>
+            <li><a href="#basko-clean"><span class="mono">01</span> Basko Clean</a></li>
+            <li><a href="#ksk-pretor"><span class="mono">02</span> KSK Pretor</a></li>
+            <li><a href="#livingroom"><span class="mono">03</span> Livingroom</a></li>
+            <li><a href="#psychologist-site"><span class="mono">04</span> Psychologist site</a></li>
+            <li><a href="#training-plans"><span class="mono">05</span> Training plans</a></li>
+            <li><a href="#ebook"><span class="mono">06</span> Interactive ebook</a></li>
+          </ol>
+        </nav>
+      </div>
+
+      <!-- ---------- CASE 01 BASKO CLEAN ---------- -->
+      <article class="case" id="basko-clean" aria-labelledby="basko-title">
+        <div class="container">
+          <header class="case__head">
+            <p class="case__num mono">Case 01</p>
+            <h3 class="case__title" id="basko-title"><span class="mask"><span>Basko Clean</span></span></h3>
+            <p class="case__sub">Website, motion-graphic ad and social media for an industrial cleaning company</p>
+            <dl class="facts">
+              <div><dt>Client</dt><dd>Basko Clean, Szczecin. B2B industrial cleaning</dd></div>
+              <div><dt>My role</dt><dd>Design, front-end code, video, social media</dd></div>
+              <div><dt>Status</dt><dd>Live website, maintained and updated by me</dd></div>
+              <div><dt>Tools</dt><dd>Claude Code, React, Canva, video editing</dd></div>
+            </dl>
+          </header>
+
+          <figure class="shot shot--browser" data-parallax>
+            <div class="browser" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url mono">Basko Clean · live site</span></div>
+            <div class="shot__frame">
+              <picture>
+                <source type="image/webp" srcset="assets/img/basko-hero-480.webp 480w, assets/img/basko-hero-960.webp 960w, assets/img/basko-hero-1600.webp 1600w" sizes="(min-width: 1360px) 1240px, 92vw">
+                <img src="assets/img/basko-hero-960.jpg" srcset="assets/img/basko-hero-480.jpg 480w, assets/img/basko-hero-960.jpg 960w, assets/img/basko-hero-1600.jpg 1600w" sizes="(min-width: 1360px) 1240px, 92vw" width="1829" height="952" alt="Basko Clean home page: headline about professional B2B cleaning, a free quote form with service, phone and postcode fields, and two cards linking to the process and the offer." loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="mono">Home page. The quote form sits in the first screen.</figcaption>
+          </figure>
+
+          <div class="case__intro">
+            <section class="block">
+              <h4 class="block__title"><span class="block__idx mono">A</span>Problem and context</h4>
+              <p>Basko Clean cleans halls, warehouses, floors, roofs and facades for companies. The people who visit the site are buyers at other businesses. They want to know whether Basko handles their type of site and how to get a price.</p>
+              <p>The company needed a website, an ad and a steady presence on Instagram, LinkedIn and TikTok.</p>
+            </section>
+            <section class="block">
+              <h4 class="block__title"><span class="block__idx mono">B</span>My role and constraints</h4>
+              <ul class="list">
+                <li>I designed and coded the website. I keep it updated.</li>
+                <li>I made the video ad, run the social profiles, film on job sites and edit the reels.</li>
+                <li>I prepared the profile identity: a vector version of the logo's cleaner figure, profile pictures in light and dark versions, the Instagram bio.</li>
+                <li><strong>Constraint:</strong> names and logos of Basko's own clients appear only with their consent.</li>
+                <li><strong>Constraint:</strong> a small ad budget.</li>
+              </ul>
+            </section>
+          </div>
+
+          <div class="gallery gallery--3">
+            <figure class="shot">
+              <div class="shot__frame">
+                <picture>
+                  <source type="image/webp" srcset="assets/img/basko-before-after-480.webp 480w, assets/img/basko-before-after-960.webp 960w" sizes="(min-width: 900px) 40vw, 92vw">
+                  <img src="assets/img/basko-before-after-960.jpg" srcset="assets/img/basko-before-after-480.jpg 480w, assets/img/basko-before-after-960.jpg 960w" sizes="(min-width: 900px) 40vw, 92vw" width="1817" height="940" alt="A before and after slider showing a roof drain covered in dirt on the left and clean on the right, with three cards about experience, price and availability below." loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="mono">Before and after slider</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="shot__frame">
+                <picture>
+                  <source type="image/webp" srcset="assets/img/basko-cta-480.webp 480w, assets/img/basko-cta-960.webp 960w" sizes="(min-width: 900px) 40vw, 92vw">
+                  <img src="assets/img/basko-cta-960.jpg" srcset="assets/img/basko-cta-480.jpg 480w, assets/img/basko-cta-960.jpg 960w" sizes="(min-width: 900px) 40vw, 92vw" width="1820" height="938" alt="Four benefit cards with icons, a row of key figures, and a closing call to action to order a free quote." loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="mono">Benefits and closing call to action</figcaption>
+            </figure>
+            <figure class="shot shot--phone">
+              <div class="phone">
+                <video class="phone__video" controls muted playsinline preload="none" poster="assets/img/basko-reel-01-480.jpg" width="540" height="960" aria-describedby="basko-reel-desc">
+                  <source src="assets/video/web/basko-reel-540.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption class="mono" id="basko-reel-desc">20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card.</figcaption>
+            </figure>
+          </div>
+
+          <div class="ai-table" role="group" aria-labelledby="basko-ai-title">
+            <h4 class="ai-table__title" id="basko-ai-title">What AI did / What I did</h4>
+            <div class="ai-table__grid">
+              <div class="ai-table__col ai-table__col--ai">
+                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
+                <ul>
+                  <li><b>Claude Code</b> wrote and changed the site's code (React components) from my layout and copy.</li>
+                  <li>An <b>AI video model</b> produced a realistic 3D version of the ad.</li>
+                  <li><b>Canva</b> sped up posts and profile graphics.</li>
+                </ul>
+              </div>
+              <div class="ai-table__col ai-table__col--me">
+                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
+                <ul>
+                  <li>Decided the page structure and put the quote form in the first screen.</li>
+                  <li>Rejected the realistic 3D version. It did not fit the brand. I chose flat 2D motion graphics with kinetic type and the logo's cleaner figure as the hero.</li>
+                  <li>Filmed on job sites, edited the reels, run three social profiles.</li>
+                  <li>Vectorised the logo figure, made light and dark profile pictures, wrote the bio.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">C</span><span class="acc__label">Process: research → flow → prototype → final</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <ol class="steps">
+                  <li><b>Research.</b> The service range (halls, floors, roofs, facades, parking lots) and before and after photos from real jobs. The range became the service list in the form and the checklist in the reel.</li>
+                  <li><b>Flow.</b> The visitor sees what Basko cleans, then asks for a quote. The form asks for three things: service, phone number, postcode.</li>
+                  <li><b>Prototype.</b> Built directly in code with Claude Code: React components rendered in the browser.</li>
+                  <li><b>Final.</b> Live site in Basko's navy palette with Inter and Plus Jakarta Sans. The ad went through two directions: realistic 3D from AI, then flat 2D motion graphics. The second one shipped.</li>
+                </ol>
+              </div>
+            </details>
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">D</span><span class="acc__label">States and edge cases I planned for</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <ul class="states">
+                  <li><span class="states__k mono">Consent</span>Client logos and names stay off the site until each client agrees. The trust section has to work without them.</li>
+                  <li><span class="states__k mono">Theme</span>Profile pictures in light and dark versions, so the figure reads on both app themes.</li>
+                  <li><span class="states__k mono">Budget</span>A small ad budget, so content comes from my own footage on job sites, cut for three platforms.</li>
+                  <li><span class="states__k mono">Language</span>The site has a Polish and an English version.</li>
+                </ul>
+                <!-- TODO: quote form validation and error states (Hubert to describe) -->
+                <div class="pending pending--inline">
+                  <span class="pending__label mono">Content pending</span>
+                  <p>How the quote form handles errors: empty fields, wrong phone number, no network.</p>
+                </div>
+              </div>
+            </details>
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">E</span><span class="acc__label">Outcome, what I learned, what I would do next</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>The site is live and I keep updating it. I continue to run Basko's social profiles.</p>
+                <!-- TODO: results (e.g. enquiries, reach) and lessons in Hubert's words -->
+                <div class="pending pending--inline">
+                  <span class="pending__label mono">Content pending</span>
+                  <p>Results Hubert can confirm (enquiries, reach) and what he learned, in his own words.</p>
+                </div>
+                <p><b>Next:</b> add the client logos section once consents arrive. Track which channel brings each quote request.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- ---------- CASE 02 KSK PRETOR ---------- -->
+      <article class="case case--dark" id="ksk-pretor" aria-labelledby="ksk-title">
+        <div class="container">
+          <header class="case__head">
+            <p class="case__num mono">Case 02</p>
+            <h3 class="case__title" id="ksk-title"><span class="mask"><span>KSK Pretor</span></span></h3>
+            <p class="case__sub">Shooting range and events in Racław near Gorzów. Market research for Germany, a group booking page, a 3D model, an AI agent prototype and video branding.</p>
+            <dl class="facts">
+              <div><dt>Client</dt><dd>KSK Pretor, shooting range and events</dd></div>
+              <div><dt>My role</dt><dd>Research, strategy, UX, 3D, motion</dd></div>
+              <div><dt>Outputs</dt><dd>18-chapter plan, 59-page owner version, 3D model, film, intro and outro</dd></div>
+              <div><dt>Tools</dt><dd>ChatGPT, Perplexity, Gemini, Claude Code, three.js, GSAP, Botpress</dd></div>
+            </dl>
+          </header>
+
+          <ul class="stats" aria-label="Research in numbers">
+            <li><span class="stats__n" data-count="18">18</span><span class="stats__l">chapters in the market entry plan</span></li>
+            <li><span class="stats__n" data-count="40" data-suffix="+">40+</span><span class="stats__l">competitors analysed</span></li>
+            <li><span class="stats__n" data-count="5">5</span><span class="stats__l">personas</span></li>
+            <li><span class="stats__n" data-count="4">4</span><span class="stats__l">customer journeys</span></li>
+            <li><span class="stats__n" data-count="7">7</span><span class="stats__l">points where customers drop off</span></li>
+            <li><span class="stats__n" data-count="8">8</span><span class="stats__l">conversion levers</span></li>
+          </ul>
+
+          <div class="case__intro">
+            <section class="block">
+              <h4 class="block__title"><span class="block__idx mono">A</span>Problem and context</h4>
+              <p>KSK Pretor wanted guests from Germany. A German group looks at a range in Poland from very different starting points: an HR team planning a company event, an agency booking for a client, friends, a weapons enthusiast, someone organising a bachelor party.</p>
+              <p>Each of them plans on a different timeline, from a few days to twelve months. The owner needed to know where these people drop off and what a German landing page must offer.</p>
+            </section>
+            <section class="block">
+              <h4 class="block__title"><span class="block__idx mono">B</span>My role and constraints</h4>
+              <ul class="list">
+                <li>I wrote the market entry plan: positioning, competitors, personas, journeys, drop-off points, levers, landing page requirements, SEO, ads, B2B outbound, KPIs.</li>
+                <li>I cut it into a 59-page version for the owner. Every section answers the same five questions.</li>
+                <li>I built the 3D model, the AI agent prototype and the video branding.</li>
+                <li><strong>Constraint:</strong> video assets in two languages, Polish and German.</li>
+                <li><strong>Constraint:</strong> brand colours red, black and white.</li>
+              </ul>
+            </section>
+          </div>
+
+          <!-- Journeys diagram (pinned on desktop) -->
+          <div class="journeys" id="journeys">
+            <div class="journeys__head">
+              <h4 class="journeys__title">Four journeys, five personas</h4>
+              <p class="journeys__lead">Planning time ranges from a few days to twelve months. Drop-off points sit along every journey. The plan answers each one with a conversion lever.</p>
+            </div>
+            <div class="journeys__personas" aria-label="Personas">
+              <span class="persona">HR event organiser</span>
+              <span class="persona">Event agency</span>
+              <span class="persona">Group of friends</span>
+              <span class="persona">Weapons enthusiast</span>
+              <span class="persona">Bachelor party organiser</span>
+            </div>
+            <div class="journeys__chart" role="img" aria-label="Diagram: four customer journeys of different lengths, from a few days to twelve months of planning, with seven drop-off points marked along them and eight conversion levers.">
+              <div class="journeys__axis mono" aria-hidden="true"><span>Trigger</span><span>Search</span><span>Compare</span><span>Enquire</span><span>Book</span><span>Visit</span></div>
+              <div class="lane" data-lane="1">
+                <span class="lane__label mono">Journey 1 <em>a few days</em></span>
+                <span class="lane__track"><span class="lane__bar" style="--w:.38"></span><span class="drop" style="--x:.18"></span><span class="drop" style="--x:.33"></span></span>
+              </div>
+              <div class="lane" data-lane="2">
+                <span class="lane__label mono">Journey 2</span>
+                <span class="lane__track"><span class="lane__bar" style="--w:.6"></span><span class="drop" style="--x:.42"></span></span>
+              </div>
+              <div class="lane" data-lane="3">
+                <span class="lane__label mono">Journey 3</span>
+                <span class="lane__track"><span class="lane__bar" style="--w:.8"></span><span class="drop" style="--x:.28"></span><span class="drop" style="--x:.66"></span></span>
+              </div>
+              <div class="lane" data-lane="4">
+                <span class="lane__label mono">Journey 4 <em>up to 12 months</em></span>
+                <span class="lane__track"><span class="lane__bar" style="--w:1"></span><span class="drop" style="--x:.52"></span><span class="drop" style="--x:.86"></span></span>
+              </div>
+              <div class="journeys__legend mono">
+                <span><i class="lg-bar"></i>Planning time, relative</span>
+                <span><i class="lg-drop"></i>Drop-off point (7)</span>
+                <span class="journeys__levers"><b>8</b> conversion levers answer them</span>
+              </div>
+            </div>
+            <p class="journeys__note mono">Diagram simplified for the portfolio. Bar lengths and dot positions are illustrative. The full plan names each journey, drop-off and lever.</p>
+            <!-- TODO: Hubert to name journeys 2 and 3, and confirm the 7 drop-off points -->
+          </div>
+
+          <div class="ai-table ai-table--dark" role="group" aria-labelledby="ksk-ai-title">
+            <h4 class="ai-table__title" id="ksk-ai-title">What AI did / What I did</h4>
+            <div class="ai-table__grid">
+              <div class="ai-table__col ai-table__col--ai">
+                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
+                <ul>
+                  <li><b>Perplexity</b> gathered market data with sources. <b>Gemini</b> ran comparisons.</li>
+                  <li><b>ChatGPT</b> drafted and restructured strategy text with me.</li>
+                  <li><b>Claude Code</b> wrote the three.js code for the 3D model and the GSAP animations.</li>
+                  <li><b>Botpress</b> runs the agent prototype.</li>
+                </ul>
+              </div>
+              <div class="ai-table__col ai-table__col--me">
+                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
+                <ul>
+                  <li>Set the structure of the plan and the five questions every owner section answers.</li>
+                  <li>Defined the landing page requirements: packages in EUR, booking, conversion tracking.</li>
+                  <li>Designed the 3D interactions and states: safe mode, step-by-step disassembly, photo mode with Instagram formats, lower quality on phones.</li>
+                  <li>Directed the motion: the bullet crosses the frame, the logo appears behind it. Polish and German versions.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sub-project: German group booking prototype -->
+          <section class="sub" id="ksk-booking" aria-labelledby="ksk-booking-title">
+            <header class="sub__head">
+              <p class="sub__kicker mono">KSK Pretor · Sub-project 1</p>
+              <h4 class="sub__title" id="ksk-booking-title">German group booking page</h4>
+              <p class="proto-flag mono"><span aria-hidden="true">◆</span> Concept prototype built for this portfolio</p>
+            </header>
+            <div class="sub__grid">
+              <div class="sub__text">
+                <p>The research ended with requirements for a German landing page. This prototype turns them into a booking flow a German group organiser can finish without a phone call.</p>
+                <table class="map-table">
+                  <caption class="mono">Research finding → decision in the prototype</caption>
+                  <thead><tr><th scope="col">From the research</th><th scope="col">Decision</th></tr></thead>
+                  <tbody>
+                    <tr><td>Landing page requirement: packages priced in EUR</td><td>Three packages with EUR prices, no currency conversion for the visitor</td></tr>
+                    <tr><td>Four of the five personas book for a group</td><td>Price per person and per group shown together and updated live</td></tr>
+                    <tr><td>Landing page requirement: booking</td><td>Date and time slot chosen on the page, enquiry sent in one step</td></tr>
+                    <tr><td>Landing page requirement: conversion tracking</td><td>Required question “Wie haben Sie von uns erfahren?”</td></tr>
+                    <tr><td>Event agencies are one of the five personas</td><td>Optional company field for invoicing</td></tr>
+                    <tr><td>German-speaking market</td><td>Interface in German</td></tr>
+                  </tbody>
+                </table>
+                <p class="note mono">Prices are sample values for the prototype. Package names and contents are placeholders.</p>
+              </div>
+              <div class="sub__proto">
+                <div class="proto" id="proto-ksk" data-proto="ksk" lang="de">
+                  <noscript><p class="proto__nojs" lang="en">This prototype needs JavaScript.</p></noscript>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Sub-project: 3D model -->
+          <section class="sub" id="ksk-3d-model" aria-labelledby="ksk-3d-title">
+            <header class="sub__head">
+              <p class="sub__kicker mono">KSK Pretor · Sub-project 2</p>
+              <h4 class="sub__title" id="ksk-3d-title">Interactive 3D model of an AK-47</h4>
+              <p class="sub__lead">Built in code from simple shapes in three.js, with no ready-made models. Visitors rotate it, take it apart step by step and export a photo for Instagram. Live version: <a href="https://hubbit005.github.io/ksk-ak47-3d/" rel="noopener" target="_blank">hubbit005.github.io/ksk-ak47-3d<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+            </header>
+
+            <div class="model-embed" id="model-embed">
+              <div class="model-embed__poster">
+                <picture>
+                  <source type="image/webp" srcset="assets/img/ak-home-480.webp 480w, assets/img/ak-home-960.webp 960w, assets/img/ak-home-1440.webp 1440w" sizes="(min-width: 1360px) 1240px, 92vw">
+                  <img src="assets/img/ak-home-960.jpg" srcset="assets/img/ak-home-480.jpg 480w, assets/img/ak-home-960.jpg 960w, assets/img/ak-home-1440.jpg 1440w" sizes="(min-width: 1360px) 1240px, 92vw" width="1440" height="900" alt="The 3D model of the rifle on a dark stage with a red glow, the KSK Pretor label in the corner and a control panel with buttons to disassemble, assemble and enter photo mode." loading="lazy" decoding="async">
+                </picture>
+                <div class="model-embed__cta">
+                  <button class="btn btn--primary" type="button" id="model-load"><span>Load the 3D model</span></button>
+                  <a class="btn btn--ghost btn--on-dark" href="proto/ak47/" target="_blank" rel="noopener"><span>Open full screen</span><span class="sr-only"> (opens in a new tab)</span></a>
+                  <p class="mono">Loads about 1 MB. Interface in Polish, as built for the client.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sub__grid sub__grid--even">
+              <div>
+                <h5 class="mini-title">Interaction design</h5>
+                <table class="state-table">
+                  <caption class="sr-only">States and interactions of the 3D model</caption>
+                  <thead><tr><th scope="col">Element</th><th scope="col">States and behaviour</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Fire selector</th><td>Click cycles SAFE → FULL AUTO → SEMI AUTO. Current state shown in the panel.</td></tr>
+                    <tr><th scope="row">Trigger</th><td>In SAFE the trigger does not fire. In the other modes: trigger moves, muzzle flash, short camera shake.</td></tr>
+                    <tr><th scope="row">Charging handle</th><td>Click: the carrier moves back and returns.</td></tr>
+                    <tr><th scope="row">Parts</th><td>Hover highlights the part in red with its name. On touch, a tap shows the name for a few seconds.</td></tr>
+                    <tr><th scope="row">Disassembly</th><td>Disassemble and assemble buttons, a slider, and step-by-step mode (back / next) through five parts.</td></tr>
+                    <tr><th scope="row">Photo mode</th><td>Five preset shots, a crop frame, PNG export at 1080×1350 (post) or 1080×1920 (story) with the club name. Optional part labels and muzzle flash.</td></tr>
+                    <tr><th scope="row">Phones</th><td>Lower render resolution and shadow quality, no floor reflection.</td></tr>
+                    <tr><th scope="row">Keyboard</th><td>Added for this portfolio: S fires, Z pulls the charging handle, P switches the selector. Panel buttons work with Tab and Enter.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h5 class="mini-title">All states <span class="mono muted">screenshots</span></h5>
+                <ul class="state-shots">
+                  <li>
+                    <picture><source type="image/webp" srcset="assets/img/ak-hover-480.webp 480w, assets/img/ak-hover-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-hover-480.jpg" srcset="assets/img/ak-hover-480.jpg 480w, assets/img/ak-hover-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="Magazine highlighted in red with a tooltip showing its name and a short description." loading="lazy" decoding="async"></picture>
+                    <span class="mono">Part highlighted</span>
+                  </li>
+                  <li>
+                    <picture><source type="image/webp" srcset="assets/img/ak-exploded-480.webp 480w, assets/img/ak-exploded-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-exploded-480.jpg" srcset="assets/img/ak-exploded-480.jpg 480w, assets/img/ak-exploded-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="The rifle taken apart: magazine, receiver cover, recoil spring, carrier with bolt and gas tube floating apart with numbered labels." loading="lazy" decoding="async"></picture>
+                    <span class="mono">Step 5 of 5, disassembled</span>
+                  </li>
+                  <li>
+                    <picture><source type="image/webp" srcset="assets/img/ak-photo-480.webp 480w, assets/img/ak-photo-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-photo-480.jpg" srcset="assets/img/ak-photo-480.jpg 480w, assets/img/ak-photo-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="Photo mode with a portrait crop frame, preset shot buttons on top and format and export buttons at the bottom." loading="lazy" decoding="async"></picture>
+                    <span class="mono">Photo mode, 1080×1350</span>
+                  </li>
+                  <li class="state-shots__phone">
+                    <picture><source type="image/webp" srcset="assets/img/ak-mobile-480.webp 480w, assets/img/ak-mobile-780.webp 780w" sizes="(min-width: 900px) 140px, 30vw"><img src="assets/img/ak-mobile-480.jpg" srcset="assets/img/ak-mobile-480.jpg 480w, assets/img/ak-mobile-780.jpg 780w" sizes="(min-width: 900px) 140px, 30vw" width="780" height="1688" alt="The model on a phone screen with touch hints and the control panel at the bottom." loading="lazy" decoding="async"></picture>
+                    <span class="mono">Phone, reduced quality</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Sub-project: AI agent -->
+          <section class="sub" id="ksk-agent" aria-labelledby="ksk-agent-title">
+            <header class="sub__head">
+              <p class="sub__kicker mono">KSK Pretor · Sub-project 3</p>
+              <h4 class="sub__title" id="ksk-agent-title">AI agent prototype</h4>
+              <p class="sub__lead">A chatbot prototype for the range, built in Botpress.</p>
+            </header>
+            <div class="sub__grid sub__grid--even">
+              <!-- TODO: describe what the KSK Pretor agent does (questions, enquiries, languages) -->
+              <div class="pending">
+                <span class="pending__label mono">Content pending</span>
+                <p class="pending__title">Description of the KSK Pretor AI agent</p>
+                <p>What the agent answers, what it collects from a group enquiry, which languages it speaks, and where a person takes over.</p>
+              </div>
+              <!-- TODO: screenshot assets/screenshots/ksk-agent-1.png -->
+              <div class="frame-slot frame-slot--chat" aria-label="Placeholder for a screenshot of the agent conversation">
+                <div class="chat-skel" aria-hidden="true">
+                  <span class="chat-skel__b chat-skel__b--in"></span>
+                  <span class="chat-skel__b chat-skel__b--out"></span>
+                  <span class="chat-skel__b chat-skel__b--in chat-skel__b--long"></span>
+                  <span class="chat-skel__typing"><i></i><i></i><i></i></span>
+                </div>
+                <p class="frame-slot__cap mono">Screenshot pending: agent conversation in Botpress<br><span>assets/screenshots/ksk-agent-1.png · 4:5</span></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Sub-project: video branding -->
+          <section class="sub" id="ksk-video" aria-labelledby="ksk-video-title">
+            <header class="sub__head">
+              <p class="sub__kicker mono">KSK Pretor · Sub-project 4</p>
+              <h4 class="sub__title" id="ksk-video-title">Video branding</h4>
+              <p class="sub__lead">A 3-second intro and outro with the logo: a bullet flies through the frame and the logo appears behind it. Polish and German versions, a “Vielen Dank” card for agencies and a 10-second spot. I built the animations in HTML and GSAP and rendered them frame by frame.</p>
+            </header>
+            <div class="sub__grid sub__grid--video">
+              <figure class="shot shot--video">
+                <div class="shot__frame shot__frame--16x9">
+                  <video controls playsinline preload="none" poster="assets/img/ksk-film-logo-960.jpg" width="1280" height="720" aria-describedby="ksk-film-desc">
+                    <source src="assets/video/web/ksk-film-de-720.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <figcaption class="mono" id="ksk-film-desc">German-language film, 35 seconds, 16:9, no sound. Weapons, ranges, simulator, paintball, instructors, logo end card.</figcaption>
+              </figure>
+              <div class="film-strip">
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-waffen-480.webp"><img src="assets/img/ksk-film-waffen-480.jpg" width="480" height="270" alt="Film frame: 45+ Waffen, 14 Kaliber, with a rifle silhouette." loading="lazy" decoding="async"></picture>
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-bahnen-480.webp"><img src="assets/img/ksk-film-bahnen-480.jpg" width="480" height="270" alt="Film frame: Bahnen bis 100 m with an aerial photo of the range." loading="lazy" decoding="async"></picture>
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-price-480.webp"><img src="assets/img/ksk-film-price-480.jpg" width="480" height="270" alt="Film frame: a price comparison bar chart in red and grey." loading="lazy" decoding="async"></picture>
+                <!-- TODO: assets/video/ksk-intro.mp4 and ksk-outro.mp4 -->
+                <div class="frame-slot frame-slot--16x9">
+                  <p class="frame-slot__cap mono">Video pending: 3-second intro and outro, PL and DE<br><span>assets/video/ksk-intro.mp4 · 16:9</span></p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="accordion accordion--dark">
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">C</span><span class="acc__label">Process: research → flow → prototype → final</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <ol class="steps">
+                  <li><b>Research.</b> Positioning, more than 40 competitors, five personas, SEO, ads and B2B outbound. Market data gathered with Perplexity, with sources.</li>
+                  <li><b>Flow.</b> Four customer journeys from first trigger to visit, seven drop-off points along them, eight levers to fix them.</li>
+                  <li><b>Prototype.</b> Requirements for the German landing page: packages in EUR, booking, conversion tracking. The booking page above is a prototype of them.</li>
+                  <li><b>Final.</b> The full plan in 18 chapters, then a 59-page owner version where each section answers the same five questions.</li>
+                </ol>
+              </div>
+            </details>
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">D</span><span class="acc__label">States and edge cases I planned for</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <ul class="states">
+                  <li><span class="states__k mono">Safety</span>3D model: in SAFE the trigger does not fire, so the model never suggests firing a locked weapon.</li>
+                  <li><span class="states__k mono">Devices</span>3D model: phones get lower render resolution and shadows and no reflection, so the model stays smooth.</li>
+                  <li><span class="states__k mono">Formats</span>Photo export in the two Instagram formats, 1080×1350 and 1080×1920.</li>
+                  <li><span class="states__k mono">Language</span>Every video in Polish and German. A separate thank-you card for agencies.</li>
+                  <li><span class="states__k mono">Group size</span>Booking prototype: under 12 people points to the standard booking, over 30 switches to a custom quote.</li>
+                </ul>
+              </div>
+            </details>
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">E</span><span class="acc__label">Outcome, what I learned, what I would do next</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>The owner received the full plan and the 59-page version. The 3D model is live on GitHub Pages. The film and branding exist in Polish and German.</p>
+                <!-- TODO: what the owner did with the plan; lessons in Hubert's words -->
+                <div class="pending pending--inline">
+                  <span class="pending__label mono">Content pending</span>
+                  <p>What the owner decided after reading the plan, and what Hubert learned.</p>
+                </div>
+                <p><b>Next:</b> build the German landing page from the prototype, connect conversion tracking, test the booking flow with German group organisers.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- ---------- CASE 03 LIVINGROOM ---------- -->
+      <article class="case" id="livingroom" aria-labelledby="living-title">
+        <div class="container">
+          <header class="case__head">
+            <p class="case__num mono">Case 03</p>
+            <h3 class="case__title" id="living-title"><span class="mask"><span>Livingroom</span></span></h3>
+            <p class="case__sub">A restaurant website in Gorzów Wielkopolski, built on my own initiative as a demo for a cold pitch</p>
+            <dl class="facts">
+              <div><dt>Client</dt><dd>Livingroom restaurant, Gorzów Wlkp. Not commissioned</dd></div>
+              <div><dt>My role</dt><dd>Idea, design, code, pitch</dd></div>
+              <div><dt>Status</dt><dd>Nearly finished demo. Missing piece: the booking form</dd></div>
+              <div><dt>Tools</dt><dd>Claude Code, HTML, CSS, JS</dd></div>
+            </dl>
+          </header>
+
+          <figure class="shot shot--browser" data-parallax>
+            <div class="browser" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url mono">Livingroom · demo</span></div>
+            <div class="shot__frame">
+              <picture>
+                <source type="image/webp" srcset="assets/img/livingroom-hero-480.webp 480w, assets/img/livingroom-hero-960.webp 960w, assets/img/livingroom-hero-1600.webp 1600w" sizes="(min-width: 1360px) 1240px, 92vw">
+                <img src="assets/img/livingroom-hero-960.jpg" srcset="assets/img/livingroom-hero-480.jpg 480w, assets/img/livingroom-hero-960.jpg 960w, assets/img/livingroom-hero-1600.jpg 1600w" sizes="(min-width: 1360px) 1240px, 92vw" width="1818" height="949" alt="Livingroom demo home page on a black background: italic serif headline welcoming guests, an illustrated arched storefront with warm lit windows, and two gold-outlined buttons to book a table and see the menu." loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="mono">Home page of the demo. Polish and English versions.</figcaption>
+          </figure>
+
+          <div class="case__intro">
+            <section class="block">
+              <h4 class="block__title"><span class="block__idx mono">A</span>Problem and context</h4>
+              <p>I visited Livingroom and found that its website did not match the quality of the place.</p>
+              <p>Nobody asked me for a redesign. I built a nearly finished site as a demo and used it to start the conversation.</p>
+            </section>
+            <section class="block">
+              <h4 class="block__title"><span class="block__idx mono">B</span>My role and constraints</h4>
+              <ul class="list">
+                <li>Everything: the idea, the design, the code, the pitch.</li>
+                <li><strong>Constraint:</strong> no brief and no budget. The demo had to convince on its own.</li>
+                <li><strong>Constraint:</strong> the booking form needed an integration with the restaurant's system, which a demo cannot have. That was the missing piece.</li>
+              </ul>
+            </section>
+          </div>
+
+          <div class="gallery gallery--3">
+            <figure class="shot">
+              <div class="shot__frame">
+                <picture><source type="image/webp" srcset="assets/img/livingroom-menu-480.webp 480w, assets/img/livingroom-menu-960.webp 960w" sizes="(min-width: 900px) 30vw, 92vw"><img src="assets/img/livingroom-menu-960.jpg" srcset="assets/img/livingroom-menu-480.jpg 480w, assets/img/livingroom-menu-960.jpg 960w" sizes="(min-width: 900px) 30vw, 92vw" width="1813" height="949" alt="Menu page with six large serif categories, each numbered, offset in a staggered layout." loading="lazy" decoding="async"></picture>
+              </div>
+              <figcaption class="mono">Menu categories</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="shot__frame">
+                <picture><source type="image/webp" srcset="assets/img/livingroom-menu-detail-480.webp 480w, assets/img/livingroom-menu-detail-960.webp 960w" sizes="(min-width: 900px) 30vw, 92vw"><img src="assets/img/livingroom-menu-detail-960.jpg" srcset="assets/img/livingroom-menu-detail-480.jpg 480w, assets/img/livingroom-menu-detail-960.jpg 960w" sizes="(min-width: 900px) 30vw, 92vw" width="1651" height="865" alt="Burger section of the menu with dish names, ingredients, allergens and prices in gold." loading="lazy" decoding="async"></picture>
+              </div>
+              <figcaption class="mono">Dish list with allergens</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="shot__frame">
+                <picture><source type="image/webp" srcset="assets/img/livingroom-dishes-480.webp 480w, assets/img/livingroom-dishes-960.webp 960w" sizes="(min-width: 900px) 30vw, 92vw"><img src="assets/img/livingroom-dishes-960.jpg" srcset="assets/img/livingroom-dishes-480.jpg 480w, assets/img/livingroom-dishes-960.jpg 960w" sizes="(min-width: 900px) 30vw, 92vw" width="1681" height="826" alt="An illustrated burger in the centre of a dish carousel with a drink and a steak on the sides and arrow buttons below." loading="lazy" decoding="async"></picture>
+              </div>
+              <figcaption class="mono">Dish carousel</figcaption>
+            </figure>
+          </div>
+
+          <section class="sub sub--flush" id="livingroom-booking" aria-labelledby="living-proto-title">
+            <header class="sub__head">
+              <p class="sub__kicker mono">The missing piece</p>
+              <h4 class="sub__title" id="living-proto-title">Table booking, every state</h4>
+              <p class="proto-flag mono"><span aria-hidden="true">◆</span> Concept prototype built for this portfolio</p>
+              <p class="sub__lead">Date, time, party size, details, confirmation. With the states a real booking form has to handle: no free times, validation errors, groups above 8, loading, network errors and success. Use “Show all states” to see each one without clicking through.</p>
+            </header>
+            <div class="proto proto--living" id="proto-living" data-proto="living">
+              <noscript><p class="proto__nojs">This prototype needs JavaScript.</p></noscript>
+            </div>
+            <p class="note mono">Availability and times are sample data, not the restaurant's real schedule. Nothing is sent anywhere.</p>
+          </section>
+
+          <div class="ai-table" role="group" aria-labelledby="living-ai-title">
+            <h4 class="ai-table__title" id="living-ai-title">What AI did / What I did</h4>
+            <div class="ai-table__grid">
+              <div class="ai-table__col ai-table__col--ai">
+                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
+                <ul>
+                  <li><b>Claude Code</b> wrote the demo's code from my layout: menu, categories, dish carousel, language switch.</li>
+                  <li><b>Claude Code</b> wrote the booking prototype on this page from my list of steps and states.</li>
+                  <!-- TODO: which tool made the storefront and food illustrations -->
+                  <li class="pending-li"><span class="pending__label mono">Content pending</span> Which tool made the storefront and food illustrations.</li>
+                </ul>
+              </div>
+              <div class="ai-table__col ai-table__col--me">
+                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
+                <ul>
+                  <li>Noticed the problem as a guest and decided to act without a brief.</li>
+                  <li>Chose the look: black, gold, serif type, illustrated dishes.</li>
+                  <li>Defined the booking flow and every state it must handle, including groups above 8.</li>
+                  <li>Pitched the demo to the restaurant.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">C</span><span class="acc__label">Process: research → flow → prototype → final</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <ol class="steps">
+                  <li><b>Research.</b> I went to the restaurant as a guest and compared the visit with the website.</li>
+                  <li><b>Flow.</b> Home page, menu, gallery, about, chef, contact, and a booking button on every screen.</li>
+                  <li><b>Prototype.</b> A nearly finished site in code, used as the pitch itself.</li>
+                  <li><b>Final.</b> The booking step needs an integration. On this page I show the flow and states as a prototype.</li>
+                </ol>
+              </div>
+            </details>
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">D</span><span class="acc__label">States and edge cases I planned for</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <ul class="states">
+                  <li><span class="states__k mono">Full day</span>Fully booked days are visible and disabled, with the reason in text.</li>
+                  <li><span class="states__k mono">No times</span>If a day has no free times, the guest gets the nearest free date in one tap.</li>
+                  <li><span class="states__k mono">9+ guests</span>Groups above 8 move to an enquiry form. The data already entered carries over.</li>
+                  <li><span class="states__k mono">Errors</span>Each field says what to fix. An error summary at the top links to each field.</li>
+                  <li><span class="states__k mono">Network</span>Loading and failure states for times and for sending, with retry that keeps the data.</li>
+                </ul>
+              </div>
+            </details>
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">E</span><span class="acc__label">Outcome, what I learned, what I would do next</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <!-- TODO: outcome of the pitch -->
+                <div class="pending pending--inline">
+                  <span class="pending__label mono">Content pending</span>
+                  <p>How the restaurant responded to the pitch, and what Hubert learned.</p>
+                </div>
+                <p><b>Next:</b> connect the booking flow to the restaurant's reservation system and test it with guests on phones.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- ---------- CASE 04 PSYCHOLOGIST ---------- -->
+      <article class="case" id="psychologist-site" aria-labelledby="psy-title">
+        <div class="container">
+          <header class="case__head">
+            <p class="case__num mono">Case 04</p>
+            <h3 class="case__title" id="psy-title"><span class="mask"><span>Psychologist site</span></span></h3>
+            <p class="case__sub">A website with a full purchase path for a psychologist. Client project, in progress. Shown without the client's name.</p>
+            <dl class="facts">
+              <div><dt>Client</dt><dd>A psychologist (name withheld)</dd></div>
+              <div><dt>My role</dt><dd>Design and build</dd></div>
+              <div><dt>Status</dt><dd>In progress. Copy is a draft</dd></div>
+              <div><dt>Tools</dt><dd>Claude Code, Astro 5, Tailwind 4, Cal.com</dd></div>
+            </dl>
+          </header>
+
+          <div class="case__intro">
+            <section class="block">
+              <h4 class="block__title"><span class="block__idx mono">A</span>Problem and context</h4>
+              <p>The client sells session packages and books appointments. The payment gateway is not connected yet, and she wants to manage her own calendar.</p>
+            </section>
+            <section class="block">
+              <h4 class="block__title"><span class="block__idx mono">B</span>My role and constraints</h4>
+              <ul class="list">
+                <li>I design and build the site in Claude Code with Astro 5 and Tailwind 4.</li>
+                <li><strong>Constraint:</strong> no payment gateway yet (Stripe comes later).</li>
+                <li><strong>Constraint:</strong> client privacy. No name, no data, no screenshots of personal content.</li>
+              </ul>
+            </section>
+          </div>
+
+          <div class="flow" aria-labelledby="psy-flow-title">
+            <p class="flow__title mono" id="psy-flow-title">Purchase path, clickable end to end before the gateway exists</p>
+            <ol class="flow__steps">
+              <li class="flow__step"><span class="flow__n mono">1</span><span class="flow__t">Choose a package</span></li>
+              <li class="flow__step"><span class="flow__n mono">2</span><span class="flow__t">Cart</span></li>
+              <li class="flow__step flow__step--mock"><span class="flow__n mono">3</span><span class="flow__t">Payment <em class="mono">mock</em></span><span class="flow__note">Stripe later. Payment method badges built, switched off.</span></li>
+              <li class="flow__step"><span class="flow__n mono">4</span><span class="flow__t">Thank you</span></li>
+            </ol>
+            <div class="flow__branch">
+              <span class="flow__n mono">+</span>
+              <span class="flow__t">Book a time</span>
+              <span class="flow__note">Embedded Cal.com. The client manages her own slots.</span>
+            </div>
+          </div>
+
+          <div class="gallery gallery--2">
+            <!-- TODO: anonymised screenshots of the psychologist site (desktop + phone), only with consent -->
+            <div class="frame-slot frame-slot--browser">
+              <div class="browser" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url mono">Package selection</span></div>
+              <div class="frame-slot__body">
+                <div class="wire" aria-hidden="true"><span class="wire__h"></span><span class="wire__row"><i></i><i></i><i></i></span><span class="wire__btn"></span></div>
+                <p class="frame-slot__cap mono">Screenshot pending: package selection, desktop<br><span>assets/screenshots/psycholog-1.png · 16:10 · only with client consent</span></p>
+              </div>
+            </div>
+            <div class="frame-slot frame-slot--phone">
+              <div class="phone phone--empty">
+                <div class="wire wire--phone" aria-hidden="true"><span class="wire__h"></span><span class="wire__line"></span><span class="wire__line"></span><span class="wire__btn"></span></div>
+              </div>
+              <p class="frame-slot__cap mono">Screenshot pending: cart on a phone<br><span>assets/screenshots/psycholog-2.png · 9:19.5</span></p>
+            </div>
+          </div>
+
+          <div class="ai-table" role="group" aria-labelledby="psy-ai-title">
+            <h4 class="ai-table__title" id="psy-ai-title">What AI did / What I did</h4>
+            <div class="ai-table__grid">
+              <div class="ai-table__col ai-table__col--ai">
+                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
+                <ul>
+                  <li><b>Claude Code</b> builds the pages and components in Astro and Tailwind from my structure.</li>
+                  <li><b>Claude Code</b> wrote the mock payment step and the thank-you screen.</li>
+                </ul>
+              </div>
+              <div class="ai-table__col ai-table__col--me">
+                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
+                <ul>
+                  <li>Designed the purchase path so it can be clicked through before payments exist.</li>
+                  <li>Chose Cal.com so the client controls her own calendar.</li>
+                  <li>Decided to build the payment badges now and keep them off until the gateway is live.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">D</span><span class="acc__label">States and edge cases I planned for</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <ul class="states">
+                  <li><span class="states__k mono">No gateway</span>The payment step is a mock, so the whole path can be tested and shown now.</li>
+                  <li><span class="states__k mono">Badges</span>Payment method badges exist but stay hidden, so the site never promises a method that does not work yet.</li>
+                  <li><span class="states__k mono">Calendar</span>Booking runs in Cal.com. Availability changes need no developer.</li>
+                </ul>
+              </div>
+            </details>
+            <details class="acc">
+              <summary class="acc__sum"><span class="acc__idx mono">E</span><span class="acc__label">Outcome and next steps</span><span class="acc__icon" aria-hidden="true"></span></summary>
+              <div class="acc__body">
+                <p>In progress. Copy on the site is still a draft.</p>
+                <p><b>Next:</b> connect Stripe, switch on the payment badges, replace draft copy with the client's text.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- ---------- CASE 05 TRAINING PLANS ---------- -->
+      <article class="case" id="training-plans" aria-labelledby="training-title">
+        <div class="container">
+          <header class="case__head">
+            <p class="case__num mono">Case 05</p>
+            <h3 class="case__title" id="training-title"><span class="mask"><span>Training plans</span></span></h3>
+            <p class="case__sub">Personal 8-week training plans as web pages, generated from one template. Shown anonymised.</p>
+            <dl class="facts">
+              <div><dt>Clients</dt><dd>Individual training clients (anonymised)</dd></div>
+              <div><dt>My role</dt><dd>Template design, plan pages</dd></div>
+              <div><dt>Background</dt><dd>Certified personal trainer</dd></div>
+              <div><dt>Tools</dt><dd>Claude, HTML, CSS, JS</dd></div>
+            </dl>
+          </header>
+
+          <div class="case__split">
+            <div class="case__split-text">
+              <section class="block">
+                <h4 class="block__title"><span class="block__idx mono">A</span>Problem and context</h4>
+                <p>Each client gets a personal 8-week plan. A web page opens on any phone and keeps the whole plan in one place: schedule, exercises, nutrition tables.</p>
+              </section>
+              <section class="block">
+                <h4 class="block__title"><span class="block__idx mono">B</span>My role and constraints</h4>
+                <ul class="list">
+                  <li>I designed one template and generate a page per client from it.</li>
+                  <li><strong>Constraint:</strong> personal data. Names, body weight and height are hidden in the screenshots.</li>
+                </ul>
+              </section>
+              <section class="block">
+                <h4 class="block__title"><span class="block__idx mono">C</span>What the template contains</h4>
+                <ul class="list">
+                  <li>Plan header: cycle length, sessions per week, goal, level.</li>
+                  <li>Day tabs, numbered exercises with Polish and English names, expandable details, cool-down.</li>
+                  <li>Reference tables: macros for training and rest days, keys to success, progress plan.</li>
+                </ul>
+              </section>
+            </div>
+            <div class="phones">
+              <figure class="shot shot--phone">
+                <div class="phone">
+                  <picture><source type="image/webp" srcset="assets/img/training-mobile-1-480.webp 480w, assets/img/training-mobile-1-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-mobile-1-480.jpg" srcset="assets/img/training-mobile-1-480.jpg 480w, assets/img/training-mobile-1-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="Top of a training plan on a phone: blurred brand header, client shown as Client A, an 8-week 3-day split, goal and level, and day tabs D1 to D3." loading="lazy" decoding="async"></picture>
+                </div>
+                <figcaption class="mono">Plan header, anonymised</figcaption>
+              </figure>
+              <figure class="shot shot--phone">
+                <div class="phone">
+                  <picture><source type="image/webp" srcset="assets/img/training-mobile-2-480.webp 480w, assets/img/training-mobile-2-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-mobile-2-480.jpg" srcset="assets/img/training-mobile-2-480.jpg 480w, assets/img/training-mobile-2-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="Exercise list on a phone: six numbered exercises with Polish and English names and expand arrows, followed by a cool-down card." loading="lazy" decoding="async"></picture>
+                </div>
+                <figcaption class="mono">Exercises and cool-down</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="ai-table" role="group" aria-labelledby="training-ai-title">
+            <h4 class="ai-table__title" id="training-ai-title">What AI did / What I did</h4>
+            <div class="ai-table__grid">
+              <div class="ai-table__col ai-table__col--ai">
+                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
+                <ul>
+                  <li><b>Claude</b> built the page template in code and fills it with each client's plan.</li>
+                </ul>
+              </div>
+              <div class="ai-table__col ai-table__col--me">
+                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
+                <ul>
+                  <li>Wrote the training content as a certified personal trainer.</li>
+                  <li>Designed the template mobile-first: one column, large numbers, details folded away.</li>
+                  <li>Decided what each client sees first: goal, schedule, today's exercises.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- TODO: confirm who wrote the training content and how pages are generated -->
+        </div>
+      </article>
+
+      <!-- ---------- CASE 06 EBOOK ---------- -->
+      <article class="case case--short" id="ebook" aria-labelledby="ebook-title">
+        <div class="container">
+          <header class="case__head">
+            <p class="case__num mono">Case 06</p>
+            <h3 class="case__title" id="ebook-title"><span class="mask"><span>Interactive ebook</span></span></h3>
+            <p class="case__sub">An HTML ebook for readers aged 50+. Own project.</p>
+          </header>
+          <div class="case__split case__split--short">
+            <div class="case__split-text">
+              <p class="lead">Side-panel navigation and an interactive symptom checklist. The reader ticks what applies instead of reading a long list.</p>
+              <ul class="states">
+                <li><span class="states__k mono">Navigation</span>A side panel keeps every chapter one click away.</li>
+                <li><span class="states__k mono">Checklist</span>Interactive symptom checklist inside the text.</li>
+                <li><span class="states__k mono">Audience</span>Designed for readers aged 50+.</li>
+              </ul>
+              <div class="ai-table ai-table--compact" role="group" aria-labelledby="ebook-ai-title">
+                <h4 class="ai-table__title" id="ebook-ai-title">What AI did / What I did</h4>
+                <div class="ai-table__grid">
+                  <div class="ai-table__col ai-table__col--ai">
+                    <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
+                    <ul><li><b>Claude Code</b> built the HTML ebook, the side panel and the checklist logic.</li></ul>
+                  </div>
+                  <div class="ai-table__col ai-table__col--me">
+                    <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
+                    <ul><li>Chose the format and the audience, and planned the interactive checklist.</li></ul>
+                  </div>
+                </div>
+              </div>
+              <!-- TODO: ebook topic, screenshots, AI split confirmation -->
+              <div class="pending pending--inline">
+                <span class="pending__label mono">Content pending</span>
+                <p>Ebook topic and screenshots of the side panel and checklist.</p>
+              </div>
+            </div>
+            <div class="type-cover type-cover--ebook type-cover--large" aria-hidden="true">
+              <span class="type-cover__list"><i class="on"></i><i></i><i class="on"></i><i></i><i></i></span>
+              <span class="type-cover__word">Read<br>at 50+</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ 03 HOW I WORK WITH AI ============ -->
+    <section class="section ai" id="ai" aria-labelledby="ai-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="sec-head__num mono">03</p>
+          <h2 class="sec-head__title" id="ai-title"><span class="mask"><span>How I work with AI</span></span></h2>
+          <p class="sec-head__aside">AI tools are part of every project. I use them to research faster, build faster and try more versions. I decide what the problem is, what ships, and what gets thrown away.</p>
+        </header>
+
+        <ol class="workflow">
+          <li class="wf">
+            <span class="wf__n mono">01</span>
+            <h3 class="wf__t">Understand the problem</h3>
+            <p>I go where the problem is: the job site, the restaurant. I dictate notes in Wispr Flow.</p>
+            <p class="wf__who mono"><span class="chip chip--me">Me</span> I set the question.</p>
+          </li>
+          <li class="wf">
+            <span class="wf__n mono">02</span>
+            <h3 class="wf__t">Research</h3>
+            <p>Perplexity for sources, Gemini for comparisons, ChatGPT for structuring strategy, Manifold for marketing and social data.</p>
+            <p class="wf__who mono"><span class="chip chip--ai">AI</span> gathers <span class="chip chip--me">Me</span> checks sources</p>
+          </li>
+          <li class="wf">
+            <span class="wf__n mono">03</span>
+            <h3 class="wf__t">Flow and states</h3>
+            <p>Before building, I write the steps and every state: empty, loading, error, limit, success.</p>
+            <p class="wf__who mono"><span class="chip chip--me">Me</span> I write the list.</p>
+          </li>
+          <li class="wf">
+            <span class="wf__n mono">04</span>
+            <h3 class="wf__t">Build</h3>
+            <p>Claude Code turns the list into a working page or prototype. Animations in GSAP and HyperFrames, rendered to MP4 with Playwright. 3D in three.js.</p>
+            <p class="wf__who mono"><span class="chip chip--ai">AI</span> writes code</p>
+          </li>
+          <li class="wf">
+            <span class="wf__n mono">05</span>
+            <h3 class="wf__t">Visuals</h3>
+            <p>Higgsfield and Leonardo AI for images and video, Canva for posts and materials.</p>
+            <p class="wf__who mono"><span class="chip chip--ai">AI</span> generates <span class="chip chip--me">Me</span> selects</p>
+          </li>
+          <li class="wf">
+            <span class="wf__n mono">06</span>
+            <h3 class="wf__t">Review and decide</h3>
+            <p>I check the result on desktop and phone. I keep what fits the brand and the user and throw away the rest.</p>
+            <p class="wf__who mono"><span class="chip chip--me">Me</span> I decide.</p>
+          </li>
+        </ol>
+
+        <div class="split-panel">
+          <div class="split-panel__col">
+            <h3 class="mini-title"><span class="chip chip--ai">AI</span> Where AI speeds me up</h3>
+            <ul class="list">
+              <li>Writing and changing code for pages, prototypes and animations.</li>
+              <li>Collecting market and competitor data with sources.</li>
+              <li>Drafts of long documents and their structure.</li>
+              <li>Image and video variants to compare.</li>
+              <li>Dictation instead of typing.</li>
+            </ul>
+          </div>
+          <div class="split-panel__col">
+            <h3 class="mini-title"><span class="chip chip--me">Me</span> Where the decision stays with me</h3>
+            <ul class="list">
+              <li>What the problem is and who the user is.</li>
+              <li>Which states and edge cases the product must handle.</li>
+              <li>Whether a visual fits the brand. Basko's realistic 3D ad did not, so I dropped it.</li>
+              <li>What a client's material may show: no client logos without consent, no personal data.</li>
+              <li>Whether the result works. I test it myself on desktop and phone.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tools">
+          <h3 class="mini-title">Tools I use and what for</h3>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Tools table, scrollable">
+            <table class="tools__table">
+              <thead><tr><th scope="col">Tool</th><th scope="col">What I use it for</th><th scope="col">Type</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Claude, Claude Code</th><td>Websites, prototypes, code, motion graphics in code, strategy and research</td><td class="mono">Build</td></tr>
+                <tr><th scope="row">ChatGPT</th><td>Copy, research, strategy work for KSK Pretor</td><td class="mono">Text</td></tr>
+                <tr><th scope="row">Google Gemini</th><td>Research, comparisons</td><td class="mono">Research</td></tr>
+                <tr><th scope="row">Perplexity</th><td>Research with sources, market analysis</td><td class="mono">Research</td></tr>
+                <tr><th scope="row">Higgsfield</th><td>Video and image generation (e.g. Seedance), video editing with person replacement</td><td class="mono">Visual</td></tr>
+                <tr><th scope="row">Leonardo AI</th><td>Graphics generation</td><td class="mono">Visual</td></tr>
+                <tr><th scope="row">Manifold</th><td>Marketing and social media research</td><td class="mono">Research</td></tr>
+                <!-- TODO: what Hubert uses Sendcastle for -->
+                <tr><th scope="row">Sendcastle</th><td><span class="pending-inline mono">Content pending: what I use it for</span></td><td class="mono">–</td></tr>
+                <tr><th scope="row">Botpress</th><td>AI agent (chatbot) prototype for KSK Pretor</td><td class="mono">Agent</td></tr>
+                <tr><th scope="row">Canva</th><td>Graphics, posts, materials</td><td class="mono">Visual</td></tr>
+                <tr><th scope="row">Wispr Flow</th><td>Dictation, voice work</td><td class="mono">Input</td></tr>
+                <tr><th scope="row">GSAP, HyperFrames, Playwright</th><td>Animations in code rendered to MP4</td><td class="mono">Motion</td></tr>
+                <tr><th scope="row">three.js</th><td>Interactive 3D model</td><td class="mono">3D</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="exploring" id="exploring">
+          <header class="exploring__head">
+            <p class="sub__kicker mono">What I'm exploring now</p>
+            <h3 class="exploring__title">From a written list of states to a tested prototype in one session</h3>
+          </header>
+          <!-- TODO: Hubert to confirm these three topics; they match part 2 of the application video -->
+          <ol class="explore-list">
+            <li>
+              <span class="explore-list__n mono">01</span>
+              <div>
+                <h4>Spec-first prototyping with Claude Code</h4>
+                <p>I write the flow and every state first, then let Claude Code build the prototype, then check it automatically: Playwright clicks through the states, axe-core checks accessibility. The prototypes on this page were made this way.</p>
+              </div>
+            </li>
+            <li>
+              <span class="explore-list__n mono">02</span>
+              <div>
+                <h4>Motion as code</h4>
+                <p>Brand animations in HTML and GSAP, rendered frame by frame to MP4. One source, many versions: Polish, German, post, story.</p>
+              </div>
+            </li>
+            <li>
+              <span class="explore-list__n mono">03</span>
+              <div>
+                <h4>AI agents for customer questions</h4>
+                <p>Following the Botpress prototype for KSK Pretor: where an agent helps a customer, and where a person must take over.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 ABOUT ============ -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="sec-head__num mono">04</p>
+          <h2 class="sec-head__title" id="about-title"><span class="mask"><span>About</span></span></h2>
+        </header>
+        <div class="about__grid">
+          <div class="about__main">
+            <p class="lead">I am a freelance web designer. I also do marketing and visual content for companies: video editing, graphics and motion graphics.</p>
+            <p>The most satisfying part of my work is building something that works and looks good. I follow the AI industry closely, and I believe working with AI tools is where design is going. I want to get much better at it.</p>
+            <p>I am looking for a team I can stay with for the long term and grow in. When the work produces results, I can put a lot of hours into it.</p>
+          </div>
+          <aside class="about__side">
+            <h3 class="mini-title">Background</h3>
+            <ul class="bg-list">
+              <li><span class="mono">Now</span>Freelance web design, marketing and visual content for companies</li>
+              <li><span class="mono">Clients</span>Working directly with owners: briefs, feedback, approvals, filming on site</li>
+              <li><span class="mono">Before</span>Certified personal trainer. One-to-one work with people, a plan adapted to each person</li>
+              <li><span class="mono">Base</span>Near Gorzów Wielkopolski, Poland. Working remotely</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 CV ============ -->
+    <section class="section cv" id="cv" aria-labelledby="cv-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="sec-head__num mono">05</p>
+          <h2 class="sec-head__title" id="cv-title"><span class="mask"><span>CV</span></span></h2>
+          <!-- TODO: link to the CV (Google Docs / PDF) -->
+          <div class="pending pending--inline pending--cta">
+            <span class="pending__label mono">Content pending</span>
+            <p>Link to CV (PDF)</p>
+          </div>
+        </header>
+        <div class="cv__grid">
+          <div class="cv__col">
+            <h3 class="mini-title">Experience</h3>
+            <ol class="timeline">
+              <li>
+                <!-- TODO: dates -->
+                <p class="timeline__when mono">Freelance · <span class="pending-inline">dates pending</span></p>
+                <h4>Web designer, marketing and visual content</h4>
+                <ul class="list list--tight">
+                  <li><b>Basko Clean:</b> website design and code, motion-graphic ad, social media on three platforms, profile identity.</li>
+                  <li><b>KSK Pretor:</b> German market entry plan (18 chapters, 59-page owner version), interactive 3D model, AI agent prototype, video branding in PL and DE.</li>
+                  <li><b>Livingroom:</b> restaurant website demo built on my own initiative.</li>
+                  <li>Psychologist website with a full purchase path (Astro, Tailwind, Cal.com). Personal training plan pages from one template.</li>
+                </ul>
+              </li>
+              <li>
+                <p class="timeline__when mono">Earlier · <span class="pending-inline">dates pending</span></p>
+                <h4>Personal trainer (certified)</h4>
+                <p>One-to-one work with people.</p>
+              </li>
+            </ol>
+          </div>
+          <div class="cv__col">
+            <h3 class="mini-title">Skills</h3>
+            <dl class="skills">
+              <div><dt>UX</dt><dd>User flows, states and edge cases, personas, customer journeys, drop-off analysis</dd></div>
+              <div><dt>UI</dt><dd>Hierarchy, spacing, typography, motion, light and dark themes</dd></div>
+              <div><dt>Front-end</dt><dd>HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP</dd></div>
+              <div><dt>Visual</dt><dd>Video editing, motion graphics, graphics, social content</dd></div>
+              <div><dt>AI tools</dt><dd>Claude Code, Claude, ChatGPT, Gemini, Perplexity, Higgsfield, Leonardo AI, Botpress, Manifold, Wispr Flow</dd></div>
+              <div><dt>Languages</dt><dd>Polish (native). English: <span class="pending-inline">level pending</span></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 CONTACT ============ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="sec-head__num mono">06</p>
+          <h2 class="sec-head__title" id="contact-title"><span class="mask"><span>Contact</span></span></h2>
+        </header>
+        <div class="contact__grid">
+          <div>
+            <p class="contact__lead">The fastest way to reach me is e-mail.</p>
+            <a class="contact__mail" href="mailto:hubert.austria2025@gmail.com" data-cursor="Write">hubert.austria2025<wbr>@gmail.com</a>
+            <div class="contact__actions">
+              <button class="btn btn--ghost" type="button" id="copy-mail" data-copy="hubert.austria2025@gmail.com"><span>Copy e-mail</span></button>
+              <span class="copy-status mono" id="copy-status" role="status" aria-live="polite"></span>
+            </div>
+          </div>
+          <ul class="contact__links">
+            <li><span class="mono">E-mail</span><a href="mailto:hubert.austria2025@gmail.com">hubert.austria2025@gmail.com</a></li>
+            <li><span class="mono">GitHub</span><a href="https://github.com/Hubbit005" rel="noopener" target="_blank">github.com/Hubbit005<span class="sr-only"> (opens in a new tab)</span></a></li>
+            <!-- TODO: LinkedIn URL -->
+            <li><span class="mono">LinkedIn</span><span class="pending-inline mono">Content pending: LinkedIn profile link</span></li>
+            <li><span class="mono">Location</span><span>Near Gorzów Wielkopolski, PL · Remote</span></li>
+          </ul>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container footer__inner">
+          <p class="mono">Hubert · Portfolio 2026</p>
+          <p class="mono">Built with Claude Code. Static HTML, CSS and JS. No tracking.</p>
+          <a class="mono footer__top" href="#home">Back to top ↑</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label">Open</span></div>
+</body>
+</html>
