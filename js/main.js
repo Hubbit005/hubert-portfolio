@@ -50,11 +50,10 @@ window.__lenis = lenis;
 function navOffset() { return (document.getElementById('nav')?.offsetHeight || 64) + 8; }
 function scrollToTarget(el, immediate = false) {
   if (!el) return;
-  if (lenis) lenis.scrollTo(el, { offset: -navOffset(), immediate, duration: 1.2 });
-  else {
-    const y = el.getBoundingClientRect().top + window.scrollY - navOffset();
-    window.scrollTo({ top: y, behavior: immediate || reduced ? 'auto' : 'smooth' });
-  }
+  // Absolute target; Lenis would otherwise add CSS scroll-padding and scroll-margin on top of the offset.
+  const y = Math.max(0, el.getBoundingClientRect().top + window.scrollY - navOffset());
+  if (lenis) lenis.scrollTo(y, { immediate, duration: 1.2 });
+  else window.scrollTo({ top: y, behavior: immediate || reduced ? 'auto' : 'smooth' });
 }
 
 document.addEventListener('click', (e) => {
