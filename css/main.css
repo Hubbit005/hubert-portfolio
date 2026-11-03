@@ -967,3 +967,4 @@ code { font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; borde
 .lane__unknown { font-size: 0.64rem; color: var(--ink-2); padding: 3px 10px; border: 1.5px dashed var(--line-strong); border-radius: var(--r-pill); background: var(--bg); }
 @media (min-width: 601px) and (max-width: 1099px) { .hero { min-height: 82svh; } }
 @media (max-width: 600px) { .hero { min-height: 80svh; } }
+.type-cover--large .type-cover__word { font-size: clamp(1.5rem, 0.9rem + 1.5vw, 2.3rem); }
