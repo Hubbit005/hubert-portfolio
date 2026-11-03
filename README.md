@@ -10,13 +10,10 @@ Adres po włączeniu GitHub Pages: **https://hubbit005.github.io/hubert-portfoli
 |---|---|
 | `index.html` | Cała strona: hero z obracającym się napisem 3D, karuzela projektów na łuku, 6 case studies, sekcja o pracy z AI, About, CV, kontakt |
 | `css/tokens.css` | Tokeny: kolory (jasny i ciemny motyw), typografia, odstępy, promienie, cienie, czasy animacji |
-| `css/main.css`, `css/proto.css` | Style strony i prototypów |
+| `css/main.css` | Style strony |
 | `js/hero.js` | Napis HUBERT na walcu (CSS 3D) |
 | `js/carousel.js` | Karuzela kart na łuku: obrót, przeciąganie z bezwładnością, strzałki |
 | `js/motion.js` | Ruch przy przewijaniu (GSAP ScrollTrigger + Lenis) |
-| `js/proto-living.js` | Prototyp rezerwacji stolika Livingroom (14 stanów) |
-| `js/proto-ksk.js` | Prototyp niemieckiej rezerwacji grupowej KSK Pretor (13 stanów) |
-| `js/proto-kit.js` | Wspólne elementy prototypów: pola, walidacja, galeria „Show all states” |
 | `tests/` | Skrypty Playwright i axe-core, którymi sprawdzana była strona (opis w `tests/README.md`) |
 | `proto/ak47/` | Model 3D AK-47 (kopia `Hubbit005/ksk-ak47-3d`, lokalny three.js, obsługa klawiatury) |
 | `vendor/` | Biblioteki i fonty z npm: GSAP, ScrollTrigger, Lenis, three.js 0.160, Archivo, Inter, JetBrains Mono |

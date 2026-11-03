@@ -1,4 +1,4 @@
-/* Main entry: theme, nav, smooth scroll, motion, hero, carousel, prototypes. */
+/* Main entry: theme, nav, smooth scroll, motion, hero, carousel. */
 import { initHero } from './hero.js';
 import { initArc } from './carousel.js';
 import { initMotion } from './motion.js';
@@ -218,10 +218,6 @@ async function boot() {
   initMotion({ reduced, gsap, ScrollTrigger, lenis });
   initCursor();
   initMagnetic();
-
-  // Prototypes are independent modules; one failing must not break the page.
-  import('./proto-living.js').then((m) => m.init(document.getElementById('proto-living'))).catch((e) => console.warn('living proto', e));
-  import('./proto-ksk.js').then((m) => m.init(document.getElementById('proto-ksk'))).catch((e) => console.warn('ksk proto', e));
 
   onScroll();
   if (location.hash) {

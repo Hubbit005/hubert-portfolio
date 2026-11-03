@@ -6,7 +6,6 @@
     "a11y": "node a11y-links-perf.js",
     "overflow": "node overflow.js",
     "keyboard": "node keyboard.js",
-    "proto": "node proto-livingroom.js && node proto-ksk.js",
     "screens": "node screens.js out 1440 light && node screens.js out 768 dark && node screens.js out 390 light"
   },
   "devDependencies": {

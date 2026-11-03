@@ -37,7 +37,6 @@
   </script>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/proto.css">
   <script src="vendor/js/gsap.min.js" defer></script>
   <script src="vendor/js/ScrollTrigger.min.js" defer></script>
   <script src="vendor/js/lenis.min.js" defer></script>
@@ -278,28 +277,6 @@
             </figure>
           </div>
 
-          <div class="ai-table" role="group" aria-labelledby="basko-ai-title">
-            <h4 class="ai-table__title" id="basko-ai-title">What AI did / What I did</h4>
-            <div class="ai-table__grid">
-              <div class="ai-table__col ai-table__col--ai">
-                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
-                <ul>
-                  <li><b>Claude Code</b> writes and updates the site's code (React components) from my layout.</li>
-                  <li>An <b>AI video model</b> produced a realistic 3D version of the ad.</li>
-                </ul>
-              </div>
-              <div class="ai-table__col ai-table__col--me">
-                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
-                <ul>
-                  <li>Decided the page structure and placed the quote form above the fold.</li>
-                  <li>Rejected the realistic 3D version. It did not fit the brand. I chose flat 2D motion graphics with kinetic type and the logo's cleaner figure as the hero.</li>
-                  <li>Filmed on job sites and edited the reels. I still run the three social profiles.</li>
-                  <li>Vectorised the logo figure, made light and dark profile pictures, wrote the bio.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
           <div class="accordion">
             <details class="acc">
               <summary class="acc__sum"><span class="acc__idx mono">C</span><span class="acc__label">Process: research → flow → prototype → final</span><span class="acc__icon" aria-hidden="true"></span></summary>
@@ -429,30 +406,6 @@
             <!-- TODO: Hubert to name journeys 2 and 3, and confirm the 7 drop-off points -->
           </div>
 
-          <div class="ai-table ai-table--dark" role="group" aria-labelledby="ksk-ai-title">
-            <h4 class="ai-table__title" id="ksk-ai-title">What AI did / What I did</h4>
-            <div class="ai-table__grid">
-              <div class="ai-table__col ai-table__col--ai">
-                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
-                <ul>
-                  <li><b>ChatGPT</b> drafted and restructured strategy text with me.</li>
-                  <li><b>Perplexity</b> and <b>Gemini</b>: research with sources and comparisons.</li>
-                  <li><b>Claude Code</b> wrote the three.js code for the 3D model and the GSAP animations.</li>
-                  <li><b>Botpress</b> runs the agent prototype.</li>
-                </ul>
-              </div>
-              <div class="ai-table__col ai-table__col--me">
-                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
-                <ul>
-                  <li>Set the structure of the plan and the five questions every section of the owner version answers.</li>
-                  <li>Defined the landing page requirements: packages in EUR, booking, conversion tracking.</li>
-                  <li>Designed the 3D interactions and states: safe mode, step-by-step disassembly, photo mode with Instagram formats, lower quality on phones.</li>
-                  <li>Directed the motion: the bullet crosses the frame, the logo emerges from behind it. Polish and German versions.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
           <!-- Sub-project: 3D model -->
           <section class="sub" id="ksk-3d-model" aria-labelledby="ksk-3d-title">
             <header class="sub__head">
@@ -539,43 +492,6 @@
                 <picture><source type="image/webp" srcset="assets/img/ksk-film-price-480.webp"><img src="assets/img/ksk-film-price-480.jpg" width="480" height="270" alt="Film frame: a price comparison bar chart in red and grey." loading="lazy" decoding="async"></picture>
                 <picture><source type="image/webp" srcset="assets/img/ksk-film-instructor-480.webp"><img src="assets/img/ksk-film-instructor-480.jpg" width="480" height="270" alt="Film frame: one instructor with every shooter, with a photo of an instructor at the range." loading="lazy" decoding="async"></picture>
                 <!-- TODO: assets/video/ksk-intro.mp4 and ksk-outro.mp4 (3 s, PL and DE) -->
-              </div>
-            </div>
-          </section>
-
-          <!-- Sub-project: German group booking prototype -->
-          <section class="sub sub--concept" id="ksk-booking" aria-labelledby="ksk-booking-title">
-            <header class="sub__head">
-              <p class="sub__kicker mono">KSK Pretor · From research to interface</p>
-              <h4 class="sub__title" id="ksk-booking-title">German group booking page</h4>
-              <p class="proto-flag mono"><span aria-hidden="true">◆</span> Concept prototype built for this portfolio</p>
-            </header>
-            <div class="sub__grid">
-              <div class="sub__text">
-                <p>The research ended with requirements for a German landing page. This prototype turns them into a booking flow a German group organiser can finish without a phone call.</p>
-                <table class="map-table">
-                  <caption class="mono">Research finding → decision in the prototype</caption>
-                  <thead><tr><th scope="col">From the research</th><th scope="col">Decision</th></tr></thead>
-                  <tbody>
-                    <tr><td>Landing page requirement: packages priced in EUR</td><td>Three packages with EUR prices, no currency conversion for the visitor</td></tr>
-                    <tr><td>Personas: HR event organiser, event agency, group of friends, bachelor party organiser</td><td>Price per person and per group shown together and updated live</td></tr>
-                    <tr><td>Landing page requirement: booking</td><td>Date and time slot chosen on the page, no phone call needed</td></tr>
-                    <tr><td>Landing page requirement: conversion tracking</td><td>Optional question “Wie haben Sie von uns erfahren?”, so each enquiry records where it came from</td></tr>
-                    <tr><td>Event agencies are one of the five personas</td><td>Optional company field for invoicing</td></tr>
-                    <tr><td>German-speaking market</td><td>Interface in German</td></tr>
-                  </tbody>
-                </table>
-                <p class="note mono">Groups under 12 are sent to the standard booking. Groups over 30 get a custom quote. Prices, the reply time, package names and contents are sample values for the prototype.</p>
-                <div class="brief">
-                  <p class="brief__k mono">My brief for this prototype (PROMPT.md, original Polish)</p>
-                  <blockquote lang="pl"><p>„Zbudowana z wymagań z researchu: pakiety z ceną w EUR, wybór wielkości grupy (12–30), widoczna cena za osobę i za grupę, rezerwacja terminu, pytanie »Wie haben Sie von uns erfahren?«. Interfejs po niemiecku.”</p></blockquote>
-                  <p class="brief__en">In English: built from the research requirements: packages priced in EUR, group size 12 to 30, price per person and per group, date booking, the “how did you hear about us” question, German interface.</p>
-                </div>
-              </div>
-              <div class="sub__proto">
-                <div class="proto proto--ksk" id="proto-ksk" data-proto="ksk" lang="de">
-                  <noscript><p class="proto__nojs" lang="en">This prototype needs JavaScript.</p></noscript>
-                </div>
               </div>
             </div>
           </section>
@@ -682,48 +598,6 @@
             </figure>
           </div>
 
-          <section class="sub sub--flush" id="livingroom-booking" aria-labelledby="living-proto-title">
-            <header class="sub__head">
-              <p class="sub__kicker mono">Livingroom · The missing step</p>
-              <h4 class="sub__title" id="living-proto-title">Table booking with its states</h4>
-              <p class="proto-flag mono"><span aria-hidden="true">◆</span> Concept prototype built for this portfolio</p>
-              <p class="sub__lead">The flow: date, party size, time, details, confirmation. It covers the states a real booking form has to handle: no free times, validation errors, groups above 8, loading, network errors and success. Use “Show all states” to see each one without clicking through.</p>
-            </header>
-            <div class="proto proto--living" id="proto-living" data-proto="living">
-              <noscript><p class="proto__nojs">This prototype needs JavaScript.</p></noscript>
-            </div>
-            <p class="note mono">Availability and times are sample data, not the restaurant's real schedule. Nothing is sent anywhere.</p>
-            <div class="brief brief--after">
-                <p class="brief__k mono">My brief for this prototype (PROMPT.md, original Polish)</p>
-                <blockquote lang="pl"><p>„Przepływ: data → godzina → liczba osób → dane → potwierdzenie. Stany: brak wolnych godzin, błędy walidacji przy polach, grupa powyżej 8 osób przechodzi na formularz zapytania, ładowanie, błąd sieci z ponowieniem, sukces z podsumowaniem. Dodaj przełącznik »Show all states«.”</p></blockquote>
-                <p class="brief__en">In English: flow from date to confirmation; states for no free times, field errors, groups above 8 moving to an enquiry form, loading, network error with retry, success with a summary; a switch to show all states.</p>
-                <p class="note mono">Changed after an AI design review: free tables depend on the size of the group, so the flow asks for guests before the time.</p>
-              </div>
-          </section>
-
-          <div class="ai-table" role="group" aria-labelledby="living-ai-title">
-            <h4 class="ai-table__title" id="living-ai-title">What AI did / What I did</h4>
-            <div class="ai-table__grid">
-              <div class="ai-table__col ai-table__col--ai">
-                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
-                <ul>
-                  <li><b>Claude Code</b> wrote the demo's code from my layout: menu, categories, dish carousel, language switch.</li>
-                  <li><b>Claude Code</b> built the booking prototype on this page from my written brief (<a href="https://github.com/Hubbit005/hubert-portfolio/blob/main/PROMPT.md" rel="noopener" target="_blank">PROMPT.md<span class="sr-only"> in the repository, opens in a new tab</span></a>, in Polish).</li>
-                  <!-- TODO: which tool made the storefront and food illustrations (docs/do-uzupelnienia.md) -->
-                </ul>
-              </div>
-              <div class="ai-table__col ai-table__col--me">
-                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
-                <ul>
-                  <li>Noticed the problem as a guest and decided to act without a brief.</li>
-                  <li>Chose the look: black, gold, serif type, illustrated dishes. <span class="pending-inline">Illustration tool pending</span></li>
-                  <li>Wrote that brief: five steps and the states the booking must handle, including groups above 8.</li>
-                  <li>Built the demo and offered it to the owner.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
           <div class="accordion">
             <details class="acc">
               <summary class="acc__sum"><span class="acc__idx mono">C</span><span class="acc__label">Process: research → flow → prototype → final</span><span class="acc__icon" aria-hidden="true"></span></summary>
@@ -820,27 +694,6 @@
             </div>
           </div>
 
-          <div class="ai-table" role="group" aria-labelledby="psy-ai-title">
-            <h4 class="ai-table__title" id="psy-ai-title">What AI did / What I did</h4>
-            <div class="ai-table__grid">
-              <div class="ai-table__col ai-table__col--ai">
-                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
-                <ul>
-                  <li><b>Claude Code</b> builds the pages and components in Astro and Tailwind from my structure.</li>
-                  <li><b>Claude Code</b> wrote the mock payment step and the thank-you screen.</li>
-                </ul>
-              </div>
-              <div class="ai-table__col ai-table__col--me">
-                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
-                <ul>
-                  <li>Designed the purchase path so it can be clicked through before payments exist.</li>
-                  <li>Chose Cal.com so the client controls her own calendar.</li>
-                  <li>Decided to build the payment badges now and keep them off until the gateway is live.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
           <div class="accordion">
             <details class="acc">
               <summary class="acc__sum"><span class="acc__idx mono">D</span><span class="acc__label">States and edge cases I planned for</span><span class="acc__icon" aria-hidden="true"></span></summary>
@@ -920,25 +773,6 @@
             </div>
           </section>
 
-          <div class="ai-table" role="group" aria-labelledby="minor-ai-title">
-            <h4 class="ai-table__title" id="minor-ai-title">What AI did / What I did</h4>
-            <div class="ai-table__grid">
-              <div class="ai-table__col ai-table__col--ai">
-                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
-                <ul>
-                  <li><b>Training plans:</b> Claude built the page template in code.</li>
-                  <li class="pending-li"><span class="pending__label mono">Content pending</span> Ebook: which parts AI built.</li>
-                </ul>
-              </div>
-              <div class="ai-table__col ai-table__col--me">
-                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
-                <ul>
-                  <li><b>Training plans:</b> designed one template for a phone screen: one column, large numbers, details folded away.</li>
-                  <li><b>Ebook:</b> chose the format and the audience, an HTML ebook with a checklist for readers aged 50+.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </article>
     </section>
@@ -1061,28 +895,6 @@
             <h3 class="meta-case__title" id="meta-title">This portfolio</h3>
             <p class="sub__lead">Built with Claude Code from my written brief, then revised over several rounds of automated checks and AI reviews. The brief, the test scripts and the QA log are in the <a href="https://github.com/Hubbit005/hubert-portfolio" rel="noopener" target="_blank">repository<span class="sr-only"> (opens in a new tab)</span></a>.</p>
           </header>
-          <div class="ai-table ai-table--flush" role="group" aria-labelledby="meta-ai-title">
-            <h4 class="sr-only" id="meta-ai-title">What AI did / What I did on this portfolio</h4>
-            <div class="ai-table__grid">
-              <div class="ai-table__col ai-table__col--ai">
-                <p class="ai-table__head mono"><span class="chip chip--ai">AI</span> What AI did</p>
-                <ul>
-                  <li><b>Claude Code</b> wrote the page, the rotating name, the card wheel, the two booking prototypes and the copy drafts.</li>
-                  <li>It wrote the test scripts in <code>tests/</code>: screenshots of every section (1440 light, 768 dark, 390 light), a click-through of both booking prototypes with validation errors, a keyboard-only booking in the Livingroom prototype, and an accessibility run in both themes.</li>
-                  <li>Separate AI reviewers scored the design and checked every sentence against my facts.</li>
-                </ul>
-              </div>
-              <div class="ai-table__col ai-table__col--me">
-                <p class="ai-table__head mono"><span class="chip chip--me">Me</span> What I did</p>
-                <ul>
-                  <li>Picked the visual direction from a reference: a word rotating on a cylinder, project cards on an arc.</li>
-                  <li>Changed the word on the cylinder from “Portfolio” in the reference to my name.</li>
-                  <li>Wrote the brief: facts about me and my projects, page structure, the flow and states of the Livingroom booking, the requirements for the KSK booking page.</li>
-                  <li>Set the rules: no invented numbers or quotes, every gap marked “Content pending”, no client data.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
           <div class="caught">
             <h4 class="mini-title">What the checks and reviews caught <a class="mono muted" href="https://github.com/Hubbit005/hubert-portfolio/blob/main/docs/qa-log.md" rel="noopener" target="_blank">QA log<span class="sr-only"> (opens in a new tab)</span></a></h4>
             <ul class="caught__list">
