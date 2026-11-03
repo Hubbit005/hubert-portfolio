@@ -17,6 +17,7 @@ Adres po włączeniu GitHub Pages: **https://hubbit005.github.io/hubert-portfoli
 | `js/proto-living.js` | Prototyp rezerwacji stolika Livingroom (14 stanów) |
 | `js/proto-ksk.js` | Prototyp niemieckiej rezerwacji grupowej KSK Pretor (13 stanów) |
 | `js/proto-kit.js` | Wspólne elementy prototypów: pola, walidacja, galeria „Show all states” |
+| `tests/` | Skrypty Playwright i axe-core, którymi sprawdzana była strona (opis w `tests/README.md`) |
 | `proto/ak47/` | Model 3D AK-47 (kopia `Hubbit005/ksk-ak47-3d`, lokalny three.js, obsługa klawiatury) |
 | `vendor/` | Biblioteki i fonty z npm: GSAP, ScrollTrigger, Lenis, three.js 0.160, Archivo, Inter, JetBrains Mono |
 | `assets/img/` | Zoptymalizowane obrazy (WebP + JPEG w kilku szerokościach) |
@@ -66,6 +67,9 @@ Jeśli zmienisz nazwę repozytorium, popraw adres w: `404.html` (`<base href>`),
 - **Nowe obrazy:** najlepiej WebP + JPEG w szerokościach 480/960/1600 (jak w `assets/img/`).
 
 ## Dostępność i jakość
+
+Szczegóły i historia poprawek: `docs/qa-log.md`, recenzje: `docs/recenzje/`.
+
 
 - axe-core: 0 błędów krytycznych i poważnych (motyw jasny i ciemny, także galeria stanów).
 - Prototypy działają samą klawiaturą, mają opisane pola i komunikaty błędów mówiące, co poprawić.
