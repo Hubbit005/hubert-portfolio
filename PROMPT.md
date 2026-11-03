@@ -33,9 +33,8 @@ Jesteś starszym product designerem i front-end developerem w jednej osobie. Bud
 
 - Zapisz w `docs/strategia.md`: kto ogląda stronę (rekruter i designer z Flying Bisons), co ma zapamiętać po 30 sekundach, jaka jest kolejność projektów i dlaczego.
 - Główny przekaz: Hubert zamienia problem klienta w działające, przeklikiwalne rozwiązanie, a AI traktuje jako warsztat, nad którym ma kontrolę. Jego doświadczenie z marketingu i pracy z klientami pasuje do ich „Invisible 90%”.
-- Zaproponuj w `docs/kierunek-wizualny.md` trzy różne kierunki (paleta, typografia, układ, ruch, jedno zdanie uzasadnienia). Wybierz jeden i uzasadnij wybór.
-- Unikaj generycznych wyglądów AI: gradientu fiolet–niebieski, kremu z serifem i terakotą, czerni z jednym kwasowo-zielonym akcentem, Inter jako jedynego fontu, emoji zamiast ikon, wszystkiego wyśrodkowanego, identycznych zaokrąglonych kart.
-- Hubert ma wyczucie streetwearowe: mocna typografia, wysoki kontrast. Możesz to wykorzystać, ale strona ma wyglądać profesjonalnie dla firmy doradczej, która pracuje z bankami i administracją.
+- **Kierunek wizualny jest już wybrany przez Huberta:** przeczytaj `docs/referencja-wizualna.md`. Najważniejsze: w hero napis kręcący się w 3D jak na walcu (przód pełny, tył jako kontur), pionowy prostokąt w kolorze akcentu za nim, a niżej karuzela kart projektów ułożonych w wachlarz na łuku koła, które powoli się obraca. To dwa kluczowe elementy strony i mają działać perfekcyjnie płynnie. Zapisz w `docs/kierunek-wizualny.md`, jak go przenosisz na portfolio Huberta: paleta, kroje (extended sans w nagłówkach), siatka, ruch. Nie kopiuj cudzych grafik, nazwisk ani logo z referencji.
+- Poza tym unikaj generycznych wyglądów AI: gradientu fiolet–niebieski, kremu z serifem i terakotą, emoji zamiast ikon, identycznych kart bez charakteru.
 - Zdefiniuj tokeny (kolory, typografia, odstępy, promienie, cienie, czasy animacji) w `css/tokens.css`. Wersja jasna i ciemna.
 
 Commit.
@@ -57,8 +56,8 @@ Commit.
 
 To ma być **jedna strona (one-pager)**, na której jest wszystko. Ma robić efekt „wow” od pierwszego ekranu, a jednocześnie dawać się szybko przeskanować. Po angielsku. Sekcje w tej kolejności:
 
-1. **Hero** – kim jest Hubert w jednym zdaniu, jedno zdanie o tym, co robi z AI, przyciski „View work” i „Contact”. Mocna typografia i ruch. Hero dopasowany do treści, nie na cały ekran.
-2. **Selected work** – przegląd 4–6 projektów (okładki z ruchem przy najechaniu). Kliknięcie przewija do case study albo otwiera je w panelu na tej samej stronie.
+1. **Hero** – obracający się napis 3D według `docs/referencja-wizualna.md`, podpisy w rogach (imię, rola, „AI-native”), pod spodem jedno zdanie o tym, co Hubert robi, i przyciski „View work” oraz „Contact”.
+2. **Selected work** – karuzela kart na obracającym się łuku według `docs/referencja-wizualna.md`, z pierścieniem tekstu w środku. Przeciąganie myszą i palcem, zatrzymanie przy najechaniu, obsługa strzałkami. Kliknięcie karty przewija do case study albo otwiera je w panelu na tej samej stronie.
 3. **Case studies** – kolejno: Basko Clean, KSK Pretor, Livingroom, strona dla psycholożki (bez nazwiska), plany treningowe (anonimowo), ebook (krótko). Każde ma ten sam szkielet:
    - Problem i kontekst (kto jest użytkownikiem, co mu przeszkadza),
    - Moja rola i ograniczenia (budżet, zgody, czas),
@@ -84,7 +83,7 @@ Commit.
 Ruch ma być płynny i dopracowany, na poziomie stron nagradzanych na Awwwards, ale nie może utrudniać czytania.
 
 - Biblioteki trzymaj lokalnie w `vendor/`, zainstalowane z npm: GSAP z ScrollTrigger (`gsap`), płynne przewijanie Lenis (`lenis`), opcjonalnie SplitType do animacji liter.
-- Hero: wejście tytułu (litery lub słowa), subtelne tło w ruchu (canvas lub WebGL w kodzie, lekkie dla telefonu).
+- Hero: ciągły obrót napisu 3D bez szarpnięć, płynne wejście przy ładowaniu. Karuzela na łuku: płynny obrót z bezwładnością po puszczeniu przeciągania. Sprawdź oba na telefonie.
 - Między sekcjami: przejścia przy przewijaniu (odsłanianie maską, parallax okładek, przypinanie sekcji tam, gdzie opowiada historię, np. ścieżki klienta KSK krok po kroku).
 - Mikrointerakcje: przyciski, karty projektów, kursor przy okładkach na desktopie, płynne otwieranie case study.
 - Animuj tylko `transform` i `opacity`. Utrzymuj 60 fps; sprawdź w Playwright, czy nie ma długich zadań powyżej 50 ms przy przewijaniu.
@@ -147,6 +146,7 @@ Commit po każdej rundzie.
 ## Lista odbioru
 
 - [ ] Jedna strona ze wszystkimi sekcjami z Etapu 3 działa na GitHub Pages bez CDN.
+- [ ] Obracający się napis 3D i karuzela na łuku działają płynnie na desktopie i telefonie, zgodnie z `docs/referencja-wizualna.md`.
 - [ ] Płynny ruch i przejścia działają; przy `prefers-reduced-motion` strona jest w pełni czytelna bez animacji.
 - [ ] Higgsfield: wydane najwyżej 200 kredytów, każda generacja z kosztem w `docs/higgsfield-log.md`, plan w `docs/higgsfield-plan.md`.
 - [ ] Każda luka w treści widoczna jako „Content pending: …” i wpisana do `docs/do-uzupelnienia.md`.
