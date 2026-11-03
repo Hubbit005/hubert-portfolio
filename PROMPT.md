@@ -14,9 +14,20 @@ Jesteś starszym product designerem i front-end developerem w jednej osobie. Bud
 2. Sprawdź, co leży w `assets/` (zrzuty, filmy od Huberta). Jeśli coś jest, użyj tego w pierwszej kolejności.
 3. Nie zadawaj mi pytań w trakcie. Gdy czegoś brakuje, przyjmij rozsądne założenie, oznacz je `[TODO: …]` i dopisz do `docs/do-uzupelnienia.md`. Pracuj do końca listy odbioru na dole.
 
-## Najważniejsza zasada
+## Najważniejsze zasady
 
-Wszystkie fakty bierz z `CLAUDE.md`. Nie wymyślaj liczb, wyników, klientów, opinii ani cytatów. Rekruter będzie o to pytał na rozmowie. Lepszy uczciwy `[TODO]` niż ładne zmyślenie.
+1. **Zbuduj całą stronę od początku do końca w tej sesji.** Nie zostawiaj połowy pracy na później.
+2. **Fakty tylko z `CLAUDE.md`.** Nie wymyślaj liczb, wyników, klientów, opinii ani cytatów. Rekruter będzie o to pytał na rozmowie.
+3. **Gdy nie znasz treści, zostaw widoczną lukę.** Wstaw w tym miejscu dopracowany wizualnie blok z napisem „Content pending: [czego brakuje]” (np. „Content pending: description of the KSK Pretor AI agent”). Dla brakującego obrazu lub filmu zrób ramkę w docelowym rozmiarze z podpisem, co ma się tam znaleźć. Każdą lukę oznacz w kodzie komentarzem `<!-- TODO: … -->` i dopisz do `docs/do-uzupelnienia.md`. Luka ma wyglądać na zaplanowany element układu, a nie na błąd.
+4. **Higgsfield: twardy limit 200 kredytów na całą sesję.** Możesz generować grafiki i krótkie wideo do strony, ale:
+   - na starcie sprawdź saldo (`balance`) i zapisz je w `docs/higgsfield-log.md`;
+   - przed każdą generacją sprawdź jej koszt (wycena narzędzia albo cennik modelu). Jeśli kosztu nie da się ustalić, nie generuj;
+   - po każdej generacji dopisz do logu: co, model, koszt, suma narastająco. Generuj tylko wtedy, gdy suma po tej generacji nie przekroczy 200 kredytów. Gdy zostanie mniej niż koszt kolejnej generacji, kończysz z Higgsfield i nie wracasz do niego;
+   - najpierw zaplanuj wszystkie materiały w `docs/higgsfield-plan.md` (gdzie na stronie, proporcje, prompt po angielsku, model, koszt, nazwa pliku w `assets/`) i ułóż je od najważniejszego. Generuj w tej kolejności;
+   - wybieraj tańsze opcje: najpierw obrazy, wideo tylko tam, gdzie ruch naprawdę coś daje (np. pętla w tle hero, 5 sekund). Testuj w niskiej rozdzielczości, finalną wersję generuj raz;
+   - najwyżej jedna poprawka na materiał. Jeśli druga wersja też nie pasuje, użyj animacji w kodzie zamiast generacji;
+   - jeśli Higgsfield nie jest dostępny w tej sesji, zostaw w układzie ramki w docelowych proporcjach z animacją w kodzie (canvas, SVG, CSS), a plan z promptami zostaw w `docs/higgsfield-plan.md`. Podmiana ma polegać tylko na wrzuceniu pliku o podanej nazwie do `assets/`.
+   - Żadnych wizerunków prawdziwych osób ani logo klientów w generacjach.
 
 ## Etap 1 – Strategia i kierunek wizualny
 
@@ -42,32 +53,49 @@ Strona bez prawdziwych obrazów nie przekona projektanta. Zdobądź je tak:
 
 Commit.
 
-## Etap 3 – Struktura i treść
+## Etap 3 – Struktura i treść: jedna długa strona
 
-Strona po angielsku. Podstrony:
+To ma być **jedna strona (one-pager)**, na której jest wszystko. Ma robić efekt „wow” od pierwszego ekranu, a jednocześnie dawać się szybko przeskanować. Po angielsku. Sekcje w tej kolejności:
 
-1. **Home** – kim jest Hubert w jednym zdaniu, 3–4 wybrane projekty, przycisk do CV i kontaktu. Bez ogromnego hero na cały ekran.
-2. **Case studies** – osobna podstrona na każdy projekt. Kolejność: Basko Clean, KSK Pretor, Livingroom, strona dla psycholożki (bez nazwiska), plany treningowe (anonimowo), ebook (krótko). Każde case study ma ten sam szkielet:
+1. **Hero** – kim jest Hubert w jednym zdaniu, jedno zdanie o tym, co robi z AI, przyciski „View work” i „Contact”. Mocna typografia i ruch. Hero dopasowany do treści, nie na cały ekran.
+2. **Selected work** – przegląd 4–6 projektów (okładki z ruchem przy najechaniu). Kliknięcie przewija do case study albo otwiera je w panelu na tej samej stronie.
+3. **Case studies** – kolejno: Basko Clean, KSK Pretor, Livingroom, strona dla psycholożki (bez nazwiska), plany treningowe (anonimowo), ebook (krótko). Każde ma ten sam szkielet:
    - Problem i kontekst (kto jest użytkownikiem, co mu przeszkadza),
    - Moja rola i ograniczenia (budżet, zgody, czas),
    - Proces: research → przepływ → prototyp → wersja finalna,
    - **What AI did / What I did** – tabela w dwóch kolumnach. To jest kluczowe dla tej oferty,
    - Stany i przypadki brzegowe, które przewidział,
-   - Wynik i czego się nauczył,
-   - Co zrobiłby dalej.
-3. **KSK Pretor** to kilka projektów w jednym case study: research rynku niemieckiego (persony, 4 ścieżki klienta, 7 miejsc odpadania, 8 dźwigni), model 3D, prototyp agenta AI, branding wideo. Narysuj ścieżki klienta jako czytelny diagram w SVG lub HTML, nie jako obrazek tekstu.
-4. **How I work with AI** – workflow Huberta krok po kroku, tabela narzędzi z `CLAUDE.md` (do czego każde), gdzie AI przyspiesza, a gdzie decyzja zostaje po jego stronie, czego się nauczył o pisaniu promptów i weryfikacji wyników. Sekcja „What I'm exploring now”, spójna z drugą częścią wideo (zob. Etap 6).
-5. **About** – motywacja: szuka miejsca na dłużej, chce się rozwijać w pracy z AI, satysfakcja z budowania rzeczy, które działają. Krótko o tle: marketing, praca z klientami, trener personalny jako doświadczenie pracy z ludźmi. Bez lania wody.
-6. **CV** – wersja HTML CV na stronie plus link `[TODO: link do CV w PDF lub Google Docs]`.
-7. **Contact** – e-mail jako tekst i link, GitHub, `[TODO: LinkedIn]`.
+   - Wynik i czego się nauczył, co zrobiłby dalej.
+   Szczegóły mogą się rozwijać (akordeon albo panel boczny), żeby strona nie była ścianą tekstu.
+4. **KSK Pretor** to kilka projektów w jednym case study: research rynku niemieckiego (persony, 4 ścieżki klienta, 7 miejsc odpadania, 8 dźwigni), model 3D, prototyp agenta AI, branding wideo. Narysuj ścieżki klienta jako animowany diagram w SVG lub HTML, nie jako obrazek tekstu.
+5. **How I work with AI** – workflow krok po kroku, tabela narzędzi z `CLAUDE.md` (do czego każde), gdzie AI przyspiesza, a gdzie decyzja zostaje po stronie Huberta. Podsekcja „What I'm exploring now”, spójna z drugą częścią wideo (Etap 6).
+6. **About** – motywacja: szuka miejsca na dłużej, chce się rozwijać w pracy z AI, satysfakcja z budowania rzeczy, które działają. Krótko o tle: marketing, praca z klientami, trener personalny jako doświadczenie pracy z ludźmi.
+7. **CV** – skrócona wersja CV w sekcji plus link „Content pending: link to CV”.
+8. **Contact** – e-mail jako tekst i link, GitHub, luka na LinkedIn.
+
+Nawigacja: przyklejony pasek z kotwicami do sekcji i wskaźnikiem aktualnej sekcji. Linki z `#nazwa-sekcji` działają po wklejeniu w przeglądarkę.
 
 Styl tekstów: jak dokument konsultingowy. Krótkie zdania, konkret, aktywna strona, każde zdanie coś wnosi. Bez „passionate”, „leverage”, „cutting-edge”, „in today's fast-paced world”, bez myślników jako wtrąceń i bez konstrukcji „not X, but Y”.
 
 Commit.
 
+## Etap 3b – Motion i przejścia
+
+Ruch ma być płynny i dopracowany, na poziomie stron nagradzanych na Awwwards, ale nie może utrudniać czytania.
+
+- Biblioteki trzymaj lokalnie w `vendor/`, zainstalowane z npm: GSAP z ScrollTrigger (`gsap`), płynne przewijanie Lenis (`lenis`), opcjonalnie SplitType do animacji liter.
+- Hero: wejście tytułu (litery lub słowa), subtelne tło w ruchu (canvas lub WebGL w kodzie, lekkie dla telefonu).
+- Między sekcjami: przejścia przy przewijaniu (odsłanianie maską, parallax okładek, przypinanie sekcji tam, gdzie opowiada historię, np. ścieżki klienta KSK krok po kroku).
+- Mikrointerakcje: przyciski, karty projektów, kursor przy okładkach na desktopie, płynne otwieranie case study.
+- Animuj tylko `transform` i `opacity`. Utrzymuj 60 fps; sprawdź w Playwright, czy nie ma długich zadań powyżej 50 ms przy przewijaniu.
+- `prefers-reduced-motion`: wszystko widoczne od razu, bez przewijania Lenis, bez przypinania.
+- Treść jest widoczna także bez JavaScriptu i przed startem animacji. Nic nie czeka na `opacity: 0`.
+
+Commit.
+
 ## Etap 4 – Interaktywne prototypy (tu pokazujesz UX, nie tylko UI)
 
-Zbuduj trzy działające prototypy osadzone w case studies. Każdy oznacz jasno jako „Concept prototype built for this portfolio”, żeby nikt nie pomyślał, że to wdrożony produkt.
+Zbuduj trzy działające prototypy osadzone w case studies na tej samej stronie (w sekcji albo w panelu, który otwiera się nad stroną). Każdy oznacz jasno jako „Concept prototype built for this portfolio”, żeby nikt nie pomyślał, że to wdrożony produkt.
 
 1. **Livingroom: rezerwacja stolika.** To brakujący element prawdziwego projektu. Przepływ: data → godzina → liczba osób → dane → potwierdzenie. Stany: brak wolnych godzin, błędy walidacji przy polach, grupa powyżej 8 osób przechodzi na formularz zapytania, ładowanie, błąd sieci z ponowieniem, sukces z podsumowaniem. Dodaj przełącznik „Show all states”, który pozwala rekruterowi przejrzeć każdy stan bez klikania całej ścieżki.
 2. **KSK Pretor: niemiecka strona rezerwacji grupowej.** Zbudowana z wymagań z researchu: pakiety z ceną w EUR, wybór wielkości grupy (12–30), widoczna cena za osobę i za grupę, rezerwacja terminu, pytanie „Wie haben Sie von uns erfahren?”. Interfejs po niemiecku, obok krótki opis po angielsku, które decyzje wynikają z których ustaleń researchu. Ceny oznacz jako przykładowe.
@@ -82,7 +110,7 @@ Commit po każdym prototypie.
 - Statyczny HTML, CSS i JS. Bez frameworka, chyba że uzasadnisz go w `docs/strategia.md`. Strona musi działać na GitHub Pages z gałęzi `main`, katalog główny.
 - Wszystko lokalnie w `vendor/`, żadnych zależności od CDN.
 - Responsywność od 360 px do 1920 px. Szerokość tekstu około 65 znaków.
-- Ruch oszczędny i celowy. Szanuj `prefers-reduced-motion`. Animuj tylko `transform` i `opacity`.
+- Jedna strona `index.html`; style i skrypty możesz dzielić na pliki w `css/` i `js/`.
 - Meta tagi, Open Graph z obrazem 1200×630, favicon, `404.html`, `sitemap.xml`.
 - Wydajność: obrazy zoptymalizowane, fonty z `font-display: swap`, brak blokującego JS.
 
@@ -101,11 +129,11 @@ Commit.
 
 Powtarzaj, aż lista odbioru będzie spełniona, minimum trzy rundy:
 
-1. Zrzuty Playwright każdej podstrony: 1440, 768, 390 px, tryb jasny i ciemny. Obejrzyj każdy zrzut i popraw to, co widać: nachodzący tekst, uciekające elementy, złą hierarchię, za małe odstępy.
-2. Testy dostępności przez `axe-core` z npm na każdej podstronie. Zero błędów krytycznych i poważnych.
+1. Zrzuty Playwright każdej sekcji: 1440, 768, 390 px, tryb jasny i ciemny. Obejrzyj każdy zrzut i popraw to, co widać: nachodzący tekst, uciekające elementy, złą hierarchię, za małe odstępy.
+2. Testy dostępności przez `axe-core` z npm na całej stronie. Zero błędów krytycznych i poważnych.
 3. Przeklikaj każdy prototyp w Playwright, łącznie ze stanami błędów. Sprawdź obsługę samą klawiaturą.
 4. Sprawdź linki (wewnętrzne bez błędów 404).
-5. **Recenzja świeżym okiem:** uruchom osobnego subagenta, który nie widział procesu. Ma wcielić się w seniora z Flying Bisons, obejrzeć zrzuty i kod, i ocenić portfolio w skali 1–10 w pięciu kategoriach: jasność przekazu, myślenie UX (stany, przepływy), jakość wizualna, wiarygodność pracy z AI, jakość tekstów po angielsku. Zapisz recenzję w `docs/recenzje/runda-N.md`. Popraw wszystko poniżej 8 i uruchom kolejną rundę.
+5. **Recenzja świeżym okiem:** uruchom osobnego subagenta, który nie widział procesu. Ma wcielić się w seniora z Flying Bisons, obejrzeć zrzuty i kod, i ocenić portfolio w skali 1–10 w sześciu kategoriach: efekt „wow” i jakość ruchu, jasność przekazu, myślenie UX (stany, przepływy), jakość wizualna, wiarygodność pracy z AI, jakość tekstów po angielsku. Zapisz recenzję w `docs/recenzje/runda-N.md`. Popraw wszystko poniżej 8 i uruchom kolejną rundę.
 6. Osobny subagent sprawdza teksty: czy każde zdanie ma pokrycie w `CLAUDE.md`, czy nie brzmi jak AI, czy angielski jest naturalny.
 
 Commit po każdej rundzie.
@@ -118,7 +146,10 @@ Commit po każdej rundzie.
 
 ## Lista odbioru
 
-- [ ] Wszystkie podstrony z Etapu 3 istnieją i działają na GitHub Pages bez CDN.
+- [ ] Jedna strona ze wszystkimi sekcjami z Etapu 3 działa na GitHub Pages bez CDN.
+- [ ] Płynny ruch i przejścia działają; przy `prefers-reduced-motion` strona jest w pełni czytelna bez animacji.
+- [ ] Higgsfield: wydane najwyżej 200 kredytów, każda generacja z kosztem w `docs/higgsfield-log.md`, plan w `docs/higgsfield-plan.md`.
+- [ ] Każda luka w treści widoczna jako „Content pending: …” i wpisana do `docs/do-uzupelnienia.md`.
 - [ ] Każde case study ma tabelę „What AI did / What I did”.
 - [ ] Trzy prototypy działają, każdy z przeglądem wszystkich stanów.
 - [ ] Prawdziwe zrzuty projektów tam, gdzie udało się je zrobić; dopracowane miejsca tam, gdzie nie.

@@ -91,4 +91,5 @@ Tu jest kilka projektów naraz:
 - Teksty jak w dobrym dokumencie konsultingowym: proste, konkretne, logiczne. Bez typowego dla AI języka, bez waty, bez ozdobników.
 - Pliki biurowe wyłącznie w formatach Google. Nigdy .docx, .xlsx ani .pptx.
 - Strona statyczna, gotowa pod GitHub Pages (gałąź `main`, katalog główny). Biblioteki i fonty trzymaj lokalnie w `vendor/`, bo w środowisku sesji CDN-y mogą być zablokowane, a strona ma się dać przetestować.
+- Higgsfield: limit 200 kredytów na sesję, każda generacja z kosztem w `docs/higgsfield-log.md`. Szczegóły w `PROMPT.md`.
 - Commituj po każdym zakończonym etapie, z opisem po polsku.
