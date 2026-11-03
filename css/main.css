@@ -257,23 +257,8 @@ a:not([class]):hover { text-decoration-thickness: 2px; }
   will-change: transform;
 }
 .cyl__static { display: block; position: relative; transform: translateZ(1px); line-height: 0.86; }
-.cyl.is-built { width: 1px; height: 0.86em; }
-.cyl.is-built .cyl__static { display: none; }
-.cyl__ch {
-  position: absolute; left: 0; top: 0;
-  line-height: 0.86;
-  transform-style: preserve-3d;
-  white-space: pre;
-}
-.cyl__f, .cyl__o { position: absolute; left: 0; top: 0; display: block; }
-.cyl__f { color: var(--ink); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.cyl__o {
-  color: transparent;
-  -webkit-text-stroke: max(1px, calc(var(--fs) * 0.007)) rgb(var(--ink-rgb) / 0.42);
-  opacity: var(--bo, 1);
-}
-.cyl__ch.is-sep .cyl__f { color: var(--accent); }
-.cyl__ch.is-sep .cyl__o { -webkit-text-stroke-color: var(--accent); }
+.hero__gl { position: absolute; left: 0; top: 0; z-index: 1; display: block; pointer-events: none; }
+.hero__stage.is-3d .cyl__static { visibility: hidden; }
 
 .hero__foot {
   display: grid; gap: var(--s-5);
