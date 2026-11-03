@@ -29,7 +29,7 @@ function validate(d, keys) {
     if (!v) e.email = 'Enter an e-mail for the confirmation.';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) e.email = 'Enter an e-mail like name@example.com.';
   }
-  if (keys.includes('notes') && (d.notes || '').length > 200) e.notes = 'Keep notes under 200 characters.';
+  if (keys.includes('notes') && (d.notes || '').length > 200) e.notes = 'Keep notes to 200 characters or fewer.';
   return e;
 }
 function validateGroup(d) {
@@ -141,7 +141,7 @@ function render(s) {
         ${s.showSummary ? errorSummary(e, LABELS, 'Fix these to continue:') : ''}
         <form class="pk-form" novalidate data-form="details">
           ${field({ id: 'name', label: LABELS.name, value: s.d.name, error: e.name, required: true, autocomplete: 'name' })}
-          ${field({ id: 'phone', label: LABELS.phone, type: 'tel', value: s.d.phone, error: e.phone, required: true, autocomplete: 'tel', inputmode: 'tel', hint: 'Polish number or with a country code. The restaurant calls only if something changes.' })}
+          ${field({ id: 'phone', label: LABELS.phone, type: 'tel', value: s.d.phone, error: e.phone, required: true, autocomplete: 'tel', inputmode: 'tel', hint: 'A Polish number, or any number with a country code. The restaurant calls only if something changes.' })}
           ${field({ id: 'email', label: LABELS.email, type: 'email', value: s.d.email, error: e.email, required: true, autocomplete: 'email', hint: 'We send the confirmation here.' })}
           ${field({ id: 'notes', label: LABELS.notes, type: 'textarea', value: s.d.notes, error: e.notes, hint: 'Allergies, a high chair, a birthday. Up to 200 characters.' })}
           <div class="pk-actions">${back('party')}<button type="submit" class="pk-btn">Review booking <span aria-hidden="true">→</span></button></div>
