@@ -54,8 +54,7 @@ function priceBox(s) {
     ${s.step === 'paket' ? '' : `<div class="ksk-price__row"><span>Personen</span><b>${s.size}</b></div>`}
     ${s.date ? `<div class="ksk-price__row"><span>Termin</span><b>${esc(fmt(new Date(s.date), L, { day: '2-digit', month: '2-digit' }))}${s.slot ? `, ${s.slot}` : ''}</b></div>` : ''}
     <div class="ksk-price__row ksk-price__pp"><span>Pro Person</span><b>${m === 'quote' ? 'auf Anfrage' : eur(p.price)}</b></div>
-    ${s.step === 'paket' ? `<div class="ksk-price__row ksk-price__total"><span>Gruppe</span><small>nach Gruppengröße</small></div>` : `<div class="ksk-price__row ksk-price__total"><span>Gruppe</span><b aria-live="polite">${m === 'quote' ? 'auf Anfrage' : m === 'small' ? '–' : eur(total)}</b></div>`}
-    <p class="ksk-price__note" lang="en">Sample prices for the prototype</p>
+    ${s.step === 'paket' ? `<div class="ksk-price__row ksk-price__total"><span>Gruppe</span><span class="ksk-price__hint">nach Gruppengröße</span></div>` : `<div class="ksk-price__row ksk-price__total"><span>Gruppe</span><b aria-live="polite">${m === 'quote' ? 'auf Anfrage' : m === 'small' ? '–' : eur(total)}</b></div>`}
   </aside>`;
 }
 
@@ -69,14 +68,14 @@ function render(s) {
         ${PKGS.map((p) => `<label class="ksk-pkg"><input type="radio" name="pkg" value="${p.id}" ${s.pkg === p.id ? 'checked' : ''}>
           <span class="ksk-pkg__n">${esc(p.name)}</span><span class="ksk-pkg__p">${eur(p.price)} <small>/ Person</small></span><span class="ksk-pkg__d">${esc(p.desc)}</span></label>`).join('')}
         </div></fieldset>
-        <p class="pk-note">Für Gruppen von ${MIN} bis ${MAX} Personen. Paketinhalte sind Platzhalter.</p>
+        <p class="pk-note">Für Gruppen von ${MIN} bis ${MAX} Personen.</p>
         <div class="pk-actions"><span></span><button type="button" class="pk-btn" data-to="gruppe">Weiter <span aria-hidden="true">→</span></button></div>`;
       break;
     case 'gruppe': {
       const dayBtns = days.map((d) => {
-        const iso = isoDay(d); const sel = s.date === iso;
-        return `<li><button type="button" class="pk-day${sel ? ' is-sel' : ''}" data-date="${iso}" aria-pressed="${sel}">
-          <span class="pk-day__w" aria-hidden="true">${esc(fmt(d, L, { weekday: 'short' }))}</span><span class="pk-day__d" aria-hidden="true">${d.getDate()}</span><span class="pk-day__m" aria-hidden="true">${esc(fmt(d, L, { month: 'short' }))}</span><span class="sr-only">${esc(fmt(d, L, { weekday: 'long', day: 'numeric', month: 'long' }))}</span></button></li>`;
+        const iso = isoDay(d); const sel = s.date === iso; const full = fullDay(iso);
+        return `<li><button type="button" class="pk-day${sel ? ' is-sel' : ''}${full ? ' is-full is-full--open' : ''}" data-date="${iso}" aria-pressed="${sel}">
+          <span class="pk-day__w" aria-hidden="true">${esc(fmt(d, L, { weekday: 'short' }))}</span><span class="pk-day__d" aria-hidden="true">${d.getDate()}</span><span class="pk-day__m" aria-hidden="true">${full ? 'Voll' : esc(fmt(d, L, { month: 'short' }))}</span><span class="sr-only">${esc(fmt(d, L, { weekday: 'long', day: 'numeric', month: 'long' }))}${full ? ', ausgebucht' : ''}</span></button></li>`;
       }).join('');
       const nextFree = s.date ? days.find((d) => isoDay(d) > s.date && !fullDay(isoDay(d))) : null;
       const slots = s.date && fullDay(s.date) ? `<div class="pk-state pk-state--empty" role="status"><p class="pk-state__t">Am ${esc(dayLong(s.date))} ist alles ausgebucht.</p><p>Nächster freier Tag: ${esc(dayLong(isoDay(nextFree)))}.</p><button type="button" class="pk-btn pk-btn--ghost" data-date="${isoDay(nextFree)}">${esc(fmt(nextFree, L, { weekday: 'short', day: 'numeric', month: 'short' }))} anzeigen</button></div>` : s.date ? `<fieldset class="pk-fs"><legend class="ksk-label">Uhrzeit am ${esc(dayLong(s.date))}</legend><ul class="pk-times">${SLOTS.map((t) => {
@@ -148,7 +147,7 @@ function render(s) {
     case 'sent':
       main = `<div class="pk-done"><span class="pk-done__icon" aria-hidden="true">✓</span>
         ${H(m === 'quote' ? 'Angebotsanfrage gesendet' : 'Anfrage gesendet', `Vorgangsnummer <b>${esc(s.ref || 'KSK-2611')}</b>. Wir melden uns per E-Mail an ${esc(s.c.email || 'julia.becker@firma.de')}.`)}
-        <p class="pk-note">Wir antworten innerhalb von 24 Stunden <span lang="en">(sample service level)</span>. Termin und Preis werden mit unserer Antwort verbindlich.</p>
+        <p class="pk-note">Wir antworten innerhalb von 24 Stunden. Termin und Preis werden mit unserer Antwort verbindlich.</p>
         <div class="pk-row"><button type="button" class="pk-btn pk-btn--ghost" data-restart>Neue Anfrage</button></div></div>`;
       break;
     default: main = '';

@@ -999,3 +999,21 @@ code { font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; borde
 .overrule__k { color: var(--accent-ink); }
 .overrule__row { display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: baseline; }
 .overrule__why { color: var(--ink-2); padding-left: 54px; }
+
+/* ---------- Review round 6 ---------- */
+@media (max-width: 700px) {
+  .case--dark { margin-inline: 0; border-radius: 0; box-shadow: none; }
+  .sub--concept { padding: 14px 0; border-width: 1.5px 0; border-radius: 0; background: none; }
+}
+.journeys__title, .exploring__title, .meta-case__title { text-transform: none; font-stretch: 108%; letter-spacing: -0.015em; }
+.exploring { background: var(--surface); color: var(--ink); border: 1.5px solid var(--ink); border-top: 8px solid var(--accent); }
+.exploring .sub__kicker { color: var(--accent-ink); }
+.explore-list li { border-top-color: var(--line-strong); }
+.explore-list__n { color: var(--accent-ink); }
+.proto--living { max-width: 880px; }
+.brief--after { max-width: 880px; }
+@media (max-width: 700px) {
+  .card__media { bottom: 54px; }
+  .card__meta { min-height: 54px; padding: 8px 12px; }
+  .card__tag { display: none; }
+}

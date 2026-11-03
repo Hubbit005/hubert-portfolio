@@ -125,7 +125,7 @@ export function initHero({ reduced, lenis }) {
       // Entrance: one fast turn that eases out exactly on the front-facing angle.
       const e = 1 - Math.pow(1 - te, 4);
       theta = theta0 + ENTER_TURN * (1 - e);
-      cyl.style.setProperty('--bo', (1 - e).toFixed(2));
+      cyl.style.setProperty('--bo', '0');
       cyl.style.transform = `rotateY(${theta.toFixed(5)}rad)`;
       omega = 0;
       raf = requestAnimationFrame(tick);

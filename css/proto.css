@@ -268,3 +268,5 @@
 .brief blockquote { margin: 0; font-size: 0.95rem; line-height: 1.5; max-width: 70ch; }
 .brief blockquote[lang="pl"] { font-style: italic; color: var(--ink-2); }
 .brief__en { margin-top: 10px; font-size: 0.95rem; max-width: 70ch; }
+.ksk-price__hint { font-size: 0.8rem; color: #c9c9c3; text-align: right; }
+.pk-day.is-full--open { cursor: pointer; opacity: 0.7; }
