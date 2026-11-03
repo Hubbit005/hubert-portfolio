@@ -69,6 +69,6 @@ Szczegóły i historia poprawek: `docs/qa-log.md`, recenzje: `docs/recenzje/`.
 
 
 - axe-core: 0 błędów krytycznych i poważnych (motyw jasny i ciemny, także galeria stanów).
-- Prototypy działają samą klawiaturą, mają opisane pola i komunikaty błędów mówiące, co poprawić.
+- Karuzela, kafelki narzędzi i model 3D działają samą klawiaturą (kafelki z `aria-expanded`).
 - `prefers-reduced-motion`: napis stoi czytelnie, karuzela nie obraca się sama, brak płynnego przewijania i przypinania sekcji.
 - Treść jest widoczna bez JavaScriptu.

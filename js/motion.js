@@ -1,9 +1,8 @@
 /* Scroll motion: masked headline reveals, fade-ups, parallax covers,
-   count-ups, pinned customer-journey diagram, accordion content.
+   hero entrance and parallax.
    Transform and opacity only. Skipped entirely for reduced motion. */
 
 export function initMotion({ reduced, gsap, ScrollTrigger }) {
-  initAccordions({ reduced, gsap });
   if (reduced || !gsap || !ScrollTrigger) return;
 
   const ease = 'expo.out';
@@ -50,26 +49,7 @@ export function initMotion({ reduced, gsap, ScrollTrigger }) {
   // Hero entrance for the foot
   gsap.from('.hero__lead, .hero__cta > *', { y: 24, opacity: 0, duration: 1, ease, stagger: 0.06, delay: 0.25 });
 
-  // Customer journeys: drawn once when the chart enters the viewport (no pinning).
-  const journeys = document.getElementById('journeys');
-  if (journeys) {
-    const chart = journeys.querySelector('.journeys__chart');
-    const tl = gsap.timeline({ scrollTrigger: { trigger: chart, start: 'top 85%', once: true }, defaults: { ease: 'expo.out' } });
-    tl.fromTo(chart.querySelectorAll('.lane__bar'), { scaleX: 0 }, { scaleX: 1, duration: 1.1, stagger: 0.12 }, 0)
-      .fromTo(chart.querySelectorAll('.count-row .drop, .count-row .lever'), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, stagger: 0.04, ease: 'back.out(2)' }, 0.5);
-  }
-
   // Refresh after images load to keep pin positions right
   window.addEventListener('load', () => ScrollTrigger.refresh());
 }
 
-function initAccordions({ reduced, gsap }) {
-  document.querySelectorAll('details.acc').forEach((d) => {
-    d.addEventListener('toggle', () => {
-      if (!d.open || reduced || !gsap) return;
-      const kids = d.querySelectorAll('.acc__body > *, .acc__body li');
-      gsap.fromTo(kids, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'expo.out', stagger: 0.035, overwrite: true });
-      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
-    });
-  });
-}
