@@ -46,8 +46,8 @@ export function initMotion({ reduced, gsap, ScrollTrigger }) {
     gsap.to(heroStage, { yPercent: -12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
     gsap.to(heroFoot, { y: -40, opacity: 0.2, ease: 'none', scrollTrigger: { trigger: '.hero', start: '30% top', end: 'bottom top', scrub: true } });
   }
-  // Hero entrance for the foot
-  gsap.from('.hero__lead, .hero__cta > *', { y: 24, opacity: 0, duration: 1, ease, stagger: 0.06, delay: 0.25 });
+  // Hero entrance for the lead and the buttons is a CSS animation (.motion-ok .hero__lead / .hero__cta),
+  // so it never shares the transform with the magnetic hover (which uses the separate `translate` property).
 
   // Refresh after images load to keep pin positions right
   window.addEventListener('load', () => ScrollTrigger.refresh());

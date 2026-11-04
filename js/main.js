@@ -238,13 +238,17 @@ function initCursor() {
 function initMagnetic() {
   if (reduced || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   document.querySelectorAll('[data-magnetic]').forEach((el) => {
+    // Uses the `translate` property, not `transform`: nothing else writes it, so leaving always
+    // returns the button exactly to its place (CSS transition on `translate` makes the return smooth).
     el.addEventListener('pointermove', (e) => {
       const r = el.getBoundingClientRect();
-      const dx = (e.clientX - (r.left + r.width / 2)) * 0.18;
-      const dy = (e.clientY - (r.top + r.height / 2)) * 0.28;
-      el.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+      const cx = r.left + r.width / 2 - (parseFloat(el.style.translate) || 0);
+      const cy = r.top + r.height / 2 - (parseFloat((el.style.translate || '').split(' ')[1]) || 0);
+      const dx = (e.clientX - cx) * 0.18;
+      const dy = (e.clientY - cy) * 0.28;
+      el.style.translate = `${dx.toFixed(1)}px ${dy.toFixed(1)}px`;
     });
-    el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    el.addEventListener('pointerleave', () => { el.style.translate = ''; });
   });
 }
 
