@@ -51,7 +51,7 @@ export function initMotion({ reduced, gsap, ScrollTrigger }) {
   const glowLow = document.querySelector('.glow__low');
   if (glowHero && glowLow) {
     gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
-      .fromTo(glowHero, { opacity: 1 }, { opacity: 0.3, ease: 'none' }, 0)
+      .fromTo(glowHero, { opacity: 1 }, { opacity: 0.18, ease: 'none' }, 0)
       .fromTo(glowLow, { opacity: 0 }, { opacity: 1, ease: 'none' }, 0);
   }
   // Hero entrance for the lead and the buttons is a CSS animation (.motion-ok .hero__lead / .hero__cta),
