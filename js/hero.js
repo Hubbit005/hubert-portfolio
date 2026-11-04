@@ -2,6 +2,9 @@
    Outside the orange bar the letters are drawn as outlines: background-coloured faces, shaded sides, edges.
    Inside the bar the colours invert: solid dark letters. Two render passes; the second one is limited
    to the bar's screen rectangle with a scissor, so the bar works as a sharp mask.
+   The word can be grabbed: a horizontal drag spins the cylinder (with inertia, then the normal spin
+   comes back), a vertical drag (mouse) tilts it and moves it a little, and it springs back on release.
+   On touch only horizontal drags spin; vertical swipes scroll the page (touch-action: pan-y).
    No WebGL, reduced motion or a load error: the static word stays (facing front). */
 
 const WORD = 'HUBERT';
@@ -229,10 +232,16 @@ async function start({ stage, hero, lenis, ctl }) {
   let last = performance.now();
   let raf = 0;
   let bo = 1;
+  // grab and spin
+  let entered = false;
+  let fling = 0;                        // rad/s left over from a release, decays
+  const drag = { on: false, id: null, x: 0, y: 0, x0: 0, y0: 0, t: 0, v: 0, touch: false };
+  const spr = { tilt: 0, tiltV: 0, tiltT: 0, y: 0, yV: 0, yT: 0 }; // tilt in degrees, y in em
 
   function place() {
     cyl.rotation.y = theta;
-    tilt.rotation.x = THREE.MathUtils.degToRad(tiltX);
+    tilt.rotation.x = THREE.MathUtils.degToRad(tiltX + spr.tilt);
+    tilt.position.y = spr.y;
     tilt.rotation.z = THREE.MathUtils.degToRad(-tiltY * 0.2);
     for (const L of letters) {
       const facing = Math.cos(L.a + theta);         // 1 = facing the viewer, -1 = back of the cylinder
@@ -267,6 +276,49 @@ async function start({ stage, hero, lenis, ctl }) {
   stage.addEventListener('pointerenter', onEnter);
   stage.addEventListener('pointerleave', onLeave);
   stage.addEventListener('pointermove', onMove);
+
+  /* ---------- Grab and spin ---------- */
+  const pxPerRad = () => Math.max(1, R * fsPx * tilt.scale.x);
+  const onDown = (e) => {
+    if (e.button !== 0 || stage.classList.contains('is-locked')) return;
+    drag.on = true; drag.id = e.pointerId; drag.touch = e.pointerType !== 'mouse';
+    drag.x = drag.x0 = e.clientX; drag.y = drag.y0 = e.clientY; drag.t = performance.now(); drag.v = 0;
+    fling = 0;
+    if (!entered) { entered = true; bo = 1; }
+    try { stage.setPointerCapture(e.pointerId); } catch (_) { /* ignore */ }
+    stage.classList.add('is-grabbing');
+    if (!drag.touch) e.preventDefault(); // no text selection while dragging with a mouse
+  };
+  const onDrag = (e) => {
+    if (!drag.on || e.pointerId !== drag.id) return;
+    const now = performance.now();
+    const dt = Math.max(1, now - drag.t) / 1000;
+    const dx = e.clientX - drag.x;
+    drag.x = e.clientX; drag.y = e.clientY; drag.t = now;
+    const dTheta = dx / pxPerRad();
+    theta += dTheta;
+    drag.v = drag.v * 0.55 + (dTheta / dt) * 0.45;
+    if (!drag.touch) {
+      const dy = e.clientY - drag.y0;
+      spr.tiltT = Math.max(-16, Math.min(16, dy * 0.1));
+      spr.yT = Math.max(-0.32, Math.min(0.32, -dy / fsPx * 0.3));
+    }
+  };
+  const onUp = (e) => {
+    if (!drag.on || (e && e.pointerId !== drag.id)) return;
+    drag.on = false;
+    stage.classList.remove('is-grabbing');
+    // a release after the pointer stopped carries no inertia
+    const still = performance.now() - drag.t > 90;
+    fling = still ? 0 : Math.max(-9, Math.min(9, drag.v));
+    omega = 0;          // the normal spin eases back in as the fling dies down
+    spr.tiltT = 0; spr.yT = 0;
+  };
+  stage.addEventListener('pointerdown', onDown);
+  stage.addEventListener('pointermove', onDrag);
+  stage.addEventListener('pointerup', onUp);
+  stage.addEventListener('pointercancel', onUp);
+  stage.addEventListener('lostpointercapture', onUp);
   if (lenis) lenis.on('scroll', ({ velocity }) => { scrollV = Math.min(Math.abs(velocity || 0), 60); });
 
   const resume = () => { if (!running) { running = true; last = performance.now(); raf = requestAnimationFrame(tick); } };
@@ -286,7 +338,8 @@ async function start({ stage, hero, lenis, ctl }) {
     last = now;
     const k = 1 - Math.exp(-dt * 3);
     const te = (now - enterStart) / ENTER_MS;
-    if (te < 1) {
+    if (te >= 1) entered = true;
+    if (!entered) {
       // Entrance: one fast turn that eases out exactly on the front-facing angle.
       const e = 1 - Math.pow(1 - te, 4);
       theta = theta0 + ENTER_TURN * (1 - e);
@@ -302,10 +355,23 @@ async function start({ stage, hero, lenis, ctl }) {
       // Back outlines fade while the word faces front, so they never cross it.
       bo = Math.min(1, Math.max(0, (dist - 0.18) / 0.5));
       const target = omegaBase * dwell * (1 + hover * 1.4 + scrollV * 0.06);
-      omega += (target - omega) * (1 - Math.exp(-dt * 6));
-      theta -= omega * dt;
+      if (drag.on) {
+        omega = 0; // the pointer drives theta
+      } else {
+        fling *= Math.exp(-dt * 1.5);
+        if (Math.abs(fling) < 0.01) fling = 0;
+        const back = 1 - Math.min(1, Math.abs(fling) / 1.5); // auto spin returns as the fling fades
+        omega += (target * back - omega) * (1 - Math.exp(-dt * (fling ? 2 : 6)));
+        theta += fling * dt - omega * dt;
+      }
       tiltX += (tiltXT - tiltX) * k;
       tiltY += (tiltYT - tiltY) * k;
+      // springy tilt and vertical offset: follows the drag, overshoots a little on release
+      const kS = drag.on ? 260 : 120, cS = drag.on ? 30 : 9;
+      spr.tiltV += (-(spr.tilt - spr.tiltT) * kS - spr.tiltV * cS) * dt;
+      spr.tilt += spr.tiltV * dt;
+      spr.yV += (-(spr.y - spr.yT) * kS - spr.yV * cS) * dt;
+      spr.y += spr.yV * dt;
     }
     place();
     render();
@@ -322,6 +388,7 @@ async function start({ stage, hero, lenis, ctl }) {
     running = false;
     cancelAnimationFrame(raf);
     io.disconnect(); mo.disconnect();
+    stage.removeEventListener('pointerdown', onDown);
     window.removeEventListener('resize', resize);
     document.removeEventListener('visibilitychange', onVis);
     renderer.dispose();
