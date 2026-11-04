@@ -1,4 +1,4 @@
-/* Main entry: theme, nav, smooth scroll, motion, hero, carousel. */
+/* Main entry: nav, smooth scroll, motion, hero, carousel. */
 import { initHero } from './hero.js';
 import { initArc } from './carousel.js';
 import { initMotion } from './motion.js';
@@ -9,26 +9,6 @@ const t = (k, v) => (window.i18n ? window.i18n.t(k, v) : k);
 const mqReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const reduced = mqReduced.matches;
 if (!reduced) doc.classList.add('motion-ok');
-
-/* ---------- Theme ---------- */
-function currentTheme() {
-  const t = doc.getAttribute('data-theme');
-  if (t) return t;
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-function syncThemeButton() {
-  const btn = document.getElementById('theme-toggle');
-  if (!btn) return;
-  const next = currentTheme() === 'dark' ? 'light' : 'dark';
-  btn.setAttribute('aria-label', t(next === 'dark' ? 'theme.toDark' : 'theme.toLight'));
-}
-document.getElementById('theme-toggle')?.addEventListener('click', () => {
-  const next = currentTheme() === 'dark' ? 'light' : 'dark';
-  doc.setAttribute('data-theme', next);
-  try { localStorage.setItem('theme', next); } catch (e) { /* storage blocked */ }
-  syncThemeButton();
-});
-syncThemeButton();
 
 /* ---------- AI tools: tiles that expand to what I made with each tool ---------- */
 document.querySelectorAll('.tool__btn').forEach((btn) => {
@@ -249,7 +229,6 @@ function initMagnetic() {
 
 /* ---------- Language switch: refresh what scripts wrote and what depends on text width ---------- */
 document.addEventListener('langchange', () => {
-  syncThemeButton();
   const frame = document.querySelector('#model-embed iframe');
   if (frame) frame.title = t('model.title');
   pickActive(true);

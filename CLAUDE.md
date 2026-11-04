@@ -108,6 +108,7 @@ Tu jest kilka projektów naraz:
 - Hubert nie ma LinkedIna. W kontakcie tylko e-mail i telefon. Bez GitHuba i lokalizacji.
 - Bez znaczków „AI / JA” i bez sekcji „Gdzie powiedziałem AI nie”.
 - Telefon: +48 696 471 878 (pod e-mailem w kontakcie).
+- Strona tylko w ciemnym motywie. Bez przełącznika jasny/ciemny.
 
 ## Zasady dla Claude Code w tym repo
 

@@ -359,7 +359,7 @@
     // EN: User flows, states and edge cases, personas, customer journeys, drop-off analysis
     "cv.16": "Ścieżki użytkownika, stany i przypadki brzegowe, persony, customer journey, analiza miejsc, w których klient odpada",
     // EN: Hierarchy, spacing, typography, motion, light and dark themes
-    "cv.18": "Hierarchia, odstępy, typografia, ruch, motyw jasny i ciemny",
+    "cv.18": "Hierarchia, odstępy, typografia, ruch",
     // EN: HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP (built with Claude Code)
     "cv.20": "HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP (buduję w Claude Code)",
     // EN: Visual

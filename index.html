@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Hubert · Junior UX/UI Designer, AI-native · Portfolio</title>
   <meta name="description" content="Hubert, Junior UX/UI Designer working with AI tools every day. Client websites, a visual system and motion ad, an interactive 3D model and promotional video.">
   <meta name="author" content="Hubert">
-  <meta name="theme-color" content="#ecece9" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0f0f10" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0f0f10">
+  <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://hubbit005.github.io/hubert-portfolio/">
 
   <meta property="og:type" content="website">
@@ -32,7 +32,6 @@
     (function () {
       var d = document.documentElement;
       d.classList.remove('no-js'); d.classList.add('js');
-      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
       /* Language: #pl / #en first, then the saved choice. Polish text is swapped in by js/i18n.js
          at the end of <body>; until then the page stays hidden (with a time-out failsafe in CSS). */
       var h = (location.hash || '').toLowerCase(), l = h === '#pl' || h === '#en' ? h.slice(1) : null;
@@ -74,10 +73,6 @@
           <button class="lang-switch__btn" type="button" data-lang="en" lang="en" title="English" aria-pressed="true">EN</button>
           <button class="lang-switch__btn" type="button" data-lang="pl" lang="pl" title="Polski" aria-pressed="false">PL</button>
         </div>
-        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme">
-          <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
-          <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        </button>
         <button class="nav__menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list">
           <span class="nav__menu-label" aria-hidden="true">Menu</span><span class="sr-only">Menu</span>
           <span class="nav__burger" aria-hidden="true"><i></i><i></i></span>
@@ -829,7 +824,7 @@
             <h3 class="mini-title" data-i18n="cv.14">Skills</h3>
             <dl class="skills">
               <div><dt>UX</dt><dd data-i18n="cv.16">User flows, states and edge cases, personas, customer journeys, drop-off analysis</dd></div>
-              <div><dt>UI</dt><dd data-i18n="cv.18">Hierarchy, spacing, typography, motion, light and dark themes</dd></div>
+              <div><dt>UI</dt><dd data-i18n="cv.18">Hierarchy, spacing, typography, motion</dd></div>
               <div><dt>Front-end</dt><dd data-i18n="cv.20">HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP (built with Claude Code)</dd></div>
               <div><dt data-i18n="cv.21">Visual</dt><dd data-i18n="cv.22">Video editing, motion graphics, graphics, social content</dd></div>
               <div><dt data-i18n="cv.23">AI tools</dt><dd>Claude Code, Claude, ChatGPT, Gemini, Perplexity, Higgsfield, Leonardo AI, Botpress, Manifold, Wispr Flow</dd></div>
