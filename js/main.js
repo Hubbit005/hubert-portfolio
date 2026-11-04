@@ -2,6 +2,7 @@
 import { initHero } from './hero.js';
 import { initArc } from './carousel.js';
 import { initMotion } from './motion.js';
+import { initRoulette } from './roulette.js';
 
 const doc = document.documentElement;
 const mqReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -250,7 +251,8 @@ function initMagnetic() {
 /* ---------- Boot ---------- */
 async function boot() {
   try { await document.fonts.ready; } catch (e) { /* ignore */ }
-  initHero({ reduced, lenis });
+  const roulette = initRoulette();
+  initHero({ reduced, lenis, onRoulette: (api) => roulette.attach(api) });
   initArc({ reduced });
   initMotion({ reduced, gsap, ScrollTrigger, lenis });
   initCursor();
