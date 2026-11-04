@@ -17,7 +17,7 @@ Sama strona jest dowodem kompetencji. Rekruter oceni ją jak projekt UX/UI.
 
 - Imię: Hubert (nick: Hubibi). Nazwisko: `[DO UZUPEŁNIENIA]`.
 - Mieszka w okolicach Gorzowa Wielkopolskiego. Pracuje zdalnie.
-- E-mail: hubert.austria2025@gmail.com. Telefon i LinkedIn: `[DO UZUPEŁNIENIA]`.
+- E-mail: hubert.austria2025@gmail.com. Telefon: `[DO UZUPEŁNIENIA]`. LinkedIna nie ma.
 - GitHub: github.com/Hubbit005
 - Freelance web designer. Robi też marketing i treści wizualne dla firm.
 - Potrafi obrabiać wideo i tworzyć grafiki, w tym motion graphics.
@@ -80,8 +80,6 @@ Tu jest kilka projektów naraz:
 - Seria stron z 8-tygodniowymi planami treningowymi dla klientów (repozytoria `Hubbit005/*-workout`, `Amelka-`, `Zosia-` itd.), generowanych z jednego szablonu.
 - Pokazuj tylko zanonimizowane. Nie używaj imion ani nazwisk klientów.
 
-### 6. Interaktywny ebook (projekt własny)
-- Ebook w HTML z nawigacją w panelu bocznym i interaktywną listą kontrolną objawów, dla czytelników 50+.
 
 ## Nowe fakty i decyzje Huberta (3.11.2026, wieczór)
 
@@ -102,6 +100,14 @@ Tu jest kilka projektów naraz:
 - Hubert chce własnego, osobistego logo na stronie.
 - Hero: napis 3D da się złapać i zakręcić; w środku walca jest ruletka z projektami (szczegóły w `PROMPT-poprawki-2.md`).
 - (4.11, 14:15) Strona w dwóch językach z przełącznikiem EN / PL, domyślnie EN. Karuzela na dole płynnie zanika zamiast się ucinać. Przyciski w hero stoją równo od załadowania. Nowe osobiste logo z Higgsfield, limit 40 kredytów (szczegóły w `PROMPT-poprawki-3.md`).
+
+## Decyzje Huberta (4.11.2026, 15:00)
+
+- Hubert nie zrobił ebooka. Nie pokazuj go nigdzie.
+- Film KSK Pretor na stronie to 35-sekundowy film promocyjny, który pokazuje wszystkie strony strzelnicy.
+- Hubert nie ma LinkedIna. W kontakcie tylko e-mail i telefon. Bez GitHuba i lokalizacji.
+- Bez znaczków „AI / JA” i bez sekcji „Gdzie powiedziałem AI nie”.
+- Telefon: `[DO UZUPEŁNIENIA]`.
 
 ## Zasady dla Claude Code w tym repo
 
