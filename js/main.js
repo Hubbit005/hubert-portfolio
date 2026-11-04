@@ -10,15 +10,6 @@ const mqReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const reduced = mqReduced.matches;
 if (!reduced) doc.classList.add('motion-ok');
 
-/* ---------- AI tools: tiles that expand to what I made with each tool ---------- */
-document.querySelectorAll('.tool__btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const open = btn.getAttribute('aria-expanded') !== 'true';
-    btn.setAttribute('aria-expanded', String(open));
-    btn.closest('.tool')?.classList.toggle('is-open', open);
-  });
-});
-
 /* ---------- AI tools: logo files dropped into assets/logos/ (svg first, then png) ---------- */
 document.querySelectorAll('[data-logo-file]').forEach((slot) => {
   const slug = slot.dataset.logoFile;

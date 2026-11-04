@@ -263,35 +263,7 @@
     // EN: Whether the result is ready for the client.
     "ai.31": "Czy wynik jest gotowy dla klienta.",
     // EN: Tools I use and what I made with them
-    "ai.38": "Narzędzia, których używam, i co nimi zrobiłem",
-    // EN: Client websites for Basko Clean and Livingroom, the interactive 3D model for KSK Pretor, brand animations in code and this portfolio. I also use it for strategy and research.
-    "tool-d-1.1": "Strony klientów Basko Clean i Livingroom, interaktywny model 3D dla KSK Pretor, animacje marki w kodzie i to portfolio. Używam go też do strategii i researchu.",
-    // EN: Copy, research and the strategy work behind the KSK Pretor plan for the German market.
-    "tool-d-2.1": "Teksty, research i praca nad strategią do planu KSK Pretor na rynek niemiecki.",
-    // EN: Research and side-by-side comparisons for client projects.
-    "tool-d-3.1": "Research i zestawienia porównawcze do projektów klientów.",
-    // EN: Research with sources and market analysis for client strategy.
-    "tool-d-4.1": "Research ze źródłami i analiza rynku do strategii klientów.",
-    // EN: Video and images for ads, generated with models such as Seedance, and video edits with person replacement.
-    "tool-d-5.1": "Wideo i obrazy do reklam, generowane m.in. modelem Seedance, oraz edycja wideo z podmianą osoby.",
-    // EN: Generated graphics for client marketing.
-    "tool-d-6.1": "Grafiki do marketingu klientów.",
-    // EN: Marketing and social media research for client profiles.
-    "tool-d-7.1": "Research marketingowy i analiza social mediów na potrzeby profili klientów.",
-    // EN: AI agent (chatbot) prototypes for the KSK Pretor shooting range.
-    "tool-d-8.1": "Prototypy agenta AI (czatbota) dla strzelnicy KSK Pretor.",
-    // EN: Graphics, social media posts and marketing materials for clients.
-    "tool-d-9.1": "Grafiki, posty do social mediów i materiały marketingowe dla klientów.",
-    // EN: Dictation and voice work: I write by speaking.
-    "tool-d-10.1": "Dyktowanie: zamiast pisać na klawiaturze, mówię.",
-    // EN: Motion in code for the KSK Pretor brand animations: the logo intro and outro in Polish and German.
-    "tool-d-11.1": "Animacje w kodzie dla marki KSK Pretor: intro i outro z logo po polsku i po niemiecku.",
-    // EN: The KSK Pretor brand animations built as HTML video compositions.
-    "tool-d-12.1": "Animacje marki KSK Pretor zbudowane jako kompozycje wideo w HTML.",
-    // EN: Rendering the KSK Pretor animations frame by frame to MP4.
-    "tool-d-13.1": "Renderowanie animacji KSK Pretor do MP4, klatka po klatce.",
-    // EN: The interactive 3D model for KSK Pretor, built in code from simple shapes.
-    "tool-d-14.1": "Interaktywny model 3D dla KSK Pretor, zbudowany w kodzie z prostych brył.",
+    "ai.38": "Narzędzia, których używam",
     // EN: This portfolio
     "meta-title.1": "To portfolio",
     // EN: I designed and built this site from the ground up: the layout, the motion, the interactive 3D lettering with the roulette, and two language versions. I built it in Claude Code.
