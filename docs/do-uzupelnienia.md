@@ -22,6 +22,7 @@ Jak znaleźć miejsce w kodzie: w `index.html` każde miejsce ma komentarz `<!--
 | 9 | **Uzupełnij `[TODO]` w scenariuszu wideo** i nagraj | `docs/wideo-skrypt-en.md` | Własne przykłady: poprawka, o którą prosiłeś AI; jak działała pierwsza wersja na telefonie; wnioski. |
 | 9a | **Zdecyduj, co w repozytorium ma być publiczne** | całe repo | Portfolio linkuje do repo (Case 06 „This portfolio”). W `docs/` są Twoje przygotowania do rozmowy, scenariusz wideo i recenzje z ocenami, a w `assets/` surowe filmy (33 MB) i pliki „Zrzut ekranu…”. Rekomendacja: przenieś `docs/pytania-rozmowa.md`, `docs/wideo-skrypt-en.md` i `docs/cv-en.md` do prywatnego miejsca (np. Google Docs) przed wysłaniem linku. Recenzje i `qa-log.md` mogą zostać, bo są dowodem procesu. |
 | 10c | **Przeczytaj polską wersję strony** (przełącznik EN / PL w nawigacji albo link `#pl`) | `js/i18n.js`, obiekt `PL` | Teksty pisałem od nowa po polsku. Popraw sformułowania, które nie brzmią jak Ty. |
+| 10b | **Numer telefonu** | `index.html`: `TODO: phone number` (sekcja Contact); `docs/cv-en.md` | Na stronie jest teraz blok „Content pending: phone number”. Kontakt to tylko e-mail i telefon. |
 | 10 | **Zgoda na pokazanie filmu KSK i zrzutów Basko** | sekcje Basko i KSK | Zakładam, że to materiały publiczne klienta. Jeśli nie, napisz, usunę. Zrzut z nazwami klientów Basko (`Zrzut ekranu 2026-11-03 154015.png`) celowo nie jest użyty. |
 
 ## P1 – mocno wzmacnia aplikację (najlepiej przed 6.11)
@@ -42,7 +43,6 @@ Jak znaleźć miejsce w kodzie: w `index.html` każde miejsce ma komentarz `<!--
 | 22 | Zrzuty strony Agaty Patelki (desktop i telefon), gdy treści będą gotowe | `assets/screenshots/patelka-1.png` (desktop 16:10), `patelka-2.png` (telefon) | Dodam je do case 04 i na kartę w karuzeli (teraz okładka typograficzna z etykietą „In progress”). |
 | 23 | Temat ebooka i zrzuty (panel boczny, lista kontrolna) | `index.html`: `TODO: ebook topic` | 2 zrzuty |
 | 24 | Do czego używasz **Sendcastle** (wiersz usunięty z tabeli narzędzi do czasu potwierdzenia) | `index.html`: `TODO: Sendcastle`; `CLAUDE.md` | 1 zdanie |
-| 25 | Telefon (opcjonalnie) | sekcja Contact, CV | |
 | 27 | Jeśli zmienisz nazwę repozytorium: popraw adres w `<base>` w `404.html`, w `sitemap.xml`, `robots.txt` i meta `og:url` / `canonical` w `index.html` | | |
 
 ---

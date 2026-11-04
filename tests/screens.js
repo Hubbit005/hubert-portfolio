@@ -15,7 +15,7 @@ const { chromium } = require('playwright');
   await p.goto((process.env.BASE || 'http://localhost:8000') + '/', { waitUntil: 'load' });
   await p.waitForTimeout(2500);
   await p.screenshot({ path: `${out}/${w}-${theme}-00-hero.png` });
-  const list = secs.length ? secs : ['work','basko-clean','ksk-pretor','ksk-3d-model','ksk-video','livingroom','psychologist-site','training-plans','ebook','ai','exploring','this-portfolio','about','cv','contact'];
+  const list = secs.length ? secs : ['work','basko-clean','ksk-pretor','ksk-3d-model','ksk-video','livingroom','psychologist-site','training-plans','ai','exploring','this-portfolio','about','cv','contact'];
   let i = 1;
   for (const id of list) {
     await p.evaluate((id) => { const el = document.getElementById(id); const l = window.__lenis; const y = el.getBoundingClientRect().top + window.scrollY - 72; if (l) l.scrollTo(y, { immediate: true }); else window.scrollTo(0, y); }, id);

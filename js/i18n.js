@@ -66,8 +66,8 @@
     "arc-track.18": "Plany treningowe",
     // EN: A page per client
     "arc-track.19": "Strona dla każdego klienta",
-    // EN: Client work first: Basko Clean, KSK Pretor and Livingroom. Then a client site in progress and two smaller projects.
-    "cases.1": "Najpierw praca dla klientów: Basko Clean, KSK Pretor i Livingroom. Potem strona klientki w budowie i dwa mniejsze projekty.",
+    // EN: Client work first: Basko Clean, KSK Pretor and Livingroom. Then a client site in progress and smaller projects.
+    "cases.1": "Najpierw praca dla klientów: Basko Clean, KSK Pretor i Livingroom. Potem strona klientki w budowie i mniejsze projekty.",
     // EN: <span class="mono">04</span> Website for Agata Patelka
     "cases.5": "<span class=\"mono\">04</span> Strona dla Agaty Patelki",
     // EN: <span class="mono">05</span> Smaller projects
@@ -104,8 +104,8 @@
     "basko-clean.16": "Suwak przed i po",
     // EN: Benefits and closing call to action
     "basko-clean.17": "Korzyści i końcowe wezwanie do działania",
-    // EN: 20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card. <span class="pending-inline">Pending: is this the mascot ad, and which tools made it</span>
-    "basko-reel-desc.1": "Pionowa rolka, 20 sekund: kinetyczna typografia, lista usług, proces w 4 krokach, przed i po, plansza z logo. <span class=\"pending-inline\">Do potwierdzenia: czy to reklama z ludzikiem i jakimi narzędziami powstała</span>",
+    // EN: 20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card.
+    "basko-reel-desc.1": "Pionowa rolka, 20 sekund: kinetyczna typografia, lista usług, proces w 4 krokach, przed i po, plansza z logo.",
     // EN: A shooting range and event venue in Racław near Gorzów. I work on its marketing, its growth in Germany and its digital tools.
     "ksk-pretor.2": "Strzelnica i miejsce eventów w Racławiu pod Gorzowem. Pracuję nad jej marketingiem, wejściem na rynek niemiecki i narzędziami cyfrowymi.",
     // EN: KSK Pretor, shooting range and events
@@ -198,10 +198,10 @@
     "psychologist-site.19": "Osadzony Cal.com. Klientka sama zarządza terminami.",
     // EN: Smaller projects
     "smaller-title.1": "Mniejsze projekty",
-    // EN: Training plans for clients and an ebook of my own.
-    "smaller-projects.2": "Plany treningowe dla klientów i mój własny ebook.",
-    // EN: 05a · Client work, anonymised
-    "training-plans.1": "05a · Praca dla klientów, zanonimizowana",
+    // EN: Training plans for clients.
+    "smaller-projects.2": "Plany treningowe dla klientów.",
+    // EN: 05 · Client work, anonymised
+    "training-plans.1": "05 · Praca dla klientów, zanonimizowana",
     // EN: Training plans as web pages
     "training-title.1": "Plany treningowe jako strony WWW",
     // EN: I build web pages for clients&#8217; personal 8-week training plans, all from one template I designed.
@@ -216,56 +216,34 @@
     "training-plans.6": "Przegląd planu",
     // EN: Workout day with calendar
     "training-plans.7": "Dzień treningowy z kalendarzem",
-    // EN: 05b · Own project
-    "ebook.1": "05b · Projekt własny",
-    // EN: Interactive ebook for readers 50+
-    "ebook-title.1": "Interaktywny ebook dla czytelników 50+",
-    // EN: An HTML ebook with side-panel navigation and an interactive symptom checklist. The reader ticks the symptoms that apply.
-    "ebook.2": "Ebook w HTML z nawigacją w panelu bocznym i interaktywną listą objawów. Czytelnik zaznacza objawy, które go dotyczą.",
-    // EN: Content pending: topic and screenshots
-    "ebook.3": "Do uzupełnienia: temat i zrzuty ekranu",
-    // EN: For readers<br>50+
-    "ebook.4": "Dla<br>czytelników<br>50+",
     // EN: How I work with AI
     "ai-title.1": "Jak pracuję z AI",
-    // EN: I use AI tools in every project, mostly to research and build faster. Below: my steps, the tools, and one case where you can check the split yourself.
-    "ai.1": "Używam narzędzi AI w każdym projekcie, głównie po to, żeby szybciej zbierać informacje i budować. Poniżej moje kroki, narzędzia i jeden przypadek, w którym podział pracy można sprawdzić samemu.",
+    // EN: I use AI tools in every project, mostly to research and build faster. Below: my steps and the tools.
+    "ai.1": "Używam narzędzi AI w każdym projekcie, głównie po to, żeby szybciej zbierać informacje i budować. Poniżej moje kroki i narzędzia.",
     // EN: Start on site
     "ai.2": "Start u klienta",
     // EN: At the client's job site, or as a guest in the restaurant.
     "ai.3": "Na realizacji u klienta albo jako gość w restauracji.",
-    // EN: <span class="chip chip--me">Me</span> problem definition
-    "ai.4": "<span class=\"chip chip--me\">Ja</span> definicja problemu",
     // EN: Perplexity for sources, Gemini for comparisons, ChatGPT for structuring strategy, Manifold for marketing and social data.
     "ai.6": "Perplexity do źródeł, Gemini do porównań, ChatGPT do porządkowania strategii, Manifold do danych marketingowych i z social mediów.",
-    // EN: <span class="chip chip--ai">AI</span> gathering <span class="chip chip--me">Me</span> selection
-    "ai.7": "<span class=\"chip chip--ai\">AI</span> zbieranie <span class=\"chip chip--me\">Ja</span> wybór",
     // EN: Flow and states
     "ai.8": "Ścieżka i stany",
     // EN: I list the steps and the states before the build. Example: my brief for this portfolio.
     "ai.9": "Przed budową spisuję kroki i stany. Przykład: mój brief do tego portfolio.",
-    // EN: <span class="chip chip--me">Me</span> the list
-    "ai.10": "<span class=\"chip chip--me\">Ja</span> lista",
     // EN: Build
     "ai.11": "Budowa",
     // EN: Claude Code turns the list into a working page or prototype. Animations in GSAP and HyperFrames, rendered to MP4 with Playwright. 3D in three.js.
     "ai.12": "Claude Code zamienia listę w działającą stronę albo prototyp. Animacje w GSAP i HyperFrames, renderowane do MP4 przez Playwright. 3D w three.js.",
-    // EN: <span class="chip chip--ai">AI</span> the code
-    "ai.13": "<span class=\"chip chip--ai\">AI</span> kod",
     // EN: Visuals
     "ai.14": "Grafika",
     // EN: Higgsfield and Leonardo AI for images and video, Canva for posts and materials.
     "ai.15": "Higgsfield i Leonardo AI do obrazów i wideo, Canva do postów i materiałów.",
-    // EN: <span class="chip chip--ai">AI</span> variants <span class="chip chip--me">Me</span> selection
-    "ai.16": "<span class=\"chip chip--ai\">AI</span> warianty <span class=\"chip chip--me\">Ja</span> wybór",
     // EN: Review
     "ai.17": "Kontrola",
     // EN: Before anything goes to the client, I check it against the brief and the brand.
     "ai.18": "Zanim cokolwiek trafi do klienta, sprawdzam to z briefem i z marką.",
-    // EN: <span class="chip chip--me">Me</span> sign-off
-    "ai.19": "<span class=\"chip chip--me\">Ja</span> akceptacja",
-    // EN: <span class="chip chip--ai">AI</span> Where AI speeds me up
-    "ai.20": "<span class=\"chip chip--ai\">AI</span> Gdzie AI mnie przyspiesza",
+    // EN: Where AI speeds me up
+    "ai.20": "Gdzie AI mnie przyspiesza",
     // EN: Code for pages, prototypes and animations.
     "ai.21": "Kod stron, prototypów i animacji.",
     // EN: Market and competitor data with sources.
@@ -276,8 +254,8 @@
     "ai.24": "Warianty obrazów i wideo do porównania.",
     // EN: Dictation instead of typing.
     "ai.25": "Dyktowanie zamiast pisania.",
-    // EN: <span class="chip chip--me">Me</span> What I decide
-    "ai.26": "<span class=\"chip chip--me\">Ja</span> O czym decyduję",
+    // EN: What I decide
+    "ai.26": "O czym decyduję",
     // EN: What the problem is and who the user is.
     "ai.27": "Jaki jest problem i kto jest użytkownikiem.",
     // EN: Which states and edge cases the product must handle.
@@ -288,20 +266,6 @@
     "ai.30": "Co mogą pokazać materiały klienta: bez logo jego klientów bez zgody, bez danych osobowych.",
     // EN: Whether the result is ready for the client.
     "ai.31": "Czy wynik jest gotowy dla klienta.",
-    // EN: Where I said no to the AI
-    "overrule-title.1": "Gdzie powiedziałem AI „nie”",
-    // EN: Basko Clean ad
-    "ai.32": "Reklama Basko Clean",
-    // EN: <span class="chip chip--ai">AI</span> A video model produced a realistic 3D version of the ad.
-    "ai.33": "<span class=\"chip chip--ai\">AI</span> Model wideo wygenerował realistyczną wersję reklamy w 3D.",
-    // EN: <span class="chip chip--me">Me</span> I rejected it and made flat 2D motion graphics with kinetic type and the logo's cleaner figure.
-    "ai.34": "<span class=\"chip chip--me\">Ja</span> Odrzuciłem ją i zrobiłem płaski motion graphic 2D z kinetyczną typografią i postacią sprzątacza z logo.",
-    // EN: Why: the realistic look did not fit the brand.
-    "ai.35": "Dlaczego: realistyczny styl nie pasował do marki.",
-    // EN: Next example
-    "ai.36": "Kolejny przykład",
-    // EN: Content pending: a second case where I rejected or changed an AI output
-    "ai.37": "Do uzupełnienia: drugi przypadek, w którym odrzuciłem albo zmieniłem wynik AI",
     // EN: Tools I use and what I made with them
     "ai.38": "Narzędzia, których używam, i co nimi zrobiłem",
     // EN: Client websites for Basko Clean and Livingroom, the interactive 3D model for KSK Pretor, brand animations in code and this portfolio. I also use it for strategy and research.
@@ -334,16 +298,8 @@
     "tool-d-14.1": "Interaktywny model 3D dla KSK Pretor, zbudowany w kodzie z prostych brył.",
     // EN: This portfolio
     "meta-title.1": "To portfolio",
-    // EN: I planned and designed this site and built it in Claude Code. I tested every version for accessibility, layout and links, and refined it over several review rounds. The test scripts and the QA log are in the <a href="https://github.com/Hubbit005/hubert-portfolio" rel="noopener" target="_blank">repository<span class="sr-only"> (opens in a new tab)</span></a>.
-    "this-portfolio.2": "Zaplanowałem i zaprojektowałem tę stronę, a zbudowałem ją w Claude Code. Każdą wersję sprawdzałem pod kątem dostępności, układu i linków, a potem dopracowywałem w kilku rundach recenzji. Skrypty testowe i dziennik QA są w <a href=\"https://github.com/Hubbit005/hubert-portfolio\" rel=\"noopener\" target=\"_blank\">repozytorium<span class=\"sr-only\"> (otwiera się w nowej karcie)</span></a>.",
-    // EN: What the checks and reviews caught <a class="mono muted" href="https://github.com/Hubbit005/hubert-portfolio/blob/main/docs/qa-log.md" rel="noopener" target="_blank">QA log<span class="sr-only"> (opens in a new tab)</span></a>
-    "this-portfolio.3": "Co wyłapały testy i recenzje <a class=\"mono muted\" href=\"https://github.com/Hubbit005/hubert-portfolio/blob/main/docs/qa-log.md\" rel=\"noopener\" target=\"_blank\">Dziennik QA<span class=\"sr-only\"> (otwiera się w nowej karcie)</span></a>",
-    // EN: <span class="caught__k mono">Scroll</span>Section links landed about 160 px too low: the smooth-scroll library counted the CSS offset twice.
-    "this-portfolio.4": "<span class=\"caught__k mono\">Przewijanie</span>Linki do sekcji lądowały około 160 px za nisko: biblioteka płynnego przewijania liczyła odstęp z CSS dwa razy.",
-    // EN: <span class="caught__k mono">Phone</span>Long headings made the page wider than a 360 px screen.
-    "this-portfolio.5": "<span class=\"caught__k mono\">Telefon</span>Długie nagłówki poszerzały stronę ponad ekran 360 px.",
-    // EN: <span class="caught__k mono">Facts</span>The fact check flagged sentences that claimed more than my sources. They were rewritten or marked “Content pending”.
-    "this-portfolio.6": "<span class=\"caught__k mono\">Fakty</span>Kontrola faktów wskazała zdania, które mówiły więcej niż moje źródła. Przepisałem je albo oznaczyłem jako „Do uzupełnienia”.",
+    // EN: I planned and designed this site and built it in Claude Code. I tested every version for accessibility, layout and links, and refined it over several review rounds.
+    "this-portfolio.2": "Zaplanowałem i zaprojektowałem tę stronę, a zbudowałem ją w Claude Code. Każdą wersję sprawdzałem pod kątem dostępności, układu i linków, a potem dopracowywałem w kilku rundach recenzji.",
     // EN: What I'm exploring now
     "exploring.1": "Co teraz zgłębiam",
     // EN: Writing the states before the build
@@ -424,18 +380,14 @@
     "cv.26": "Polski (ojczysty). Angielski: <span class=\"pending-inline\">poziom do uzupełnienia</span>",
     // EN: The fastest way to reach me is e-mail.
     "contact.1": "Najszybciej złapiesz mnie mailowo.",
+    // EN: Phone
+    "contact.14": "Telefon",
+    // EN: Content pending: phone number
+    "contact.15": "Do uzupełnienia: numer telefonu",
     // EN: Copy e-mail
     "copy-mail.1": "Kopiuj adres",
-    // EN: github.com/Hubbit005<span class="sr-only"> (opens in a new tab)</span>
-    "contact.6": "github.com/Hubbit005<span class=\"sr-only\"> (otwiera się w nowej karcie)</span>",
-    // EN: Content pending: LinkedIn profile link
-    "contact.8": "Do uzupełnienia: link do profilu LinkedIn",
-    // EN: Location
-    "contact.9": "Lokalizacja",
-    // EN: Near Gorzów Wielkopolski, PL · Remote
-    "contact.10": "Okolice Gorzowa Wielkopolskiego · zdalnie",
-    // EN: Built with Claude Code. Static HTML, CSS and JS. No tracking.
-    "contact.12": "Zbudowane w Claude Code. Statyczny HTML, CSS i JS. Bez śledzenia.",
+    // EN: Built with Claude Code. No tracking.
+    "contact.12": "Zbudowane w Claude Code. Bez śledzenia.",
     // EN: Back to top ↑
     "contact.13": "Na górę ↑",
     // EN: Sections

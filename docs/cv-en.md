@@ -7,7 +7,7 @@ Instrukcja dla Huberta: skopiuj do nowego Google Docs, ustaw jeden krój (np. In
 **HUBERT [TODO: SURNAME]**
 Junior UX/UI Designer · AI-native
 Near Gorzów Wielkopolski, Poland · Remote
-hubert.austria2025@gmail.com · [TODO: phone] · [TODO: LinkedIn] · github.com/Hubbit005
+hubert.austria2025@gmail.com · [TODO: phone]
 Portfolio: https://hubbit005.github.io/hubert-portfolio/
 
 ## Profile
