@@ -143,32 +143,37 @@ function setActive(id) {
 const sectionIds = ['work', 'cases', 'ai', 'about', 'cv', 'contact'];
 const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
 let activeId = null;
-function updateActive() {
-  const y = window.innerHeight * 0.35;
-  let current = null;
-  for (const s of sections) {
-    const r = s.getBoundingClientRect();
-    if (r.top <= y && r.bottom > y) { current = s.id; break; }
-  }
-  if (current !== activeId) { activeId = current; setActive(current); }
+// Active section: the one crossing a thin band at 35% of the viewport height. An IntersectionObserver
+// reports it, so scrolling never measures the sections.
+const inBand = new Set();
+function pickActive(force) {
+  const current = sectionIds.find((id) => inBand.has(id)) || null;
+  if (force || current !== activeId) { activeId = current; setActive(current); }
 }
+const bandIO = new IntersectionObserver((entries) => {
+  entries.forEach((en) => { if (en.isIntersecting) inBand.add(en.target.id); else inBand.delete(en.target.id); });
+  pickActive(false);
+}, { rootMargin: '-35% 0px -64% 0px' });
+sections.forEach((s) => bandIO.observe(s));
+
+// Scroll progress bar: the scroll event only sets a flag; one rAF writes one custom property.
+// The page height is read when it changes (ResizeObserver), not while scrolling.
 const progress = document.querySelector('.nav__progress span');
+let maxScroll = 1;
+function measurePage() { maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight); }
 let ticking = false;
 function onScroll() {
   if (ticking) return;
   ticking = true;
   requestAnimationFrame(() => {
     ticking = false;
-    updateActive();
-    if (progress) {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      progress.style.setProperty('--p', max > 0 ? (window.scrollY / max).toFixed(4) : '0');
-    }
+    if (progress) progress.style.setProperty('--p', Math.min(1, window.scrollY / maxScroll).toFixed(4));
   });
 }
 window.addEventListener('scroll', onScroll, { passive: true });
-window.addEventListener('resize', () => { activeId = null; onScroll(); });
-window.addEventListener('load', onScroll);
+new ResizeObserver(() => { measurePage(); onScroll(); }).observe(document.getElementById('main') || document.body);
+window.addEventListener('resize', () => { measurePage(); pickActive(true); onScroll(); });
+window.addEventListener('load', () => { measurePage(); onScroll(); });
 
 /* ---------- Copy e-mail ---------- */
 document.getElementById('copy-mail')?.addEventListener('click', async (e) => {
@@ -247,7 +252,7 @@ document.addEventListener('langchange', () => {
   syncThemeButton();
   const frame = document.querySelector('#model-embed iframe');
   if (frame) frame.title = t('model.title');
-  activeId = null;
+  pickActive(true);
   onScroll();
   if (ScrollTrigger) ScrollTrigger.refresh();
 });
@@ -262,6 +267,7 @@ async function boot() {
   initCursor();
   initMagnetic();
 
+  measurePage();
   onScroll();
   if (location.hash) {
     const el = document.getElementById(location.hash.slice(1));

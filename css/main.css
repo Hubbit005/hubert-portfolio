@@ -244,7 +244,6 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
   font-family: var(--font-display); font-stretch: 125%; font-weight: 900;
   letter-spacing: -0.01em; text-transform: uppercase;
   transform-style: preserve-3d;
-  will-change: transform;
 }
 .cyl__static{ display: block; position: relative; transform: translateZ(1px); line-height: 0.86; }
 .hero__gl{ position: absolute; left: 0; top: 0; z-index: 1; display: block; pointer-events: none; }
@@ -307,7 +306,7 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
   position: absolute; left: 0; top: 0;
   width: var(--cw); height: var(--ch);
   margin-left: calc(var(--cw) / -2);
-  will-change: transform;
+  will-change: transform; /* the only always-animated elements: turned by js/carousel.js */
 }
 /* No-JS / pre-init fallback: horizontal scroll row */
 .no-js .arc__viewport{ height: auto; overflow-x: auto; padding: 24px var(--gutter); }
@@ -417,7 +416,7 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
 .browser i{ width: 10px; height: 10px; border-radius: 50%; background: var(--line-strong); }
 .browser i:first-child{ background: var(--accent); }
 .browser__url{ margin-left: 12px; padding: 3px 14px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink-2); font-size: 0.66rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-[data-parallax] .shot__frame img{ transform: scale(1.08); transform-origin: 50% 50%; will-change: transform; }
+[data-parallax] .shot__frame img{ transform: scale(1.08); transform-origin: 50% 50%; }
 
 .phone{
   position: relative; width: 100%; max-width: 280px; margin-inline: auto;
@@ -635,13 +634,9 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
 .cursor.is-on{ opacity: 1; }
 @media (hover: none), (pointer: coarse) { .cursor{ display: none; } }
 
-/* ---------- Reveal (only when JS + motion allowed; set by JS) ---------- */
-.motion-ok [data-reveal]{ will-change: transform, opacity; }
-
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-  .cyl{ will-change: auto; }
 }
 
 /* ---------- Print ---------- */
