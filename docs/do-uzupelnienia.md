@@ -53,3 +53,7 @@ Jak znaleźć miejsce w kodzie: w `index.html` każde miejsce ma komentarz `<!--
 - Model 3D w portfolio to kopia repo `ksk-ak47-3d` z three.js w `vendor/`. Dodałem obsługę klawiatury (S, Z, P) i widoczny focus. Zmiany są tylko w kopii w `proto/ak47/`, oryginalne repo nietknięte.
 - Plany treningowe: zrzuty z repozytoriów `OliwiaS` i `Oliwia-Kasperska`. Imiona i nazwiska zamaskowane w DOM przed zrzutem („Client A”, „Client B”), waga jako „XX kg”. Opis: „I build web pages for clients’ personal 8-week training plans, all from one template I designed” – potwierdź, że szablon jest Twój.
 - Na stronie nie ma już podziału „What AI did / What I did”, prototypów rezerwacji ani person i liczb z researchu KSK (poprawki, runda 1).
+- Poprawki, runda 2: karty w karuzeli mają tylko numer, tytuł i jedną kategorię; po przeciągnięciu koło zatrzymuje się z kartą dokładnie na środku. Livingroom bez statusu i bez wzmianki o ofercie dla właściciela (także w CV: „designed and built on my own initiative”).
+- Opisy trzech nowych kafelków (GSAP, HyperFrames, Playwright) rozdzieliłem z jednego wspólnego opisu animacji KSK. Sprawdź, czy podział pasuje do tego, jak naprawdę używałeś każdego narzędzia (P0 #7a).
+- Logo Huberta: wybrałem wariant A „Turn” (uzasadnienie w `docs/logo/README.md`). Jeśli wolisz B albo C, podmiana to jedna ścieżka SVG w `index.html` (nawigacja, stopka), `favicon.svg` i `assets/og/og-source.html`.
+- Obraz Open Graph jest teraz ciemny, z pomarańczowym światłem, jak tło strony w trybie ciemnym.

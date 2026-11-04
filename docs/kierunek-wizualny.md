@@ -30,7 +30,7 @@ Wszystkie fonty lokalnie w `vendor/fonts/` z `font-display: swap`.
 ## Siatka
 
 - 12 kolumn, maksymalna szerokość treści 1320 px, marginesy `clamp(16px, 4vw, 56px)`.
-- Tło: delikatna siatka 96 px z krzyżykami „+” w przecięciach (SVG w CSS, kolor `--line`). Krzyżyki pojawiają się też jako detal w rogach sekcji.
+- Tło (od poprawek, runda 2): pionowe linie siatki co 1/6 szerokości (kolor `--line`) i duże, miękkie pomarańczowe światło na tle (przy hero i słabsze powtórzenia niżej), wolno przesuwane przy przewijaniu. Krzyżyki „+” usunięte.
 - Sekcje otwiera wiersz meta: numer sekcji w mono, cienka linia, tytuł extended.
 - Karty: promień 20 px (duże), 12 px (małe), miękki cień w dwóch warstwach.
 
