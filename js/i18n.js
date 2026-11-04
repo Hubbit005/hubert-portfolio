@@ -225,7 +225,7 @@
     // EN: Content pending: topic and screenshots
     "ebook.3": "Do uzupełnienia: temat i zrzuty ekranu",
     // EN: For readers<br>50+
-    "ebook.4": "Dla czytelników<br>50+",
+    "ebook.4": "Dla<br>czytelników<br>50+",
     // EN: How I work with AI
     "ai-title.1": "Jak pracuję z AI",
     // EN: I use AI tools in every project, mostly to research and build faster. Below: my steps, the tools, and one case where you can check the split yourself.

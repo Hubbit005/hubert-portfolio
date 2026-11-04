@@ -1058,3 +1058,5 @@ code{ font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; border
    in practice). If the script fails, the page shows anyway after 1.2 s. */
 .lang-pending .nav, .lang-pending main{ visibility: hidden; animation: langFailsafe 0s linear 1.2s forwards; }
 @keyframes langFailsafe{ to{ visibility: visible; } }
+/* Polish cover word ("czytelników") is longer than the English one: smaller type so it stays inside. */
+:lang(pl) .type-cover--ebook.type-cover--large .type-cover__word{ font-size: clamp(1.3rem, 0.7rem + 1.2vw, 1.65rem); }

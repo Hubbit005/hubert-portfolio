@@ -15,3 +15,11 @@ Problems found by automated checks and reviews while building this portfolio, an
 | 9 | AI design review round 2 (`docs/recenzje/runda-2.md`) and round 4 | The booking asked for the time before the party size, but free tables depend on the group size. Round 4 found the prototype still ignored group size when listing times. | Flow reordered to date → guests → time; taken slots now grow with the group; the time step names the group size. | `3e43fa5`, this round |
 
 Checks that passed without findings: no console errors, no failed requests, no long tasks over 50 ms while scrolling, hero at 60 fps, all internal links resolve, page readable with JavaScript off and with reduced motion.
+
+## Poprawki, runda 3 (4.11.2026)
+
+- axe-core (jasny i ciemny motyw, EN i PL, 1440 i 390 px): 0 naruszeń. Wyłapane i poprawione: przyciski EN/PL miały `aria-label` inny niż widoczny tekst (`label-content-name-mismatch`), teraz nazwa to widoczny tekst, pełna nazwa języka w `title`.
+- Linki wewnętrzne: 108 sprawdzonych, bez błędów. Przepełnienie w poziomie na 360, 390 i 768 px: brak.
+- Przyciski w hero: pozycja zmierzona po 50, 300 i 1500 ms, po najechaniu i po zjechaniu. Oba na tej samej wysokości, po zjechaniu wracają dokładnie na miejsce.
+- Przełącznik języka: po zmianie języka w środku strony nagłówek pod nawigacją przesuwa się o najwyżej 1 px.
+- Zrzuty całej strony EN i PL (1440 i 390): jedyny błąd to słowo „czytelników” wychodzące poza okładkę ebooka w PL; poprawione mniejszym stopniem pisma dla wersji polskiej.
