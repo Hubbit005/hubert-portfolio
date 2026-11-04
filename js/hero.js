@@ -262,10 +262,13 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
     g.beginPath(); g.arc(0, 0, r - 11 * k, 0, TAU); g.stroke();
     g.fillStyle = '#0d0d0d'; g.beginPath(); g.arc(0, 0, 92 * k, 0, TAU); g.fill();
     g.fillStyle = '#ff4f12'; g.beginPath(); g.arc(0, 0, 80 * k, 0, TAU); g.fill();
+    g.fillStyle = '#0d0d0d'; g.beginPath(); g.arc(0, 0, 72 * k, 0, TAU); g.fill();
     g.save();
     g.scale(1.6 * k, 1.6 * k); g.translate(-32, -32);
-    g.fillStyle = '#0d0d0d';
-    g.fill(new Path2D('M12 12h15v15h10V12h15v40H37V37H27v15H12z'));
+    g.fillStyle = '#ff4f12';
+    g.fill(new Path2D('M23 12h6v40h-6z'));
+    g.fillStyle = '#ecece9';
+    g.fill(new Path2D('M13 12h10v40H13zM41 12h10v40H41zM23 31l18-9v10l-18 9z'));
     g.restore();
     return c;
   }
