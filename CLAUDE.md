@@ -1,6 +1,6 @@
 # CLAUDE.md – portfolio Huberta
 
-Ten plik czytasz na początku każdej sesji. Masz tu wszystko, co wiadomo o Hubercie, jego projektach i celu tego repozytorium. Zadanie do wykonania jest w `PROMPT.md`.
+Ten plik czytasz na początku każdej sesji. Masz tu wszystko, co wiadomo o Hubercie, jego projektach i celu tego repozytorium. Zadanie do wykonania jest w najnowszym pliku `PROMPT-poprawki-N.md` (wcześniejsze prompty to historia).
 
 ## Cel repozytorium
 
@@ -92,6 +92,15 @@ Tu jest kilka projektów naraz:
 - **Na stronie nie rozdzielamy pracy Huberta i AI.** Żadnych tabel ani sekcji „What AI did / What I did”. Hubert pisze w pierwszej osobie: zaprojektowałem, zaplanowałem, stworzyłem. AI pojawia się tylko jako jego warsztat w sekcji AI workflow.
 - Nie piszemy, że coś powstało „jednym briefem”, „jedną wiadomością” ani że przyszło łatwo. Budujemy wartość wokół Huberta.
 - Treść ogólnikowa i krótka: do czego się przyczynił i co osiągnął. Bez szczegółów procesu, bez person.
+
+## Decyzje Huberta (4.11.2026)
+
+- Livingroom: piszemy tylko, że z własnej inicjatywy zaprojektował i zbudował nową stronę restauracji. Nie piszemy, że oferował ją właścicielowi ani że stara strona była słaba. Bez statusu w tym case study.
+- Karty w karuzeli: numer, tytuł i jedna krótka kategoria. Bez list tagów.
+- Każde narzędzie w AI workflow ma prawdziwe logo. Brakujące Hubert wrzuca do `assets/logos/`.
+- Tło: bez plusików, pionowe pasy zostają, gradient pomarańczowo-czarny.
+- Hubert chce własnego, osobistego logo na stronie.
+- Hero: napis 3D da się złapać i zakręcić; w środku walca jest ruletka z projektami (szczegóły w `PROMPT-poprawki-2.md`).
 
 ## Zasady dla Claude Code w tym repo
 
