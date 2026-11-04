@@ -502,8 +502,8 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
 .model-embed{ position: relative; border-radius: var(--r-md); overflow: hidden; background: #0a0a0a; aspect-ratio: 16 / 10; margin-bottom: var(--s-7); box-shadow: var(--shadow-3); }
 .model-embed__poster, .model-embed iframe{ position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .model-embed__poster img{ width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
-.model-embed__cta{ position: absolute; inset: auto 0 0 0; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; padding: 24px; background: linear-gradient(to top, rgb(0 0 0 / 0.85), transparent); color: #eeeeea; }
-.model-embed__cta p{ flex-basis: 100%; text-align: center; color: #c9c9c3; }
+.model-embed__cta{ position: absolute; inset: auto 0 0 0; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: flex-start; padding: 32px; background: linear-gradient(to top, rgb(0 0 0 / 0.85), transparent); color: #eeeeea; }
+.model-embed__cta .btn--ghost{ background: rgb(13 13 13 / 0.9); }
 .model-embed.is-loaded .model-embed__poster{ display: none; }
 
 @media (max-width: 700px) { .model-embed{ aspect-ratio: 3 / 4; } }

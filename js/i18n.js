@@ -132,8 +132,6 @@
     "model-embed.1": "Otwórz na pełnym ekranie",
     // EN:  (opens in a new tab)
     "model-embed.2": " (otwiera się w nowej karcie)",
-    // EN: Loads about 1 MB. Interface in Polish, as built for the client.
-    "model-embed.3": "Około 1 MB do pobrania. Interfejs jest po polsku, tak jak w wersji dla klienta.",
     // EN: Part highlighted
     "ksk-3d-model.3": "Podświetlona część",
     // EN: Step 5 of 5, disassembled
