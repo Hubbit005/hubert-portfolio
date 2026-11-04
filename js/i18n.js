@@ -268,22 +268,6 @@
     "meta-title.1": "To portfolio",
     // EN: I designed and built this site from the ground up: the layout, the motion, the interactive 3D lettering with the roulette, and two language versions. I built it in Claude Code.
     "this-portfolio.2": "Zaprojektowałem i zbudowałem tę stronę od podstaw: układ, ruch, interaktywny napis 3D z ruletką i dwie wersje językowe. Powstała w Claude Code.",
-    // EN: What I'm exploring now
-    "exploring.1": "Co teraz zgłębiam",
-    // EN: Writing the states before the build
-    "exploring.2": "Najpierw stany, potem budowa",
-    // EN: Spec-first prototyping with Claude Code
-    "exploring.3": "Prototypowanie w Claude Code na podstawie specyfikacji",
-    // EN: I write the flow and its states first, Claude Code builds from that, and automated checks test the result. This portfolio is my first full run of it (see the case above).
-    "exploring.4": "Najpierw spisuję ścieżkę i jej stany, Claude Code buduje na tej podstawie, a automatyczne testy sprawdzają wynik. To portfolio to pierwszy projekt, który w całości zrobiłem tą metodą (opis wyżej).",
-    // EN: Motion as code
-    "exploring.5": "Animacja w kodzie",
-    // EN: Brand animations in HTML and GSAP, rendered frame by frame to MP4, in Polish and German versions.
-    "exploring.6": "Animacje marki w HTML i GSAP, renderowane klatka po klatce do MP4, w wersji polskiej i niemieckiej.",
-    // EN: AI agents for customer questions
-    "exploring.7": "Agenci AI, którzy odpowiadają klientom",
-    // EN: After the Botpress prototype for KSK Pretor: where an agent can help a customer, and where a person has to take over.
-    "exploring.8": "Po prototypie w Botpressie dla KSK Pretor sprawdzam, gdzie agent może pomóc klientowi, a gdzie rozmowę musi przejąć człowiek.",
     // EN: About
     "about-title.1": "O mnie",
     // EN: I design and build websites and prototypes for companies, and I make their marketing and visual content: video, graphics, motion.

@@ -562,15 +562,6 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
 .split-panel__col + .split-panel__col{ background: var(--ink); color: var(--bg); }
 .split-panel__col + .split-panel__col .list li::before{ background: var(--accent); }
 
-.exploring{ margin-top: clamp(3rem, 2rem + 3vw, 5rem); padding: clamp(1.5rem, 1rem + 2vw, 3rem); border-radius: var(--r-lg); background: var(--accent); color: var(--on-accent); }
-.exploring .sub__kicker{ color: var(--on-accent); }
-.exploring__head{ display: grid; gap: 12px; margin-bottom: var(--s-6); }
-.exploring__title{ font-family: var(--font-display); font-stretch: 125%; font-weight: 900; font-size: clamp(1.6rem, 1rem + 2.4vw, 3.2rem); line-height: 0.95; text-transform: uppercase; letter-spacing: -0.02em; max-width: 22ch; }
-.explore-list{ display: grid; gap: 0; }
-@media (min-width: 900px) { .explore-list{ grid-template-columns: repeat(3, 1fr); gap: 28px; } }
-.explore-list li{ display: grid; grid-template-columns: 1fr; gap: 14px; padding: 20px 0; border-top: 1.5px solid rgb(13 13 13 / 0.85); }
-.explore-list h4{ font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 8px; line-height: 1.1; }
-.explore-list p{ font-size: 0.98rem; }
 
 /* ---------- About ---------- */
 .about__grid{ display: grid; gap: var(--s-7); }
@@ -650,7 +641,7 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
 
 /* ---------- Small-screen fixes (QA round 1) ---------- */
 .sub__grid > *, .case__intro > *, .gallery > *, .case__split > *, .cv__grid > *, .about__grid > *, .contact__grid > * { min-width: 0; }
-.case__title, .sec-head__title, .sub__title, .exploring__title{ overflow-wrap: break-word; hyphens: manual; }
+.case__title, .sec-head__title, .sub__title{ overflow-wrap: break-word; hyphens: manual; }
 @media (max-width: 560px) {
   .case__title{ font-size: clamp(1.9rem, 8.6vw, 3rem); font-stretch: 108%; }
   .sec-head__title{ font-size: clamp(1.9rem, 9.4vw, 3rem); }
@@ -678,7 +669,7 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
 }
 
 /* Small headings in sentence case; wide capitals stay for section and case titles */
-.block__title, .mini-title, .wf__t, .flow__t, .explore-list h4, .timeline h4 {
+.block__title, .mini-title, .wf__t, .flow__t, .timeline h4 {
   text-transform: none; font-stretch: 104%; letter-spacing: -0.005em;
 }
 .block__title, .mini-title{ font-size: 1.15rem; }
@@ -768,11 +759,7 @@ code{ font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; border
   .case--dark{ margin-inline: 0; border-radius: 0; box-shadow: none; }
 
 }
- .exploring__title, .meta-case__title{ text-transform: none; font-stretch: 108%; letter-spacing: -0.015em; }
-.exploring{ background: var(--surface); color: var(--ink); border: 1.5px solid var(--ink); border-top: 8px solid var(--accent); }
-.exploring .sub__kicker{ color: var(--accent-ink); }
-.explore-list li{ border-top-color: var(--line-strong); }
-.explore-list__n{ color: var(--accent-ink); }
+ .meta-case__title{ text-transform: none; font-stretch: 108%; letter-spacing: -0.015em; }
 
 @media (max-width: 700px) {
   .card__media{ bottom: 54px; }
