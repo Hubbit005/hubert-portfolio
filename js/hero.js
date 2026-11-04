@@ -61,8 +61,12 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
 
   /* ---------- Renderer and canvas ---------- */
   const small = Math.min(window.innerWidth, window.innerHeight) < 700 || matchMedia('(pointer: coarse)').matches;
-  const renderer = new THREE.WebGLRenderer({ antialias: !small, alpha: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1.25 : 2));
+  // Pixel ratio: at most 1.5 on desktop, 1 on phones. At 1.5 and up the edges are smooth enough
+  // without multisampling, so antialiasing is only switched on below that (phones and 1x screens).
+  const PR_MAX = small ? 1 : 1.5;
+  const pr0 = Math.min(window.devicePixelRatio || 1, PR_MAX);
+  const renderer = new THREE.WebGLRenderer({ antialias: pr0 < 1.5, alpha: true, powerPreference: 'high-performance' });
+  renderer.setPixelRatio(pr0);
   renderer.setClearColor(0x000000, 0);
   renderer.autoClear = false;
   const canvas = renderer.domElement;
@@ -113,8 +117,8 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
     if (geoCache.has(ch)) return geoCache.get(ch);
     const shapes = font.generateShapes(ch, 1);
     const geo = new THREE.ExtrudeGeometry(shapes, {
-      depth: DEPTH, curveSegments: small ? 6 : 10,
-      bevelEnabled: true, bevelThickness: 0.014, bevelSize: 0.007, bevelSegments: 2,
+      depth: DEPTH, curveSegments: small ? 4 : 6,
+      bevelEnabled: true, bevelThickness: 0.014, bevelSize: 0.007, bevelSegments: 1,
     });
     const ha = (fontJson.glyphs[ch]?.ha || upm) / upm;
     geo.translate(-ha / 2, -capH / 2, -DEPTH / 2);
@@ -279,12 +283,14 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
   let W = 1, Hc = 1, Hv = 2, fsPx = 100, yOffN = 0, yOffR = 0, xShiftR = 0, rD = PERSP;
   let bandY = 0, bandH = 1, fullDirty = true; // normal-view draw band (see render)
   let rT = 0, rE = 0, rEase = 0; // roulette: target 0/1, linear progress, eased progress
+  const gsapRef = window.gsap;
+  let barBox = null, barMeasuredTy = 0, stageH = 1; // bar rectangle, see measureBar()
   function resize() {
     fsPx = parseFloat(getComputedStyle(title).fontSize) || 100;
     W = Math.max(1, Math.round(hero.clientWidth));
     Hc = Math.max(1, Math.round(hero.clientHeight));
     Hv = Hc * 2;
-    const pr = Math.min(window.devicePixelRatio || 1, small ? 1.25 : 2, Math.sqrt(4.2e6 / (W * Hc)));
+    const pr = Math.min(window.devicePixelRatio || 1, PR_MAX, Math.sqrt(4.2e6 / (W * Hc)));
     renderer.setPixelRatio(Math.max(1, pr));
     canvas.style.top = '0px';
     canvas.style.width = `${W}px`;
@@ -313,6 +319,7 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
     const fitW = W * (narrow ? 0.92 : 0.58), fitH = Hc * (narrow ? 0.56 : 0.76);
     rD = Math.max(PERSP * 0.7, (2 * rho * fsPx * PERSP) / fitW, (1.8 * rho * fsPx * PERSP) / fitH);
     setCamera(rEase);
+    measureBar();
   }
 
   function setCamera(e) {
@@ -327,13 +334,25 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
   resize();
   window.addEventListener('resize', resize);
 
-  function barRect() {
-    if (!bar) return null;
+  // Bar rectangle for the inverted pass. Measured on resize (and every frame only during the bar's
+  // 1.1 s entrance, while it grows), not in every frame: the only thing that moves it afterwards is
+  // the stage's scroll parallax (GSAP yPercent), read from GSAP's own cache without touching layout.
+  function stageShift() {
+    if (!gsapRef) return 0;
+    return ((+gsapRef.getProperty(stage, 'yPercent') || 0) / 100) * stageH + (+gsapRef.getProperty(stage, 'y') || 0);
+  }
+  function measureBar() {
+    if (!bar) { barBox = null; return; }
+    stageH = stage.offsetHeight || 1;
     const cr = canvas.getBoundingClientRect();
     const br = bar.getBoundingClientRect();
-    const x = br.left - cr.left, y = br.top - cr.top;
-    if (br.width < 1 || br.height < 1) return null;
-    return { x, y: Hc - (y + br.height), w: br.width, h: br.height };
+    barMeasuredTy = stageShift();
+    barBox = br.width < 1 || br.height < 1 ? null : { x: br.left - cr.left, y: br.top - cr.top, w: br.width, h: br.height };
+  }
+  function barRect() {
+    if (!barBox) return null;
+    const y = barBox.y + (stageShift() - barMeasuredTy);
+    return { x: barBox.x, y: Hc - (y + barBox.h), w: barBox.w, h: barBox.h };
   }
 
   // In the normal view only the band around the word is drawn (the rest of the hero stays clear),
@@ -578,6 +597,7 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
   io.observe(stage);
   const onVis = () => { if (document.hidden) running = false; else resume(); };
   document.addEventListener('visibilitychange', onVis);
+  document.addEventListener('langchange', () => requestAnimationFrame(measureBar));
 
   const mo = new MutationObserver(applyTheme);
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
@@ -626,6 +646,7 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
       spr.yV += (-(spr.y - spr.yT) * kS - spr.yV * cS) * dt;
       spr.y += spr.yV * dt;
     }
+    if (now - enterStart < 1500) measureBar(); // the bar is still growing (CSS transition)
     updateRoulette(dt, now);
     place();
     render();
