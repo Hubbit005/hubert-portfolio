@@ -43,7 +43,7 @@
     // EN: Selected work
     "work-title.1": "Wybrane projekty",
     // EN: From a live client website to a 3D model in the browser. Drag the wheel, use the arrow keys, or pick a card to open the case study.
-    "work.2": "Od działającej strony klienta po model 3D w przeglądarce. Przeciągnij koło, użyj strzałek albo wybierz kartę, żeby otworzyć case study.",
+    "work.2": "Strony dla klientów, model 3D i wideo. Przeciągnij koło, użyj strzałek albo wybierz kartę, żeby otworzyć case study.",
     // EN: Website &amp; marketing
     "arc-track.2": "Strona i marketing",
     // EN: Marketing &amp; video
@@ -66,8 +66,6 @@
     "arc-track.18": "Plany treningowe",
     // EN: A page per client
     "arc-track.19": "Strona dla każdego klienta",
-    // EN: Client work first: Basko Clean, KSK Pretor and Livingroom. Then a client site in progress and smaller projects.
-    "cases.1": "Najpierw praca dla klientów: Basko Clean, KSK Pretor i Livingroom. Potem strona klientki w budowie i mniejsze projekty.",
     // EN: <span class="mono">04</span> Website for Agata Patelka
     "cases.5": "Strona dla Agaty Patelki",
     // EN: <span class="mono">05</span> Smaller projects
@@ -185,7 +183,7 @@
     // EN: Payment <em class="mono">mock</em>
     "psychologist-site.13": "Płatność <em class=\"mono\">makieta</em>",
     // EN: Stripe later. Payment method badges built, switched off.
-    "psychologist-site.14": "Stripe w kolejnym etapie. Plakietki metod płatności są gotowe, ale wyłączone.",
+    "psychologist-site.14": "Stripe podłączę w kolejnym etapie. Plakietki metod płatności są gotowe, ale do tego czasu wyłączone.",
     // EN: Thank you
     "psychologist-site.16": "Podziękowanie",
     // EN: Book a time
@@ -207,7 +205,7 @@
     // EN: A calendar where the client picks the date of each workout.
     "training-plans.4": "Kalendarz, w którym klient wybiera datę każdego treningu.",
     // EN: Names and body data hidden in the screenshots.
-    "training-plans.5": "Imiona i pomiary klientów są na zrzutach ukryte.",
+    "training-plans.5": "Na zrzutach ukryłem imiona i pomiary klientów.",
     // EN: Plan overview
     "training-plans.6": "Przegląd planu",
     // EN: Workout day with calendar
@@ -215,13 +213,13 @@
     // EN: How I work with AI
     "ai-title.1": "Jak pracuję z AI",
     // EN: I use AI tools in every project, mostly to research and build faster. Below: my steps and the tools.
-    "ai.1": "Używam narzędzi AI w każdym projekcie, głównie po to, żeby szybciej zbierać informacje i budować. Poniżej moje kroki i narzędzia.",
+    "ai.1": "Używam narzędzi AI w każdym projekcie, żeby szybciej zbierać informacje i budować.",
     // EN: Start on site
     "ai.2": "Start u klienta",
     // EN: At the client's job site, or as a guest in the restaurant.
-    "ai.3": "Na realizacji u klienta albo jako gość w restauracji.",
+    "ai.3": "Zaczynam tam, gdzie pracuje klient: na realizacji albo jako gość w restauracji.",
     // EN: Perplexity for sources, Gemini for comparisons, ChatGPT for structuring strategy, Manifold for marketing and social data.
-    "ai.6": "Perplexity do źródeł, Gemini do porównań, ChatGPT do porządkowania strategii, Manifold do danych marketingowych i z social mediów.",
+    "ai.6": "Używam Perplexity do źródeł, Gemini do porównań, ChatGPT do porządkowania strategii, a Manifold do danych marketingowych i z social mediów.",
     // EN: Flow and states
     "ai.8": "Ścieżka i stany",
     // EN: I list the steps and the states before the build. Example: my brief for this portfolio.
@@ -229,11 +227,11 @@
     // EN: Build
     "ai.11": "Wykonanie",
     // EN: Claude Code turns the list into a working page or prototype. Animations in GSAP and HyperFrames, rendered to MP4 with Playwright. 3D in three.js.
-    "ai.12": "Claude Code zamienia listę w działającą stronę albo prototyp. Animacje w GSAP i HyperFrames, renderowane do MP4 w Playwright. 3D w three.js.",
+    "ai.12": "Na podstawie tej listy buduję stronę albo prototyp w Claude Code. Animacje robię w GSAP i HyperFrames i renderuję je do MP4 w Playwright, a 3D buduję w three.js.",
     // EN: Visuals
     "ai.14": "Grafika",
     // EN: Higgsfield and Leonardo AI for images and video, Canva for posts and materials.
-    "ai.15": "Higgsfield i Leonardo AI do obrazów i wideo, Canva do postów i materiałów.",
+    "ai.15": "Obrazy i wideo generuję w Higgsfield i Leonardo AI, a posty i materiały robię w Canvie.",
     // EN: Review
     "ai.17": "Kontrola",
     // EN: Before anything goes to the client, I check it against the brief and the brand.
@@ -267,7 +265,7 @@
     // EN: This portfolio
     "meta-title.1": "To portfolio",
     // EN: I designed and built this site from the ground up: the layout, the motion, the interactive 3D lettering with the roulette, and two language versions. I built it in Claude Code.
-    "this-portfolio.2": "Zaprojektowałem i zbudowałem tę stronę od podstaw: układ, ruch, interaktywny napis 3D z ruletką i dwie wersje językowe. Powstała w Claude Code.",
+    "this-portfolio.2": "Zaprojektowałem i zbudowałem tę stronę od podstaw w Claude Code: układ, ruch, interaktywny napis 3D z ruletką i dwie wersje językowe.",
     // EN: About
     "about-title.1": "O mnie",
     // EN: I design and build websites and prototypes for companies, and I make their marketing and visual content: video, graphics, motion.
@@ -295,7 +293,7 @@
     // EN: <b>Basko Clean:</b> website design and code, motion-graphic ad, social media on three platforms, profile identity.
     "cv.6": "<b>Basko Clean:</b> projekt i kod strony, reklama motion graphic, social media na trzech platformach, identyfikacja profili.",
     // EN: <b>KSK Pretor:</b> German market entry plan (18 chapters, 59-page owner version), interactive 3D model, AI agent prototype, promo film, video branding in PL and DE.
-    "cv.7": "<b>KSK Pretor:</b> plan wejścia na rynek niemiecki (18 rozdziałów, wersja dla właściciela na 59 stron), interaktywny model 3D, prototyp agenta AI, film promocyjny, branding wideo po polsku i po niemiecku.",
+    "cv.7": "<b>KSK Pretor:</b> plan marketingowy na rynek niemiecki, pozyskanie agencji eventowej, social media, prototypy agenta AI, interaktywny model 3D, film promocyjny.",
     // EN: <b>Livingroom:</b> new restaurant website, designed and built.
     "cv.8": "<b>Livingroom:</b> nowa strona restauracji, zaprojektowana i zbudowana.",
     // EN: <b>Psychologist website:</b> full purchase path (Astro, Tailwind, Cal.com).
