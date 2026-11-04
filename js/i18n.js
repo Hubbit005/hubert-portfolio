@@ -34,8 +34,8 @@
     "roulette-go.1": "Otwórz projekt",
     // EN: Spin again
     "roulette-again.1": "Losuj jeszcze raz",
-    // EN: I design websites and clickable prototypes, including the empty, error and edge states. I build with AI tools and decide what ships.
-    "home.2": "Projektuję strony i klikalne prototypy, razem ze stanami pustymi, błędami i przypadkami brzegowymi. Buduję z narzędziami AI i sam decyduję, co trafia do klienta.",
+    // EN: I design and build websites and clickable prototypes. I work with AI tools and make the design decisions myself.
+    "home.2": "Projektuję i buduję strony internetowe oraz klikalne prototypy. Pracuję z narzędziami AI, a decyzje projektowe podejmuję sam.",
     // EN: View work
     "home.3": "Zobacz projekty",
     // EN: Contact
@@ -85,7 +85,7 @@
     // EN: Design, code, video, social media
     "basko-clean.6": "Projekt, kod, wideo, social media",
     // EN: Live website, maintained by me
-    "basko-clean.8": "Strona działa, prowadzę ją",
+    "basko-clean.8": "Strona działa, utrzymuję ją",
     // EN: What I did
     "basko-clean.9": "Co zrobiłem",
     // EN: I designed and built the company website, and I keep it up to date.
@@ -93,11 +93,11 @@
     // EN: I created a visual system for marketing: colours, a vectorised logo with the cleaner figure, light and dark profile pictures, ready-to-use materials.
     "basko-clean.11": "Stworzyłem system wizualny do marketingu: kolory, zwektoryzowane logo z postacią sprzątacza, zdjęcia profilowe w wersji jasnej i ciemnej, gotowe materiały.",
     // EN: I made a motion-graphic ad for Instagram: flat 2D, kinetic type, the cleaner figure as the hero.
-    "basko-clean.12": "Zrobiłem reklamę motion graphic na Instagram: płaskie 2D, kinetyczna typografia, postać sprzątacza w roli głównej.",
+    "basko-clean.12": "Zrobiłem reklamę w stylu motion graphic na Instagram: płaska grafika 2D, kinetyczna typografia, w roli głównej postać sprzątacza.",
     // EN: I film on job sites and edit the reels for Instagram, LinkedIn and TikTok.
-    "basko-clean.13": "Nagrywam materiał na realizacjach i montuję rolki na Instagram, LinkedIn i TikTok.",
+    "basko-clean.13": "Nagrywam materiał na realizacjach i montuję z niego rolki na Instagram, LinkedIn i TikTok.",
     // EN: Basko Clean · live site
-    "basko-clean.14": "Basko Clean · strona na żywo",
+    "basko-clean.14": "Basko Clean · działająca strona",
     // EN: Home page. The quote form is visible without scrolling.
     "basko-clean.15": "Strona główna. Formularz wyceny widać bez przewijania.",
     // EN: Before-and-after slider
@@ -107,7 +107,7 @@
     // EN: 20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card.
     "basko-reel-desc.1": "Pionowa rolka, 20 sekund: kinetyczna typografia, lista usług, proces w 4 krokach, przed i po, plansza z logo.",
     // EN: A shooting range and event venue in Racław near Gorzów. I work on its marketing, its growth in Germany and its digital tools.
-    "ksk-pretor.2": "Strzelnica i miejsce eventów w Racławiu pod Gorzowem. Pracuję nad jej marketingiem, wejściem na rynek niemiecki i narzędziami cyfrowymi.",
+    "ksk-pretor.2": "Strzelnica i obiekt eventowy w Racławiu pod Gorzowem. Zajmuję się jej marketingiem, wejściem na rynek niemiecki i narzędziami cyfrowymi.",
     // EN: KSK Pretor, shooting range and events
     "ksk-pretor.3": "KSK Pretor, strzelnica i eventy",
     // EN: Strategy, marketing, video, 3D, AI agent
@@ -117,9 +117,9 @@
     // EN: I brought an event agency to the range.
     "ksk-pretor.6": "Przyciągnąłem do strzelnicy agencję eventową.",
     // EN: I ran the range&#8217;s social media for a period.
-    "ksk-pretor.7": "Przez jakiś czas prowadziłem social media strzelnicy.",
+    "ksk-pretor.7": "Przez pewien czas prowadziłem social media strzelnicy.",
     // EN: I built AI agent prototypes in Botpress.
-    "ksk-pretor.8": "Zbudowałem prototypy agenta AI w Botpress.",
+    "ksk-pretor.8": "Zbudowałem prototypy agenta AI w Botpressie.",
     // EN: I created promotional films and graphics.
     "ksk-pretor.9": "Stworzyłem filmy reklamowe i grafiki promocyjne.",
     // EN: KSK Pretor · 3D model
@@ -127,7 +127,7 @@
     // EN: Interactive 3D model of an AK-47
     "ksk-3d-title.1": "Interaktywny model 3D karabinka AK-47",
     // EN: I built it in code from simple shapes in three.js, with no ready-made models. Visitors rotate it, take it apart step by step and export a photo for Instagram. Live version: <a href="https://hubbit005.github.io/ksk-ak47-3d/" rel="noopener" target="_blank">hubbit005.github.io/ksk-ak47-3d<span class="sr-only"> (opens in a new tab)</span></a>.
-    "ksk-3d-model.2": "Zbudowałem go w kodzie z prostych brył w three.js, bez gotowych modeli. Można go obracać, rozkładać krok po kroku i eksportować zdjęcie na Instagram. Wersja na żywo: <a href=\"https://hubbit005.github.io/ksk-ak47-3d/\" rel=\"noopener\" target=\"_blank\">hubbit005.github.io/ksk-ak47-3d<span class=\"sr-only\"> (otwiera się w nowej karcie)</span></a>.",
+    "ksk-3d-model.2": "Zbudowałem go w kodzie z prostych brył w three.js, bez gotowych modeli. Można go obracać, rozkładać krok po kroku i wyeksportować z niego zdjęcie na Instagram. Wersja na żywo: <a href=\"https://hubbit005.github.io/ksk-ak47-3d/\" rel=\"noopener\" target=\"_blank\">hubbit005.github.io/ksk-ak47-3d<span class=\"sr-only\"> (otwiera się w nowej karcie)</span></a>.",
     // EN: Load the 3D model
     "model-load.1": "Załaduj model 3D",
     // EN: Open full screen
@@ -135,31 +135,31 @@
     // EN:  (opens in a new tab)
     "model-embed.2": " (otwiera się w nowej karcie)",
     // EN: Loads about 1 MB. Interface in Polish, as built for the client.
-    "model-embed.3": "Około 1 MB. Interfejs po polsku, tak jak dla klienta.",
+    "model-embed.3": "Około 1 MB do pobrania. Interfejs jest po polsku, tak jak w wersji dla klienta.",
     // EN: Part highlighted
     "ksk-3d-model.3": "Podświetlona część",
     // EN: Step 5 of 5, disassembled
-    "ksk-3d-model.4": "Krok 5 z 5, rozłożony",
+    "ksk-3d-model.4": "Krok 5 z 5, model rozłożony",
     // EN: Photo mode, 1080×1350
     "ksk-3d-model.5": "Tryb zdjęcia, 1080×1350",
     // EN: Phone, reduced quality
     "ksk-3d-model.6": "Telefon, niższa jakość renderu",
     // EN: KSK Pretor · Video
     "ksk-video.1": "KSK Pretor · wideo",
-    // EN: Video branding
-    "ksk-video-title.1": "Branding wideo",
-    // EN: I created a 3-second intro and outro with the logo, in Polish and German, a “Vielen Dank” card for agencies and a 10-second spot. Animated in HTML and GSAP, rendered frame by frame.
-    "ksk-video.2": "Stworzyłem 3-sekundowe intro i outro z logo w wersji polskiej i niemieckiej, planszę „Vielen Dank” dla agencji i 10-sekundowy spot. Animacje w HTML i GSAP, renderowane klatka po klatce.",
+    // EN: Promo film
+    "ksk-video-title.1": "Film promocyjny",
+    // EN: I created a 35-second promo film that shows every side of the range: the lanes, the weapons, the instructors and the offer.
+    "ksk-video.2": "Stworzyłem 35-sekundowy film promocyjny, który pokazuje wszystkie strony strzelnicy: stanowiska, broń, instruktorów i ofertę.",
     // EN: Promo film in German, 35 seconds, 16:9.
     "ksk-film-desc.1": "Film promocyjny po niemiecku, 35 sekund, 16:9.",
-    // EN: On my own initiative I designed and built a new website for the restaurant.
-    "livingroom.2": "Z własnej inicjatywy zaprojektowałem i zbudowałem nową stronę restauracji.",
+    // EN: I designed and built a new website for the restaurant.
+    "livingroom.2": "Zaprojektowałem i zbudowałem nową stronę restauracji.",
     // EN: Livingroom restaurant, Gorzów Wielkopolski
     "livingroom.3": "Restauracja Livingroom, Gorzów Wielkopolski",
     // EN: Idea, design, build
     "livingroom.4": "Pomysł, projekt, wykonanie",
     // EN: I designed and built the site: home page, menu with allergens, dish carousel, Polish and English versions.
-    "livingroom.5": "Zaprojektowałem i zbudowałem stronę: strona główna, menu z alergenami, karuzela dań, wersja polska i angielska.",
+    "livingroom.5": "Zaprojektowałem i zbudowałem całą stronę: stronę główną, menu z alergenami, karuzelę dań oraz wersję polską i angielską.",
     // EN: Home page
     "livingroom.6": "Strona główna",
     // EN: Menu categories
@@ -169,19 +169,19 @@
     // EN: Dish carousel
     "livingroom.9": "Karuzela dań",
     // EN: A website for a psychologist with session packages, a cart and appointment booking. Client project in progress; the copy is still a draft.
-    "psychologist-site.2": "Strona psycholożki z pakietami sesji, koszykiem i rezerwacją terminów. Projekt dla klientki w budowie, teksty są robocze.",
+    "psychologist-site.2": "Strona psycholożki z pakietami sesji, koszykiem i rezerwacją terminów. Projekt jest w budowie, a teksty są robocze.",
     // EN: Agata Patelka, psychologist
     "psychologist-site.3": "Agata Patelka, psycholożka",
     // EN: Design and build
     "psychologist-site.4": "Projekt i wykonanie",
     // EN: I designed the full purchase path: package, cart, payment step, thank-you page. It can be clicked through before the payment gateway is connected.
-    "psychologist-site.5": "Zaprojektowałem całą ścieżkę zakupu: pakiet, koszyk, płatność, podziękowanie. Można ją przeklikać, zanim podłączona zostanie bramka płatności.",
+    "psychologist-site.5": "Zaprojektowałem całą ścieżkę zakupu: wybór pakietu, koszyk, płatność i stronę z podziękowaniem. Można ją przeklikać jeszcze przed podłączeniem bramki płatności.",
     // EN: I set up booking on an embedded Cal.com calendar, so the client manages her own time slots.
     "psychologist-site.6": "Rezerwację oparłem na osadzonym kalendarzu Cal.com, więc klientka sama zarządza terminami.",
     // EN: I am building the site in Claude Code with Astro and Tailwind.
-    "psychologist-site.7": "Buduję stronę w Claude Code, w Astro i Tailwind.",
+    "psychologist-site.7": "Buduję stronę w Claude Code przy pomocy Astro i Tailwind.",
     // EN: Purchase path, clickable end to end before the gateway exists
-    "psy-flow-title.1": "Ścieżka zakupu, klikalna od początku do końca jeszcze przed bramką płatności",
+    "psy-flow-title.1": "Ścieżka zakupu do przeklikania od początku do końca, jeszcze przed podłączeniem bramki płatności",
     // EN: Choose a package
     "psychologist-site.9": "Wybór pakietu",
     // EN: Cart
@@ -189,9 +189,9 @@
     // EN: Payment <em class="mono">mock</em>
     "psychologist-site.13": "Płatność <em class=\"mono\">makieta</em>",
     // EN: Stripe later. Payment method badges built, switched off.
-    "psychologist-site.14": "Stripe później. Plakietki metod płatności gotowe, wyłączone.",
+    "psychologist-site.14": "Stripe w kolejnym etapie. Plakietki metod płatności są gotowe, ale wyłączone.",
     // EN: Thank you
-    "psychologist-site.16": "Dziękujemy",
+    "psychologist-site.16": "Podziękowanie",
     // EN: Book a time
     "psychologist-site.18": "Rezerwacja terminu",
     // EN: Embedded Cal.com. The client manages her own slots.
@@ -201,9 +201,9 @@
     // EN: Training plans for clients.
     "smaller-projects.2": "Plany treningowe dla klientów.",
     // EN: 05 · Client work, anonymised
-    "training-plans.1": "05 · Praca dla klientów, zanonimizowana",
+    "training-plans.1": "05 · Projekty dla klientów, zanonimizowane",
     // EN: Training plans as web pages
-    "training-title.1": "Plany treningowe jako strony WWW",
+    "training-title.1": "Plany treningowe w formie stron internetowych",
     // EN: I build web pages for clients&#8217; personal 8-week training plans, all from one template I designed.
     "training-plans.2": "Buduję strony z osobistymi 8-tygodniowymi planami treningowymi dla klientów. Wszystkie powstają z jednego szablonu, który zaprojektowałem.",
     // EN: Plan variants, progress tracking and day-by-day workouts.
@@ -211,7 +211,7 @@
     // EN: A calendar where the client picks the date of each workout.
     "training-plans.4": "Kalendarz, w którym klient wybiera datę każdego treningu.",
     // EN: Names and body data hidden in the screenshots.
-    "training-plans.5": "Imiona i dane o ciele ukryte na zrzutach.",
+    "training-plans.5": "Imiona i pomiary klientów są na zrzutach ukryte.",
     // EN: Plan overview
     "training-plans.6": "Przegląd planu",
     // EN: Workout day with calendar
@@ -229,11 +229,11 @@
     // EN: Flow and states
     "ai.8": "Ścieżka i stany",
     // EN: I list the steps and the states before the build. Example: my brief for this portfolio.
-    "ai.9": "Przed budową spisuję kroki i stany. Przykład: mój brief do tego portfolio.",
+    "ai.9": "Zanim zacznę budować, spisuję kroki i stany. Przykład: mój brief do tego portfolio.",
     // EN: Build
-    "ai.11": "Budowa",
+    "ai.11": "Wykonanie",
     // EN: Claude Code turns the list into a working page or prototype. Animations in GSAP and HyperFrames, rendered to MP4 with Playwright. 3D in three.js.
-    "ai.12": "Claude Code zamienia listę w działającą stronę albo prototyp. Animacje w GSAP i HyperFrames, renderowane do MP4 przez Playwright. 3D w three.js.",
+    "ai.12": "Claude Code zamienia listę w działającą stronę albo prototyp. Animacje w GSAP i HyperFrames, renderowane do MP4 w Playwright. 3D w three.js.",
     // EN: Visuals
     "ai.14": "Grafika",
     // EN: Higgsfield and Leonardo AI for images and video, Canva for posts and materials.
@@ -241,7 +241,7 @@
     // EN: Review
     "ai.17": "Kontrola",
     // EN: Before anything goes to the client, I check it against the brief and the brand.
-    "ai.18": "Zanim cokolwiek trafi do klienta, sprawdzam to z briefem i z marką.",
+    "ai.18": "Zanim cokolwiek trafi do klienta, sprawdzam, czy zgadza się z briefem i z marką.",
     // EN: Where AI speeds me up
     "ai.20": "Gdzie AI mnie przyspiesza",
     // EN: Code for pages, prototypes and animations.
@@ -249,7 +249,7 @@
     // EN: Market and competitor data with sources.
     "ai.22": "Dane o rynku i konkurencji ze źródłami.",
     // EN: Drafts of long documents and their structure.
-    "ai.23": "Szkice długich dokumentów i ich struktura.",
+    "ai.23": "Szkice i struktura długich dokumentów.",
     // EN: Image and video variants to compare.
     "ai.24": "Warianty obrazów i wideo do porównania.",
     // EN: Dictation instead of typing.
@@ -263,7 +263,7 @@
     // EN: Whether a visual fits the brand. Basko's realistic 3D ad did not, so I dropped it.
     "ai.29": "Czy grafika pasuje do marki. Realistyczna reklama 3D dla Basko nie pasowała, więc ją odrzuciłem.",
     // EN: What a client's material may show: no client logos without consent, no personal data.
-    "ai.30": "Co mogą pokazać materiały klienta: bez logo jego klientów bez zgody, bez danych osobowych.",
+    "ai.30": "Co mogą pokazywać materiały klienta: logo jego klientów tylko za zgodą, żadnych danych osobowych.",
     // EN: Whether the result is ready for the client.
     "ai.31": "Czy wynik jest gotowy dla klienta.",
     // EN: Tools I use and what I made with them
@@ -281,15 +281,15 @@
     // EN: Generated graphics for client marketing.
     "tool-d-6.1": "Grafiki do marketingu klientów.",
     // EN: Marketing and social media research for client profiles.
-    "tool-d-7.1": "Research marketingowy i social media do profili klientów.",
+    "tool-d-7.1": "Research marketingowy i analiza social mediów na potrzeby profili klientów.",
     // EN: AI agent (chatbot) prototypes for the KSK Pretor shooting range.
     "tool-d-8.1": "Prototypy agenta AI (czatbota) dla strzelnicy KSK Pretor.",
     // EN: Graphics, social media posts and marketing materials for clients.
     "tool-d-9.1": "Grafiki, posty do social mediów i materiały marketingowe dla klientów.",
     // EN: Dictation and voice work: I write by speaking.
-    "tool-d-10.1": "Dyktowanie i praca głosem: piszę, mówiąc.",
+    "tool-d-10.1": "Dyktowanie: zamiast pisać na klawiaturze, mówię.",
     // EN: Motion in code for the KSK Pretor brand animations: the logo intro and outro in Polish and German.
-    "tool-d-11.1": "Ruch w kodzie do animacji marki KSK Pretor: intro i outro z logo po polsku i po niemiecku.",
+    "tool-d-11.1": "Animacje w kodzie dla marki KSK Pretor: intro i outro z logo po polsku i po niemiecku.",
     // EN: The KSK Pretor brand animations built as HTML video compositions.
     "tool-d-12.1": "Animacje marki KSK Pretor zbudowane jako kompozycje wideo w HTML.",
     // EN: Rendering the KSK Pretor animations frame by frame to MP4.
@@ -298,30 +298,30 @@
     "tool-d-14.1": "Interaktywny model 3D dla KSK Pretor, zbudowany w kodzie z prostych brył.",
     // EN: This portfolio
     "meta-title.1": "To portfolio",
-    // EN: I planned and designed this site and built it in Claude Code. I tested every version for accessibility, layout and links, and refined it over several review rounds.
-    "this-portfolio.2": "Zaplanowałem i zaprojektowałem tę stronę, a zbudowałem ją w Claude Code. Każdą wersję sprawdzałem pod kątem dostępności, układu i linków, a potem dopracowywałem w kilku rundach recenzji.",
+    // EN: I designed and built this site from the ground up: the layout, the motion, the interactive 3D lettering with the roulette, and two language versions. I built it in Claude Code.
+    "this-portfolio.2": "Zaprojektowałem i zbudowałem tę stronę od podstaw: układ, ruch, interaktywny napis 3D z ruletką i dwie wersje językowe. Powstała w Claude Code.",
     // EN: What I'm exploring now
     "exploring.1": "Co teraz zgłębiam",
     // EN: Writing the states before the build
-    "exploring.2": "Stany spisane przed budową",
+    "exploring.2": "Najpierw stany, potem budowa",
     // EN: Spec-first prototyping with Claude Code
-    "exploring.3": "Prototypowanie od specyfikacji z Claude Code",
+    "exploring.3": "Prototypowanie w Claude Code na podstawie specyfikacji",
     // EN: I write the flow and its states first, Claude Code builds from that, and automated checks test the result. This portfolio is my first full run of it (see the case above).
-    "exploring.4": "Najpierw spisuję ścieżkę i jej stany, Claude Code buduje na tej podstawie, a automatyczne testy sprawdzają wynik. To portfolio jest moim pierwszym pełnym przejściem tej metody (zobacz case wyżej).",
+    "exploring.4": "Najpierw spisuję ścieżkę i jej stany, Claude Code buduje na tej podstawie, a automatyczne testy sprawdzają wynik. To portfolio to pierwszy projekt, który w całości zrobiłem tą metodą (opis wyżej).",
     // EN: Motion as code
-    "exploring.5": "Ruch jako kod",
+    "exploring.5": "Animacja w kodzie",
     // EN: Brand animations in HTML and GSAP, rendered frame by frame to MP4, in Polish and German versions.
     "exploring.6": "Animacje marki w HTML i GSAP, renderowane klatka po klatce do MP4, w wersji polskiej i niemieckiej.",
     // EN: AI agents for customer questions
-    "exploring.7": "Agenci AI do pytań klientów",
+    "exploring.7": "Agenci AI, którzy odpowiadają klientom",
     // EN: After the Botpress prototype for KSK Pretor: where an agent can help a customer, and where a person has to take over.
-    "exploring.8": "Po prototypie w Botpress dla KSK Pretor: gdzie agent może pomóc klientowi, a gdzie musi przejąć człowiek.",
+    "exploring.8": "Po prototypie w Botpressie dla KSK Pretor sprawdzam, gdzie agent może pomóc klientowi, a gdzie rozmowę musi przejąć człowiek.",
     // EN: About
     "about-title.1": "O mnie",
     // EN: I design and build websites and prototypes for companies, and I make their marketing and visual content: video, graphics, motion.
     "about.1": "Projektuję i buduję strony oraz prototypy dla firm, a do tego tworzę ich treści marketingowe i wizualne: wideo, grafiki, animacje.",
     // EN: The most satisfying part of my work is building something that works and looks good. I follow new AI tools closely and want to get much better at using them in design work.
-    "about.2": "Najwięcej satysfakcji daje mi zbudowanie czegoś, co działa i dobrze wygląda. Na bieżąco śledzę nowe narzędzia AI i chcę dużo lepiej wykorzystywać je w projektowaniu.",
+    "about.2": "Najwięcej satysfakcji daje mi zbudowanie czegoś, co działa i dobrze wygląda. Na bieżąco śledzę nowe narzędzia AI i chcę coraz lepiej wykorzystywać je w projektowaniu.",
     // EN: I am looking for a team I can stay with for the long term and grow in. I am ready to put in long hours on work that shows results.
     "about.3": "Szukam zespołu, z którym zostanę na dłużej i w którym będę się rozwijać. Jestem gotów pracować bardzo dużo, jeśli praca daje efekt.",
     // EN: Background
@@ -333,7 +333,7 @@
     // EN: <span class="mono">Before</span>Certified personal trainer. One-to-one work with people, a plan adapted to each person
     "about.7": "<span class=\"mono\">Wcześniej</span>Trener personalny z certyfikatem. Praca jeden na jeden, plan dopasowany do każdej osoby",
     // EN: <span class="mono">Base</span>Near Gorzów Wielkopolski, Poland. Working remotely
-    "about.8": "<span class=\"mono\">Baza</span>Okolice Gorzowa Wielkopolskiego. Pracuję zdalnie",
+    "about.8": "<span class=\"mono\">Region</span>Okolice Gorzowa Wielkopolskiego. Pracuję zdalnie",
     // EN: Content pending
     "cv.1": "Do uzupełnienia",
     // EN: Link to CV (PDF)
@@ -346,14 +346,14 @@
     "cv.5": "Web designer, marketing i treści wizualne",
     // EN: <b>Basko Clean:</b> website design and code, motion-graphic ad, social media on three platforms, profile identity.
     "cv.6": "<b>Basko Clean:</b> projekt i kod strony, reklama motion graphic, social media na trzech platformach, identyfikacja profili.",
-    // EN: <b>KSK Pretor:</b> German market entry plan (18 chapters, 59-page owner version), interactive 3D model, AI agent prototype, video branding in PL and DE.
-    "cv.7": "<b>KSK Pretor:</b> plan wejścia na rynek niemiecki (18 rozdziałów, wersja dla właściciela na 59 stron), interaktywny model 3D, prototyp agenta AI, branding wideo po polsku i po niemiecku.",
-    // EN: <b>Livingroom:</b> restaurant website designed and built on my own initiative.
-    "cv.8": "<b>Livingroom:</b> strona restauracji zaprojektowana i zbudowana z własnej inicjatywy.",
+    // EN: <b>KSK Pretor:</b> German market entry plan (18 chapters, 59-page owner version), interactive 3D model, AI agent prototype, promo film, video branding in PL and DE.
+    "cv.7": "<b>KSK Pretor:</b> plan wejścia na rynek niemiecki (18 rozdziałów, wersja dla właściciela na 59 stron), interaktywny model 3D, prototyp agenta AI, film promocyjny, branding wideo po polsku i po niemiecku.",
+    // EN: <b>Livingroom:</b> new restaurant website, designed and built.
+    "cv.8": "<b>Livingroom:</b> nowa strona restauracji, zaprojektowana i zbudowana.",
     // EN: <b>Psychologist website:</b> full purchase path (Astro, Tailwind, Cal.com).
     "cv.9": "<b>Strona psycholożki:</b> pełna ścieżka zakupu (Astro, Tailwind, Cal.com).",
     // EN: <b>Training plans:</b> personal plan pages from one template.
-    "cv.10": "<b>Plany treningowe:</b> osobiste strony z planami z jednego szablonu.",
+    "cv.10": "<b>Plany treningowe:</b> indywidualne strony z planami, wszystkie z jednego szablonu.",
     // EN: Earlier · <span class="pending-inline">dates pending</span>
     "cv.11": "Wcześniej · <span class=\"pending-inline\">daty do uzupełnienia</span>",
     // EN: Personal trainer (certified)
@@ -367,7 +367,7 @@
     // EN: Hierarchy, spacing, typography, motion, light and dark themes
     "cv.18": "Hierarchia, odstępy, typografia, ruch, motyw jasny i ciemny",
     // EN: HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP (built with Claude Code)
-    "cv.20": "HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP (budowane z Claude Code)",
+    "cv.20": "HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP (buduję w Claude Code)",
     // EN: Visual
     "cv.21": "Grafika i wideo",
     // EN: Video editing, motion graphics, graphics, social content
@@ -379,7 +379,7 @@
     // EN: Polish (native). English: <span class="pending-inline">level pending</span>
     "cv.26": "Polski (ojczysty). Angielski: <span class=\"pending-inline\">poziom do uzupełnienia</span>",
     // EN: The fastest way to reach me is e-mail.
-    "contact.1": "Najszybciej złapiesz mnie mailowo.",
+    "contact.1": "Najszybciej skontaktujesz się ze mną mailowo.",
     // EN: Phone
     "contact.14": "Telefon",
     // EN: Content pending: phone number
