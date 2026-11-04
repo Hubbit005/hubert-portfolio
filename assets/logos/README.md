@@ -8,15 +8,18 @@ Kolorowe wersje logo, które pokazują się po najechaniu na kafelek. Wersja mon
 | `canva.svg` | npm `@iconify-json/devicon` |
 | `botpress.svg` | favicon z oficjalnego repo dokumentacji `botpress/docs` |
 | `hyperframes.svg` | favicon z oficjalnego repo `heygen-com/hyperframes` (`docs/favicon.svg`) |
+| `leonardo.svg` | oficjalna ikona aplikacji Leonardo.Ai (App Store), zwektoryzowana (potrace) |
+| `wispr-flow.svg` | oficjalna ikona aplikacji Wispr Flow (App Store), przerysowana w SVG (5 słupków, wymiary z ikony) |
+| `manifold.svg` | oficjalny favicon Manifold (manifoldmcp.com), przerysowany w SVG (siatka 5×5 kropek z falą) |
 
 Wersje mono: `simple-icons` (Claude, Gemini, Perplexity, Canva, GSAP, three.js), `@lobehub/icons-static-svg` (OpenAI), pozostałe z tych samych plików co wersje kolorowe.
 
-## Brakujące logo – wrzuć plik tutaj
+## Jak powstały Leonardo, Wispr Flow i Manifold
 
-Strona sama je podchwyci (najpierw `.svg`, potem `.png`), bez zmian w kodzie:
+Sieć sesji blokuje pobieranie plików z tych stron, więc ikony odtworzyłem z zrzutów oficjalnych stron (App Store i manifoldmcp.com): Leonardo przez wektoryzację, Wispr Flow i Manifold przez przerysowanie prostych kształtów. Jeśli masz oryginalne pliki, podmień je pod tymi samymi nazwami.
 
-- `leonardo.svg` lub `leonardo.png`
-- `manifold.svg` lub `manifold.png`
-- `wispr-flow.svg` lub `wispr-flow.png`
+Wersje mono są wpisane w `index.html` (kwadrat w kolorze tekstu, znak wycięty w kolorze tła), tak jak przy Botpress i Higgsfield.
 
-Najlepiej sam znak (ikona), kwadratowy, bez napisu. Do czasu wrzucenia pliku kafelek pokazuje pustą ramkę.
+## Nowe logo – wrzuć plik tutaj
+
+Kafelek z atrybutem `data-logo-file="nazwa"` sam podchwyci `assets/logos/nazwa.svg` (albo `.png`), bez zmian w JS.
