@@ -32,3 +32,9 @@ Przed użyciem obejrzyj je. Jeśli któryś wygląda „AI-owo” albo nie pasuj
 - Serwer z wynikami (`d8j0ntlcm91z4.cloudfront.net`) nadal zablokowany przez sieć sesji, więc nawet udanych obrazów nie dałoby się pobrać i zwektoryzować.
 - Logo zaprojektowane ręcznie w SVG (3 warianty), opis w `docs/logo/README.md`.
 - **Wydane w rundzie 3: 0 kr. z limitu 40.**
+
+## Logo Huberta (4.11.2026, czat z Claude): Recraft V4.1, tryb wektorowy
+
+- 4 warianty jednym zleceniem, 1:1, 1k, paleta #FF4F12 / #0D0D0D / #ECECE9. **Koszt: 10 kr.**
+- Zadania: `82d919f1-0783-4c94-8ee1-0c80acb8c23f`, `3785cd2c-a2cc-4f99-ad39-67bf8548c69e`, `5ec708eb-4b06-41b3-a304-76c971b6e6fd`, `08efb43a-2479-4b21-b978-ee4f7d2cae4f`.
+- Wyniki to pliki SVG. Serwer z wynikami jest zablokowany dla sesji, więc Hubert pobiera wybrany plik z Higgsfield i wrzuca go do `assets/logos/hubert/` (nazwa wybranego pliku w `WYBOR.txt`).
