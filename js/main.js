@@ -37,6 +37,22 @@ document.querySelectorAll('.tool__btn').forEach((btn) => {
   });
 });
 
+/* ---------- AI tools: logo files dropped into assets/logos/ (svg first, then png) ---------- */
+document.querySelectorAll('[data-logo-file]').forEach((slot) => {
+  const slug = slot.dataset.logoFile;
+  const tryLoad = (exts) => {
+    if (!exts.length) return;
+    const img = new Image();
+    img.className = 'tool__file';
+    img.alt = '';
+    img.decoding = 'async';
+    img.onload = () => { slot.appendChild(img); slot.classList.add('has-file'); };
+    img.onerror = () => tryLoad(exts.slice(1));
+    img.src = `assets/logos/${slug}.${exts[0]}`;
+  };
+  tryLoad(['svg', 'png']);
+});
+
 /* ---------- Smooth scroll (Lenis) ---------- */
 let lenis = null;
 const gsap = window.gsap;
