@@ -17,6 +17,7 @@ python3 -m http.server 8000
 | `npm run a11y` | axe-core (jasny i ciemny motyw, z galerią stanów), linki wewnętrzne i pliki, długie zadania przy przewijaniu, tryb reduced motion |
 | `npm run overflow` | czy nic nie wychodzi poza ekran na 360, 390 i 768 px |
 | `npm run keyboard` | pełna rezerwacja Livingroom samą klawiaturą, focus po zmianie kroku, karuzela strzałkami |
+| `node perf.mjs` | płynność: przewijanie kółkiem ok. 8 s i 3 s przeciągania karuzeli, czasy klatek i długie zadania (sam uruchamia serwer; wyniki w `../docs/perf.md`) |
 | `npm run screens` | zrzuty każdej sekcji (1440 jasny, 768 ciemny, 390 jasny) do `out/` |
 
 Inny adres: `BASE=https://hubbit005.github.io/hubert-portfolio node keyboard.js`.
