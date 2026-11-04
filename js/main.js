@@ -151,6 +151,16 @@ function updateActive() {
   if (current !== activeId) { activeId = current; setActive(current); }
 }
 const progress = document.querySelector('.nav__progress span');
+/* Background glow: each light drifts slowly against the scroll around its own position. */
+const glows = reduced ? [] : [...document.querySelectorAll('.glow__b')].map((el, i) => ({ el, k: [0.16, -0.1, 0.12, -0.09][i] || 0.1, y: 0 }));
+function measureGlows() { glows.forEach((g) => { g.el.style.transform = ''; const r = g.el.getBoundingClientRect(); g.y = r.top + window.scrollY + r.height / 2; }); }
+function driftGlows() {
+  const mid = window.scrollY + window.innerHeight / 2;
+  for (const g of glows) {
+    const d = Math.max(-1400, Math.min(1400, mid - g.y));
+    g.el.style.transform = `translate3d(0, ${(d * g.k).toFixed(1)}px, 0)`;
+  }
+}
 let ticking = false;
 function onScroll() {
   if (ticking) return;
@@ -158,6 +168,7 @@ function onScroll() {
   requestAnimationFrame(() => {
     ticking = false;
     updateActive();
+    driftGlows();
     if (progress) {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.setProperty('--p', max > 0 ? (window.scrollY / max).toFixed(4) : '0');
@@ -165,7 +176,8 @@ function onScroll() {
   });
 }
 window.addEventListener('scroll', onScroll, { passive: true });
-window.addEventListener('resize', () => { activeId = null; onScroll(); });
+window.addEventListener('resize', () => { activeId = null; measureGlows(); onScroll(); });
+window.addEventListener('load', () => { measureGlows(); onScroll(); });
 
 /* ---------- Copy e-mail ---------- */
 document.getElementById('copy-mail')?.addEventListener('click', async (e) => {
@@ -244,6 +256,7 @@ async function boot() {
   initCursor();
   initMagnetic();
 
+  measureGlows();
   onScroll();
   if (location.hash) {
     const el = document.getElementById(location.hash.slice(1));
