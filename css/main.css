@@ -44,19 +44,24 @@ body::before{
   opacity: 0.55;
 }
 
-/* Orange light on the page background: one large glow by the hero, softer repeats lower down.
-   Moved slowly with the scroll by JS (transform only). */
-body{ position: relative; }
-.glow{ position: absolute; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
-.glow__b{
-  position: absolute; display: block; border-radius: 50%;
-  background: radial-gradient(closest-side, rgb(var(--glow-rgb) / var(--glow-a)), rgb(var(--glow-rgb) / calc(var(--glow-a) * 0.42)) 48%, rgb(var(--glow-rgb) / 0) 100%);
-  will-change: transform;
+/* Orange light on the page background. One fixed layer under the content: it never moves, so the
+   browser paints it once. Two child layers: the strong hero light top right, and two softer lights
+   lower left and lower right for the rest of the page. While the hero scrolls away, GSAP scrub
+   (js/motion.js) dims the first and brings in the second. Opacity only, no transforms. */
+.glow{ position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+.glow__hero, .glow__low{ position: absolute; inset: 0; display: block; will-change: opacity; }
+.glow__hero{
+  background: radial-gradient(min(750px, 75vw) min(600px, 60vw) at calc(100% + min(520px, 40vw) - min(750px, 75vw)) calc(min(600px, 60vw) - 34vh),
+    rgb(var(--glow-rgb) / var(--glow-a)), rgb(var(--glow-rgb) / calc(var(--glow-a) * 0.42)) 48%, rgb(var(--glow-rgb) / 0) 100%);
 }
-.glow__b--1{ width: min(1500px, 150vw); aspect-ratio: 1.25; right: max(-520px, -40vw); top: -34vh; }
-.glow__b--2{ width: min(1100px, 130vw); aspect-ratio: 1; left: max(-560px, -55vw); top: 24%; opacity: 0.7; }
-.glow__b--3{ width: min(1200px, 140vw); aspect-ratio: 1.2; right: max(-600px, -60vw); top: 52%; opacity: 0.6; }
-.glow__b--4{ width: min(1100px, 130vw); aspect-ratio: 1; left: max(-500px, -50vw); top: 80%; opacity: 0.55; }
+.glow__low{
+  opacity: 0;
+  background:
+    radial-gradient(min(550px, 65vw) min(550px, 65vw) at -1% 80%, rgb(var(--glow-rgb) / calc(var(--glow-a) * 0.6)), rgb(var(--glow-rgb) / calc(var(--glow-a) * 0.25)) 48%, rgb(var(--glow-rgb) / 0) 100%),
+    radial-gradient(min(600px, 70vw) min(500px, 58vw) at 101% 18%, rgb(var(--glow-rgb) / calc(var(--glow-a) * 0.5)), rgb(var(--glow-rgb) / calc(var(--glow-a) * 0.21)) 48%, rgb(var(--glow-rgb) / 0) 100%);
+}
+/* No GSAP (reduced motion, script error): the hero light stays, the soft lights show at half strength. */
+html:not(.motion-ok) .glow__low{ opacity: 0.5; }
 
 ::selection{ background: var(--accent); color: var(--on-accent); }
 

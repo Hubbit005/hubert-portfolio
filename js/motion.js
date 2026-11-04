@@ -46,6 +46,14 @@ export function initMotion({ reduced, gsap, ScrollTrigger }) {
     gsap.to(heroStage, { yPercent: -12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
     gsap.to(heroFoot, { y: -40, opacity: 0.2, ease: 'none', scrollTrigger: { trigger: '.hero', start: '30% top', end: 'bottom top', scrub: true } });
   }
+  // Background: as the hero scrolls away, its light dims and the softer lights come in (opacity only).
+  const glowHero = document.querySelector('.glow__hero');
+  const glowLow = document.querySelector('.glow__low');
+  if (glowHero && glowLow) {
+    gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
+      .fromTo(glowHero, { opacity: 1 }, { opacity: 0.3, ease: 'none' }, 0)
+      .fromTo(glowLow, { opacity: 0 }, { opacity: 1, ease: 'none' }, 0);
+  }
   // Hero entrance for the lead and the buttons is a CSS animation (.motion-ok .hero__lead / .hero__cta),
   // so it never shares the transform with the magnetic hover (which uses the separate `translate` property).
 
