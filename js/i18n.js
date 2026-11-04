@@ -15,13 +15,13 @@
     // EN: Hubert<span class="sr-only">, back to top</span>
     "nav.1": "Hubert<span class=\"sr-only\">, na początek strony</span>",
     // EN: <span class="nav__num">01</span>Work
-    "nav-list.1": "<span class=\"nav__num\">01</span>Projekty",
+    "nav-list.1": "Projekty",
     // EN: <span class="nav__num">03</span>AI workflow
-    "nav-list.3": "<span class=\"nav__num\">03</span>Praca z AI",
+    "nav-list.3": "Praca z AI",
     // EN: <span class="nav__num">04</span>About
-    "nav-list.4": "<span class=\"nav__num\">04</span>O mnie",
+    "nav-list.4": "O mnie",
     // EN: <span class="nav__num">06</span>Contact
-    "nav-list.6": "<span class=\"nav__num\">06</span>Kontakt",
+    "nav-list.6": "Kontakt",
     // EN: Spin my work
     "roulette-open.1": "Wylosuj projekt",
     // EN: Spin
@@ -69,11 +69,11 @@
     // EN: Client work first: Basko Clean, KSK Pretor and Livingroom. Then a client site in progress and smaller projects.
     "cases.1": "Najpierw praca dla klientów: Basko Clean, KSK Pretor i Livingroom. Potem strona klientki w budowie i mniejsze projekty.",
     // EN: <span class="mono">04</span> Website for Agata Patelka
-    "cases.5": "<span class=\"mono\">04</span> Strona dla Agaty Patelki",
+    "cases.5": "Strona dla Agaty Patelki",
     // EN: <span class="mono">05</span> Smaller projects
-    "cases.6": "<span class=\"mono\">05</span> Mniejsze projekty",
+    "cases.6": "Mniejsze projekty",
     // EN: <span class="mono">06</span> This portfolio
-    "cases.7": "<span class=\"mono\">06</span> To portfolio",
+    "cases.7": "To portfolio",
     // EN: Website, visual system and a motion ad for an industrial cleaning company from Szczecin.
     "basko-clean.2": "Strona, system wizualny i reklama motion dla firmy ze Szczecina, która zajmuje się czyszczeniem przemysłowym.",
     // EN: Client
@@ -197,7 +197,7 @@
     // EN: Training plans for clients.
     "smaller-projects.2": "Plany treningowe dla klientów.",
     // EN: 05 · Client work, anonymised
-    "training-plans.1": "05 · Projekty dla klientów, zanonimizowane",
+    "training-plans.1": "Projekty dla klientów, zanonimizowane",
     // EN: Training plans as web pages
     "training-title.1": "Plany treningowe w formie stron internetowych",
     // EN: I build web pages for clients&#8217; personal 8-week training plans, all from one template I designed.

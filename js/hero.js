@@ -250,9 +250,6 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
       const w = g.measureText(PROJECTS[i].label).width;
       if (w > room) { fs *= room / w; g.font = `800 ${fs}px Archivo, "Arial Black", sans-serif`; }
       g.fillText(PROJECTS[i].label, 168 * k, 0);
-      g.font = `500 ${20 * k}px "JetBrains Mono", monospace`;
-      g.globalAlpha = 0.7;
-      g.fillText(String(i + 1).padStart(2, '0'), 120 * k, 0);
       g.restore();
     }
     // separators

@@ -568,7 +568,7 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
 .exploring__title{ font-family: var(--font-display); font-stretch: 125%; font-weight: 900; font-size: clamp(1.6rem, 1rem + 2.4vw, 3.2rem); line-height: 0.95; text-transform: uppercase; letter-spacing: -0.02em; max-width: 22ch; }
 .explore-list{ display: grid; gap: 0; }
 @media (min-width: 900px) { .explore-list{ grid-template-columns: repeat(3, 1fr); gap: 28px; } }
-.explore-list li{ display: grid; grid-template-columns: auto 1fr; gap: 14px; padding: 20px 0; border-top: 1.5px solid rgb(13 13 13 / 0.85); }
+.explore-list li{ display: grid; grid-template-columns: 1fr; gap: 14px; padding: 20px 0; border-top: 1.5px solid rgb(13 13 13 / 0.85); }
 .explore-list h4{ font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 8px; line-height: 1.1; }
 .explore-list p{ font-size: 0.98rem; }
 

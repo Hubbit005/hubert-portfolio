@@ -111,7 +111,7 @@ export function initArc({ reduced }) {
     const idx = nearest % N0;
     if (idx !== lastNearest) {
       lastNearest = idx;
-      if (status) status.textContent = `${String(idx + 1).padStart(2, '0')} / ${String(N0).padStart(2, '0')} · ${titles[idx]}`;
+      if (status) status.textContent = titles[idx];
     }
   }
 
