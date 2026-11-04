@@ -4,13 +4,21 @@
    Without WebGL or with reduced motion the same button opens a simple panel that draws a project
    at random, without the wheel animation, and shows the same result card. */
 
+// Names, wheel labels and categories follow the page language (js/i18n.js, keys p.<id>.*).
+const tr = (k, v) => (window.i18n ? window.i18n.t(k, v) : k);
+const project = (id, img, href) => ({
+  id, img, href,
+  get name() { return tr(`p.${id}.name`); },
+  get label() { return tr(`p.${id}.label`); },
+  get cat() { return tr(`p.${id}.cat`); },
+});
 export const PROJECTS = [
-  { name: 'Basko Clean', label: 'BASKO CLEAN', cat: 'Website & marketing', img: 'assets/cards/basko', href: '#basko-clean' },
-  { name: 'KSK Pretor', label: 'KSK PRETOR', cat: 'Marketing & video', img: 'assets/cards/ksk', href: '#ksk-pretor' },
-  { name: '3D Model', label: '3D MODEL', cat: 'Interactive 3D', img: 'assets/cards/ak', href: '#ksk-3d-model' },
-  { name: 'Livingroom', label: 'LIVINGROOM', cat: 'Restaurant', img: 'assets/cards/living', href: '#livingroom' },
-  { name: 'Agata Patelka', label: 'AGATA PATELKA', cat: 'Psychologist · in progress', img: null, href: '#psychologist-site' },
-  { name: 'Training plans', label: 'TRAINING PLANS', cat: 'A page per client', img: 'assets/cards/training', href: '#training-plans' },
+  project('basko', 'assets/cards/basko', '#basko-clean'),
+  project('ksk', 'assets/cards/ksk', '#ksk-pretor'),
+  project('ak', 'assets/cards/ak', '#ksk-3d-model'),
+  project('living', 'assets/cards/living', '#livingroom'),
+  project('psy', null, '#psychologist-site'),
+  project('training', 'assets/cards/training', '#training-plans'),
 ];
 
 export function initRoulette() {
@@ -52,7 +60,7 @@ export function initRoulette() {
     setSpinning(false);
     cover.innerHTML = p.img
       ? `<picture><source type="image/webp" srcset="${p.img}.webp"><img src="${p.img}.jpg" alt="" width="600" height="800" decoding="async"></picture>`
-      : '<span class="roulette__type" aria-hidden="true">Book<br>a&nbsp;session</span>';
+      : `<span class="roulette__type" aria-hidden="true">${tr('roulette.typeCover')}</span>`;
     cover.classList.toggle('is-type', !p.img);
     nameEl.textContent = p.name;
     catEl.textContent = p.cat;
@@ -60,7 +68,7 @@ export function initRoulette() {
     bar.hidden = true;
     card.hidden = false;
     card.classList.remove('is-in'); void card.offsetWidth; card.classList.add('is-in');
-    say(`Result: ${p.name}. ${p.cat}.`);
+    say(tr('roulette.result', { name: p.name, cat: p.cat }));
     goBtn.focus({ preventScroll: true });
   }
 
@@ -81,12 +89,12 @@ export function initRoulette() {
     trigger.setAttribute('aria-expanded', 'true');
     hideResult();
     if (fallback) {
-      hint.textContent = 'A random pick from my projects';
+      hint.textContent = tr('roulette.hintRandom');
       draw();
     } else {
-      hint.textContent = 'Drag the wheel or press Spin';
+      hint.textContent = tr('roulette.hintWheel');
       wheel.open();
-      say('Project roulette. Press Spin or drag the wheel. Escape goes back.');
+      say(tr('roulette.opened'));
       spinBtn.focus({ preventScroll: true });
     }
   }
@@ -134,11 +142,22 @@ export function initRoulette() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isOpen) { e.preventDefault(); close(); }
   });
+  // Language switch while the roulette is open: rewrite the hint and the result card.
+  hint.textContent = tr('roulette.hintWheel');
+  document.addEventListener('langchange', () => {
+    hint.textContent = tr(fallback && isOpen ? 'roulette.hintRandom' : 'roulette.hintWheel');
+    const p = PROJECTS[lastPick];
+    if (p && !card.hidden) {
+      nameEl.textContent = p.name;
+      catEl.textContent = p.cat;
+      if (!p.img) cover.innerHTML = `<span class="roulette__type" aria-hidden="true">${tr('roulette.typeCover')}</span>`;
+    }
+  });
 
   return {
     attach(api) {
       wheel = api;
-      api.onSpinStart = () => { hideResult(); setSpinning(true); say('Spinning'); };
+      api.onSpinStart = () => { hideResult(); setSpinning(true); say(tr('roulette.spinning')); };
       api.onResult = (i) => { if (isOpen) showResult(i); };
     },
   };

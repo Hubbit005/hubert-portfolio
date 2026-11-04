@@ -57,6 +57,13 @@ Plik `.nojekyll` wyłącza przetwarzanie przez Jekyll, więc wszystkie pliki są
 
 Jeśli zmienisz nazwę repozytorium, popraw adres w: `404.html` (`<base href>`), `sitemap.xml`, `robots.txt`, oraz `canonical` i `og:url` / `og:image` w `index.html`.
 
+## Wersja polska (przełącznik EN / PL)
+
+- Angielski tekst jest w `index.html`. Polski jest w słowniku `js/i18n.js` (obiekt `PL`), przy każdym wpisie w komentarzu stoi oryginał angielski.
+- Element do tłumaczenia ma atrybut `data-i18n="klucz"` (cała treść) albo `data-i18n-attr="alt:klucz"` (atrybuty `alt`, `aria-label`). Teksty pisane przez skrypty (ruletka, komunikaty, etykieta motywu) są w obiekcie `STR` w tym samym pliku.
+- Zmiana tekstu angielskiego: popraw go w `index.html`, a polski odpowiednik w `js/i18n.js` pod tym samym kluczem.
+- Linki `…/#pl` i `…/#en` otwierają od razu wybrany język. Wybór zapamiętuje przeglądarka.
+
 ## Jak podmienić materiały
 
 - **Brakujący zrzut lub film:** każde miejsce ma ramkę z podpisem, jaki plik ma tam trafić (nazwa i proporcje). Lista: `docs/do-uzupelnienia.md`.

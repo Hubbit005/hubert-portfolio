@@ -5,6 +5,7 @@ import { initMotion } from './motion.js';
 import { initRoulette } from './roulette.js';
 
 const doc = document.documentElement;
+const t = (k, v) => (window.i18n ? window.i18n.t(k, v) : k);
 const mqReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const reduced = mqReduced.matches;
 if (!reduced) doc.classList.add('motion-ok');
@@ -19,7 +20,7 @@ function syncThemeButton() {
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
   const next = currentTheme() === 'dark' ? 'light' : 'dark';
-  btn.setAttribute('aria-label', `Switch to ${next} theme`);
+  btn.setAttribute('aria-label', t(next === 'dark' ? 'theme.toDark' : 'theme.toLight'));
 }
 document.getElementById('theme-toggle')?.addEventListener('click', () => {
   const next = currentTheme() === 'dark' ? 'light' : 'dark';
@@ -186,9 +187,9 @@ document.getElementById('copy-mail')?.addEventListener('click', async (e) => {
   const out = document.getElementById('copy-status');
   try {
     await navigator.clipboard.writeText(text);
-    out.textContent = 'Copied to clipboard';
+    out.textContent = t('copy.ok');
   } catch (err) {
-    out.textContent = 'Copy failed. Select the address above.';
+    out.textContent = t('copy.fail');
   }
   setTimeout(() => { out.textContent = ''; }, 3000);
 });
@@ -199,7 +200,7 @@ document.getElementById('model-load')?.addEventListener('click', () => {
   if (!wrap || wrap.classList.contains('is-loaded')) return;
   const iframe = document.createElement('iframe');
   iframe.src = 'proto/ak47/';
-  iframe.title = 'Interactive 3D model of an AK-47 for KSK Pretor. Drag to rotate. Keys: S trigger, Z charging handle, P selector.';
+  iframe.title = t('model.title');
   iframe.setAttribute('allow', 'fullscreen');
   iframe.setAttribute('loading', 'eager');
   wrap.appendChild(iframe);
@@ -251,6 +252,17 @@ function initMagnetic() {
     el.addEventListener('pointerleave', () => { el.style.translate = ''; });
   });
 }
+
+/* ---------- Language switch: refresh what scripts wrote and what depends on text width ---------- */
+document.addEventListener('langchange', () => {
+  syncThemeButton();
+  const frame = document.querySelector('#model-embed iframe');
+  if (frame) frame.title = t('model.title');
+  activeId = null;
+  measureGlows();
+  onScroll();
+  if (ScrollTrigger) ScrollTrigger.refresh();
+});
 
 /* ---------- Boot ---------- */
 async function boot() {

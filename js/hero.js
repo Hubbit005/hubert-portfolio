@@ -188,6 +188,11 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
   rou.add(wheelGroup);
   try { await document.fonts.load('800 40px Archivo'); } catch (e) { /* draw with the fallback font */ }
   const faceTex = new THREE.CanvasTexture(wheelCanvas(small ? 768 : 1024));
+  // Field labels follow the page language: redraw the face when it changes.
+  document.addEventListener('langchange', () => {
+    faceTex.image = wheelCanvas(small ? 768 : 1024);
+    faceTex.needsUpdate = true;
+  });
   faceTex.colorSpace = THREE.SRGBColorSpace;
   faceTex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
   const face = new THREE.Mesh(new THREE.CircleGeometry(RW, 128).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ map: faceTex }));

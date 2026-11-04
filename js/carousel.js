@@ -17,7 +17,8 @@ export function initArc({ reduced }) {
 
   const originals = [...track.children];
   const N0 = originals.length;
-  const titles = originals.map((li) => li.querySelector('.card__title')?.textContent.trim() || '');
+  const readTitles = () => originals.map((li) => li.querySelector('.card__title')?.textContent.trim() || '');
+  let titles = readTitles();
 
   // Duplicate the set so the wheel looks full on wide screens. Clones are hidden from AT and tab order,
   // but stay clickable: their links point at the same case study.
@@ -217,6 +218,9 @@ export function initArc({ reduced }) {
     else if (!en.isIntersecting) running = false;
   });
   io.observe(viewport);
+
+  // Language switch: card titles changed, so the status line must be rebuilt.
+  document.addEventListener('langchange', () => { titles = readTitles(); lastNearest = -1; render(); });
 
   layout();
   requestAnimationFrame(tick);

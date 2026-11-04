@@ -1035,3 +1035,26 @@ code{ font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; border
 .motion-ok .hero__cta{ animation: heroFootIn 1s var(--ease-out) 0.33s backwards; }
 /* Magnetic hover moves `translate` (separate from transform), and glides back on leave. */
 [data-magnetic]{ transition: transform var(--t-2) var(--ease-out), translate 0.45s var(--ease-out), color var(--t-2) var(--ease-out), border-color var(--t-2) var(--ease-out); }
+
+/* ---------- Revisions round 3: language switch EN / PL ---------- */
+.lang-switch{
+  display: inline-flex; align-items: center; height: 44px; padding: 3px;
+  border: 1.5px solid var(--line-strong); border-radius: var(--r-pill);
+}
+.lang-switch__btn{
+  min-width: 36px; height: 100%; padding: 0 8px; border: 0; border-radius: var(--r-pill);
+  background: transparent; color: var(--ink-2);
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background-color var(--t-2) var(--ease-out), color var(--t-2) var(--ease-out);
+}
+.lang-switch__btn:hover{ color: var(--ink); }
+.lang-switch__btn[aria-pressed="true"]{ background: var(--ink); color: var(--bg); cursor: default; }
+.lang-switch__btn:focus-visible{ outline: 3px solid var(--focus-halo); outline-offset: 2px; }
+@media (max-width: 380px) {
+  .lang-switch__btn{ min-width: 32px; padding: 0 6px; }
+}
+/* Polish chosen: hide the page until js/i18n.js has swapped the text (it runs before first paint
+   in practice). If the script fails, the page shows anyway after 1.2 s. */
+.lang-pending .nav, .lang-pending main{ visibility: hidden; animation: langFailsafe 0s linear 1.2s forwards; }
+@keyframes langFailsafe{ to{ visibility: visible; } }

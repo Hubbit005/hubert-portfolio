@@ -33,6 +33,11 @@
       var d = document.documentElement;
       d.classList.remove('no-js'); d.classList.add('js');
       try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+      /* Language: #pl / #en first, then the saved choice. Polish text is swapped in by js/i18n.js
+         at the end of <body>; until then the page stays hidden (with a time-out failsafe in CSS). */
+      var h = (location.hash || '').toLowerCase(), l = h === '#pl' || h === '#en' ? h.slice(1) : null;
+      if (!l) { try { l = localStorage.getItem('lang'); } catch (e) {} }
+      if (l === 'pl') { d.lang = 'pl'; d.classList.add('lang-pending'); }
     })();
   </script>
   <link rel="stylesheet" href="css/tokens.css">
@@ -44,27 +49,31 @@
 </head>
 <body>
   <div class="glow" aria-hidden="true"><i class="glow__b glow__b--1"></i><i class="glow__b glow__b--2"></i><i class="glow__b glow__b--3"></i><i class="glow__b glow__b--4"></i></div>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="page.1">Skip to content</a>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="nav__inner">
       <a class="nav__brand" href="#home">
         <svg class="nav__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#ff4f12"/><path d="M14 13h13v13.5l14 2V17h8v30h-8V35.5l-14 2V51H14z" fill="#0d0d0d"/></svg>
-        <span class="nav__name">Hubert<span class="sr-only">, back to top</span></span>
+        <span class="nav__name" data-i18n="nav.1">Hubert<span class="sr-only">, back to top</span></span>
       </a>
-      <nav class="nav__links" aria-label="Sections">
+      <nav class="nav__links" aria-label="Sections" data-i18n-attr="aria-label:a-nav.1">
         <ul id="nav-list">
-          <li><a href="#work" data-nav="work"><span class="nav__num">01</span>Work</a></li>
+          <li><a href="#work" data-nav="work" data-i18n="nav-list.1"><span class="nav__num">01</span>Work</a></li>
           <li><a href="#cases" data-nav="cases"><span class="nav__num">02</span>Case studies</a></li>
-          <li><a href="#ai" data-nav="ai"><span class="nav__num">03</span>AI workflow</a></li>
-          <li><a href="#about" data-nav="about"><span class="nav__num">04</span>About</a></li>
+          <li><a href="#ai" data-nav="ai" data-i18n="nav-list.3"><span class="nav__num">03</span>AI workflow</a></li>
+          <li><a href="#about" data-nav="about" data-i18n="nav-list.4"><span class="nav__num">04</span>About</a></li>
           <li><a href="#cv" data-nav="cv"><span class="nav__num">05</span>CV</a></li>
-          <li><a href="#contact" data-nav="contact"><span class="nav__num">06</span>Contact</a></li>
+          <li><a href="#contact" data-nav="contact" data-i18n="nav-list.6"><span class="nav__num">06</span>Contact</a></li>
         </ul>
         <span class="nav__indicator" aria-hidden="true"></span>
       </nav>
       <div class="nav__tools">
+        <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
+          <button class="lang-switch__btn" type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+          <button class="lang-switch__btn" type="button" data-lang="pl" lang="pl" aria-label="Polski" aria-pressed="false">PL</button>
+        </div>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme">
           <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
           <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -84,7 +93,7 @@
     <section class="hero" id="home" aria-labelledby="hero-title">
       <button class="roulette-open" id="roulette-open" type="button" aria-expanded="false" aria-controls="roulette">
         <svg class="roulette-open__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/><circle class="dot" cx="12" cy="12" r="2.4"/></svg>
-        <span>Spin my work</span>
+        <span data-i18n="roulette-open.1">Spin my work</span>
       </button>
       <div class="hero__stage" id="hero-stage">
         <span class="hero__bar" aria-hidden="true"></span>
@@ -96,25 +105,25 @@
           </span>
         </h1>
       </div>
-      <div class="roulette" id="roulette" role="region" aria-label="Project roulette" hidden>
+      <div class="roulette" id="roulette" role="region" aria-label="Project roulette" hidden data-i18n-attr="aria-label:a-roulette.1">
         <p class="sr-only" id="roulette-status" role="status" aria-live="polite"></p>
         <div class="roulette__bar" id="roulette-bar">
           <p class="roulette__hint mono">Drag the wheel or press Spin</p>
           <div class="roulette__actions">
-            <button class="btn btn--primary" id="roulette-spin" type="button"><span>Spin</span></button>
-            <button class="btn btn--ghost" id="roulette-back" type="button"><span>Back</span></button>
+            <button class="btn btn--primary" id="roulette-spin" type="button"><span data-i18n="roulette-spin.1">Spin</span></button>
+            <button class="btn btn--ghost" id="roulette-back" type="button"><span data-i18n="roulette-back.1">Back</span></button>
           </div>
         </div>
         <article class="roulette__card" id="roulette-card" aria-labelledby="roulette-name" hidden>
           <div class="roulette__cover" id="roulette-cover"></div>
           <div class="roulette__body">
-            <p class="roulette__kicker mono">You landed on</p>
+            <p class="roulette__kicker mono" data-i18n="roulette-card.1">You landed on</p>
             <p class="roulette__name" id="roulette-name"></p>
             <p class="roulette__cat mono" id="roulette-cat"></p>
             <div class="roulette__actions">
-              <a class="btn btn--primary btn--sm" id="roulette-go" href="#work"><span>Open project</span></a>
-              <button class="btn btn--ghost btn--sm" id="roulette-again" type="button"><span>Spin again</span></button>
-              <button class="btn btn--ghost btn--sm" id="roulette-back2" type="button"><span>Back</span></button>
+              <a class="btn btn--primary btn--sm" id="roulette-go" href="#work"><span data-i18n="roulette-go.1">Open project</span></a>
+              <button class="btn btn--ghost btn--sm" id="roulette-again" type="button"><span data-i18n="roulette-again.1">Spin again</span></button>
+              <button class="btn btn--ghost btn--sm" id="roulette-back2" type="button"><span data-i18n="roulette-back.1">Back</span></button>
             </div>
           </div>
         </article>
@@ -122,13 +131,13 @@
       <p class="hero__role">Junior UX/UI Designer <span aria-hidden="true">·</span> AI-native</p>
 
       <div class="hero__foot">
-        <p class="hero__lead">I design websites and clickable prototypes, including the empty, error and edge states. I build with AI tools and decide what ships.</p>
+        <p class="hero__lead" data-i18n="home.2">I design websites and clickable prototypes, including the empty, error and edge states. I build with AI tools and decide what ships.</p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="#work" data-magnetic>
-            <span>View work</span>
+            <span data-i18n="home.3">View work</span>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
           </a>
-          <a class="btn btn--ghost" href="#contact" data-magnetic><span>Contact</span></a>
+          <a class="btn btn--ghost" href="#contact" data-magnetic><span data-i18n="home.4">Contact</span></a>
         </div>
       </div>
     </section>
@@ -138,65 +147,65 @@
       <div class="container">
         <header class="sec-head">
           <p class="sec-head__num mono">01</p>
-          <h2 class="sec-head__title" id="work-title"><span class="mask"><span>Selected work</span></span></h2>
-          <p class="sec-head__aside">From a live client website to a 3D model in the browser. Drag the wheel, use the arrow keys, or pick a card to open the case study.</p>
+          <h2 class="sec-head__title" id="work-title"><span class="mask"><span data-i18n="work-title.1">Selected work</span></span></h2>
+          <p class="sec-head__aside" data-i18n="work.2">From a live client website to a 3D model in the browser. Drag the wheel, use the arrow keys, or pick a card to open the case study.</p>
         </header>
       </div>
 
       <div class="arc" id="arc">
-        <div class="arc__viewport" id="arc-viewport" role="region" aria-roledescription="carousel" aria-label="Projects" tabindex="0">
+        <div class="arc__viewport" id="arc-viewport" role="region" aria-roledescription="carousel" aria-label="Projects" tabindex="0" data-i18n-attr="aria-label:a-arc-viewport.1">
           <ul class="arc__track" id="arc-track">
             <li class="arc__item">
-              <a class="card card--basko" href="#basko-clean" data-cursor="Open">
+              <a class="card card--basko" href="#basko-clean" data-cursor="Open" data-i18n-attr="data-cursor:a-arc-track.1">
                 <span class="card__media"><picture><source type="image/webp" srcset="assets/cards/basko.webp"><img src="assets/cards/basko.jpg" alt="" width="600" height="800" loading="lazy" decoding="async" draggable="false"></picture></span>
-                <span class="card__meta"><span class="card__num mono">01</span><span class="card__title">Basko Clean</span><span class="card__tag mono">Website &amp; marketing</span></span>
+                <span class="card__meta"><span class="card__num mono">01</span><span class="card__title">Basko Clean</span><span class="card__tag mono" data-i18n="arc-track.2">Website &amp; marketing</span></span>
               </a>
             </li>
             <li class="arc__item">
-              <a class="card card--ksk" href="#ksk-pretor" data-cursor="Open">
+              <a class="card card--ksk" href="#ksk-pretor" data-cursor="Open" data-i18n-attr="data-cursor:a-arc-track.1">
                 <span class="card__media"><picture><source type="image/webp" srcset="assets/cards/ksk.webp"><img src="assets/cards/ksk.jpg" alt="" width="600" height="800" loading="lazy" decoding="async" draggable="false"></picture></span>
-                <span class="card__meta"><span class="card__num mono">02</span><span class="card__title">KSK Pretor</span><span class="card__tag mono">Marketing &amp; video</span></span>
+                <span class="card__meta"><span class="card__num mono">02</span><span class="card__title">KSK Pretor</span><span class="card__tag mono" data-i18n="arc-track.5">Marketing &amp; video</span></span>
               </a>
             </li>
             <li class="arc__item">
-              <a class="card card--ak" href="#ksk-3d-model" data-cursor="Open">
+              <a class="card card--ak" href="#ksk-3d-model" data-cursor="Open" data-i18n-attr="data-cursor:a-arc-track.1">
                 <span class="card__media"><picture><source type="image/webp" srcset="assets/cards/ak.webp"><img src="assets/cards/ak.jpg" alt="" width="600" height="800" loading="lazy" decoding="async" draggable="false"></picture></span>
-                <span class="card__meta"><span class="card__num mono">03</span><span class="card__title">3D Model</span><span class="card__tag mono">Interactive 3D</span></span>
+                <span class="card__meta"><span class="card__num mono">03</span><span class="card__title" data-i18n="arc-track.7">3D Model</span><span class="card__tag mono" data-i18n="arc-track.8">Interactive 3D</span></span>
               </a>
             </li>
             <li class="arc__item">
-              <a class="card card--living" href="#livingroom" data-cursor="Open">
+              <a class="card card--living" href="#livingroom" data-cursor="Open" data-i18n-attr="data-cursor:a-arc-track.1">
                 <span class="card__media"><picture><source type="image/webp" srcset="assets/cards/living.webp"><img src="assets/cards/living.jpg" alt="" width="600" height="800" loading="lazy" decoding="async" draggable="false"></picture></span>
-                <span class="card__meta"><span class="card__num mono">04</span><span class="card__title">Livingroom</span><span class="card__tag mono">Restaurant</span></span>
+                <span class="card__meta"><span class="card__num mono">04</span><span class="card__title">Livingroom</span><span class="card__tag mono" data-i18n="arc-track.11">Restaurant</span></span>
               </a>
             </li>
             <li class="arc__item">
-              <a class="card card--psy" href="#psychologist-site" data-cursor="Open">
+              <a class="card card--psy" href="#psychologist-site" data-cursor="Open" data-i18n-attr="data-cursor:a-arc-track.1">
                 <span class="card__media card__media--type" aria-hidden="true">
                   <span class="type-cover type-cover--psy">
                     <span class="type-cover__path"><i></i><i></i><i></i><i></i></span>
-                    <span class="type-cover__word">Book<br>a&nbsp;session</span>
+                    <span class="type-cover__word" data-i18n="arc-track.12">Book<br>a&nbsp;session</span>
                   </span>
                 </span>
-                <span class="card__badge mono">In progress</span>
-                <span class="card__meta"><span class="card__num mono">05</span><span class="card__title">Website for Agata Patelka</span><span class="card__tag mono">Psychologist</span></span>
+                <span class="card__badge mono" data-i18n="arc-track.13">In progress</span>
+                <span class="card__meta"><span class="card__num mono">05</span><span class="card__title" data-i18n="arc-track.15">Website for Agata Patelka</span><span class="card__tag mono" data-i18n="arc-track.16">Psychologist</span></span>
               </a>
             </li>
             <li class="arc__item">
-              <a class="card card--training" href="#training-plans" data-cursor="Open">
+              <a class="card card--training" href="#training-plans" data-cursor="Open" data-i18n-attr="data-cursor:a-arc-track.1">
                 <span class="card__media"><picture><source type="image/webp" srcset="assets/cards/training.webp"><img src="assets/cards/training.jpg" alt="" width="600" height="800" loading="lazy" decoding="async" draggable="false"></picture></span>
-                <span class="card__meta"><span class="card__num mono">06</span><span class="card__title">Training plans</span><span class="card__tag mono">A page per client</span></span>
+                <span class="card__meta"><span class="card__num mono">06</span><span class="card__title" data-i18n="arc-track.18">Training plans</span><span class="card__tag mono" data-i18n="arc-track.19">A page per client</span></span>
               </a>
             </li>
           </ul>
         </div>
 
         <div class="arc__controls">
-          <button class="round-btn" id="arc-prev" type="button" aria-label="Previous project">
+          <button class="round-btn" id="arc-prev" type="button" aria-label="Previous project" data-i18n-attr="aria-label:a-arc-prev.1">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
           </button>
           <p class="arc__status mono" id="arc-status" aria-live="polite">01 / 06 · Basko Clean</p>
-          <button class="round-btn" id="arc-next" type="button" aria-label="Next project">
+          <button class="round-btn" id="arc-next" type="button" aria-label="Next project" data-i18n-attr="aria-label:a-arc-next.1">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -209,16 +218,16 @@
         <header class="sec-head">
           <p class="sec-head__num mono">02</p>
           <h2 class="sec-head__title" id="cases-title"><span class="mask"><span>Case studies</span></span></h2>
-          <p class="sec-head__aside">Client work first: Basko Clean, KSK Pretor and Livingroom. Then a client site in progress and two smaller projects.</p>
+          <p class="sec-head__aside" data-i18n="cases.1">Client work first: Basko Clean, KSK Pretor and Livingroom. Then a client site in progress and two smaller projects.</p>
         </header>
         <nav class="case-index" aria-label="Case studies">
           <ol>
             <li><a href="#basko-clean"><span class="mono">01</span> Basko Clean</a></li>
             <li><a href="#ksk-pretor"><span class="mono">02</span> KSK Pretor</a></li>
             <li><a href="#livingroom"><span class="mono">03</span> Livingroom</a></li>
-            <li><a href="#psychologist-site"><span class="mono">04</span> Website for Agata Patelka</a></li>
-            <li><a href="#smaller-projects"><span class="mono">05</span> Smaller projects</a></li>
-            <li><a href="#this-portfolio"><span class="mono">06</span> This portfolio</a></li>
+            <li><a href="#psychologist-site" data-i18n="cases.5"><span class="mono">04</span> Website for Agata Patelka</a></li>
+            <li><a href="#smaller-projects" data-i18n="cases.6"><span class="mono">05</span> Smaller projects</a></li>
+            <li><a href="#this-portfolio" data-i18n="cases.7"><span class="mono">06</span> This portfolio</a></li>
           </ol>
         </nav>
       </div>
@@ -229,33 +238,33 @@
           <header class="case__head">
             <p class="case__num mono">Case 01</p>
             <h3 class="case__title" id="basko-title"><span class="mask"><span>Basko Clean</span></span></h3>
-            <p class="case__sub">Website, visual system and a motion ad for an industrial cleaning company from Szczecin.</p>
+            <p class="case__sub" data-i18n="basko-clean.2">Website, visual system and a motion ad for an industrial cleaning company from Szczecin.</p>
             <dl class="facts">
-              <div><dt>Client</dt><dd>Basko Clean, B2B industrial cleaning</dd></div>
-              <div><dt>Role</dt><dd>Design, code, video, social media</dd></div>
-              <div><dt>Status</dt><dd>Live website, maintained by me</dd></div>
+              <div><dt data-i18n="basko-clean.3">Client</dt><dd data-i18n="basko-clean.4">Basko Clean, B2B industrial cleaning</dd></div>
+              <div><dt data-i18n="basko-clean.5">Role</dt><dd data-i18n="basko-clean.6">Design, code, video, social media</dd></div>
+              <div><dt>Status</dt><dd data-i18n="basko-clean.8">Live website, maintained by me</dd></div>
             </dl>
           </header>
 
           <div class="case__did">
-            <h4 class="block__title">What I did</h4>
+            <h4 class="block__title" data-i18n="basko-clean.9">What I did</h4>
             <ul class="list">
-                <li>I designed and built the company website, and I keep it up to date.</li>
-                <li>I created a visual system for marketing: colours, a vectorised logo with the cleaner figure, light and dark profile pictures, ready-to-use materials.</li>
-                <li>I made a motion-graphic ad for Instagram: flat 2D, kinetic type, the cleaner figure as the hero.</li>
-                <li>I film on job sites and edit the reels for Instagram, LinkedIn and TikTok.</li>
+                <li data-i18n="basko-clean.10">I designed and built the company website, and I keep it up to date.</li>
+                <li data-i18n="basko-clean.11">I created a visual system for marketing: colours, a vectorised logo with the cleaner figure, light and dark profile pictures, ready-to-use materials.</li>
+                <li data-i18n="basko-clean.12">I made a motion-graphic ad for Instagram: flat 2D, kinetic type, the cleaner figure as the hero.</li>
+                <li data-i18n="basko-clean.13">I film on job sites and edit the reels for Instagram, LinkedIn and TikTok.</li>
             </ul>
           </div>
 
           <figure class="shot shot--browser" data-parallax>
-            <div class="browser" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url mono">Basko Clean · live site</span></div>
+            <div class="browser" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url mono" data-i18n="basko-clean.14">Basko Clean · live site</span></div>
             <div class="shot__frame">
               <picture>
                 <source type="image/webp" srcset="assets/img/basko-hero-480.webp 480w, assets/img/basko-hero-960.webp 960w, assets/img/basko-hero-1600.webp 1600w" sizes="(min-width: 1360px) 1240px, 92vw">
-                <img src="assets/img/basko-hero-960.jpg" srcset="assets/img/basko-hero-480.jpg 480w, assets/img/basko-hero-960.jpg 960w, assets/img/basko-hero-1600.jpg 1600w" sizes="(min-width: 1360px) 1240px, 92vw" width="1829" height="952" alt="Basko Clean home page: headline about professional B2B cleaning, a free quote form with service, phone and postcode fields, and two cards linking to the process and the offer." loading="lazy" decoding="async">
+                <img src="assets/img/basko-hero-960.jpg" srcset="assets/img/basko-hero-480.jpg 480w, assets/img/basko-hero-960.jpg 960w, assets/img/basko-hero-1600.jpg 1600w" sizes="(min-width: 1360px) 1240px, 92vw" width="1829" height="952" alt="Basko Clean home page: headline about professional B2B cleaning, a free quote form with service, phone and postcode fields, and two cards linking to the process and the offer." loading="lazy" decoding="async" data-i18n-attr="alt:a-basko-clean.1">
               </picture>
             </div>
-            <figcaption class="mono">Home page. The quote form is visible without scrolling.</figcaption>
+            <figcaption class="mono" data-i18n="basko-clean.15">Home page. The quote form is visible without scrolling.</figcaption>
           </figure>
 
           <div class="gallery gallery--3">
@@ -263,19 +272,19 @@
               <div class="shot__frame">
                 <picture>
                   <source type="image/webp" srcset="assets/img/basko-before-after-480.webp 480w, assets/img/basko-before-after-960.webp 960w" sizes="(min-width: 900px) 40vw, 92vw">
-                  <img src="assets/img/basko-before-after-960.jpg" srcset="assets/img/basko-before-after-480.jpg 480w, assets/img/basko-before-after-960.jpg 960w" sizes="(min-width: 900px) 40vw, 92vw" width="1817" height="940" alt="A before-and-after slider showing a roof drain covered in dirt on the left and clean on the right, with three cards about experience, price and availability below." loading="lazy" decoding="async">
+                  <img src="assets/img/basko-before-after-960.jpg" srcset="assets/img/basko-before-after-480.jpg 480w, assets/img/basko-before-after-960.jpg 960w" sizes="(min-width: 900px) 40vw, 92vw" width="1817" height="940" alt="A before-and-after slider showing a roof drain covered in dirt on the left and clean on the right, with three cards about experience, price and availability below." loading="lazy" decoding="async" data-i18n-attr="alt:a-basko-clean.2">
                 </picture>
               </div>
-              <figcaption class="mono">Before-and-after slider</figcaption>
+              <figcaption class="mono" data-i18n="basko-clean.16">Before-and-after slider</figcaption>
             </figure>
             <figure class="shot">
               <div class="shot__frame">
                 <picture>
                   <source type="image/webp" srcset="assets/img/basko-cta-480.webp 480w, assets/img/basko-cta-960.webp 960w" sizes="(min-width: 900px) 40vw, 92vw">
-                  <img src="assets/img/basko-cta-960.jpg" srcset="assets/img/basko-cta-480.jpg 480w, assets/img/basko-cta-960.jpg 960w" sizes="(min-width: 900px) 40vw, 92vw" width="1820" height="938" alt="Four benefit cards with icons, a row of key figures, and a closing call to action to order a free quote." loading="lazy" decoding="async">
+                  <img src="assets/img/basko-cta-960.jpg" srcset="assets/img/basko-cta-480.jpg 480w, assets/img/basko-cta-960.jpg 960w" sizes="(min-width: 900px) 40vw, 92vw" width="1820" height="938" alt="Four benefit cards with icons, a row of key figures, and a closing call to action to order a free quote." loading="lazy" decoding="async" data-i18n-attr="alt:a-basko-clean.3">
                 </picture>
               </div>
-              <figcaption class="mono">Benefits and closing call to action</figcaption>
+              <figcaption class="mono" data-i18n="basko-clean.17">Benefits and closing call to action</figcaption>
             </figure>
             <figure class="shot shot--phone">
               <div class="phone">
@@ -283,7 +292,7 @@
                   <source src="assets/video/web/basko-reel-540.mp4" type="video/mp4">
                 </video>
               </div>
-              <figcaption class="mono" id="basko-reel-desc">20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card. <span class="pending-inline">Pending: is this the mascot ad, and which tools made it</span></figcaption>
+              <figcaption class="mono" id="basko-reel-desc" data-i18n="basko-reel-desc.1">20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card. <span class="pending-inline">Pending: is this the mascot ad, and which tools made it</span></figcaption>
             </figure>
           </div>
 
@@ -296,42 +305,42 @@
           <header class="case__head">
             <p class="case__num mono">Case 02</p>
             <h3 class="case__title" id="ksk-title"><span class="mask"><span>KSK Pretor</span></span></h3>
-            <p class="case__sub">A shooting range and event venue in Racław near Gorzów. I work on its marketing, its growth in Germany and its digital tools.</p>
+            <p class="case__sub" data-i18n="ksk-pretor.2">A shooting range and event venue in Racław near Gorzów. I work on its marketing, its growth in Germany and its digital tools.</p>
             <dl class="facts">
-              <div><dt>Client</dt><dd>KSK Pretor, shooting range and events</dd></div>
-              <div><dt>Role</dt><dd>Strategy, marketing, video, 3D, AI agent</dd></div>
+              <div><dt data-i18n="basko-clean.3">Client</dt><dd data-i18n="ksk-pretor.3">KSK Pretor, shooting range and events</dd></div>
+              <div><dt data-i18n="basko-clean.5">Role</dt><dd data-i18n="ksk-pretor.4">Strategy, marketing, video, 3D, AI agent</dd></div>
             </dl>
           </header>
 
           <div class="case__did">
-            <h4 class="block__title">What I did</h4>
+            <h4 class="block__title" data-i18n="basko-clean.9">What I did</h4>
             <ul class="list">
-                <li>I prepared a marketing plan for growing the business in the German market.</li>
-                <li>I brought an event agency to the range.</li>
-                <li>I ran the range&#8217;s social media for a period.</li>
-                <li>I built AI agent prototypes in Botpress.</li>
-                <li>I created promotional films and graphics.</li>
+                <li data-i18n="ksk-pretor.5">I prepared a marketing plan for growing the business in the German market.</li>
+                <li data-i18n="ksk-pretor.6">I brought an event agency to the range.</li>
+                <li data-i18n="ksk-pretor.7">I ran the range&#8217;s social media for a period.</li>
+                <li data-i18n="ksk-pretor.8">I built AI agent prototypes in Botpress.</li>
+                <li data-i18n="ksk-pretor.9">I created promotional films and graphics.</li>
             </ul>
           </div>
 
           <!-- Sub-project: 3D model -->
           <section class="sub" id="ksk-3d-model" aria-labelledby="ksk-3d-title">
             <header class="sub__head">
-              <p class="sub__kicker mono">KSK Pretor · 3D model</p>
-              <h4 class="sub__title" id="ksk-3d-title">Interactive 3D model of an AK-47</h4>
-              <p class="sub__lead">I built it in code from simple shapes in three.js, with no ready-made models. Visitors rotate it, take it apart step by step and export a photo for Instagram. Live version: <a href="https://hubbit005.github.io/ksk-ak47-3d/" rel="noopener" target="_blank">hubbit005.github.io/ksk-ak47-3d<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+              <p class="sub__kicker mono" data-i18n="ksk-3d-model.1">KSK Pretor · 3D model</p>
+              <h4 class="sub__title" id="ksk-3d-title" data-i18n="ksk-3d-title.1">Interactive 3D model of an AK-47</h4>
+              <p class="sub__lead" data-i18n="ksk-3d-model.2">I built it in code from simple shapes in three.js, with no ready-made models. Visitors rotate it, take it apart step by step and export a photo for Instagram. Live version: <a href="https://hubbit005.github.io/ksk-ak47-3d/" rel="noopener" target="_blank">hubbit005.github.io/ksk-ak47-3d<span class="sr-only"> (opens in a new tab)</span></a>.</p>
             </header>
 
             <div class="model-embed" id="model-embed">
               <div class="model-embed__poster">
                 <picture>
                   <source type="image/webp" srcset="assets/img/ak-home-480.webp 480w, assets/img/ak-home-960.webp 960w, assets/img/ak-home-1440.webp 1440w" sizes="(min-width: 1360px) 1240px, 92vw">
-                  <img src="assets/img/ak-home-960.jpg" srcset="assets/img/ak-home-480.jpg 480w, assets/img/ak-home-960.jpg 960w, assets/img/ak-home-1440.jpg 1440w" sizes="(min-width: 1360px) 1240px, 92vw" width="1440" height="900" alt="The 3D model of the rifle on a dark stage with a red glow, the KSK Pretor label in the corner and a control panel with buttons to disassemble, assemble and enter photo mode." loading="lazy" decoding="async">
+                  <img src="assets/img/ak-home-960.jpg" srcset="assets/img/ak-home-480.jpg 480w, assets/img/ak-home-960.jpg 960w, assets/img/ak-home-1440.jpg 1440w" sizes="(min-width: 1360px) 1240px, 92vw" width="1440" height="900" alt="The 3D model of the rifle on a dark stage with a red glow, the KSK Pretor label in the corner and a control panel with buttons to disassemble, assemble and enter photo mode." loading="lazy" decoding="async" data-i18n-attr="alt:a-model-embed.1">
                 </picture>
                 <div class="model-embed__cta">
-                  <button class="btn btn--primary" type="button" id="model-load"><span>Load the 3D model</span></button>
-                  <a class="btn btn--ghost btn--on-dark" href="proto/ak47/" target="_blank" rel="noopener"><span>Open full screen</span><span class="sr-only"> (opens in a new tab)</span></a>
-                  <p class="mono">Loads about 1 MB. Interface in Polish, as built for the client.</p>
+                  <button class="btn btn--primary" type="button" id="model-load"><span data-i18n="model-load.1">Load the 3D model</span></button>
+                  <a class="btn btn--ghost btn--on-dark" href="proto/ak47/" target="_blank" rel="noopener"><span data-i18n="model-embed.1">Open full screen</span><span class="sr-only" data-i18n="model-embed.2"> (opens in a new tab)</span></a>
+                  <p class="mono" data-i18n="model-embed.3">Loads about 1 MB. Interface in Polish, as built for the client.</p>
                 </div>
               </div>
             </div>
@@ -341,20 +350,20 @@
                 
                 <ul class="state-shots">
                   <li>
-                    <picture><source type="image/webp" srcset="assets/img/ak-hover-480.webp 480w, assets/img/ak-hover-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-hover-480.jpg" srcset="assets/img/ak-hover-480.jpg 480w, assets/img/ak-hover-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="Magazine highlighted in red with a tooltip showing its name and a short description." loading="lazy" decoding="async"></picture>
-                    <span class="mono">Part highlighted</span>
+                    <picture><source type="image/webp" srcset="assets/img/ak-hover-480.webp 480w, assets/img/ak-hover-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-hover-480.jpg" srcset="assets/img/ak-hover-480.jpg 480w, assets/img/ak-hover-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="Magazine highlighted in red with a tooltip showing its name and a short description." loading="lazy" decoding="async" data-i18n-attr="alt:a-ksk-3d-model.1"></picture>
+                    <span class="mono" data-i18n="ksk-3d-model.3">Part highlighted</span>
                   </li>
                   <li>
-                    <picture><source type="image/webp" srcset="assets/img/ak-exploded-480.webp 480w, assets/img/ak-exploded-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-exploded-480.jpg" srcset="assets/img/ak-exploded-480.jpg 480w, assets/img/ak-exploded-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="The rifle taken apart: magazine, receiver cover, recoil spring, carrier with bolt and gas tube floating apart with numbered labels." loading="lazy" decoding="async"></picture>
-                    <span class="mono">Step 5 of 5, disassembled</span>
+                    <picture><source type="image/webp" srcset="assets/img/ak-exploded-480.webp 480w, assets/img/ak-exploded-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-exploded-480.jpg" srcset="assets/img/ak-exploded-480.jpg 480w, assets/img/ak-exploded-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="The rifle taken apart: magazine, receiver cover, recoil spring, carrier with bolt and gas tube floating apart with numbered labels." loading="lazy" decoding="async" data-i18n-attr="alt:a-ksk-3d-model.2"></picture>
+                    <span class="mono" data-i18n="ksk-3d-model.4">Step 5 of 5, disassembled</span>
                   </li>
                   <li>
-                    <picture><source type="image/webp" srcset="assets/img/ak-photo-480.webp 480w, assets/img/ak-photo-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-photo-480.jpg" srcset="assets/img/ak-photo-480.jpg 480w, assets/img/ak-photo-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="Photo mode with a portrait crop frame, preset shot buttons on top and format and export buttons at the bottom." loading="lazy" decoding="async"></picture>
-                    <span class="mono">Photo mode, 1080×1350</span>
+                    <picture><source type="image/webp" srcset="assets/img/ak-photo-480.webp 480w, assets/img/ak-photo-960.webp 960w" sizes="(min-width: 900px) 300px, 45vw"><img src="assets/img/ak-photo-480.jpg" srcset="assets/img/ak-photo-480.jpg 480w, assets/img/ak-photo-960.jpg 960w" sizes="(min-width: 900px) 300px, 45vw" width="1440" height="900" alt="Photo mode with a portrait crop frame, preset shot buttons on top and format and export buttons at the bottom." loading="lazy" decoding="async" data-i18n-attr="alt:a-ksk-3d-model.3"></picture>
+                    <span class="mono" data-i18n="ksk-3d-model.5">Photo mode, 1080×1350</span>
                   </li>
                   <li class="state-shots__phone">
-                    <picture><source type="image/webp" srcset="assets/img/ak-mobile-480.webp 480w, assets/img/ak-mobile-780.webp 780w" sizes="(min-width: 900px) 140px, 30vw"><img src="assets/img/ak-mobile-480.jpg" srcset="assets/img/ak-mobile-480.jpg 480w, assets/img/ak-mobile-780.jpg 780w" sizes="(min-width: 900px) 140px, 30vw" width="780" height="1688" alt="The model on a phone screen with touch hints and the control panel at the bottom." loading="lazy" decoding="async"></picture>
-                    <span class="mono">Phone, reduced quality</span>
+                    <picture><source type="image/webp" srcset="assets/img/ak-mobile-480.webp 480w, assets/img/ak-mobile-780.webp 780w" sizes="(min-width: 900px) 140px, 30vw"><img src="assets/img/ak-mobile-480.jpg" srcset="assets/img/ak-mobile-480.jpg 480w, assets/img/ak-mobile-780.jpg 780w" sizes="(min-width: 900px) 140px, 30vw" width="780" height="1688" alt="The model on a phone screen with touch hints and the control panel at the bottom." loading="lazy" decoding="async" data-i18n-attr="alt:a-ksk-3d-model.4"></picture>
+                    <span class="mono" data-i18n="ksk-3d-model.6">Phone, reduced quality</span>
                   </li>
                 </ul>
               </div>
@@ -364,9 +373,9 @@
           <!-- Sub-project: video branding -->
           <section class="sub" id="ksk-video" aria-labelledby="ksk-video-title">
             <header class="sub__head">
-              <p class="sub__kicker mono">KSK Pretor · Video</p>
-              <h4 class="sub__title" id="ksk-video-title">Video branding</h4>
-              <p class="sub__lead">I created a 3-second intro and outro with the logo, in Polish and German, a “Vielen Dank” card for agencies and a 10-second spot. Animated in HTML and GSAP, rendered frame by frame.</p>
+              <p class="sub__kicker mono" data-i18n="ksk-video.1">KSK Pretor · Video</p>
+              <h4 class="sub__title" id="ksk-video-title" data-i18n="ksk-video-title.1">Video branding</h4>
+              <p class="sub__lead" data-i18n="ksk-video.2">I created a 3-second intro and outro with the logo, in Polish and German, a “Vielen Dank” card for agencies and a 10-second spot. Animated in HTML and GSAP, rendered frame by frame.</p>
             </header>
             <div class="sub__grid sub__grid--video-stack">
               <figure class="shot shot--video">
@@ -375,13 +384,13 @@
                     <source src="assets/video/web/ksk-film-de-720.mp4" type="video/mp4">
                   </video>
                 </div>
-                <figcaption class="mono" id="ksk-film-desc">Promo film in German, 35 seconds, 16:9.</figcaption>
+                <figcaption class="mono" id="ksk-film-desc" data-i18n="ksk-film-desc.1">Promo film in German, 35 seconds, 16:9.</figcaption>
               </figure>
               <div class="film-strip">
-                <picture><source type="image/webp" srcset="assets/img/ksk-film-waffen-480.webp"><img src="assets/img/ksk-film-waffen-480.jpg" width="480" height="270" alt="Film frame: 45+ Waffen, 14 Kaliber, with a rifle silhouette." loading="lazy" decoding="async"></picture>
-                <picture><source type="image/webp" srcset="assets/img/ksk-film-bahnen-480.webp"><img src="assets/img/ksk-film-bahnen-480.jpg" width="480" height="270" alt="Film frame: Bahnen bis 100 m with an aerial photo of the range." loading="lazy" decoding="async"></picture>
-                <picture><source type="image/webp" srcset="assets/img/ksk-film-price-480.webp"><img src="assets/img/ksk-film-price-480.jpg" width="480" height="270" alt="Film frame: a price comparison bar chart in red and grey." loading="lazy" decoding="async"></picture>
-                <picture><source type="image/webp" srcset="assets/img/ksk-film-instructor-480.webp"><img src="assets/img/ksk-film-instructor-480.jpg" width="480" height="270" alt="Film frame: one instructor with every shooter, with a photo of an instructor at the range." loading="lazy" decoding="async"></picture>
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-waffen-480.webp"><img src="assets/img/ksk-film-waffen-480.jpg" width="480" height="270" alt="Film frame: 45+ Waffen, 14 Kaliber, with a rifle silhouette." loading="lazy" decoding="async" data-i18n-attr="alt:a-ksk-video.1"></picture>
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-bahnen-480.webp"><img src="assets/img/ksk-film-bahnen-480.jpg" width="480" height="270" alt="Film frame: Bahnen bis 100 m with an aerial photo of the range." loading="lazy" decoding="async" data-i18n-attr="alt:a-ksk-video.2"></picture>
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-price-480.webp"><img src="assets/img/ksk-film-price-480.jpg" width="480" height="270" alt="Film frame: a price comparison bar chart in red and grey." loading="lazy" decoding="async" data-i18n-attr="alt:a-ksk-video.3"></picture>
+                <picture><source type="image/webp" srcset="assets/img/ksk-film-instructor-480.webp"><img src="assets/img/ksk-film-instructor-480.jpg" width="480" height="270" alt="Film frame: one instructor with every shooter, with a photo of an instructor at the range." loading="lazy" decoding="async" data-i18n-attr="alt:a-ksk-video.4"></picture>
                 <!-- TODO: assets/video/ksk-intro.mp4 and ksk-outro.mp4 (3 s, PL and DE) -->
               </div>
             </div>
@@ -396,17 +405,17 @@
           <header class="case__head">
             <p class="case__num mono">Case 03</p>
             <h3 class="case__title" id="living-title"><span class="mask"><span>Livingroom</span></span></h3>
-            <p class="case__sub">On my own initiative I designed and built a new website for the restaurant.</p>
+            <p class="case__sub" data-i18n="livingroom.2">On my own initiative I designed and built a new website for the restaurant.</p>
             <dl class="facts">
-              <div><dt>Client</dt><dd>Livingroom restaurant, Gorzów Wielkopolski</dd></div>
-              <div><dt>Role</dt><dd>Idea, design, build</dd></div>
+              <div><dt data-i18n="basko-clean.3">Client</dt><dd data-i18n="livingroom.3">Livingroom restaurant, Gorzów Wielkopolski</dd></div>
+              <div><dt data-i18n="basko-clean.5">Role</dt><dd data-i18n="livingroom.4">Idea, design, build</dd></div>
             </dl>
           </header>
 
           <div class="case__did">
-            <h4 class="block__title">What I did</h4>
+            <h4 class="block__title" data-i18n="basko-clean.9">What I did</h4>
             <ul class="list">
-                <li>I designed and built the site: home page, menu with allergens, dish carousel, Polish and English versions.</li>
+                <li data-i18n="livingroom.5">I designed and built the site: home page, menu with allergens, dish carousel, Polish and English versions.</li>
             </ul>
           </div>
 
@@ -415,30 +424,30 @@
             <div class="shot__frame">
               <picture>
                 <source type="image/webp" srcset="assets/img/livingroom-hero-480.webp 480w, assets/img/livingroom-hero-960.webp 960w, assets/img/livingroom-hero-1600.webp 1600w" sizes="(min-width: 1360px) 1240px, 92vw">
-                <img src="assets/img/livingroom-hero-960.jpg" srcset="assets/img/livingroom-hero-480.jpg 480w, assets/img/livingroom-hero-960.jpg 960w, assets/img/livingroom-hero-1600.jpg 1600w" sizes="(min-width: 1360px) 1240px, 92vw" width="1818" height="949" alt="Livingroom home page on a black background: italic serif headline welcoming guests, an illustrated arched storefront with warm lit windows, and two gold-outlined buttons to book a table and see the menu." loading="lazy" decoding="async">
+                <img src="assets/img/livingroom-hero-960.jpg" srcset="assets/img/livingroom-hero-480.jpg 480w, assets/img/livingroom-hero-960.jpg 960w, assets/img/livingroom-hero-1600.jpg 1600w" sizes="(min-width: 1360px) 1240px, 92vw" width="1818" height="949" alt="Livingroom home page on a black background: italic serif headline welcoming guests, an illustrated arched storefront with warm lit windows, and two gold-outlined buttons to book a table and see the menu." loading="lazy" decoding="async" data-i18n-attr="alt:a-livingroom.1">
               </picture>
             </div>
-            <figcaption class="mono">Home page</figcaption>
+            <figcaption class="mono" data-i18n="livingroom.6">Home page</figcaption>
           </figure>
 
           <div class="gallery gallery--3">
             <figure class="shot">
               <div class="shot__frame">
-                <picture><source type="image/webp" srcset="assets/img/livingroom-menu-480.webp 480w, assets/img/livingroom-menu-960.webp 960w" sizes="(min-width: 900px) 30vw, 92vw"><img src="assets/img/livingroom-menu-960.jpg" srcset="assets/img/livingroom-menu-480.jpg 480w, assets/img/livingroom-menu-960.jpg 960w" sizes="(min-width: 900px) 30vw, 92vw" width="1813" height="949" alt="Menu page with six large serif categories, each numbered, offset in a staggered layout." loading="lazy" decoding="async"></picture>
+                <picture><source type="image/webp" srcset="assets/img/livingroom-menu-480.webp 480w, assets/img/livingroom-menu-960.webp 960w" sizes="(min-width: 900px) 30vw, 92vw"><img src="assets/img/livingroom-menu-960.jpg" srcset="assets/img/livingroom-menu-480.jpg 480w, assets/img/livingroom-menu-960.jpg 960w" sizes="(min-width: 900px) 30vw, 92vw" width="1813" height="949" alt="Menu page with six large serif categories, each numbered, offset in a staggered layout." loading="lazy" decoding="async" data-i18n-attr="alt:a-livingroom.2"></picture>
               </div>
-              <figcaption class="mono">Menu categories</figcaption>
+              <figcaption class="mono" data-i18n="livingroom.7">Menu categories</figcaption>
             </figure>
             <figure class="shot">
               <div class="shot__frame">
-                <picture><source type="image/webp" srcset="assets/img/livingroom-menu-detail-480.webp 480w, assets/img/livingroom-menu-detail-960.webp 960w" sizes="(min-width: 900px) 30vw, 92vw"><img src="assets/img/livingroom-menu-detail-960.jpg" srcset="assets/img/livingroom-menu-detail-480.jpg 480w, assets/img/livingroom-menu-detail-960.jpg 960w" sizes="(min-width: 900px) 30vw, 92vw" width="1651" height="865" alt="Burger section of the menu with dish names, ingredients, allergens and prices in gold." loading="lazy" decoding="async"></picture>
+                <picture><source type="image/webp" srcset="assets/img/livingroom-menu-detail-480.webp 480w, assets/img/livingroom-menu-detail-960.webp 960w" sizes="(min-width: 900px) 30vw, 92vw"><img src="assets/img/livingroom-menu-detail-960.jpg" srcset="assets/img/livingroom-menu-detail-480.jpg 480w, assets/img/livingroom-menu-detail-960.jpg 960w" sizes="(min-width: 900px) 30vw, 92vw" width="1651" height="865" alt="Burger section of the menu with dish names, ingredients, allergens and prices in gold." loading="lazy" decoding="async" data-i18n-attr="alt:a-livingroom.3"></picture>
               </div>
-              <figcaption class="mono">Dish list with allergens</figcaption>
+              <figcaption class="mono" data-i18n="livingroom.8">Dish list with allergens</figcaption>
             </figure>
             <figure class="shot">
               <div class="shot__frame">
-                <picture><source type="image/webp" srcset="assets/img/livingroom-dishes-480.webp 480w, assets/img/livingroom-dishes-960.webp 960w" sizes="(min-width: 900px) 30vw, 92vw"><img src="assets/img/livingroom-dishes-960.jpg" srcset="assets/img/livingroom-dishes-480.jpg 480w, assets/img/livingroom-dishes-960.jpg 960w" sizes="(min-width: 900px) 30vw, 92vw" width="1681" height="826" alt="An illustrated burger in the centre of a dish carousel with a drink and a steak on the sides and arrow buttons below." loading="lazy" decoding="async"></picture>
+                <picture><source type="image/webp" srcset="assets/img/livingroom-dishes-480.webp 480w, assets/img/livingroom-dishes-960.webp 960w" sizes="(min-width: 900px) 30vw, 92vw"><img src="assets/img/livingroom-dishes-960.jpg" srcset="assets/img/livingroom-dishes-480.jpg 480w, assets/img/livingroom-dishes-960.jpg 960w" sizes="(min-width: 900px) 30vw, 92vw" width="1681" height="826" alt="An illustrated burger in the centre of a dish carousel with a drink and a steak on the sides and arrow buttons below." loading="lazy" decoding="async" data-i18n-attr="alt:a-livingroom.4"></picture>
               </div>
-              <figcaption class="mono">Dish carousel</figcaption>
+              <figcaption class="mono" data-i18n="livingroom.9">Dish carousel</figcaption>
             </figure>
           </div>
 
@@ -450,36 +459,36 @@
         <div class="container">
           <header class="case__head">
             <p class="case__num mono">Case 04</p>
-            <h3 class="case__title" id="psy-title"><span class="mask"><span>Website for Agata Patelka</span></span> <span class="tag-progress mono">In progress</span></h3>
-            <p class="case__sub">A website for a psychologist with session packages, a cart and appointment booking. Client project in progress; the copy is still a draft.</p>
+            <h3 class="case__title" id="psy-title"><span class="mask"><span data-i18n="arc-track.15">Website for Agata Patelka</span></span> <span class="tag-progress mono" data-i18n="arc-track.13">In progress</span></h3>
+            <p class="case__sub" data-i18n="psychologist-site.2">A website for a psychologist with session packages, a cart and appointment booking. Client project in progress; the copy is still a draft.</p>
             <dl class="facts">
-              <div><dt>Client</dt><dd>Agata Patelka, psychologist</dd></div>
-              <div><dt>Role</dt><dd>Design and build</dd></div>
-              <div><dt>Status</dt><dd>In progress</dd></div>
+              <div><dt data-i18n="basko-clean.3">Client</dt><dd data-i18n="psychologist-site.3">Agata Patelka, psychologist</dd></div>
+              <div><dt data-i18n="basko-clean.5">Role</dt><dd data-i18n="psychologist-site.4">Design and build</dd></div>
+              <div><dt>Status</dt><dd data-i18n="arc-track.13">In progress</dd></div>
             </dl>
           </header>
 
           <div class="case__did">
-            <h4 class="block__title">What I did</h4>
+            <h4 class="block__title" data-i18n="basko-clean.9">What I did</h4>
             <ul class="list">
-                <li>I designed the full purchase path: package, cart, payment step, thank-you page. It can be clicked through before the payment gateway is connected.</li>
-                <li>I set up booking on an embedded Cal.com calendar, so the client manages her own time slots.</li>
-                <li>I am building the site in Claude Code with Astro and Tailwind.</li>
+                <li data-i18n="psychologist-site.5">I designed the full purchase path: package, cart, payment step, thank-you page. It can be clicked through before the payment gateway is connected.</li>
+                <li data-i18n="psychologist-site.6">I set up booking on an embedded Cal.com calendar, so the client manages her own time slots.</li>
+                <li data-i18n="psychologist-site.7">I am building the site in Claude Code with Astro and Tailwind.</li>
             </ul>
           </div>
 
           <div class="flow" aria-labelledby="psy-flow-title">
-            <p class="flow__title mono" id="psy-flow-title">Purchase path, clickable end to end before the gateway exists</p>
+            <p class="flow__title mono" id="psy-flow-title" data-i18n="psy-flow-title.1">Purchase path, clickable end to end before the gateway exists</p>
             <ol class="flow__steps">
-              <li class="flow__step"><span class="flow__n mono">1</span><span class="flow__t">Choose a package</span></li>
-              <li class="flow__step"><span class="flow__n mono">2</span><span class="flow__t">Cart</span></li>
-              <li class="flow__step flow__step--mock"><span class="flow__n mono">3</span><span class="flow__t">Payment <em class="mono">mock</em></span><span class="flow__note">Stripe later. Payment method badges built, switched off.</span></li>
-              <li class="flow__step"><span class="flow__n mono">4</span><span class="flow__t">Thank you</span></li>
+              <li class="flow__step"><span class="flow__n mono">1</span><span class="flow__t" data-i18n="psychologist-site.9">Choose a package</span></li>
+              <li class="flow__step"><span class="flow__n mono">2</span><span class="flow__t" data-i18n="psychologist-site.11">Cart</span></li>
+              <li class="flow__step flow__step--mock"><span class="flow__n mono">3</span><span class="flow__t" data-i18n="psychologist-site.13">Payment <em class="mono">mock</em></span><span class="flow__note" data-i18n="psychologist-site.14">Stripe later. Payment method badges built, switched off.</span></li>
+              <li class="flow__step"><span class="flow__n mono">4</span><span class="flow__t" data-i18n="psychologist-site.16">Thank you</span></li>
             </ol>
             <div class="flow__branch">
               <span class="flow__n mono">+</span>
-              <span class="flow__t">Book a time</span>
-              <span class="flow__note">Embedded Cal.com. The client manages her own slots.</span>
+              <span class="flow__t" data-i18n="psychologist-site.18">Book a time</span>
+              <span class="flow__note" data-i18n="psychologist-site.19">Embedded Cal.com. The client manages her own slots.</span>
             </div>
           </div>
 
@@ -491,34 +500,34 @@
         <div class="container">
           <header class="case__head">
             <p class="case__num mono">Case 05</p>
-            <h3 class="case__title" id="smaller-title"><span class="mask"><span>Smaller projects</span></span></h3>
-            <p class="case__sub">Training plans for clients and an ebook of my own.</p>
+            <h3 class="case__title" id="smaller-title"><span class="mask"><span data-i18n="smaller-title.1">Smaller projects</span></span></h3>
+            <p class="case__sub" data-i18n="smaller-projects.2">Training plans for clients and an ebook of my own.</p>
           </header>
 
           <section class="minor" id="training-plans" aria-labelledby="training-title">
             <div class="case__split">
               <div class="case__split-text">
-                <p class="sub__kicker mono">05a · Client work, anonymised</p>
-                <h4 class="minor__title" id="training-title">Training plans as web pages</h4>
-                <p>I build web pages for clients&#8217; personal 8-week training plans, all from one template I designed.</p>
+                <p class="sub__kicker mono" data-i18n="training-plans.1">05a · Client work, anonymised</p>
+                <h4 class="minor__title" id="training-title" data-i18n="training-title.1">Training plans as web pages</h4>
+                <p data-i18n="training-plans.2">I build web pages for clients&#8217; personal 8-week training plans, all from one template I designed.</p>
                 <ul class="list">
-                  <li>Plan variants, progress tracking and day-by-day workouts.</li>
-                  <li>A calendar where the client picks the date of each workout.</li>
-                  <li>Names and body data hidden in the screenshots.</li>
+                  <li data-i18n="training-plans.3">Plan variants, progress tracking and day-by-day workouts.</li>
+                  <li data-i18n="training-plans.4">A calendar where the client picks the date of each workout.</li>
+                  <li data-i18n="training-plans.5">Names and body data hidden in the screenshots.</li>
                 </ul>
               </div>
               <div class="phones">
                 <figure class="shot shot--phone">
                   <div class="phone">
-                    <picture><source type="image/webp" srcset="assets/img/training-plan-a-480.webp 480w, assets/img/training-plan-a-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-plan-a-480.jpg" srcset="assets/img/training-plan-a-480.jpg 480w, assets/img/training-plan-a-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="Training plan on a phone: client shown as Client A, goal, level, 8-week duration, a progress ring and day cards for the first workouts." loading="lazy" decoding="async"></picture>
+                    <picture><source type="image/webp" srcset="assets/img/training-plan-a-480.webp 480w, assets/img/training-plan-a-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-plan-a-480.jpg" srcset="assets/img/training-plan-a-480.jpg 480w, assets/img/training-plan-a-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="Training plan on a phone: client shown as Client A, goal, level, 8-week duration, a progress ring and day cards for the first workouts." loading="lazy" decoding="async" data-i18n-attr="alt:a-training-plans.1"></picture>
                   </div>
-                  <figcaption class="mono">Plan overview</figcaption>
+                  <figcaption class="mono" data-i18n="training-plans.6">Plan overview</figcaption>
                 </figure>
                 <figure class="shot shot--phone">
                   <div class="phone">
-                    <picture><source type="image/webp" srcset="assets/img/training-plan-b-calendar-480.webp 480w, assets/img/training-plan-b-calendar-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-plan-b-calendar-480.jpg" srcset="assets/img/training-plan-b-calendar-480.jpg 480w, assets/img/training-plan-b-calendar-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="A workout day on a phone: a monthly calendar where the client picks the training date before the exercises appear." loading="lazy" decoding="async"></picture>
+                    <picture><source type="image/webp" srcset="assets/img/training-plan-b-calendar-480.webp 480w, assets/img/training-plan-b-calendar-780.webp 780w" sizes="(min-width: 900px) 260px, 45vw"><img src="assets/img/training-plan-b-calendar-480.jpg" srcset="assets/img/training-plan-b-calendar-480.jpg 480w, assets/img/training-plan-b-calendar-780.jpg 780w" sizes="(min-width: 900px) 260px, 45vw" width="780" height="1688" alt="A workout day on a phone: a monthly calendar where the client picks the training date before the exercises appear." loading="lazy" decoding="async" data-i18n-attr="alt:a-training-plans.2"></picture>
                   </div>
-                  <figcaption class="mono">Workout day with calendar</figcaption>
+                  <figcaption class="mono" data-i18n="training-plans.7">Workout day with calendar</figcaption>
                 </figure>
               </div>
             </div>
@@ -527,15 +536,15 @@
           <section class="minor" id="ebook" aria-labelledby="ebook-title">
             <div class="case__split case__split--short">
               <div class="case__split-text">
-                <p class="sub__kicker mono">05b · Own project</p>
-                <h4 class="minor__title" id="ebook-title">Interactive ebook for readers 50+</h4>
-                <p>An HTML ebook with side-panel navigation and an interactive symptom checklist. The reader ticks the symptoms that apply.</p>
-<p class="pending-inline">Content pending: topic and screenshots</p>
+                <p class="sub__kicker mono" data-i18n="ebook.1">05b · Own project</p>
+                <h4 class="minor__title" id="ebook-title" data-i18n="ebook-title.1">Interactive ebook for readers 50+</h4>
+                <p data-i18n="ebook.2">An HTML ebook with side-panel navigation and an interactive symptom checklist. The reader ticks the symptoms that apply.</p>
+<p class="pending-inline" data-i18n="ebook.3">Content pending: topic and screenshots</p>
                 <!-- TODO: ebook topic and screenshots (docs/do-uzupelnienia.md) -->
               </div>
               <div class="type-cover type-cover--ebook type-cover--large" aria-hidden="true">
                 <span class="type-cover__list"><i class="on"></i><i></i><i class="on"></i><i></i><i></i></span>
-                <span class="type-cover__word">For readers<br>50+</span>
+                <span class="type-cover__word" data-i18n="ebook.4">For readers<br>50+</span>
               </div>
             </div>
           </section>
@@ -549,91 +558,91 @@
       <div class="container">
         <header class="sec-head">
           <p class="sec-head__num mono">03</p>
-          <h2 class="sec-head__title" id="ai-title"><span class="mask"><span>How I work with AI</span></span></h2>
-          <p class="sec-head__aside">I use AI tools in every project, mostly to research and build faster. Below: my steps, the tools, and one case where you can check the split yourself.</p>
+          <h2 class="sec-head__title" id="ai-title"><span class="mask"><span data-i18n="ai-title.1">How I work with AI</span></span></h2>
+          <p class="sec-head__aside" data-i18n="ai.1">I use AI tools in every project, mostly to research and build faster. Below: my steps, the tools, and one case where you can check the split yourself.</p>
         </header>
 
         <ol class="workflow">
           <li class="wf">
             <span class="wf__n mono">01</span>
-            <h3 class="wf__t">Start on site</h3>
-            <p>At the client's job site, or as a guest in the restaurant.</p>
-            <p class="wf__who mono"><span class="chip chip--me">Me</span> problem definition</p>
+            <h3 class="wf__t" data-i18n="ai.2">Start on site</h3>
+            <p data-i18n="ai.3">At the client's job site, or as a guest in the restaurant.</p>
+            <p class="wf__who mono" data-i18n="ai.4"><span class="chip chip--me">Me</span> problem definition</p>
           </li>
           <li class="wf">
             <span class="wf__n mono">02</span>
             <h3 class="wf__t">Research</h3>
-            <p>Perplexity for sources, Gemini for comparisons, ChatGPT for structuring strategy, Manifold for marketing and social data.</p>
-            <p class="wf__who mono"><span class="chip chip--ai">AI</span> gathering <span class="chip chip--me">Me</span> selection</p>
+            <p data-i18n="ai.6">Perplexity for sources, Gemini for comparisons, ChatGPT for structuring strategy, Manifold for marketing and social data.</p>
+            <p class="wf__who mono" data-i18n="ai.7"><span class="chip chip--ai">AI</span> gathering <span class="chip chip--me">Me</span> selection</p>
           </li>
           <li class="wf">
             <span class="wf__n mono">03</span>
-            <h3 class="wf__t">Flow and states</h3>
-            <p>I list the steps and the states before the build. Example: my brief for this portfolio.</p>
-            <p class="wf__who mono"><span class="chip chip--me">Me</span> the list</p>
+            <h3 class="wf__t" data-i18n="ai.8">Flow and states</h3>
+            <p data-i18n="ai.9">I list the steps and the states before the build. Example: my brief for this portfolio.</p>
+            <p class="wf__who mono" data-i18n="ai.10"><span class="chip chip--me">Me</span> the list</p>
           </li>
           <li class="wf">
             <span class="wf__n mono">04</span>
-            <h3 class="wf__t">Build</h3>
-            <p>Claude Code turns the list into a working page or prototype. Animations in GSAP and HyperFrames, rendered to MP4 with Playwright. 3D in three.js.</p>
-            <p class="wf__who mono"><span class="chip chip--ai">AI</span> the code</p>
+            <h3 class="wf__t" data-i18n="ai.11">Build</h3>
+            <p data-i18n="ai.12">Claude Code turns the list into a working page or prototype. Animations in GSAP and HyperFrames, rendered to MP4 with Playwright. 3D in three.js.</p>
+            <p class="wf__who mono" data-i18n="ai.13"><span class="chip chip--ai">AI</span> the code</p>
           </li>
           <li class="wf">
             <span class="wf__n mono">05</span>
-            <h3 class="wf__t">Visuals</h3>
-            <p>Higgsfield and Leonardo AI for images and video, Canva for posts and materials.</p>
-            <p class="wf__who mono"><span class="chip chip--ai">AI</span> variants <span class="chip chip--me">Me</span> selection</p>
+            <h3 class="wf__t" data-i18n="ai.14">Visuals</h3>
+            <p data-i18n="ai.15">Higgsfield and Leonardo AI for images and video, Canva for posts and materials.</p>
+            <p class="wf__who mono" data-i18n="ai.16"><span class="chip chip--ai">AI</span> variants <span class="chip chip--me">Me</span> selection</p>
           </li>
           <li class="wf">
             <span class="wf__n mono">06</span>
-            <h3 class="wf__t">Review</h3>
-            <p>Before anything goes to the client, I check it against the brief and the brand.</p>
-            <p class="wf__who mono"><span class="chip chip--me">Me</span> sign-off</p>
+            <h3 class="wf__t" data-i18n="ai.17">Review</h3>
+            <p data-i18n="ai.18">Before anything goes to the client, I check it against the brief and the brand.</p>
+            <p class="wf__who mono" data-i18n="ai.19"><span class="chip chip--me">Me</span> sign-off</p>
           </li>
         </ol>
 
         <div class="split-panel">
           <div class="split-panel__col">
-            <h3 class="mini-title"><span class="chip chip--ai">AI</span> Where AI speeds me up</h3>
+            <h3 class="mini-title" data-i18n="ai.20"><span class="chip chip--ai">AI</span> Where AI speeds me up</h3>
             <ul class="list">
-              <li>Code for pages, prototypes and animations.</li>
-              <li>Market and competitor data with sources.</li>
-              <li>Drafts of long documents and their structure.</li>
-              <li>Image and video variants to compare.</li>
-              <li>Dictation instead of typing.</li>
+              <li data-i18n="ai.21">Code for pages, prototypes and animations.</li>
+              <li data-i18n="ai.22">Market and competitor data with sources.</li>
+              <li data-i18n="ai.23">Drafts of long documents and their structure.</li>
+              <li data-i18n="ai.24">Image and video variants to compare.</li>
+              <li data-i18n="ai.25">Dictation instead of typing.</li>
             </ul>
           </div>
           <div class="split-panel__col">
-            <h3 class="mini-title"><span class="chip chip--me">Me</span> What I decide</h3>
+            <h3 class="mini-title" data-i18n="ai.26"><span class="chip chip--me">Me</span> What I decide</h3>
             <ul class="list">
-              <li>What the problem is and who the user is.</li>
-              <li>Which states and edge cases the product must handle.</li>
-              <li>Whether a visual fits the brand. Basko's realistic 3D ad did not, so I dropped it.</li>
-              <li>What a client's material may show: no client logos without consent, no personal data.</li>
-              <li>Whether the result is ready for the client.</li>
+              <li data-i18n="ai.27">What the problem is and who the user is.</li>
+              <li data-i18n="ai.28">Which states and edge cases the product must handle.</li>
+              <li data-i18n="ai.29">Whether a visual fits the brand. Basko's realistic 3D ad did not, so I dropped it.</li>
+              <li data-i18n="ai.30">What a client's material may show: no client logos without consent, no personal data.</li>
+              <li data-i18n="ai.31">Whether the result is ready for the client.</li>
             </ul>
           </div>
         </div>
 
         <div class="overrule" aria-labelledby="overrule-title">
-          <h3 class="mini-title" id="overrule-title">Where I said no to the AI</h3>
+          <h3 class="mini-title" id="overrule-title" data-i18n="overrule-title.1">Where I said no to the AI</h3>
           <ol class="overrule__list">
             <li>
-              <span class="overrule__k mono">Basko Clean ad</span>
-              <span class="overrule__row"><span class="chip chip--ai">AI</span> A video model produced a realistic 3D version of the ad.</span>
-              <span class="overrule__row"><span class="chip chip--me">Me</span> I rejected it and made flat 2D motion graphics with kinetic type and the logo's cleaner figure.</span>
-              <span class="overrule__why">Why: the realistic look did not fit the brand.</span>
+              <span class="overrule__k mono" data-i18n="ai.32">Basko Clean ad</span>
+              <span class="overrule__row" data-i18n="ai.33"><span class="chip chip--ai">AI</span> A video model produced a realistic 3D version of the ad.</span>
+              <span class="overrule__row" data-i18n="ai.34"><span class="chip chip--me">Me</span> I rejected it and made flat 2D motion graphics with kinetic type and the logo's cleaner figure.</span>
+              <span class="overrule__why" data-i18n="ai.35">Why: the realistic look did not fit the brand.</span>
             </li>
             <li>
-              <span class="overrule__k mono">Next example</span>
-              <span class="pending-inline">Content pending: a second case where I rejected or changed an AI output</span>
+              <span class="overrule__k mono" data-i18n="ai.36">Next example</span>
+              <span class="pending-inline" data-i18n="ai.37">Content pending: a second case where I rejected or changed an AI output</span>
             </li>
             <!-- TODO: one more example from Hubert's own work where he overruled an AI output -->
           </ol>
         </div>
 
         <div class="tools">
-          <h3 class="mini-title">Tools I use and what I made with them</h3>
+          <h3 class="mini-title" data-i18n="ai.38">Tools I use and what I made with them</h3>
           <!-- TODO: Sendcastle (what Hubert uses it for) left out until confirmed; see docs/do-uzupelnienia.md -->
           <ul class="tool-grid">
             <li class="tool">
@@ -642,7 +651,7 @@
                 <span class="tool__name">Claude, Claude Code</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-1"><div><p>Client websites for Basko Clean and Livingroom, the interactive 3D model for KSK Pretor, brand animations in code and this portfolio. I also use it for strategy and research.</p></div></div>
+              <div class="tool__desc" id="tool-d-1"><div><p data-i18n="tool-d-1.1">Client websites for Basko Clean and Livingroom, the interactive 3D model for KSK Pretor, brand animations in code and this portfolio. I also use it for strategy and research.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-2">
@@ -650,7 +659,7 @@
                 <span class="tool__name">ChatGPT</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-2"><div><p>Copy, research and the strategy work behind the KSK Pretor plan for the German market.</p></div></div>
+              <div class="tool__desc" id="tool-d-2"><div><p data-i18n="tool-d-2.1">Copy, research and the strategy work behind the KSK Pretor plan for the German market.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-3">
@@ -658,7 +667,7 @@
                 <span class="tool__name">Google Gemini</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-3"><div><p>Research and side-by-side comparisons for client projects.</p></div></div>
+              <div class="tool__desc" id="tool-d-3"><div><p data-i18n="tool-d-3.1">Research and side-by-side comparisons for client projects.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-4">
@@ -666,7 +675,7 @@
                 <span class="tool__name">Perplexity</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-4"><div><p>Research with sources and market analysis for client strategy.</p></div></div>
+              <div class="tool__desc" id="tool-d-4"><div><p data-i18n="tool-d-4.1">Research with sources and market analysis for client strategy.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-5">
@@ -674,7 +683,7 @@
                 <span class="tool__name">Higgsfield</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-5"><div><p>Video and images for ads, generated with models such as Seedance, and video edits with person replacement.</p></div></div>
+              <div class="tool__desc" id="tool-d-5"><div><p data-i18n="tool-d-5.1">Video and images for ads, generated with models such as Seedance, and video edits with person replacement.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-6">
@@ -682,7 +691,7 @@
                 <span class="tool__name">Leonardo AI</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-6"><div><p>Generated graphics for client marketing.</p></div></div>
+              <div class="tool__desc" id="tool-d-6"><div><p data-i18n="tool-d-6.1">Generated graphics for client marketing.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-7">
@@ -690,7 +699,7 @@
                 <span class="tool__name">Manifold</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-7"><div><p>Marketing and social media research for client profiles.</p></div></div>
+              <div class="tool__desc" id="tool-d-7"><div><p data-i18n="tool-d-7.1">Marketing and social media research for client profiles.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-8">
@@ -703,7 +712,7 @@
                 <span class="tool__name">Botpress</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-8"><div><p>AI agent (chatbot) prototypes for the KSK Pretor shooting range.</p></div></div>
+              <div class="tool__desc" id="tool-d-8"><div><p data-i18n="tool-d-8.1">AI agent (chatbot) prototypes for the KSK Pretor shooting range.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-9">
@@ -711,7 +720,7 @@
                 <span class="tool__name">Canva</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-9"><div><p>Graphics, social media posts and marketing materials for clients.</p></div></div>
+              <div class="tool__desc" id="tool-d-9"><div><p data-i18n="tool-d-9.1">Graphics, social media posts and marketing materials for clients.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-10">
@@ -719,7 +728,7 @@
                 <span class="tool__name">Wispr Flow</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-10"><div><p>Dictation and voice work: I write by speaking.</p></div></div>
+              <div class="tool__desc" id="tool-d-10"><div><p data-i18n="tool-d-10.1">Dictation and voice work: I write by speaking.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-11">
@@ -727,7 +736,7 @@
                 <span class="tool__name">GSAP</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-11"><div><p>Motion in code for the KSK Pretor brand animations: the logo intro and outro in Polish and German.</p></div></div>
+              <div class="tool__desc" id="tool-d-11"><div><p data-i18n="tool-d-11.1">Motion in code for the KSK Pretor brand animations: the logo intro and outro in Polish and German.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-12">
@@ -737,7 +746,7 @@
                 <span class="tool__name">HyperFrames</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-12"><div><p>The KSK Pretor brand animations built as HTML video compositions.</p></div></div>
+              <div class="tool__desc" id="tool-d-12"><div><p data-i18n="tool-d-12.1">The KSK Pretor brand animations built as HTML video compositions.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-13">
@@ -745,7 +754,7 @@
                 <span class="tool__name">Playwright</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-13"><div><p>Rendering the KSK Pretor animations frame by frame to MP4.</p></div></div>
+              <div class="tool__desc" id="tool-d-13"><div><p data-i18n="tool-d-13.1">Rendering the KSK Pretor animations frame by frame to MP4.</p></div></div>
             </li>
             <li class="tool">
               <button class="tool__btn" type="button" aria-expanded="false" aria-controls="tool-d-14">
@@ -753,7 +762,7 @@
                 <span class="tool__name">three.js</span>
                 <svg class="tool__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </button>
-              <div class="tool__desc" id="tool-d-14"><div><p>The interactive 3D model for KSK Pretor, built in code from simple shapes.</p></div></div>
+              <div class="tool__desc" id="tool-d-14"><div><p data-i18n="tool-d-14.1">The interactive 3D model for KSK Pretor, built in code from simple shapes.</p></div></div>
             </li>
           </ul>
         </div>
@@ -761,45 +770,45 @@
         <article class="meta-case" id="this-portfolio" aria-labelledby="meta-title">
           <header class="meta-case__head">
             <p class="sub__kicker mono">Case 06</p>
-            <h3 class="meta-case__title" id="meta-title">This portfolio</h3>
-            <p class="sub__lead">I planned and designed this site and built it in Claude Code. I tested every version for accessibility, layout and links, and refined it over several review rounds. The test scripts and the QA log are in the <a href="https://github.com/Hubbit005/hubert-portfolio" rel="noopener" target="_blank">repository<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+            <h3 class="meta-case__title" id="meta-title" data-i18n="meta-title.1">This portfolio</h3>
+            <p class="sub__lead" data-i18n="this-portfolio.2">I planned and designed this site and built it in Claude Code. I tested every version for accessibility, layout and links, and refined it over several review rounds. The test scripts and the QA log are in the <a href="https://github.com/Hubbit005/hubert-portfolio" rel="noopener" target="_blank">repository<span class="sr-only"> (opens in a new tab)</span></a>.</p>
           </header>
           <div class="caught">
-            <h4 class="mini-title">What the checks and reviews caught <a class="mono muted" href="https://github.com/Hubbit005/hubert-portfolio/blob/main/docs/qa-log.md" rel="noopener" target="_blank">QA log<span class="sr-only"> (opens in a new tab)</span></a></h4>
+            <h4 class="mini-title" data-i18n="this-portfolio.3">What the checks and reviews caught <a class="mono muted" href="https://github.com/Hubbit005/hubert-portfolio/blob/main/docs/qa-log.md" rel="noopener" target="_blank">QA log<span class="sr-only"> (opens in a new tab)</span></a></h4>
             <ul class="caught__list">
-              <li><span class="caught__k mono">Scroll</span>Section links landed about 160 px too low: the smooth-scroll library counted the CSS offset twice.</li>
-              <li><span class="caught__k mono">Phone</span>Long headings made the page wider than a 360 px screen.</li>
-              <li><span class="caught__k mono">Facts</span>The fact check flagged sentences that claimed more than my sources. They were rewritten or marked “Content pending”.</li>
+              <li data-i18n="this-portfolio.4"><span class="caught__k mono">Scroll</span>Section links landed about 160 px too low: the smooth-scroll library counted the CSS offset twice.</li>
+              <li data-i18n="this-portfolio.5"><span class="caught__k mono">Phone</span>Long headings made the page wider than a 360 px screen.</li>
+              <li data-i18n="this-portfolio.6"><span class="caught__k mono">Facts</span>The fact check flagged sentences that claimed more than my sources. They were rewritten or marked “Content pending”.</li>
             </ul>
           </div>
         </article>
 
         <div class="exploring" id="exploring">
           <header class="exploring__head">
-            <p class="sub__kicker mono">What I'm exploring now</p>
-            <h3 class="exploring__title">Writing the states before the build</h3>
+            <p class="sub__kicker mono" data-i18n="exploring.1">What I'm exploring now</p>
+            <h3 class="exploring__title" data-i18n="exploring.2">Writing the states before the build</h3>
           </header>
           <!-- TODO: Hubert to confirm these three topics; they match part 2 of the application video -->
           <ol class="explore-list">
             <li>
               <span class="explore-list__n mono">01</span>
               <div>
-                <h4>Spec-first prototyping with Claude Code</h4>
-                <p>I write the flow and its states first, Claude Code builds from that, and automated checks test the result. This portfolio is my first full run of it (see the case above).</p>
+                <h4 data-i18n="exploring.3">Spec-first prototyping with Claude Code</h4>
+                <p data-i18n="exploring.4">I write the flow and its states first, Claude Code builds from that, and automated checks test the result. This portfolio is my first full run of it (see the case above).</p>
               </div>
             </li>
             <li>
               <span class="explore-list__n mono">02</span>
               <div>
-                <h4>Motion as code</h4>
-                <p>Brand animations in HTML and GSAP, rendered frame by frame to MP4, in Polish and German versions.</p>
+                <h4 data-i18n="exploring.5">Motion as code</h4>
+                <p data-i18n="exploring.6">Brand animations in HTML and GSAP, rendered frame by frame to MP4, in Polish and German versions.</p>
               </div>
             </li>
             <li>
               <span class="explore-list__n mono">03</span>
               <div>
-                <h4>AI agents for customer questions</h4>
-                <p>After the Botpress prototype for KSK Pretor: where an agent can help a customer, and where a person has to take over.</p>
+                <h4 data-i18n="exploring.7">AI agents for customer questions</h4>
+                <p data-i18n="exploring.8">After the Botpress prototype for KSK Pretor: where an agent can help a customer, and where a person has to take over.</p>
               </div>
             </li>
           </ol>
@@ -812,21 +821,21 @@
       <div class="container">
         <header class="sec-head">
           <p class="sec-head__num mono">04</p>
-          <h2 class="sec-head__title" id="about-title"><span class="mask"><span>About</span></span></h2>
+          <h2 class="sec-head__title" id="about-title"><span class="mask"><span data-i18n="about-title.1">About</span></span></h2>
         </header>
         <div class="about__grid">
           <div class="about__main">
-            <p class="lead">I design and build websites and prototypes for companies, and I make their marketing and visual content: video, graphics, motion.</p>
-            <p>The most satisfying part of my work is building something that works and looks good. I follow new AI tools closely and want to get much better at using them in design work.</p>
-            <p>I am looking for a team I can stay with for the long term and grow in. I am ready to put in long hours on work that shows results.</p>
+            <p class="lead" data-i18n="about.1">I design and build websites and prototypes for companies, and I make their marketing and visual content: video, graphics, motion.</p>
+            <p data-i18n="about.2">The most satisfying part of my work is building something that works and looks good. I follow new AI tools closely and want to get much better at using them in design work.</p>
+            <p data-i18n="about.3">I am looking for a team I can stay with for the long term and grow in. I am ready to put in long hours on work that shows results.</p>
           </div>
           <aside class="about__side">
-            <h3 class="mini-title">Background</h3>
+            <h3 class="mini-title" data-i18n="about.4">Background</h3>
             <ul class="bg-list">
-              <li><span class="mono">Now</span>Freelance web design, marketing and visual content for companies</li>
-              <li><span class="mono">Clients</span>Direct work with company owners, including filming on site</li>
-              <li><span class="mono">Before</span>Certified personal trainer. One-to-one work with people, a plan adapted to each person</li>
-              <li><span class="mono">Base</span>Near Gorzów Wielkopolski, Poland. Working remotely</li>
+              <li data-i18n="about.5"><span class="mono">Now</span>Freelance web design, marketing and visual content for companies</li>
+              <li data-i18n="about.6"><span class="mono">Clients</span>Direct work with company owners, including filming on site</li>
+              <li data-i18n="about.7"><span class="mono">Before</span>Certified personal trainer. One-to-one work with people, a plan adapted to each person</li>
+              <li data-i18n="about.8"><span class="mono">Base</span>Near Gorzów Wielkopolski, Poland. Working remotely</li>
             </ul>
           </aside>
         </div>
@@ -841,42 +850,42 @@
           <h2 class="sec-head__title" id="cv-title"><span class="mask"><span>CV</span></span></h2>
           <!-- TODO: link to the CV (Google Docs / PDF) -->
           <div class="pending pending--inline pending--cta">
-            <span class="pending__label mono">Content pending</span>
-            <p>Link to CV (PDF)</p>
+            <span class="pending__label mono" data-i18n="cv.1">Content pending</span>
+            <p data-i18n="cv.2">Link to CV (PDF)</p>
           </div>
         </header>
         <div class="cv__grid">
           <div class="cv__col">
-            <h3 class="mini-title">Experience</h3>
+            <h3 class="mini-title" data-i18n="cv.3">Experience</h3>
             <ol class="timeline">
               <li>
                 <!-- TODO: dates -->
-                <p class="timeline__when mono">Freelance · <span class="pending-inline">dates pending</span></p>
-                <h4>Web designer, marketing and visual content</h4>
+                <p class="timeline__when mono" data-i18n="cv.4">Freelance · <span class="pending-inline">dates pending</span></p>
+                <h4 data-i18n="cv.5">Web designer, marketing and visual content</h4>
                 <ul class="list list--tight">
-                  <li><b>Basko Clean:</b> website design and code, motion-graphic ad, social media on three platforms, profile identity.</li>
-                  <li><b>KSK Pretor:</b> German market entry plan (18 chapters, 59-page owner version), interactive 3D model, AI agent prototype, video branding in PL and DE.</li>
-                  <li><b>Livingroom:</b> restaurant website designed and built on my own initiative.</li>
-                  <li><b>Psychologist website:</b> full purchase path (Astro, Tailwind, Cal.com).</li>
-                  <li><b>Training plans:</b> personal plan pages from one template.</li>
+                  <li data-i18n="cv.6"><b>Basko Clean:</b> website design and code, motion-graphic ad, social media on three platforms, profile identity.</li>
+                  <li data-i18n="cv.7"><b>KSK Pretor:</b> German market entry plan (18 chapters, 59-page owner version), interactive 3D model, AI agent prototype, video branding in PL and DE.</li>
+                  <li data-i18n="cv.8"><b>Livingroom:</b> restaurant website designed and built on my own initiative.</li>
+                  <li data-i18n="cv.9"><b>Psychologist website:</b> full purchase path (Astro, Tailwind, Cal.com).</li>
+                  <li data-i18n="cv.10"><b>Training plans:</b> personal plan pages from one template.</li>
                 </ul>
               </li>
               <li>
-                <p class="timeline__when mono">Earlier · <span class="pending-inline">dates pending</span></p>
-                <h4>Personal trainer (certified)</h4>
-                <p>One-to-one work with people.</p>
+                <p class="timeline__when mono" data-i18n="cv.11">Earlier · <span class="pending-inline">dates pending</span></p>
+                <h4 data-i18n="cv.12">Personal trainer (certified)</h4>
+                <p data-i18n="cv.13">One-to-one work with people.</p>
               </li>
             </ol>
           </div>
           <div class="cv__col">
-            <h3 class="mini-title">Skills</h3>
+            <h3 class="mini-title" data-i18n="cv.14">Skills</h3>
             <dl class="skills">
-              <div><dt>UX</dt><dd>User flows, states and edge cases, personas, customer journeys, drop-off analysis</dd></div>
-              <div><dt>UI</dt><dd>Hierarchy, spacing, typography, motion, light and dark themes</dd></div>
-              <div><dt>Front-end</dt><dd>HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP (built with Claude Code)</dd></div>
-              <div><dt>Visual</dt><dd>Video editing, motion graphics, graphics, social content</dd></div>
-              <div><dt>AI tools</dt><dd>Claude Code, Claude, ChatGPT, Gemini, Perplexity, Higgsfield, Leonardo AI, Botpress, Manifold, Wispr Flow</dd></div>
-              <div><dt>Languages</dt><dd>Polish (native). English: <span class="pending-inline">level pending</span></dd></div>
+              <div><dt>UX</dt><dd data-i18n="cv.16">User flows, states and edge cases, personas, customer journeys, drop-off analysis</dd></div>
+              <div><dt>UI</dt><dd data-i18n="cv.18">Hierarchy, spacing, typography, motion, light and dark themes</dd></div>
+              <div><dt>Front-end</dt><dd data-i18n="cv.20">HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP (built with Claude Code)</dd></div>
+              <div><dt data-i18n="cv.21">Visual</dt><dd data-i18n="cv.22">Video editing, motion graphics, graphics, social content</dd></div>
+              <div><dt data-i18n="cv.23">AI tools</dt><dd>Claude Code, Claude, ChatGPT, Gemini, Perplexity, Higgsfield, Leonardo AI, Botpress, Manifold, Wispr Flow</dd></div>
+              <div><dt data-i18n="cv.25">Languages</dt><dd data-i18n="cv.26">Polish (native). English: <span class="pending-inline">level pending</span></dd></div>
             </dl>
           </div>
         </div>
@@ -888,36 +897,37 @@
       <div class="container">
         <header class="sec-head">
           <p class="sec-head__num mono">06</p>
-          <h2 class="sec-head__title" id="contact-title"><span class="mask"><span>Contact</span></span></h2>
+          <h2 class="sec-head__title" id="contact-title"><span class="mask"><span data-i18n="home.4">Contact</span></span></h2>
         </header>
         <div class="contact__grid">
           <div>
-            <p class="contact__lead">The fastest way to reach me is e-mail.</p>
+            <p class="contact__lead" data-i18n="contact.1">The fastest way to reach me is e-mail.</p>
             <a class="contact__mail" href="mailto:hubert.austria2025@gmail.com">hubert.austria2025<wbr>@gmail.com</a>
             <div class="contact__actions">
-              <button class="btn btn--ghost" type="button" id="copy-mail" data-copy="hubert.austria2025@gmail.com"><span>Copy e-mail</span></button>
+              <button class="btn btn--ghost" type="button" id="copy-mail" data-copy="hubert.austria2025@gmail.com"><span data-i18n="copy-mail.1">Copy e-mail</span></button>
               <span class="copy-status mono" id="copy-status" role="status" aria-live="polite"></span>
             </div>
           </div>
           <ul class="contact__links">
             <li><span class="mono">E-mail</span><a href="mailto:hubert.austria2025@gmail.com">hubert.austria2025@gmail.com</a></li>
-            <li><span class="mono">GitHub</span><a href="https://github.com/Hubbit005" rel="noopener" target="_blank">github.com/Hubbit005<span class="sr-only"> (opens in a new tab)</span></a></li>
+            <li><span class="mono">GitHub</span><a href="https://github.com/Hubbit005" rel="noopener" target="_blank" data-i18n="contact.6">github.com/Hubbit005<span class="sr-only"> (opens in a new tab)</span></a></li>
             <!-- TODO: LinkedIn URL -->
-            <li><span class="mono">LinkedIn</span><span class="pending-inline mono">Content pending: LinkedIn profile link</span></li>
-            <li><span class="mono">Location</span><span>Near Gorzów Wielkopolski, PL · Remote</span></li>
+            <li><span class="mono">LinkedIn</span><span class="pending-inline mono" data-i18n="contact.8">Content pending: LinkedIn profile link</span></li>
+            <li><span class="mono" data-i18n="contact.9">Location</span><span data-i18n="contact.10">Near Gorzów Wielkopolski, PL · Remote</span></li>
           </ul>
         </div>
       </div>
       <footer class="footer">
         <div class="container footer__inner">
           <p class="mono footer__brand"><svg class="footer__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#ff4f12"/><path d="M14 13h13v13.5l14 2V17h8v30h-8V35.5l-14 2V51H14z" fill="#0d0d0d"/></svg><span>Hubert · Portfolio 2026</span></p>
-          <p class="mono">Built with Claude Code. Static HTML, CSS and JS. No tracking.</p>
-          <a class="mono footer__top" href="#home">Back to top ↑</a>
+          <p class="mono" data-i18n="contact.12">Built with Claude Code. Static HTML, CSS and JS. No tracking.</p>
+          <a class="mono footer__top" href="#home" data-i18n="contact.13">Back to top ↑</a>
         </div>
       </footer>
     </section>
   </main>
 
   <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label">Open</span></div>
+  <script src="js/i18n.js"></script>
 </body>
 </html>

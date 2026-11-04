@@ -21,6 +21,7 @@ Jak znaleźć miejsce w kodzie: w `index.html` każde miejsce ma komentarz `<!--
 | 8 | **Potwierdź „What I'm exploring now”** (3 tematy) | `index.html`: `TODO: Hubert to confirm these three topics` | Muszą się zgadzać z częścią 2 wideo (`docs/wideo-skrypt-en.md`). |
 | 9 | **Uzupełnij `[TODO]` w scenariuszu wideo** i nagraj | `docs/wideo-skrypt-en.md` | Własne przykłady: poprawka, o którą prosiłeś AI; jak działała pierwsza wersja na telefonie; wnioski. |
 | 9a | **Zdecyduj, co w repozytorium ma być publiczne** | całe repo | Portfolio linkuje do repo (Case 06 „This portfolio”). W `docs/` są Twoje przygotowania do rozmowy, scenariusz wideo i recenzje z ocenami, a w `assets/` surowe filmy (33 MB) i pliki „Zrzut ekranu…”. Rekomendacja: przenieś `docs/pytania-rozmowa.md`, `docs/wideo-skrypt-en.md` i `docs/cv-en.md` do prywatnego miejsca (np. Google Docs) przed wysłaniem linku. Recenzje i `qa-log.md` mogą zostać, bo są dowodem procesu. |
+| 10c | **Przeczytaj polską wersję strony** (przełącznik EN / PL w nawigacji albo link `#pl`) | `js/i18n.js`, obiekt `PL` | Teksty pisałem od nowa po polsku. Popraw sformułowania, które nie brzmią jak Ty. |
 | 10 | **Zgoda na pokazanie filmu KSK i zrzutów Basko** | sekcje Basko i KSK | Zakładam, że to materiały publiczne klienta. Jeśli nie, napisz, usunę. Zrzut z nazwami klientów Basko (`Zrzut ekranu 2026-11-03 154015.png`) celowo nie jest użyty. |
 
 ## P1 – mocno wzmacnia aplikację (najlepiej przed 6.11)
