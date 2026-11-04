@@ -161,7 +161,7 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
   min-height: 64px;
 }
 .nav__brand{ display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-display); font-stretch: 125%; font-weight: 850; letter-spacing: -0.01em; text-transform: uppercase; }
-.nav__mark{ display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: var(--accent); color: var(--on-accent); font-size: 0.95rem; }
+.nav__mark{ display: block; width: 30px; height: 30px; flex: none; }
 .nav__name{ font-size: 1rem; }
 .nav__links{ position: relative; margin-left: auto; }
 .nav__links ul{ display: flex; gap: 2px; }
@@ -921,3 +921,8 @@ code{ font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; border
 .tool__logo--file.has-file::before{ content: none; }
 .tool__file{ filter: grayscale(1) contrast(1.15); transition: filter var(--t-2) var(--ease-out); }
 .tool__btn:hover .tool__file, .tool__btn:focus-visible .tool__file, .tool.is-open .tool__file{ filter: none; }
+
+/* ---------- Revisions round 2: personal logo in the footer ---------- */
+.footer__brand{ display: inline-flex; align-items: center; gap: 10px; }
+.footer__mark{ width: 22px; height: 22px; flex: none; }
+.footer__inner{ align-items: center; }
