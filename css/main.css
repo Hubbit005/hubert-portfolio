@@ -145,9 +145,9 @@ a:not([class]):hover{ text-decoration-thickness: 2px; }
 /* ---------- Nav ---------- */
 .nav{
   position: fixed; inset: 0 0 auto 0; z-index: var(--z-nav);
-  background: rgb(var(--bg-rgb) / 0.82);
-  -webkit-backdrop-filter: saturate(1.4) blur(14px);
-  backdrop-filter: saturate(1.4) blur(14px);
+  /* Solid enough to read over anything, no backdrop blur: blurring a moving background and the
+     WebGL canvas behind it would cost a full repaint of the bar in every frame. */
+  background: rgb(var(--bg-rgb) / 0.97);
   border-bottom: 1px solid var(--line);
 }
 .nav__inner{
@@ -766,7 +766,6 @@ code{ font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; border
 
 /* ---------- Review round 5 ---------- */
 .ai + .about{ padding-top: clamp(2.5rem, 2rem + 2vw, 4rem); }
-.nav{ background: rgb(var(--bg-rgb) / 0.95); }
 .shot--video .shot__frame--16x9{ max-height: none; }
 
 /* ---------- Review round 6 ---------- */
@@ -896,8 +895,7 @@ code{ font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; border
   position: absolute; z-index: 3; top: 84px; left: 50%; transform: translateX(-50%);
   display: inline-flex; align-items: center; gap: 8px;
   min-height: 40px; padding: 0 16px 0 10px; border-radius: var(--r-pill);
-  border: 1.5px solid var(--ink); background: rgb(var(--bg-rgb) / 0.72);
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border: 1.5px solid var(--ink); background: rgb(var(--bg-rgb) / 0.88);
   font-family: var(--font-mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink);
   transition: background-color var(--t-2) var(--ease-out), color var(--t-2) var(--ease-out), opacity var(--t-3) var(--ease-out);
 }
