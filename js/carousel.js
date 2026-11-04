@@ -1,6 +1,8 @@
 /* Selected work: cards fanned on the arc of a large wheel.
    The wheel turns slowly on its own, can be dragged with inertia,
-   pauses on hover, and steps with arrow keys or buttons. */
+   pauses on hover, and steps with arrow keys or buttons.
+   The card nearest the centre lifts and glows from below (--c, 0..1).
+   A click (or Enter) on a card scrolls to its case study; a drag never counts as a click. */
 
 const BASE_SPEED = 0.09;   // cards per second at rest
 const OVERLAP = 0.8;       // distance between card centres, in card widths
@@ -9,7 +11,6 @@ export function initArc({ reduced }) {
   const viewport = document.getElementById('arc-viewport');
   const track = document.getElementById('arc-track');
   if (!viewport || !track) return null;
-  const ring = viewport.querySelector('.arc__ring');
   const status = document.getElementById('arc-status');
   const prev = document.getElementById('arc-prev');
   const next = document.getElementById('arc-next');
@@ -18,11 +19,11 @@ export function initArc({ reduced }) {
   const N0 = originals.length;
   const titles = originals.map((li) => li.querySelector('.card__title')?.textContent.trim() || '');
 
-  // Duplicate the set so the wheel looks full on wide screens. Clones are hidden from AT and tab order.
+  // Duplicate the set so the wheel looks full on wide screens. Clones are hidden from AT and tab order,
+  // but stay clickable: their links point at the same case study.
   originals.forEach((li) => {
     const c = li.cloneNode(true);
     c.setAttribute('aria-hidden', 'true');
-    c.inert = true;
     c.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
     c.dataset.clone = '1';
     track.appendChild(c);
@@ -43,7 +44,8 @@ export function initArc({ reduced }) {
   let last = performance.now();
   let lastNearest = -1;
   const zCache = new Array(N).fill(-1);
-  const sideCache = new Array(N).fill(null);
+  const cCache = new Array(N).fill(-1);
+  const LIFT = 14; // px the centre card rises
 
   function layout() {
     const first = items[0];
@@ -73,17 +75,18 @@ export function initArc({ reduced }) {
       const fadeStart = N / 2 - 1.6;
       const op = ap <= fadeStart ? 1 : Math.max(0, 1 - (ap - fadeStart) / 1.2);
       const li = items[i];
-      li.style.transform = `rotate(${a.toFixed(5)}rad) translate3d(0, ${-R}px, 0)`;
+      // centrality: 1 on the centre, 0 one card away, smooth in between
+      const t = Math.max(0, 1 - ap);
+      const c = t * t * (3 - 2 * t);
+      li.style.transform = `rotate(${a.toFixed(5)}rad) translate3d(0, ${(-R - c * LIFT).toFixed(2)}px, 0)`;
+      const cq = Math.round(c * 200) / 200;
+      if (cCache[i] !== cq) { li.style.setProperty('--c', String(cq)); cCache[i] = cq; }
       li.style.opacity = op.toFixed(3);
       li.style.visibility = op < 0.01 ? 'hidden' : 'visible';
       const z = Math.round(200 - ap * 20);
       if (zCache[i] !== z) { li.style.zIndex = String(z); zCache[i] = z; }
-      // cards right of centre are partly covered on their left edge: align their label right
-      const right = p > 0.08;
-      if (sideCache[i] !== right) { li.classList.toggle('is-right', right); sideCache[i] = right; }
       if (ap < best) { best = ap; nearest = i; }
     }
-    if (ring) ring.style.transform = `rotate(${(-offset * 22).toFixed(2)}deg)`;
     const idx = nearest % N0;
     if (idx !== lastNearest) {
       lastNearest = idx;
@@ -131,6 +134,8 @@ export function initArc({ reduced }) {
       vel += (target - vel) * (1 - Math.exp(-dt * (Math.abs(vel) > 0.6 ? 1.6 : 2.4)));
       if (reduced) vel = 0;
       offset += vel * dt;
+      // once the user has moved the wheel, let it settle with a card exactly in the centre
+      if (touched && Math.abs(vel) < 0.12 && Math.abs(offset - Math.round(offset)) > 0.002) goTo(Math.round(offset), 520);
     }
     render();
     requestAnimationFrame(tick);
