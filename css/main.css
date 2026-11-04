@@ -1009,3 +1009,20 @@ code{ font-family: var(--font-mono); font-size: 0.88em; padding: 1px 5px; border
   .roulette.is-fallback .roulette__card{ left: var(--gutter); right: var(--gutter); top: 50%; bottom: auto; transform: translateY(-50%); }
 }
 @media (prefers-reduced-motion: reduce) { .roulette__card.is-in{ animation: none; } }
+
+/* ---------- Revisions round 3: carousel fades out at the bottom ---------- */
+/* No hard edge: the lower part of the wheel dissolves into the page. The viewport is tall enough
+   for the centre card, its lift and its glow to sit fully above the fade zone (--fade). */
+.arc__viewport{
+  --fade: clamp(110px, 8vw + 60px, 150px);
+  height: calc(var(--ch) + 96px + var(--fade));
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - var(--fade)), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - var(--fade)), transparent 100%);
+}
+.arc__controls{ position: relative; margin-top: calc(var(--fade) * -0.35); }
+.no-js .arc__viewport{ -webkit-mask-image: none; mask-image: none; }
+@media (max-width: 600px) {
+  /* The wheel is flatter on phones, so a shorter fade is enough. */
+  .arc__viewport{ --fade: 84px; height: calc(var(--ch) + 84px + var(--fade)); }
+  .arc__controls{ margin-top: -12px; }
+}
