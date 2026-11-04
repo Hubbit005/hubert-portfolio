@@ -17,7 +17,7 @@ Sama strona jest dowodem kompetencji. Rekruter oceni ją jak projekt UX/UI.
 
 - Imię: Hubert (nick: Hubibi). Nazwisko: `[DO UZUPEŁNIENIA]`.
 - Mieszka w okolicach Gorzowa Wielkopolskiego. Pracuje zdalnie.
-- E-mail: hubert.austria2025@gmail.com. Telefon: `[DO UZUPEŁNIENIA]`. LinkedIna nie ma.
+- E-mail: hubert.austria2025@gmail.com. Telefon: +48 696 471 878. LinkedIna nie ma.
 - GitHub: github.com/Hubbit005
 - Freelance web designer. Robi też marketing i treści wizualne dla firm.
 - Potrafi obrabiać wideo i tworzyć grafiki, w tym motion graphics.
@@ -107,7 +107,7 @@ Tu jest kilka projektów naraz:
 - Film KSK Pretor na stronie to 35-sekundowy film promocyjny, który pokazuje wszystkie strony strzelnicy.
 - Hubert nie ma LinkedIna. W kontakcie tylko e-mail i telefon. Bez GitHuba i lokalizacji.
 - Bez znaczków „AI / JA” i bez sekcji „Gdzie powiedziałem AI nie”.
-- Telefon: `[DO UZUPEŁNIENIA]`.
+- Telefon: +48 696 471 878 (pod e-mailem w kontakcie).
 
 ## Zasady dla Claude Code w tym repo
 

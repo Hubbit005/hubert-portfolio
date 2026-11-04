@@ -289,11 +289,10 @@
             </figure>
             <figure class="shot shot--phone">
               <div class="phone">
-                <video class="phone__video" controls muted playsinline preload="none" poster="assets/img/basko-reel-01-480.jpg" width="540" height="960" aria-describedby="basko-reel-desc">
+                <video class="phone__video" controls muted playsinline preload="none" poster="assets/img/basko-reel-01-480.jpg" width="540" height="960">
                   <source src="assets/video/web/basko-reel-540.mp4" type="video/mp4">
                 </video>
               </div>
-              <figcaption class="mono" id="basko-reel-desc" data-i18n="basko-reel-desc.1">20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card.</figcaption>
             </figure>
           </div>
 
@@ -802,11 +801,6 @@
         <header class="sec-head">
           <p class="sec-head__num mono">05</p>
           <h2 class="sec-head__title" id="cv-title"><span class="mask"><span>CV</span></span></h2>
-          <!-- TODO: link to the CV (Google Docs / PDF) -->
-          <div class="pending pending--inline pending--cta">
-            <span class="pending__label mono" data-i18n="cv.1">Content pending</span>
-            <p data-i18n="cv.2">Link to CV (PDF)</p>
-          </div>
         </header>
         <div class="cv__grid">
           <div class="cv__col">
@@ -814,7 +808,7 @@
             <ol class="timeline">
               <li>
                 <!-- TODO: dates -->
-                <p class="timeline__when mono" data-i18n="cv.4">Freelance · <span class="pending-inline">dates pending</span></p>
+                <p class="timeline__when mono" data-i18n="cv.4">Freelance</p>
                 <h4 data-i18n="cv.5">Web designer, marketing and visual content</h4>
                 <ul class="list list--tight">
                   <li data-i18n="cv.6"><b>Basko Clean:</b> website design and code, motion-graphic ad, social media on three platforms, profile identity.</li>
@@ -825,7 +819,7 @@
                 </ul>
               </li>
               <li>
-                <p class="timeline__when mono" data-i18n="cv.11">Earlier · <span class="pending-inline">dates pending</span></p>
+                <p class="timeline__when mono" data-i18n="cv.11">Earlier</p>
                 <h4 data-i18n="cv.12">Personal trainer (certified)</h4>
                 <p data-i18n="cv.13">One-to-one work with people.</p>
               </li>
@@ -839,7 +833,7 @@
               <div><dt>Front-end</dt><dd data-i18n="cv.20">HTML, CSS, JavaScript, React, Astro, Tailwind, three.js, GSAP (built with Claude Code)</dd></div>
               <div><dt data-i18n="cv.21">Visual</dt><dd data-i18n="cv.22">Video editing, motion graphics, graphics, social content</dd></div>
               <div><dt data-i18n="cv.23">AI tools</dt><dd>Claude Code, Claude, ChatGPT, Gemini, Perplexity, Higgsfield, Leonardo AI, Botpress, Manifold, Wispr Flow</dd></div>
-              <div><dt data-i18n="cv.25">Languages</dt><dd data-i18n="cv.26">Polish (native). English: <span class="pending-inline">level pending</span></dd></div>
+              <div><dt data-i18n="cv.25">Languages</dt><dd data-i18n="cv.26">Polish (native), English</dd></div>
             </dl>
           </div>
         </div>
@@ -855,25 +849,20 @@
         </header>
         <div class="contact__grid">
           <div>
-            <p class="contact__lead" data-i18n="contact.1">The fastest way to reach me is e-mail.</p>
+            <p class="contact__lead" data-i18n="contact.1">Write or call.</p>
             <a class="contact__mail" href="mailto:hubert.austria2025@gmail.com">hubert.austria2025<wbr>@gmail.com</a>
+            <a class="contact__mail contact__phone" href="tel:+48696471878">+48 696 471 878</a>
             <div class="contact__actions">
               <button class="btn btn--ghost" type="button" id="copy-mail" data-copy="hubert.austria2025@gmail.com"><span data-i18n="copy-mail.1">Copy e-mail</span></button>
               <span class="copy-status mono" id="copy-status" role="status" aria-live="polite"></span>
             </div>
           </div>
-          <ul class="contact__links">
-            <li><span class="mono">E-mail</span><a href="mailto:hubert.austria2025@gmail.com">hubert.austria2025@gmail.com</a></li>
-            <!-- TODO: phone number (docs/do-uzupelnienia.md, P0) -->
-            <li><span class="mono" data-i18n="contact.14">Phone</span><span class="pending-inline mono" data-i18n="contact.15">Content pending: phone number</span></li>
-          </ul>
         </div>
       </div>
       <footer class="footer">
         <div class="container footer__inner">
           <p class="mono footer__brand"><svg class="footer__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#0d0d0d"/><path d="M23 12h6v40h-6z" fill="#ff4f12"/><path d="M13 12h10v40H13zM41 12h10v40H41zM23 31l18-9v10l-18 9z" fill="#ecece9"/></svg><span>Hubert · Portfolio 2026</span></p>
-          <p class="mono" data-i18n="contact.12">Built with Claude Code. No tracking.</p>
-          <a class="mono footer__top" href="#home" data-i18n="contact.13">Back to top ↑</a>
+                    <a class="mono footer__top" href="#home" data-i18n="contact.13">Back to top ↑</a>
         </div>
       </footer>
     </section>

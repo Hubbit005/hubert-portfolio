@@ -104,8 +104,6 @@
     "basko-clean.16": "Suwak przed i po",
     // EN: Benefits and closing call to action
     "basko-clean.17": "Korzyści i końcowe wezwanie do działania",
-    // EN: 20-second vertical reel: kinetic type, service checklist, 4-step process, before and after, logo end card.
-    "basko-reel-desc.1": "Pionowa rolka, 20 sekund: kinetyczna typografia, lista usług, proces w 4 krokach, przed i po, plansza z logo.",
     // EN: A shooting range and event venue in Racław near Gorzów. I work on its marketing, its growth in Germany and its digital tools.
     "ksk-pretor.2": "Strzelnica i obiekt eventowy w Racławiu pod Gorzowem. Zajmuję się jej marketingiem, wejściem na rynek niemiecki i narzędziami cyfrowymi.",
     // EN: KSK Pretor, shooting range and events
@@ -334,14 +332,10 @@
     "about.7": "<span class=\"mono\">Wcześniej</span>Trener personalny z certyfikatem. Praca jeden na jeden, plan dopasowany do każdej osoby",
     // EN: <span class="mono">Base</span>Near Gorzów Wielkopolski, Poland. Working remotely
     "about.8": "<span class=\"mono\">Region</span>Okolice Gorzowa Wielkopolskiego. Pracuję zdalnie",
-    // EN: Content pending
-    "cv.1": "Do uzupełnienia",
-    // EN: Link to CV (PDF)
-    "cv.2": "Link do CV (PDF)",
     // EN: Experience
     "cv.3": "Doświadczenie",
     // EN: Freelance · <span class="pending-inline">dates pending</span>
-    "cv.4": "Freelance · <span class=\"pending-inline\">daty do uzupełnienia</span>",
+    "cv.4": "Freelance",
     // EN: Web designer, marketing and visual content
     "cv.5": "Web designer, marketing i treści wizualne",
     // EN: <b>Basko Clean:</b> website design and code, motion-graphic ad, social media on three platforms, profile identity.
@@ -355,7 +349,7 @@
     // EN: <b>Training plans:</b> personal plan pages from one template.
     "cv.10": "<b>Plany treningowe:</b> indywidualne strony z planami, wszystkie z jednego szablonu.",
     // EN: Earlier · <span class="pending-inline">dates pending</span>
-    "cv.11": "Wcześniej · <span class=\"pending-inline\">daty do uzupełnienia</span>",
+    "cv.11": "Wcześniej",
     // EN: Personal trainer (certified)
     "cv.12": "Trener personalny (z certyfikatem)",
     // EN: One-to-one work with people.
@@ -377,17 +371,11 @@
     // EN: Languages
     "cv.25": "Języki",
     // EN: Polish (native). English: <span class="pending-inline">level pending</span>
-    "cv.26": "Polski (ojczysty). Angielski: <span class=\"pending-inline\">poziom do uzupełnienia</span>",
+    "cv.26": "Polski (ojczysty), angielski",
     // EN: The fastest way to reach me is e-mail.
-    "contact.1": "Najszybciej skontaktujesz się ze mną mailowo.",
-    // EN: Phone
-    "contact.14": "Telefon",
-    // EN: Content pending: phone number
-    "contact.15": "Do uzupełnienia: numer telefonu",
+    "contact.1": "Napisz albo zadzwoń.",
     // EN: Copy e-mail
     "copy-mail.1": "Kopiuj adres",
-    // EN: Built with Claude Code. No tracking.
-    "contact.12": "Zbudowane w Claude Code. Bez śledzenia.",
     // EN: Back to top ↑
     "contact.13": "Na górę ↑",
     // EN: Sections
