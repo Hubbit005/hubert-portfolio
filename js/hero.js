@@ -265,7 +265,7 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
     g.save();
     g.scale(1.6 * k, 1.6 * k); g.translate(-32, -32);
     g.fillStyle = '#0d0d0d';
-    g.fill(new Path2D('M14 13h13v13.5l14 2V17h8v30h-8V35.5l-14 2V51H14z'));
+    g.fill(new Path2D('M12 12h15v15h10V12h15v40H37V37H27v15H12z'));
     g.restore();
     return c;
   }

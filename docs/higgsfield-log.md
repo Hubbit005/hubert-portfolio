@@ -25,3 +25,10 @@ Strona jest na to przygotowana: w miejscach okładek są kompozycje w kodzie (CS
 3. odświeży stronę. Obraz sam przykryje kompozycję w kodzie (jeśli pliku nie ma, zostaje wersja w kodzie).
 
 Przed użyciem obejrzyj je. Jeśli któryś wygląda „AI-owo” albo nie pasuje do strony, zostaw kompozycję w kodzie.
+
+## Poprawki, runda 3 (4.11.2026): nowe logo, limit 40 kr.
+
+- `balance` i `models_explore` (rekomendacja modelu do logo): limit czasu 60 s, cztery próby w odstępie kilku minut. Żadna generacja nie została wysłana.
+- Serwer z wynikami (`d8j0ntlcm91z4.cloudfront.net`) nadal zablokowany przez sieć sesji, więc nawet udanych obrazów nie dałoby się pobrać i zwektoryzować.
+- Logo zaprojektowane ręcznie w SVG (3 warianty), opis w `docs/logo/README.md`.
+- **Wydane w rundzie 3: 0 kr. z limitu 40.**
