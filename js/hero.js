@@ -278,10 +278,13 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
   }
 
   /* ---------- Size and bar mask ---------- */
-  // Canvas = whole hero. The camera renders a window (view offset) of a taller virtual frame whose
-  // centre sits on the stage centre, so the word looks exactly as on a stage-sized canvas.
+  // The camera renders a window (view offset) of a taller virtual frame whose centre sits on the
+  // stage centre, so the word looks exactly as on a stage-sized canvas. In the normal view the canvas
+  // is only the band around the word; it grows to the whole hero only while the roulette is open.
+  // (A full-hero canvas is composited in every frame even where nothing is drawn.)
   let W = 1, Hc = 1, Hv = 2, fsPx = 100, yOffN = 0, yOffR = 0, xShiftR = 0, rD = PERSP;
-  let bandY = 0, bandH = 1, fullDirty = true; // normal-view draw band (see render)
+  let bandY = 0, bandH = 1;          // band in hero pixels, measured from the bottom (GL convention)
+  let full = false, cTop = 0, cH = 1; // canvas mode, its top in the hero and its height
   let rT = 0, rE = 0, rEase = 0; // roulette: target 0/1, linear progress, eased progress
   const gsapRef = window.gsap;
   let barBox = null, barMeasuredTy = 0, stageH = 1; // bar rectangle, see measureBar()
@@ -292,10 +295,6 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
     Hv = Hc * 2;
     const pr = Math.min(window.devicePixelRatio || 1, PR_MAX, Math.sqrt(4.2e6 / (W * Hc)));
     renderer.setPixelRatio(Math.max(1, pr));
-    canvas.style.top = '0px';
-    canvas.style.width = `${W}px`;
-    canvas.style.height = `${Hc}px`;
-    renderer.setSize(W, Hc, false);
     camera.aspect = (W * 3) / Hv; // virtual frame is 3 canvases wide so the view can slide sideways
     // Vertical field so that 1 world unit = 1 em at the cylinder axis plane.
     camera.fov = (2 * Math.atan((Hv / fsPx) / 2 / PERSP) * 180) / Math.PI;
@@ -310,7 +309,6 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
     const half = stage.offsetHeight / 2 + fsPx * 0.75; // room for the tilt and the vertical drag
     bandY = Math.max(0, Math.floor(Hc - (stageMid + half)));
     bandH = Math.min(Hc - bandY, Math.ceil(half * 2));
-    fullDirty = true;
     // Roulette view: wheel centre on screen and camera distance so the ring fits.
     const narrow = W < 700;
     yOffR = Hv / 2 - Hc * (narrow ? 0.37 : 0.45);
@@ -318,9 +316,19 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
     const rho = (R + DEPTH) * sc;
     const fitW = W * (narrow ? 0.92 : 0.58), fitH = Hc * (narrow ? 0.56 : 0.76);
     rD = Math.max(PERSP * 0.7, (2 * rho * fsPx * PERSP) / fitW, (1.8 * rho * fsPx * PERSP) / fitH);
+    applySize();
+  }
+  function applySize() {
+    cTop = full ? 0 : Hc - bandY - bandH;
+    cH = full ? Hc : bandH;
+    canvas.style.top = `${cTop}px`;
+    canvas.style.width = `${W}px`;
+    canvas.style.height = `${cH}px`;
+    renderer.setSize(W, cH, false);
     setCamera(rEase);
     measureBar();
   }
+  function setFull(on) { if (full !== on) { full = on; applySize(); } }
 
   function setCamera(e) {
     const el = e * ELEV;
@@ -328,7 +336,7 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
     const wy = WY * tilt.scale.y * e;
     camera.position.set(0, wy + dist * Math.sin(el), dist * Math.cos(el));
     camera.lookAt(0, wy, 0);
-    camera.setViewOffset(W * 3, Hv, W + xShiftR * e, yOffN + (yOffR - yOffN) * e, W, Hc);
+    camera.setViewOffset(W * 3, Hv, W + xShiftR * e, yOffN + (yOffR - yOffN) * e + cTop, W, cH);
   }
 
   resize();
@@ -352,20 +360,11 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
   function barRect() {
     if (!barBox) return null;
     const y = barBox.y + (stageShift() - barMeasuredTy);
-    return { x: barBox.x, y: Hc - (y + barBox.h), w: barBox.w, h: barBox.h };
+    return { x: barBox.x, y: cH - (y + barBox.h), w: barBox.w, h: barBox.h };
   }
 
-  // In the normal view only the band around the word is drawn (the rest of the hero stays clear),
-  // so the full-hero canvas costs no more than the old stage-sized one.
   function render() {
-    if (rE === 0) {
-      if (fullDirty) { renderer.setScissorTest(false); renderer.clear(true, true, true); fullDirty = false; }
-      renderer.setScissorTest(true);
-      renderer.setScissor(0, bandY, W, bandH);
-    } else {
-      renderer.setScissorTest(false);
-      fullDirty = true;
-    }
+    renderer.setScissorTest(false);
     renderer.clear(true, true, true);
     camera.layers.set(1);
     renderer.render(scene, camera);
@@ -433,6 +432,7 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
   }
   api.open = () => {
     rT = 1; entered = true; bo = 1;
+    setFull(true);
     tiltXT = 0; tiltYT = 0; hoverT = 0; fling = 0; drag.on = false;
     spr.tiltT = 0; spr.yT = 0;
     stage.classList.add('is-locked');
@@ -504,7 +504,7 @@ async function start({ stage, hero, lenis, ctl, onRoulette }) {
     rE += Math.sign(rT - rE) * Math.min(Math.abs(rT - rE), (dt * 1000) / TURN_MS);
     rEase = rE < 0.5 ? 4 * rE * rE * rE : 1 - Math.pow(-2 * rE + 2, 3) / 2;
     if (rE !== prev) setCamera(rEase);
-    if (prev > 0 && rE === 0) stage.classList.remove('is-locked');
+    if (prev > 0 && rE === 0) { stage.classList.remove('is-locked'); setFull(false); }
     rou.visible = rEase > 0.004;
     if (!rou.visible) return;
     rou.scale.setScalar(0.8 + 0.2 * rEase);
