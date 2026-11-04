@@ -101,6 +101,7 @@ Tu jest kilka projektów naraz:
 - Tło: bez plusików, pionowe pasy zostają, gradient pomarańczowo-czarny.
 - Hubert chce własnego, osobistego logo na stronie.
 - Hero: napis 3D da się złapać i zakręcić; w środku walca jest ruletka z projektami (szczegóły w `PROMPT-poprawki-2.md`).
+- (4.11, 14:15) Strona w dwóch językach z przełącznikiem EN / PL, domyślnie EN. Karuzela na dole płynnie zanika zamiast się ucinać. Przyciski w hero stoją równo od załadowania. Nowe osobiste logo z Higgsfield, limit 40 kredytów (szczegóły w `PROMPT-poprawki-3.md`).
 
 ## Zasady dla Claude Code w tym repo
 
